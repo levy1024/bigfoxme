@@ -1,0 +1,2575 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>程序员大狐狸</title><description>嵌入式 · AI · 独立开发</description><link>https://bigfox.me/</link><language>zh_CN</language><item><title>临时网络文章收藏夹</title><link>https://bigfox.me/posts/%E5%85%B6%E5%AE%83/temporary-saved-articles/</link><guid isPermaLink="true">https://bigfox.me/posts/%E5%85%B6%E5%AE%83/temporary-saved-articles/</guid><pubDate>Mon, 31 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;临时收藏，内容随时变动。&lt;/p&gt;
+&lt;h2&gt;Github 官方文档&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://docs.github.com/zh&quot;&gt;Github 文档&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://docs.github.com/zh/actions&quot;&gt;GitHub Actions 文档&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://docs.github.com/zh/actions/reference/runners/self-hosted-runners&quot;&gt;自托管运行器&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;独立开发&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.51cto.com/article/661424.html&quot;&gt;中国独立开发者生存到底有多艰难？&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.51cto.com/article/496797.html&quot;&gt;处境艰难的 App 开发者们如何自救&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;Claude Code&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://code.claude.com/docs/zh-CN/&quot;&gt;Claude Code Docs&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://claude.com/blog/the-ai-native-sdlc-playbook&quot;&gt;AI 原生 SDLC 实战手册：Anthropic 如何用 Claude 重塑软件开发生命周期&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://claude.com/blog/claude-code-guide-for-startups&quot;&gt;Claude Code 初创公司指南：五大规则与创始人洞见&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;微信文章&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://mp.weixin.qq.com/s?__biz=Mzg3MTk3NzYzNw%3D%3D&amp;amp;mid=2247509276&amp;amp;idx=1&amp;amp;sn=675b64d514b1179c8f2362941144bbb4&amp;amp;poc_token=HBmPj2qjVz1qURTbdSXXu04-JIAoHSqedTC1dPcW&quot;&gt;Claude/Codex 能跨会话传消息，我重构工作流&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://mp.weixin.qq.com/s?__biz=Mzg3MTk3NzYzNw%3D%3D&amp;amp;mid=2247509161&amp;amp;idx=1&amp;amp;sn=bd9aa077bbc46a6049ad66af6d15af0f&amp;amp;poc_token=HPKTj2qjmle4R7yP26qwNTYm2DuTiu4HQxXtCK_-&quot;&gt;烧了5亿token后，这是我给codex和claude做Skill上下文瘦身的新技巧！&lt;/a&gt;&lt;/p&gt;
+</content:encoded></item><item><title>盘点那些不经意间学会的计算机相关小技巧</title><link>https://bigfox.me/posts/%E5%85%B6%E5%AE%83/work-tips/</link><guid isPermaLink="true">https://bigfox.me/posts/%E5%85%B6%E5%AE%83/work-tips/</guid><pubDate>Sun, 30 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;三人行，必有我师。身边的人，谁都可能是你的”师傅“。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Windows 中 Shift + Delete 键永久删除文件，不放回收站&lt;br /&gt;
+这还是我大学期间从一个室友那里学会的，之前只会选中文件，右键选择删除。原来选中文件后，键盘上的 Delete 键也可以删除，更重要的是，对已经确定不再需要的文件，Shift + Delete 键，可以永久删除文件，不放回收站。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Windows 系统屏幕截屏，可以使用 Windows 自带的截图工具
+以前只会使用  QQ 的截图功能，每次截图还要把 QQ 打开，太 low 了吧。Windows 系统自带截图工具：搜索框输入截图，截图工具就出来了。截图时，点击新建即可。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Notepad++ 中的列编辑功能&lt;br /&gt;
+这是我工作中最早学会的一个小技巧，毕业刚进公司，从我的师傅那里知道的。文本竟然可以按列编辑！当时确实给我一个小小的震撼。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Vim 编辑器中使用 ？进行反向查找&lt;br /&gt;
+以前一直只知道正向查找，使用 / ，要反向查找时，只会从头再开始（现在想起来好傻），后来还是从老板那里知道使用 ？就可以反向查找了。&lt;br /&gt;
+你会问，老板教你的？确实，我们老板，遇到他关心的事情时，经常会在你旁边看你解决问题！&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Linux 系统中，查看目录下的文件列表，可以按时间排序查看
+以前查看目录下的文件列表，需要找最新修改的文件时，经常是去看文件的日期，这效率也太低了吧，而且还容易出错。&lt;br /&gt;
+最新在前（降序）：使用 ls -lt 命令；&lt;br /&gt;
+最旧在前（升序）：使用 ls -ltr 命令；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Android Studio 中，快捷键注释代码&lt;br /&gt;
+以前只会手动输入 // 注释单行，手动输入/* 和 */ 注释多行。还是从一个公司的临时实习生那里看到快捷键注释的，并且再次按下快捷键就取消。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code&gt;在Android Studio中，快捷键注释主要分为行注释和块注释两种方式：
+
+行注释：
+Windows/Linux：Ctrl + /
+Mac：Command + /
+此快捷键会在当前行或选中代码前添加//注释，再次按下可取消注释.
+
+块注释：
+Windows/Linux：Ctrl + Shift + /
+Mac：Command + Shift + /
+此快捷键会将选中的多行代码用/* */包裹起来
+&lt;/code&gt;&lt;/pre&gt;
+</content:encoded></item><item><title>信任 AI，把它当朋友，它会给你惊喜 —— 记一次与 AI 对话的过程</title><link>https://bigfox.me/posts/ai/valued-record-with-ai/</link><guid isPermaLink="true">https://bigfox.me/posts/ai/valued-record-with-ai/</guid><pubDate>Mon, 10 Aug 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;背景&lt;/h2&gt;
+&lt;p&gt;使用 AI  自动评审 Github 项目的 PR，这个PR 是我自己的账户提交的，出现问题：&lt;br /&gt;
+使用 Codex + GPT5.6 没有提交评审，而使用 Claude Code + deepseek-v4-pro 提交了评审。&lt;br /&gt;
+下面是与 Claude Code + deepseek-v4-pro 对话的记录。&lt;/p&gt;
+&lt;h2&gt;感悟&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;AI 会有错误，不能全信。&lt;/li&gt;
+&lt;li&gt;AI 的对错，你都可以告诉它。特别是你知道它错误之后，更应该反馈给它。&lt;/li&gt;
+&lt;li&gt;程序员应该具有的&quot;不放过任何不确定性&quot;、&quot;把问题搞清楚&quot;的态度，不能丢掉。&lt;/li&gt;
+&lt;li&gt;AI 经过验证，承认自己说错了，并不奇怪。但是它通过自己的错误，又发现了自己的一个 bug，这就有点让我感到意外和惊讶了！&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;重点对话摘录&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;● GitHub 的规则是：
+  - 作者可以在自己的 PR 上 COMMENT 和 REQUEST_CHANGES
+  - 作者不能 APPROVE 自己的 PR（GitHub 会返回 422 错误）
+  
+❯ 据我的了解，作者可以在自己的 PR 上 COMMENT，但不能 REQUEST_CHANGES 和 APPROVE。你是不是说错了。
+
+● 你说得对，我之前的说法有误。让我验证一下。
+
+● 你说得对，我之前说错了。GitHub 规则是：PR 作者只能在自己 PR 上 COMMENT，不能 REQUEST_CHANGES，也不能 APPROVE。
+
+  这也暴露了 review_bot.py 的一个 bug：代码只对 APPROVE 做了降级到 COMMENT 的 fallback，但没对 REQUEST_CHANGES 做。如果 DeepSeek 返回 REQUEST_CHANGES，而 PR 作者就是你自己，GitHub 会拒绝（422），导致评审彻底失败。
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2&gt;详细对话&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;❯ 我是 PR #26 的提交者，我看github上已有 PR #26的评审，但据我了解，PP 作者自己不能评审自己的 PR，真实情况是什么                                                                                                                   
+● 让我查看 PR #26 的实际情况。
+
+● Bash(gh pr view 26 --repo sednar/NordicBLE --json number,title,author,state,reviews 2&amp;gt;&amp;amp;1)
+  ⎿  {
+       &quot;author&quot;: {
+         &quot;id&quot;: &quot;U_kgDOBgF9jA&quot;,
+     … +37 lines (ctrl+o to expand)
+
+● PR #26 上有两条评审记录：
+  ┌──────────┬───────────────────────────────┬───────────┬────────────────────────┐
+  │  评审者  │             身份              │   结论    │          时间          │
+  ├──────────┼───────────────────────────────┼───────────┼────────────────────────┤
+  │ sednar   │ OWNER（仓库所有者）           │ APPROVED  │ 2026-08-06 16:40 (CST) │
+  ├──────────┼───────────────────────────────┼───────────┼────────────────────────┤
+  │ levy1024 │ COLLABORATOR（= 你，PR 作者） │ COMMENTED │ 2026-08-07 00:05 (CST) │
+  └──────────┴───────────────────────────────┴───────────┴────────────────────────┘
+  
+  真实情况：
+
+  - levy1024 的那条评审就是 DeepSeek 机器人发的，内容以 &quot;DeepSeek-V4-Flash Code Review&quot; 开头
+  - 它之所以显示为 你的评审，是因为这台机器上的 gh CLI 登录的是你的账号 levy1024，机器人直接用了你的身份发评审
+
+  关于&quot;作者不能评审自己的 PR&quot;：
+
+  GitHub 的规则是：
+  - 作者可以在自己的 PR 上 COMMENT 和 REQUEST_CHANGES
+  - 作者不能 APPROVE 自己的 PR（GitHub 会返回 422 错误）
+
+  review_bot.py 第 215-233 行已经处理了这种情况——先尝试 APPROVE，如果被 422 拒绝就降级为 COMMENT。所以机器人这条评审最终以 COMMENT 形式发出去了，没有报错。
+
+  核心问题：机器人应该用自己的 deepseek-review-bot 账号发评审，而不是用你的 levy1024 账号。需要让 gh CLI 切换到 bot 账号认证，或者在脚本中指定 gh 使用的认证 token。要我帮你设置吗？
+
+✻ Brewed for 27s
+
+❯ 继续使用当前方案，不要使用bot账号，使用我的 levy1024 账号。                                                                                                                                                                     
+● 明白，保持现状。用你的账号发评审完全没问题，代码里 APPROVE → COMMENT 的降级逻辑也已经覆盖了自己 PR 不能自批的情况。当前方案无需改动。
+
+✻ Baked for 5s
+
+❯ 据我的了解，作者可以在自己的 PR 上 COMMENT，但不能 REQUEST_CHANGES 和 APPROVE。你是不是说错了。                                                                                                                                 
+● 你说得对，我之前的说法有误。让我验证一下。
+
+● Bash(gh api repos/sednar/NordicBLE/pulls/26/reviews --jq &apos;.[] | {author: .author.login, state: .state, body: .body[0:80]}&apos; 2&amp;gt;&amp;amp;1)
+  ⎿  {
+       &quot;author&quot;: null,
+       &quot;body&quot;: &quot;结论：APPROVE。未发现阻塞合并的问题。\n\n已针对 head `14ffba185869d2b1e65c00e2b78d161804fe5c79` 检查：\n&quot;,
+     … +12 lines (ctrl+o to expand)
+
+● 你说得对，我之前说错了。GitHub 规则是：PR 作者只能在自己 PR 上 COMMENT，不能 REQUEST_CHANGES，也不能 APPROVE。
+
+  这也暴露了 review_bot.py 的一个 bug：代码只对 APPROVE 做了降级到 COMMENT 的 fallback，但没对 REQUEST_CHANGES 做。如果 DeepSeek 返回 REQUEST_CHANGES，而 PR 作者就是你自己，GitHub 会拒绝（422），导致评审彻底失败。
+
+  Read 1 file (ctrl+o to expand)
+
+● Update(review_bot.py)
+  ⎿  Added 2 lines, removed 2 lines
+      227  def post_review(pr_number: str, verdict: str, body: str) -&amp;gt; tuple[int, str]:
+      228      &quot;&quot;&quot;Post a review to GitHub. Returns (review_id, actual_verdict).&quot;&quot;&quot;
+      229      attempts = [verdict]
+      230 -    if verdict == &quot;APPROVE&quot;:
+      231 -        attempts.append(&quot;COMMENT&quot;)  # fallback for own-PR rejection
+      230 +    if verdict in (&quot;APPROVE&quot;, &quot;REQUEST_CHANGES&quot;):
+      231 +        attempts.append(&quot;COMMENT&quot;)  # fallback: PR authors can&apos;t approve or request-changes on their own PR
+      232
+      233      last_error = None
+      234      for attempt_verdict in attempts:
+
+● 已修复。现在 APPROVE 和 REQUEST_CHANGES 都会在遇到 422 时自动降级为 COMMENT，不会再因为 &quot;不能给自己提 REQUEST_CHANGES&quot; 而导致评审失败。
+&lt;/code&gt;&lt;/pre&gt;
+</content:encoded></item><item><title>温度测量 —— 看似简单的嵌入式产品功能，做起来不一定简单</title><link>https://bigfox.me/posts/%E5%B5%8C%E5%85%A5%E5%BC%8F/temperature-measurement/</link><guid isPermaLink="true">https://bigfox.me/posts/%E5%B5%8C%E5%85%A5%E5%BC%8F/temperature-measurement/</guid><pubDate>Thu, 30 Jul 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;先说结论&lt;/h2&gt;
+&lt;p&gt;测出温度简单，但测出准确的温度，确需要花大功夫。&lt;/p&gt;
+&lt;h2&gt;实际项目举例&lt;/h2&gt;
+&lt;p&gt;项目中使用 ESP32-S3 + 3950 NTC 的方案进行测温，测温电路描述如下：&lt;br /&gt;
+VCC（3.3V）-- 100K 电阻 -- 电压测量点（接MCU 的 ADC 管脚）-- NTC -- 接地。&lt;br /&gt;
+测出的温度，在室温及以上，比水银温度计测出的温度高 1°C-2°C。在室温及以下，高 2°C-4°C。&lt;/p&gt;
+&lt;h2&gt;问题排查&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;多测试几个传感器，确认是否是单个传感器偏差的原因；&lt;br /&gt;
+测试结果：换传感器测试，问题依旧。&lt;/li&gt;
+&lt;li&gt;多测试几块开发板，确认是否是单个开发板的问题；&lt;br /&gt;
+测试结果：换开发板，温度仍然偏高，但仅高 0.3°C-0.5°C。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;综合上述 2 点，测试不同开发板的测量电路供电电压，发现：&lt;br /&gt;
+开发板1：3.278 V，开发板2：3.319 V，代码中使用的是标准值：3.3 V。&lt;br /&gt;
+这就是温度偏高的因素（但只是其中一个因素）。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;测量电路的供电电压已经经过稳压芯片稳压到 3.3 V ，但是还是有差异!&lt;/strong&gt;&lt;/p&gt;
+&lt;h2&gt;可能的原因（AI 总结）&lt;/h2&gt;
+&lt;p&gt;当前项目外部 NTC 温度测量的误差来源，可以分为电路参数、ADC、传感器、热环境和软件算法五类。&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;因素&lt;/th&gt;
+&lt;th&gt;对结果的影响&lt;/th&gt;
+&lt;th&gt;当前项目情况&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;分压供电电压&lt;/td&gt;
+&lt;td&gt;实际电压低于软件设定，会使计算温度偏高&lt;/td&gt;
+&lt;td&gt;实际 &lt;code&gt;3.278V&lt;/code&gt;、软件按 &lt;code&gt;3.300V&lt;/code&gt;，约偏高 &lt;code&gt;0.3°C&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;100kΩ上拉电阻误差&lt;/td&gt;
+&lt;td&gt;实际阻值高于100kΩ会使温度偏高，反之偏低&lt;/td&gt;
+&lt;td&gt;1%误差约带来 &lt;code&gt;0.2~0.3°C&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;NTC的R25公差&lt;/td&gt;
+&lt;td&gt;实际R25偏低会使温度偏高&lt;/td&gt;
+&lt;td&gt;普通1% NTC约产生 &lt;code&gt;±0.2~0.3°C&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;B3950误差&lt;/td&gt;
+&lt;td&gt;离25°C越远影响越明显&lt;/td&gt;
+&lt;td&gt;单一Beta公式不等同于厂家完整R-T表&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;NTC自热&lt;/td&gt;
+&lt;td&gt;NTC自身功耗会使温度偏高&lt;/td&gt;
+&lt;td&gt;100kΩ分压功耗约几十微瓦，通常较小&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ADC增益、偏移和非线性&lt;/td&gt;
+&lt;td&gt;ADC电压读低会使温度偏高，读高则温度偏低&lt;/td&gt;
+&lt;td&gt;芯片自动校准已经生效，但仍有残余误差&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ADC采样电容&lt;/td&gt;
+&lt;td&gt;高源阻抗可能导致第一次转换不稳定&lt;/td&gt;
+&lt;td&gt;已确认 probe1 首值平均高约 &lt;code&gt;10.57 counts&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ADC通道切换&lt;/td&gt;
+&lt;td&gt;电池通道可能影响随后读取的probe1&lt;/td&gt;
+&lt;td&gt;存在轻微首转换残留；probe1到probe2不明显&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ADC随机噪声&lt;/td&gt;
+&lt;td&gt;导致温度短期跳动&lt;/td&gt;
+&lt;td&gt;probe1单组最大波动44 counts，约对应 &lt;code&gt;1.3°C&lt;/code&gt; 瞬时变化&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;供电纹波&lt;/td&gt;
+&lt;td&gt;Wi-Fi、屏幕、充电电路工作时会改变分压电源和地电位&lt;/td&gt;
+&lt;td&gt;固定写死3.278V不能补偿实时波动&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;接地与布线&lt;/td&gt;
+&lt;td&gt;线阻、接插件、地线压降和数字干扰会改变ADC电压&lt;/td&gt;
+&lt;td&gt;长探头线尤其需要关注&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;RC滤波&lt;/td&gt;
+&lt;td&gt;可以降低噪声，但电容过大也需要更长建立时间&lt;/td&gt;
+&lt;td&gt;需要结合实际滤波电容确定等待时间&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;热传导与安装&lt;/td&gt;
+&lt;td&gt;探头与被测物接触不充分会测到空气或外壳温度&lt;/td&gt;
+&lt;td&gt;常见的主要误差来源&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;热响应时间&lt;/td&gt;
+&lt;td&gt;NTC和不锈钢探头达到热平衡需要时间&lt;/td&gt;
+&lt;td&gt;与参考温度计必须同时充分稳定&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;板内热源&lt;/td&gt;
+&lt;td&gt;ESP32、AMOLED、充电芯片、BME690加热器会使附近温度偏高&lt;/td&gt;
+&lt;td&gt;环境NTC尤其容易受影响&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;参考温度计&lt;/td&gt;
+&lt;td&gt;参考仪表本身也有精度、位置和响应时间误差&lt;/td&gt;
+&lt;td&gt;比对时必须同位置、同介质、同稳定时间&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;软件换算与取整&lt;/td&gt;
+&lt;td&gt;ADC平均、mV整数换算和Beta公式会引入小误差&lt;/td&gt;
+&lt;td&gt;8次平均可降噪，但当前仍包含第一次转换&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;温度校准&lt;/h2&gt;
+&lt;h3&gt;芯片级校准：ADC 校准&lt;/h3&gt;
+&lt;p&gt;出厂 eFuse 曲线校准负责芯片非线性，整板两点校准修正剩余的增益和零点误差。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;芯片出厂 eFuse 校准（芯片已做校准，不用再做）&lt;br /&gt;
+&lt;a href=&quot;https://docs.espressif.com/projects/esp-idf/zh_CN/v6.0.2/esp32s3/api-reference/peripherals/adc/adc_calibration.html&quot;&gt;ESP32-S3 模数转换器 (ADC) 校准驱动程序&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;整板两点校准（条件有限，做不了）&lt;br /&gt;
+修正 PCB、电源、分压电阻和残余 ADC 误差，需要外部精密电压或电阻实测。
+即使 eFuse 校准正常，也建议用精密电压源和高精度万用表做整板验证。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code&gt;步骤：
+1. 暂时隔离 NTC 分压电路与 ADC 引脚。
+2. 电压源和 ESP32 共地。
+3. 分别输入约 500 mV、2500 mV。
+4. 每个点采集至少 64 次并取平均。
+5. 用万用表记录实际电压，用固件记录当前 mv=。
+6. 再用约 1500 mV 验证中间点。
+
+例如得到：
+实际 V1 = 500 mV，固件 M1 = 480 mV
+实际 V2 = 2500 mV，固件 M2 = 2430 mV
+
+运行时校正公式为：
+Vcorrected = V1 + (Vmeasured - M1) × (V2 - V1) / (M2 - M1)
+	
+可在代码中得到 millivolts 后、计算 NTC 电阻前应用：
+static int32_t ntc_adc_correct_mv(int32_t mv)
+{
+    const int32_t m1 = 480;
+    const int32_t v1 = 500;
+    const int32_t m2 = 2430;
+    const int32_t v2 = 2500;
+
+    return v1 + (int32_t)(
+        (int64_t)(mv - m1) * (v2 - v1) / (m2 - m1));
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;两点法校准有效 R25 和 B值（实际可行的方法）&lt;/h3&gt;
+&lt;p&gt;这种方法不需要知道100kΩ上拉电阻的精确阻值，因为同一通道的上拉电阻误差已经包含计算过程中。并且它可以同时修正：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;NTC实际R25误差&lt;/li&gt;
+&lt;li&gt;NTC实际B值误差&lt;/li&gt;
+&lt;li&gt;100kΩ上拉电阻误差&lt;/li&gt;
+&lt;li&gt;板间固定比例误差&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;两个点的选择：一般选择 0 °C 和 25 °C。&lt;br /&gt;
+但如何没有恒温环境，选择其它温度也是可以的。两个校准点不要求是整数温度，只要求准确、稳定且间隔足够大。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;1. 如果选择 0 °C 和 25 °C 
+============================================
+需要记录：
+V25：25°C时NTC分压
+Vs25：25°C时分压供电
+V0：0°C时NTC分压
+Vs0：0°C时分压供电
+
+先计算无量纲分压比：
+q25 = V25 / (Vs25 - V25)
+q0  = V0  / (Vs0  - V0)
+
+再计算实际 B 值：
+T25 = 298.15 K
+T0  = 273.15 K
+Bcal = ln(q0 / q25) / (1/T0 - 1/T25)
+
+运行时测得 V 和当时的分压供电 Vs：
+q = V / (Vs - V)
+T(K) = 1 / [1/298.15 + ln(q/q25)/Bcal]
+T(°C) = T(K) - 273.15
+
+2. 如果选择其它温度，比如：0.5 °C 和 26.2 °C
+============================================
+使用：
+Tlow  = 0.50 + 273.15 = 273.65 K
+Thigh = 26.20 + 273.15 = 299.35 K
+
+分别计算分压比：
+qlow  = V0.5  / (Vs0.5  - V0.5)
+qhigh = V26.2 / (Vs26.2 - V26.2)
+
+校准B值：
+Bcal = ln(qlow/qhigh) / (1/Tlow - 1/Thigh)
+
+运行时可基于高温校准点计算：
+q = V / (Vs - V)
+T(K) = 1 / [1/Thigh + ln(q/qhigh)/Bcal]
+T(°C) = T(K) - 273.15
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;在固件中，每个探头应保存：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;测量电路实际供电电压：Vs&lt;/li&gt;
+&lt;li&gt;参考温度：Thigh&lt;/li&gt;
+&lt;li&gt;参考分压比：qhigh&lt;/li&gt;
+&lt;li&gt;校准B值：Bcal&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;计算实时温度时，上述保存参数，再加上测得的实时电压 V，即可计算出经过校正的温度值。&lt;/p&gt;
+&lt;p&gt;测量电路实际供电电压，是否可以共用一个值：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;同一块板、同一供电节点、两路NTC：Vs可以共用&lt;/li&gt;
+&lt;li&gt;不同板：分别保存各自的Vs&lt;/li&gt;
+&lt;li&gt;两个校准温度点：如果Vs变化很小，可以使用该板的平均Vs；如果变化明显，应分别记录Vs_low和Vs_high&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;实际验证&lt;/h2&gt;
+&lt;p&gt;使用两点法校准有效 R25 和 B值，以水银温度计的温度作为参考，修改代码后测试，测量温度与水银温度计的温度误差为 +0.2 °C。&lt;/p&gt;
+</content:encoded></item><item><title>[翻译] Android Studio Quail 2 已稳定：借助 Android Studio AI 助手实现多任务处理</title><link>https://bigfox.me/posts/android/android-studio-quail-2/</link><guid isPermaLink="true">https://bigfox.me/posts/android/android-studio-quail-2/</guid><pubDate>Wed, 15 Jul 2026 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;原文：&lt;a href=&quot;https://android-developers.googleblog.com/2026/06/android-studio-quail-2-stable-features.html&quot;&gt;Android Studio Quail 2 is Stable: Multi-task with the Android Studio AI agent&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;作者：Android Studio产品经理阿曼·阿斯法乌&lt;/p&gt;
+&lt;p&gt;Android Studio Quail 2 现已稳定，可直接用于生产环境，通过并行的智能工作流、原生集成的内存泄漏分析以及上下文感知的崩溃修复功能，为您的 IDE 带来全新体验。无论您是在进行大规模的架构重构、排查内存泄漏，还是解决严重的线上崩溃问题，Android Studio 都能通过减少手动操作的繁琐，让您始终专注于手头的工作。&lt;/p&gt;
+&lt;p&gt;以下是关于新功能的深度解析：&lt;/p&gt;
+&lt;h2&gt;通过并行聊天实现多任务处理&lt;/h2&gt;
+&lt;p&gt;在 Android Studio Quail 2 中，我们正全力以赴对 Agent 模式进行从头开始的重构。这一全新架构不仅带来了更出色的性能，还为拆分复杂任务提供了更高的灵活性，并进一步完善了代理执行工作所依赖的一系列内部工具。&lt;/p&gt;
+&lt;p&gt;除了这些幕后优化之外，这些更新还让您能够同时与多个客服聊天进行对话。过去，您必须等待 Android Studio 客服完成当前任务后，才能在客服模式下提出新问题或启动其他任务，这种等待已成为历史上的瓶颈。您可以无缝地同时处理多项任务：在一个标签页中启动界面重构，在第二个标签页中修复 ProGuard 规则，而在第三个标签页中生成文档。&lt;/p&gt;
+&lt;p&gt;您还可以根据具体需求，在每次对话中灵活切换智能体所使用的模型。请参阅Android Bench，其中分析了大型语言模型在执行Android开发任务时的表现。
+使用方法：单击“+”图标以启动新的并行对话，并使用历史记录图标在各个活动任务之间切换。或者，选择“文件”&amp;gt;“新建”&amp;gt;“新建客服标签页”，即可在专用标签页中打开对话。
+注意：目前尚不支持工作树功能。在运行同时修改同一项目文件的并发聊天时，请务必谨慎，这可能会导致编辑器冲突。&lt;/p&gt;
+&lt;h2&gt;使用 LeakCanary 检测内存泄漏&lt;/h2&gt;
+&lt;p&gt;在 Android 中，内存泄漏是指当您的代码在对象的生命周期早已结束之后仍持有对该对象的引用。这会阻止垃圾回收器回收该内存，最终导致性能下降或OutOfMemoryError.&lt;/p&gt;
+&lt;p&gt;排查内存泄漏可能是一项繁琐的手动工作。自 Android Studio Quail 2 起，广受欢迎的开源泄漏检测工具LeakCanary已作为一项专门的一级功能原生集成到 Profiler 中。&lt;/p&gt;
+&lt;p&gt;此集成通过将堆分析从资源受限的测试手机迁移至功能强大的开发计算机，显著提升您的调试性能。在计算机上执行分析时，内存泄漏追踪速度最高可提升至原来的五倍，且无卡顿，使您的测试应用在设备上运行更加流畅。&lt;/p&gt;
+&lt;p&gt;一旦在分析会话中检测到内存泄漏：&lt;/p&gt;
+&lt;p&gt;分析器会呈现一条交互式的、按颜色编码的泄漏跟踪信息，对出现次数进行分组，并估算已丢失的内存。
+您可以单击转到声明跟踪中的任意泄漏对象，以在编辑器中立即跳转到该代码的精确行。
+您可以单击由 Agent 修复，让 Gemini 代理获取该跟踪信息，说明保留引用的根本原因，并编写确切的代码更改（例如解除监听器绑定或清除静态引用），以消除内存泄漏。&lt;/p&gt;
+&lt;h2&gt;应用质量洞察代理集成&lt;/h2&gt;
+&lt;p&gt;要定位应用崩溃的根本原因，往往需要手动拼接堆栈跟踪信息、设备数据和源代码。不过，Android Studio 的应用质量洞察（AQI）现已与代理模式全面集成，为您承担繁重的分析工作。&lt;/p&gt;
+&lt;p&gt;在 AQI 面板中点击某个崩溃事件时，您将立即获得该问题的简明、高层次概览。如需进一步深入排查，只需点击查看更多即可。这将打开一个专用聊天窗口，客服人员会结合您选择的模型，并调取本地源代码及完整的堆栈跟踪信息，为您呈现一份详尽的故障原因说明。&lt;/p&gt;
+&lt;p&gt;借助全新的代理集成，您可以直接从问题识别无缝过渡到问题解决。通过单击“AI 修复”，客服人员将分析问题，提出分步修复方案，并在您确认后，直接将必要的代码更改应用到您的项目中，同时验证修复效果。&lt;/p&gt;
+&lt;h2&gt;质量和稳定性改进&lt;/h2&gt;
+&lt;p&gt;除了新功能之外，我们还通过修复大量缺陷并集成 IntelliJ 平台最新的稳定性和性能优化，持续聚焦于产品质量，这为您日常开发带来了显著的提升。&lt;/p&gt;
+</content:encoded></item><item><title>[翻译] Android CLI 与技能：使用任何智能体将 Android 应用构建速度提升 3 倍</title><link>https://bigfox.me/posts/android/androd-cli/</link><guid isPermaLink="true">https://bigfox.me/posts/android/androd-cli/</guid><pubDate>Mon, 27 Apr 2026 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Android CLI 官网：&lt;br /&gt;
+&lt;a href=&quot;https://developer.android.google.cn/tools/agents/android-cli?hl=zh-cn&quot;&gt;https://developer.android.google.cn/tools/agents/android-cli?hl=zh-cn&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;原文：&lt;br /&gt;
+&lt;a href=&quot;https://android-developers.googleblog.com/2026/04/build-android-apps-3x-faster-using-any-agent.html&quot;&gt;Android CLI and skills: Build Android apps 3x faster using any agent&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;译文：&lt;/p&gt;
+&lt;h2&gt;Android CLI 与技能：使用任何智能体将 Android 应用构建速度提升 3 倍&lt;/h2&gt;
+&lt;p&gt;作者：产品管理总监 Adarsh Fernando 和高级首席软件工程师 Esteban de la Canal&lt;/p&gt;
+&lt;p&gt;作为 Android 开发者，你在选择用于应用开发的智能体（Agents）、工具和大语言模型（LLMs）时拥有众多选择。无论你是在 Android Studio 中使用 Gemini、使用 Gemini CLI、Antigravity，还是使用像 Claude Code 或 Codex 这样的第三方智能体，我们的使命都是确保高质量的 Android 开发在任何地方都能实现。&lt;/p&gt;
+&lt;p&gt;今天，我们推出了一套全新的 Android 工具和资源，专为智能体工作流设计——即包含 Android 技能（Skills）的 Android CLI 和 Android 知识库（Knowledge Base）。这套工具旨在当你将智能体的工作指引到 Android Studio 之外时，消除核心 Android 开发工作流中的猜测环节，使你的智能体更加高效、有效，并能够遵循最新的推荐模式和最佳实践。&lt;/p&gt;
+&lt;p&gt;无论你是刚刚开始 Android 开发之旅，是一位经验丰富的 Android 开发者，还是在移动和网络平台管理应用，使用最新的指导、工具和 AI 辅助来构建你的应用都比以往任何时候都更加轻松。无论你从哪个环境开始使用这些资源，你始终可以将你的开发体验过渡到 Android Studio——在那里，最先进的 Android 开发工具和智能体随时待命，帮助你的应用体验真正大放异彩。&lt;/p&gt;
+&lt;h3&gt;(重新) 介绍 Android CLI&lt;/h3&gt;
+&lt;p&gt;当你的智能体拥有一个轻量级的程序化接口来与 Android SDK 和开发环境交互时，它们的表现最佳。因此，这个新工作流的核心是一个焕然一新的 Android CLI。新的 Android CLI 作为从终端进行 Android 开发的主要接口，具备环境设置、项目创建和设备管理的命令——并充分考虑了更现代的功能和易于更新的能力。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;create&lt;/code&gt; 命令可以在几秒钟内创建一个 Android 应用项目。&lt;/p&gt;
+&lt;p&gt;在我们的内部实验中，Android CLI 通过将 LLM Token 使用量减少 70% 以上，将项目和环境设置进行了优化，任务完成速度比智能体仅尝试使用标准工具集完成这些任务时快了 3 倍。&lt;/p&gt;
+&lt;p&gt;你可以使用的关键功能包括：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;SDK 管理&lt;/strong&gt;：使用 &lt;code&gt;android sdk install&lt;/code&gt; 仅下载所需的特定组件，确保一个精简的开发环境。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;快速项目创建&lt;/strong&gt;：&lt;code&gt;android create&lt;/code&gt; 命令从官方模板生成新项目，确保从第一行代码开始就应用了推荐的架构和最佳实践。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;快速设备创建和部署&lt;/strong&gt;：使用 &lt;code&gt;android emulator&lt;/code&gt; 创建和管理虚拟设备，并使用 &lt;code&gt;android run&lt;/code&gt; 部署应用，消除了手动构建和部署周期中的猜测环节。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;可更新性&lt;/strong&gt;：运行 &lt;code&gt;android update&lt;/code&gt; 以确保你拥有可用的最新功能。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Android CLI 可以创建设备，在其上运行你的应用，并让智能体更轻松地导航 UI。&lt;/p&gt;
+&lt;p&gt;虽然 Android CLI 将赋能你的智能体开发流程，但它也被设计用于简化 CI（持续集成）、维护以及针对 Android 开发日益分布式性质的任何其他脚本化自动化。今天就下载并试用 Android CLI 吧！&lt;/p&gt;
+&lt;h3&gt;使用官方 Android 技能（Skills）锚定 LLMs&lt;/h3&gt;
+&lt;p&gt;传统的文档通常是描述性的、概念性的和高层次的。虽然非常适合学习，但 LLMs 通常需要精确的、可操作的指令来执行复杂的工作流，而不会使用过时的模式和库。&lt;/p&gt;
+&lt;p&gt;为了弥合这一差距，我们正在推出 Android Skills GitHub 仓库。技能是模块化的、基于 Markdown 的（SKILL.md）指令集，为任务提供技术规范，并设计为在你的提示词（Prompt）与技能的元数据匹配时自动触发，从而省去了你手动将文档附加到每个提示词的麻烦。&lt;/p&gt;
+&lt;p&gt;Android Skills 涵盖了部分 Android 开发者和 LLMs 可能会遇到困难的最常见工作流——它们帮助模型更好地理解和执行遵循我们 Android 开发最佳实践和指导的特定模式。&lt;/p&gt;
+&lt;p&gt;在我们的初始版本中，该仓库包括以下技能：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Navigation 3 的设置和迁移。&lt;/li&gt;
+&lt;li&gt;实现边缘到边缘（Edge-to-edge）支持。&lt;/li&gt;
+&lt;li&gt;AGP 9 和 XML 转 Compose 的迁移。&lt;/li&gt;
+&lt;li&gt;R8 配置分析，等等！&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;如果你正在使用 Android CLI，你可以使用 &lt;code&gt;android skills&lt;/code&gt; 命令浏览我们的技能集合并设置你的智能体工作流。这些技能也可以与你创建的任何其他技能，或 Android 开发者社区创建的第三方技能共存。了解更多关于开始使用 Android Skills 的信息。&lt;/p&gt;
+&lt;p&gt;通过 Android CLI 安装 Android Skills，让你的智能体更有效率。&lt;/p&gt;
+&lt;h3&gt;通过 Android 知识库获取最新指导&lt;/h3&gt;
+&lt;p&gt;我们今天推出的第三个组件是 Android 知识库。通过 &lt;code&gt;android docs&lt;/code&gt; 命令访问，并且在最新版本的 Android Studio 中已经可用，这个专门的数据源使智能体能够搜索并获取最新的权威开发者指南作为相关上下文。&lt;/p&gt;
+&lt;p&gt;Android 知识库确保智能体拥有 Android 的最新上下文、指导和最佳实践。&lt;/p&gt;
+&lt;p&gt;通过访问频繁更新的知识库，智能体可以将其响应基于来自 Android 开发者文档、Firebase、Google Developers 和 Kotlin 文档的最新信息。这确保了即使 LLM 的训练截止日期是一年前，它仍然可以就我们今天推荐的最新框架和模式提供指导。&lt;/p&gt;
+&lt;h3&gt;Android Studio：优质应用的最终归宿&lt;/h3&gt;
+&lt;p&gt;除了赋能开发者和智能体处理项目设置和样板代码外，我们还设计了这些新工具和资源，使其更易于过渡到 Android Studio。这意味着你可以使用 Android CLI 和智能体快速启动一个原型，然后在 Android Studio 中打开项目，使用可视化的代码编辑、UI 设计、深度调试和高级性能分析工具来微调你的 UI，这些工具会随着你应用能力的增长而扩展。&lt;/p&gt;
+&lt;p&gt;当是时候为各种设备类型构建大规模发布的高质量应用时，Android Studio 中的智能体将在此提供帮助，同时利用最新的开发最佳实践和库。除了强大的用于活跃开发的 Agent 和 Planning 模式外，我们还引入了 AI 驱动的“新建项目”流程，为快速原型化你的下一个伟大 Android 创意提供了一个切入点。&lt;/p&gt;
+&lt;p&gt;这些内置智能体使得将你的应用创意扩展到手机、折叠屏设备、平板电脑、Wear OS、Android Auto 和 Android TV 变得简单。凭借对你项目源代码的完整上下文以及一套全面的调试、性能分析和仿真工具，你拥有了一套端到端的 AI 加速工具包供你使用。&lt;/p&gt;
+&lt;h3&gt;今天就开始&lt;/h3&gt;
+&lt;p&gt;Android CLI 今天起提供预览版，同时伴随着一套不断增长的 Android Skills 和针对智能体的知识库。要开始使用，请前往 d.android.com/tools/agents 下载 Android CLI。&lt;/p&gt;
+</content:encoded></item><item><title>国产流行 AI 编程大模型简单汇总（截止2026年3月9日）</title><link>https://bigfox.me/posts/ai/vibe-coding-llm-native/</link><guid isPermaLink="true">https://bigfox.me/posts/ai/vibe-coding-llm-native/</guid><pubDate>Mon, 09 Mar 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;DeepSeek&lt;/h2&gt;
+&lt;p&gt;官网：&lt;a href=&quot;https://www.deepseek.com/&quot;&gt;https://www.deepseek.com/&lt;/a&gt;&lt;br /&gt;
+DeepSeek-V4（即将发布）: DeepSeek 最新的主力编程模型，专注于工程级代码能力和超长上下文处理。在权威基准测试 SWE-Bench Verified 中得分 83.7%，超越了 GPT-5.2 和 Claude Opus 4.5，成为全球首个登顶该榜单的国产大模型。&lt;br /&gt;
+在 V4 发布前，V3 系列（特别是 V3.1 和 V3.2）是 DeepSeek 的主力，确立了其在开源社区的高性价比地位。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;V3.1 (2025年8月)：首次将 V3（思考模式）和 R1（非思考模式）的能力融合到一个模型中，既能快速响应，也能深度思考。&lt;/li&gt;
+&lt;li&gt;V3.2 (2025年12月)：深度融合了深度思考与工具使用，在长文本推理成本上做到了极低水平（仅为竞品的几分之一）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;智谱 AI&lt;/h2&gt;
+&lt;p&gt;官网：&lt;a href=&quot;https://bigmodel.cn/&quot;&gt;https://bigmodel.cn/&lt;/a&gt;&lt;br /&gt;
+核心产品：GLM-5（2026年2月发布），它的编程能力在真实场景中的体验非常接近 Claude Opus 4.5（行业顶尖水平）。&lt;br /&gt;
+上一代主力：GLM-4.7（2025年12月发布），曾在开源社区 Hugging Face 上非常火爆，至今仍有大量用户在使用。&lt;/p&gt;
+&lt;h2&gt;字节跳动（豆包）&lt;/h2&gt;
+&lt;p&gt;官网：https://www.volcengine.com/ （火山引擎）&lt;br /&gt;
+字节跳动旗下的编程大模型主要由豆包（Doubao）大模型家族中的 Code 系列承担。&lt;br /&gt;
+豆包 2.0 Code (Doubao-Seed-2.0-Code)：这是最新的主力版本，于 2026年2月14日 随豆包大模型2.0系列正式发布。它基于强大的2.0基座模型，针对编程场景进行了专项优化。&lt;br /&gt;
+豆包编程大模型 (Doubao-Seed-Code)：这是该系列的首款模型，于2025年11月发布，为后续的2.0版本奠定了基础。&lt;/p&gt;
+&lt;h2&gt;阿里巴巴（千问）&lt;/h2&gt;
+&lt;p&gt;官网：&lt;a href=&quot;https://www.aliyun.com/&quot;&gt;https://www.aliyun.com/&lt;/a&gt;&lt;br /&gt;
+阿里巴巴旗下的编程大模型主要由 千问（Qwen） 系列承担。&lt;br /&gt;
+Qwen3.5：全能型“代码重构专家”，这是目前千问系列的最新主力版本，特别适合处理复杂的代码库。&lt;br /&gt;
+Qwen3-Coder：专精型“代码生成器”，这是千问系列中专门针对编程场景优化的模型。&lt;br /&gt;
+如果你的工作涉及复杂的文档、视频讲解与代码结合，首选 Qwen3.5；如果你纯粹是在 IDE 里进行大规模代码重构，Qwen3-Coder 会更轻快、更专业。&lt;/p&gt;
+&lt;h2&gt;月之暗面&lt;/h2&gt;
+&lt;p&gt;官网：&lt;a href=&quot;https://www.kimi.com/&quot;&gt;https://www.kimi.com/&lt;/a&gt;&lt;br /&gt;
+Kimi K2.5：最新的旗舰模型，2026年1月发布，Kimi K2.5 的核心亮点在于“视觉即代码”和“智能体集群（Agent Swarm）”，它不仅仅是一个写代码的工具，更像一个能指挥团队的“AI 工程师”。&lt;/p&gt;
+&lt;h2&gt;稀宇科技&lt;/h2&gt;
+&lt;p&gt;官网：&lt;a href=&quot;https://minimaxi.com/&quot;&gt;https://minimaxi.com/&lt;/a&gt;&lt;br /&gt;
+核心产品：MiniMax M2.5，这是目前 MiniMax 最新的主力编程模型，它在 2026 年 2 月发布后，凭借极高的性价比和强大的智能体（Agent）能力，迅速在开发者社区和企业级应用中获得了极高的关注度。&lt;br /&gt;
+上一代主力：MiniMax M2.1：这是 M2.5 发布前的主力编程模型，发布于 2025 年底，目前仍是许多企业级应用的基石。&lt;/p&gt;
+</content:encoded></item><item><title>Android Bench —— Google 官方针对 Android 应用开发的的 LLM 性能排行榜</title><link>https://bigfox.me/posts/android/android-bench/</link><guid isPermaLink="true">https://bigfox.me/posts/android/android-bench/</guid><pubDate>Fri, 06 Mar 2026 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;排行榜链接：&lt;a href=&quot;https://developer.android.com/bench&quot;&gt;https://developer.android.com/bench&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;在AI辅助软件工程领域，已涌现出多个用于评估大语言模型（LLM）能力的基准测试。然而，Android开发者面临的一些特定挑战并未被现有基准测试覆盖，因此 Google 官方创建了一个专注于高质量Android开发核心目标的基准测试。&lt;/p&gt;
+&lt;p&gt;此基准测试的目标如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;推动大语言模型在Android开发领域的性能提升。&lt;/li&gt;
+&lt;li&gt;帮助Android开发者评估并选择能提供有效辅助的AI模型。&lt;/li&gt;
+&lt;li&gt;促进整个Android生态系统应用质量的提升。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;为此，Google 构建了一个与模型无关（model-agnostic）的基准测试，以准确评估大语言模型在各类Android开发任务中的表现。&lt;/p&gt;
+</content:encoded></item><item><title>AI 辅助的能力让我更惊叹了：Claude Code 帮我解决了博客部署的问题！</title><link>https://bigfox.me/posts/ai/claude-code-blog-deploy/</link><guid isPermaLink="true">https://bigfox.me/posts/ai/claude-code-blog-deploy/</guid><pubDate>Thu, 05 Mar 2026 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;最近使用 Claude Code 完全帮我生成了一个基于 next.js 的博客主页，并让它生成了部署文档。&lt;/p&gt;
+&lt;p&gt;当我按照部署文档部署后，node.js 的后台服务无法启动，反复检查了多遍都解决不了问题。最后突然想到，何不继续让 Claude Code 帮我解决这个问题呢？&lt;/p&gt;
+&lt;p&gt;输入提示词：我已按照你生成的部署文档手动部署项目，但是 node.js 系统服务无法启动，是什么原因？&lt;/p&gt;
+&lt;p&gt;然后 Claude Code 一步步按照部署流程检查，它自己也发现了服务无法启动，最后输出：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;● 现在我明白问题了！Node.js 是通过 nvm 安装的，systemd 服务无法找到正确的 Node.js 路径。我需要更新服务配置以使用完整的 Node.js 路径：
+
+● Update(/etc/systemd/system/bigfoxme-homepage.service)
+
+╭───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│ Edit file │
+│ ╭───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮ │
+│ │ ../../../../../etc/systemd/system/bigfoxme-homepage.service │ │
+│ │ │ │
+│ │ 6 Type=simple │ │
+│ │ 7 User=root │ │
+│ │ 8 WorkingDirectory=/usr/share/caddy/bigfoxme/bigfoxme_homepage │ │
+│ │ 9 - ExecStart=/usr/bin/npm start │ │
+│ │ 9 + ExecStart=/home/ubuntu/.nvm/versions/node/v18.20.7/bin/npm start │ │
+│ │ 10 Restart=always │ │
+│ │ 11 RestartSec=10 │ │
+│ │ 12 Environment=NODE_ENV=production │ │
+│ │ 13 Environment=PORT=3000 │ │
+│ │ 14 + Environment=PATH=/home/ubuntu/.nvm/versions/node/v18.20.7/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin │ │
+│ │ 15 │ │
+│ │ 16 [Install] │ │
+│ │ 17 WantedBy=multi-user.target │ │
+│ ╰───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯ │
+│ Do you want to make this edit to bigfoxme-homepage.service? │
+│ ❯ 1. Yes │
+│ 2. Yes, allow all edits in system/ during this session (shift+tab) │
+│ 3. No, and tell Claude what to do differently (esc) │
+│ │
+╰───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;不仅找到了原因，还自己把配置文件给改正确了。&lt;/p&gt;
+&lt;p&gt;这个结果，确实惊艳到我了！赞！&lt;/p&gt;
+&lt;p&gt;原来它生成的部署文档中，启动 node.js 服务，npm 的路径使用的是标准安装的路径：
+ExecStart=/usr/bin/npm start
+而我当时为了方便多版本的管理，是使用 nvm 安装 node.js 的，所以，需要更改启动服务的 npm 路径：
+ExecStart=/home/ubuntu/.nvm/versions/node/v18.20.7/bin/npm start&lt;/p&gt;
+</content:encoded></item><item><title>claude 命令突然无法识别，原来是因为切换了 node 的版本</title><link>https://bigfox.me/posts/ai/claude-code-node/</link><guid isPermaLink="true">https://bigfox.me/posts/ai/claude-code-node/</guid><pubDate>Mon, 02 Mar 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;问题&lt;/h2&gt;
+&lt;p&gt;最近在学习辅助编程工具 Claude Code 的使用，前几天还一切正常，今早在终端输入 claude 命令，启动 Claude Code，突然出现提示：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;PS C:\Users\bigfox&amp;gt; claude
+claude : 无法将“claude”项识别为 cmdlet、函数、脚本文件或可运行程序的名称。请检查名称的拼写，如果包括路径，请确保路径
+正确，然后再试一次。
+所在位置 行:1 字符: 1
++ claude
++ ~~~~~~
+    + CategoryInfo          : ObjectNotFound: (claude:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\bigfox&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2&gt;排查&lt;/h2&gt;
+&lt;p&gt;出现问题，第一时间在网络上搜索，找到一些相关答案，但没有解决自己的问题。&lt;br /&gt;
+那就想到：重新安装一下看看吧。
+当看到安装命令 &lt;code&gt;npm install -g @anthropic-ai/claude-code&lt;/code&gt; 时，看到 -g 全局安装参数，突然得到了问题的答案：&lt;br /&gt;
+昨天下班前，因为安装某 MCP 需要更高的 node 版本，使用 nvm 安装了更高的 node 版本并进行了切换，之后就下班了，没有启动过 claude。&lt;/p&gt;
+&lt;h2&gt;原因&lt;/h2&gt;
+&lt;p&gt;Claude Code 是 npm 包，每个 npm 包都是当前 node 的一部分。环境中有多个版本的 node，其 npm 包都是独立的，互不干扰。
+切换 node 版本后，在新的 node 版本环境下，需要重新安装 Claude Code。&lt;/p&gt;
+&lt;h2&gt;吐槽&lt;/h2&gt;
+&lt;p&gt;npm 的 -g 参数，表示全局安装，很容易让人误解为：当前电脑的全局。其实准确的说，只是表示：当前 node 版本环境的全局！&lt;/p&gt;
+</content:encoded></item><item><title>做什么永远比怎么做更重要：开工第一天，确定年度目标</title><link>https://bigfox.me/posts/%E5%85%B6%E5%AE%83/goal-on-this-year/</link><guid isPermaLink="true">https://bigfox.me/posts/%E5%85%B6%E5%AE%83/goal-on-this-year/</guid><pubDate>Wed, 25 Feb 2026 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;开工第一天，就被老板叫到会议室，确定年度目标：最大限度使用 AI 辅助编程，完成项目任务！&lt;/p&gt;
+&lt;p&gt;老实说，正合我意！&lt;/p&gt;
+&lt;h2&gt;做什么永远比怎么做更重要&lt;/h2&gt;
+&lt;p&gt;多年的工作和生活经验，已经深刻体会到：做什么永远比怎么做更重要，或者说：战略大于战术。&lt;br /&gt;
+要不要做，值不值得做，是首先重点考虑的问题，怎么做才是其次，否则，如果战略失败了，战术再成功，也挽不回失败的结果。&lt;/p&gt;
+&lt;h2&gt;个人愿望难得与老板的愿望这么一致&lt;/h2&gt;
+&lt;p&gt;很多时候，都是公司要做什么，老板要做什么，往往与自己的规划或意愿是不一致的。要想吐槽，回应得最恰当的一句话，也是最扎心的一句话是：要么忍，要么滚。&lt;br /&gt;
+在 2026 年开年这个时间节点上，对于一个没有深度使用 AI 编程的程序员来说，要求你最大限度使用 AI 辅助编程，可能是今年最好的开始，也是最好的安排吧！&lt;/p&gt;
+&lt;h2&gt;后续（2026-06-02）&lt;/h2&gt;
+&lt;p&gt;有点苦笑不得，我变成了一个测试人员，因为老板变成了那个使用 AI 开发的人！&lt;br /&gt;
+有很多话想说，又似乎每什么好说的......&lt;br /&gt;
+计划赶不上变化，变化赶不上老板的......&lt;/p&gt;
+</content:encoded></item><item><title>注意：人工智能不是 ChatGPT，也不是 DeepSeek ! </title><link>https://bigfox.me/posts/ai/ai-notion/</link><guid isPermaLink="true">https://bigfox.me/posts/ai/ai-notion/</guid><pubDate>Thu, 01 Jan 2026 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;2022年11月30日，ChatGPT 于正式发布后，国内出现关注热潮，一时间成为当时最关注的话题。&lt;/p&gt;
+&lt;p&gt;2025年1月20日，DeepSeek R1 正式版发布，仅用了短短一个春节的时间就迅速破圈，在网络上爆火。&lt;/p&gt;
+&lt;p&gt;当下，似乎无人不知人工智能，无人不知 AI。这两次事件，似乎给人这样一种错觉：人工智能就是ChatGPT，就是 DeepSeek，就是类似它们的大语言对话模型。其实，这完全搞反了！&lt;/p&gt;
+&lt;p&gt;一起来学习一下：&lt;br /&gt;
+&lt;a href=&quot;https://blog.csdn.net/niu91/article/details/145812789&quot;&gt;人工智能、机器学习、深度学习和大语言模型之间的关系&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;https://zhuanlan.zhihu.com/p/25049089996&quot;&gt;从ML,DL,RL,LLM之间的关系认识大语言模型&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;一句话：人工智能（AI）&amp;gt; 机器学习（ML）&amp;gt; 深度学习（DL）&amp;gt; 大语言模型（LLM）。&lt;/p&gt;
+&lt;p&gt;纠正这个错误认识，很重要，因为：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;大语言模型就像是老师喜欢的尖子生，像是社会中的精英人士，它是人工智能领域的一颗璀璨明珠，但是还有很多其它的人工智能技术，值得学习与探索，它们共同前进才能最终实现人类心目中的智能。&lt;/li&gt;
+&lt;li&gt;还有很多人在非大语言模型的深度学习领域、机器学习领域开拓前进，向它们致敬！&lt;/li&gt;
+&lt;/ul&gt;
+</content:encoded></item><item><title>内网穿透、VPN、远程访问，概念不再模糊，一篇文章说清楚！</title><link>https://bigfox.me/posts/%E8%BF%90%E7%BB%B4/vpn-tunnel-remote/</link><guid isPermaLink="true">https://bigfox.me/posts/%E8%BF%90%E7%BB%B4/vpn-tunnel-remote/</guid><pubDate>Fri, 05 Dec 2025 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;strong&gt;说明：以下内容整理于我在夸克浏览中与 AI 的对话。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;问：&lt;/strong&gt;&lt;br /&gt;
+cloudflare tunnel 介绍&lt;br /&gt;
+内网穿透 和 VPN 是什么关系&lt;br /&gt;
+解决远程访问问题，有哪些方案和思路&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;答：&lt;/strong&gt;&lt;br /&gt;
+Cloudflare Tunnel（以前称为 Argo Tunnel）是一个非常强大的内网穿透和安全访问工具。简单来说，它允许你将位于防火墙或 NAT（内网）后的本地服务（比如家里的 NAS、电脑上的开发服务器）安全地暴露到公网，而不需要公网 IP，也不需要在路由器上做端口映射。&lt;br /&gt;
+内网穿透（NAT Traversal）和 VPN（虚拟专用网络）虽然都能实现“远程访问”，但它们在实现原理、安全模型和适用场景上有着本质的区别。&lt;br /&gt;
+解决远程访问问题是一个非常经典且场景多样的需求。结合你刚才提到的 Cloudflare Tunnel，以及目前主流的技术手段，我为你梳理了目前解决远程访问问题的四大类核心方案。&lt;br /&gt;
+每种方案都有其特定的适用场景、优缺点。为了让你更直观地做技术选型，我总结了一个对比表，随后会详细拆解每种思路。&lt;/p&gt;
+&lt;h2&gt;远程访问方案全景图&lt;/h2&gt;
+&lt;p&gt;|方案类型   |核心思路   |代表工具   |优点   |缺点  | 适用场景
+| :--- | :--- | :--- |
+|&lt;strong&gt;反向代理/内网穿透&lt;/strong&gt;   |内网主动连外网，流量回流   |Cloudflare Tunnel, frp, ngrok   |无需公网IP，安全性高（不暴露端口），配置相对简单。   |通常需要一个有公网IP的中转服务器（Cloudflare Tunnel除外）。   |暴露Web服务、API调试、特定端口访问。
+|&lt;strong&gt;SD-WAN/智能组网&lt;/strong&gt;   |软件定义网络，设备间组虚拟局域网   |ZeroTier, Tailscale, 蒲公英, 贝锐   |像在本地一样互访，P2P直连速度快，无需公网IP。   |依赖第三方服务器协调（控制面），复杂网络下可能走中继。   |远程办公、访问内网共享文件夹、打印机、远程桌面。
+|&lt;strong&gt;传统 VPN&lt;/strong&gt;   |建立加密隧道，接入内网   |OpenVPN, WireGuard, IPsec   |技术成熟，兼容性好，接入后拥有完整内网权限。   |通常&lt;strong&gt;需要公网IP&lt;/strong&gt;和端口映射，配置复杂，存在安全风险（全端口暴露）。   |企业专线互联、对网络协议有特殊要求的场景。
+|&lt;strong&gt;远程控制软件&lt;/strong&gt;   |应用层控制，屏幕传输   |ToDesk, 向日葵, TeamViewer   |穿透能力强，无需复杂配置，跨平台。   |主要是控制电脑屏幕，不适合挂载磁盘或访问其他内网设备。   |远程协助、IT运维、个人远程桌面控制。&lt;/p&gt;
+&lt;h2&gt;四大核心方案详细解析&lt;/h2&gt;
+&lt;h3&gt;1. 反向代理与内网穿透（The Reverse Proxy / Tunneling）&lt;/h3&gt;
+&lt;p&gt;这是目前解决“无公网IP”问题最优雅的方式，也是你刚才关注的 Cloudflare Tunnel 所属的领域。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;核心逻辑&lt;/strong&gt;：传统的访问是“外网推送到内网”，而反向代理是“内网主动连接外网”。内网的设备（客户端）主动向公网上的服务器（服务端）建立一个长连接。当外部用户访问公网服务器时，服务器通过已建立的“隧道”把请求送回内网。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;典型工具&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;Cloudflare Tunnel：最推荐的现代方案。利用 Cloudflare 的全球网络，自带 HTTPS 和 DDoS 防护，完全不需要你拥有自己的服务器，安全且免费。&lt;/li&gt;
+&lt;li&gt;frp / ngrok：开源方案，你需要自己买一台云服务器（VPS）作为中转。frp 功能强大，支持 TCP/UDP/HTTP 多种协议；ngrok 适合快速调试。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;适用场景&lt;/strong&gt;：你想把家里的 NAS 网页、Home Assistant、或者本地开发的网站暴露给外网访问。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;2. 虚拟局域网与智能组网（The SD-WAN / Mesh Networking）&lt;/h3&gt;
+&lt;p&gt;如果你觉得内网穿透只能暴露单个端口太麻烦，想要像在公司一样访问所有资源（比如直接通过 \192.168.x.x 访问共享文件夹），这就是最佳选择。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;核心逻辑&lt;/strong&gt;：通过软件在互联网上模拟一个虚拟的交换机。所有加入这个网络的设备（无论是家里的电脑、公司的服务器、还是你手里的手机）都会被分配一个虚拟 IP，它们之间尝试建立 P2P（点对点）直连。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;典型工具&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;ZeroTier / Tailscale：基于 P2P 技术的“虚拟交换机”。配置极其简单，就像加入一个微信群一样，设备互相认证后即可通信。&lt;/li&gt;
+&lt;li&gt;蒲公英 / 贝锐：国内厂商的解决方案，针对国内复杂的网络环境（如运营商 NAT 类型）做了优化，适合企业级异地组网。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;适用场景&lt;/strong&gt;：异地办公（像在公司局域网一样访问内部系统）、访问内网打印机、远程桌面连接（RDP/VNC）内网中的任意电脑。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;3. 传统 VPN 接入（The Classic VPN）&lt;/h3&gt;
+&lt;p&gt;这是最传统的方案，但在某些企业级场景下依然不可替代。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;核心逻辑&lt;/strong&gt;：在你的设备和目标网络之间建立一条加密的“隧道”。你的设备会获得一个内网 IP 地址，所有流量（或部分流量）都会通过这个隧道转发到内网。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;典型工具&lt;/strong&gt;：OpenVPN, WireGuard, IPsec。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;注意点&lt;/strong&gt;：传统 VPN 通常要求网关（路由器或防火墙）拥有公网 IP，并在网关上开启端口映射（如 UDP 1194）。如果你的宽带没有公网 IP，直接配置传统 VPN 会非常困难（除非结合内网穿透工具先打通端口）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;适用场景&lt;/strong&gt;：大型企业分支机构互联、对网络性能和协议兼容性要求极高的场景。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;4. 远程桌面与应用层控制（The Application Layer）&lt;/h3&gt;
+&lt;p&gt;如果你只是想控制一台电脑，而不是打通整个网络，这类工具最简单直接。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;核心逻辑&lt;/strong&gt;：在应用层捕获屏幕画面并传输，同时传输键盘鼠标指令。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;典型工具&lt;/strong&gt;：ToDesk, 向日葵, TeamViewer, Microsoft Remote Desktop。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;优势&lt;/strong&gt;：完全不需要懂网络知识，不需要配置路由器，只要能上网就能连。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;局限&lt;/strong&gt;：它只能控制那台安装了软件的电脑，无法让你通过这台电脑再去访问它身边的其他设备（除非做端口映射）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;适用场景&lt;/strong&gt;：远程帮父母修电脑、出差时控制办公室电脑处理文件。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;如何选择适合你的方案？&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;如果你是开发者或想暴露 Web 服务：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;首选 Cloudflare Tunnel。它免费、安全、自带全球加速，且不需要你买服务器。&lt;/li&gt;
+&lt;li&gt;次选 frp。如果你有自己的 VPS，frp 是最灵活的开源方案。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;如果你是普通用户想访问家里的文件或设备：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;首选 ZeroTier 或 Tailscale。它们能让你的手机、平板、电脑像在同一个局域网里一样互访，配置只需几分钟。&lt;/li&gt;
+&lt;li&gt;如果网络环境复杂（P2P 打洞失败），可以选择 蒲公英等商业组网工具。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;如果你只是想远程控制某一台电脑：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;直接使用 ToDesk 或向日葵，最简单省事。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;如果你是企业 IT 管理员：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;考虑 SD-WAN 智能组网方案（如 Tailscale 或企业级蒲公英）或 Microsoft DirectAccess / Always On VPN，以实现细粒度的权限控制和高安全性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;总结建议&lt;/h2&gt;
+&lt;p&gt;对于大多数个人和中小企业用户，“Cloudflare Tunnel（针对 Web）+ ZeroTier/Tailscale（针对局域网互通）” 是目前最完美、成本最低且最安全的组合方案。&lt;/p&gt;
+</content:encoded></item><item><title>边缘 AI 总览（逐步更新）</title><link>https://bigfox.me/posts/ai/edge-ai-outline/</link><guid isPermaLink="true">https://bigfox.me/posts/ai/edge-ai-outline/</guid><pubDate>Mon, 03 Nov 2025 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;边缘 AI 概述&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://mp.weixin.qq.com/s?__biz=MzA5NzU0NjY0Nw==&amp;amp;mid=2649556715&amp;amp;idx=1&amp;amp;sn=7ec13d5c3866cb4590c00dcf2e54d633&amp;amp;chksm=896cacbabc57d795a574256471fcc899f440a07dcb61ed72f44a816f44818167417c1e1794ec&amp;amp;mpshare=1&amp;amp;scene=1&amp;amp;srcid=0416votYpoORFE5noPvAaJRk&amp;amp;sharer_shareinfo=354ab1adad343ee69f098ce0e1a54892&amp;amp;sharer_shareinfo_first=354ab1adad343ee69f098ce0e1a54892&amp;amp;exportkey=n_ChQIAhIQPtIUE7a%2FSP8DFxmicmyEGRLyAQIE97dBBAEAAAAAAL0VNaitRGMAAAAOpnltbLcz9gKNyK89dVj0XmlwR03fKGm9muGx6NzF3vKomv6gEwXwJCLhCnsnn0RVNjmRDGZnHz4B4EM8KPWoFmFOk%2FrudHhLYbIExvEoc2MJVGhzxmY2cY%2BLvPPhclKO8LmZBbHr%2B%2FyTPPlu1h%2BaQov9b3LaIXCKvZWzMlBwK42lUFTYpIcTlbNRAAxdpDjfZclx%2BlZECwVy28S745W54rOxovj%2F%2FBaN7R6%2BxfwUE0ZdMdArjJrE%2FAxI%2F6Odx28dAseG2iX%2FQOdJ3cBCit5cgVvv36c4soG27G75&amp;amp;acctmode=0&amp;amp;pass_ticket=B8U5lsc9xJz8SmGNUav44%2FYArozFYAnq4XdhbbFVq1xexXF9V5f877Yl6YwBvD9B&amp;amp;wx_header=0#rd&quot;&gt;漫谈人工智能边缘硬件&lt;/a&gt;（作者：铁云， 微信公众号：铁云文摘）&lt;br /&gt;
+&lt;a href=&quot;https://zhuanlan.zhihu.com/p/382557252&quot;&gt;主流AI应用边缘计算平台综合对比&lt;/a&gt;（作者知乎账号：GPUS开发者）&lt;/p&gt;
+&lt;h2&gt;边缘 AI 硬件平台&lt;/h2&gt;
+&lt;h3&gt;华为&lt;/h3&gt;
+&lt;h4&gt;Atlas 200I DK A2&lt;/h4&gt;
+&lt;p&gt;华为“小藤”开发者套件 Atlas 200I DK A2。&lt;br /&gt;
+官方网站：&lt;a href=&quot;https://www.hiascend.com/hardware/developer-kit-a2&quot;&gt;https://www.hiascend.com/hardware/developer-kit-a2&lt;/a&gt;&lt;br /&gt;
+官方文档：&lt;a href=&quot;https://www.hiascend.com/document/detail/zh/Atlas200IDKA2DeveloperKit/&quot;&gt;https://www.hiascend.com/document/detail/zh/Atlas200IDKA2DeveloperKit/&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;英伟达&lt;/h3&gt;
+&lt;h4&gt;NVIDIA Jstson 系列&lt;/h4&gt;
+&lt;p&gt;NVIDIA 机器人和边缘 AI 官网：&lt;a href=&quot;https://www.nvidia.cn/autonomous-machines/&quot;&gt;https://www.nvidia.cn/autonomous-machines/&lt;/a&gt;&lt;br /&gt;
+知乎专栏：&lt;a href=&quot;https://www.zhihu.com/column/c_1324347229126529024&quot;&gt;NVIDIA Jetson开发者&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;树莓派&lt;/h3&gt;
+&lt;h4&gt;Raspberry Pi AI Kit&lt;/h4&gt;
+&lt;p&gt;官网介绍：&lt;a href=&quot;https://www.raspberrypi.com/products/ai-kit/&quot;&gt;https://www.raspberrypi.com/products/ai-kit/&lt;/a&gt;&lt;br /&gt;
+官方文档：&lt;a href=&quot;https://www.raspberrypi.com/documentation/accessories/ai-kit.html&quot;&gt;https://www.raspberrypi.com/documentation/accessories/ai-kit.html&lt;/a&gt;&lt;br /&gt;
+中文文档：&lt;a href=&quot;https://pidoc.cn/docs/accessories/ai-kit/&quot;&gt;https://pidoc.cn/docs/accessories/ai-kit/&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;STM32&lt;/h3&gt;
+&lt;p&gt;STM32边缘AI官网：&lt;a href=&quot;https://stm32ai.st.com/zh/&quot;&gt;https://stm32ai.st.com/zh/&lt;/a&gt;
+NanoEdge AI Studio: &lt;a href=&quot;https://stm32ai.st.com/zh/nanoedge-ai/&quot;&gt;https://stm32ai.st.com/zh/nanoedge-ai/&lt;/a&gt;&lt;br /&gt;
+STM32Cube.AI: &lt;a href=&quot;https://stm32ai.st.com/zh/stm32-cube-ai/&quot;&gt;https://stm32ai.st.com/zh/stm32-cube-ai/&lt;/a&gt;&lt;br /&gt;
+边缘AI硬件: &lt;a href=&quot;https://stm32ai.st.com/zh/edge-ai-hardware/&quot;&gt;https://stm32ai.st.com/zh/edge-ai-hardware/&lt;/a&gt;&lt;br /&gt;
+ST Edge AI 开发人员云（在线）: &lt;a href=&quot;https://stm32ai.st.com/zh/bian-yuan-ai-kai-fa-zhe-yun/&quot;&gt;https://stm32ai.st.com/zh/bian-yuan-ai-kai-fa-zhe-yun/&lt;/a&gt;&lt;br /&gt;
+适用于OpenSTLinux的AI: &lt;a href=&quot;https://stm32ai.st.com/zh/ai-for-linux/&quot;&gt;https://stm32ai.st.com/zh/ai-for-linux/&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;Intel&lt;/h3&gt;
+&lt;p&gt;Intel 边缘AI官网：https://www.intel.cn/content/www/cn/zh/edge-computing/edge-ai.html&lt;/p&gt;
+&lt;h2&gt;边缘 AI 软件工具&lt;/h2&gt;
+&lt;h3&gt;CMSIS-NN&lt;/h3&gt;
+&lt;p&gt;ARM公司推出的神经网络加速库，专为Cortex-M系列处理器优化。&lt;br /&gt;
+&lt;a href=&quot;https://arm-software.github.io/CMSIS_5/latest/NN/html/index.html&quot;&gt;https://arm-software.github.io/CMSIS_5/latest/NN/html/index.html&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;RKNN&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://mp.weixin.qq.com/s?__biz=MzA5MTUzNDUyNA==&amp;amp;mid=2651345197&amp;amp;idx=1&amp;amp;sn=8c2e31d735a96352b873060b3b5c8c0d&amp;amp;chksm=8ad6b788b129b798d6177c7228b5c9c50d6a44d7b5ffb24f266a64e0f1d062f53843c443193f&amp;amp;mpshare=1&amp;amp;scene=1&amp;amp;srcid=0411XwFuT2auXvCfBkyzD1a9&amp;amp;sharer_shareinfo=4b0e0e354f84b09a6d1b68b0ef068302&amp;amp;sharer_shareinfo_first=65d2f152921448fb8e384d6469534b0d&amp;amp;exportkey=n_ChQIAhIQiuaXjSeANcnfUxJIztAgrhLyAQIE97dBBAEAAAAAALH5Jjge%2FJYAAAAOpnltbLcz9gKNyK89dVj085mA%2FsN0BsHTno4yXW5jOYrmEaudA4dihjH3N1YtzudxTC5MlhbZgt6rrCG%2FXtcyWFlJxQ2MF%2B%2FOGIFrqXNy2uKjXUjHfM0wkmVzFamEKg3oE43GuKzervwkAQoUQMJGlTJZ%2FNPtI%2FDZt8ldiDYdC69N9la%2FixkmVTeq1O9hJUBzeoGN9W6aMi%2FCtARVbwsxAE9fkOAPx3s3Z%2FEKtzhMPWCW6IKFXqbdH4JBoFc5G6o40IUNRRWtxQJs6N722l1%2BTz%2FtOPJkgLDHSEhB&amp;amp;acctmode=0&amp;amp;pass_ticket=Fgn5qBBPfgASFIwbxIBs%2BBm97RY9ydbedhPbkPnxUUEzdTK%2F23dV8EYRRrGHs6wA&amp;amp;wx_header=0#rd&quot;&gt;Rockchip NPU模型-RKNN&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;https://mp.weixin.qq.com/s?__biz=MzI1ODIzMzU1Ng==&amp;amp;mid=2649743633&amp;amp;idx=2&amp;amp;sn=c3dccf3791feec7ea510e717805ecfbe&amp;amp;chksm=f3a71c81826f27323f2ba3ed22f5fa85ea066ae9f91f7ebe5495e3f8b70ed11c935aaeb209cd&amp;amp;mpshare=1&amp;amp;scene=1&amp;amp;srcid=0411hPp0pfWVAaXowI9z731O&amp;amp;sharer_shareinfo=18aefd9ef02ccd6b11011ed6d05837f7&amp;amp;sharer_shareinfo_first=7c1ad9140ae7fee26d480ce34edab42f&amp;amp;exportkey=n_ChQIAhIQ1hNpKR2lcdNRzf9d4DejIhLyAQIE97dBBAEAAAAAAB2sIZLIJ4MAAAAOpnltbLcz9gKNyK89dVj0jls7wFoWNHcB7aHvmVpnFIdPTefr9eSIedgXuvkpMYZWmOtpyfpZAI7%2FXUIb2c1l0hJUvc4wGNQOw5Pie2QX7KE%2BYBGtwMwwIXTHfYtzpZXThRPvA3755ibiB%2BzYQd%2FSxkyxsiNuLIGbx6DpmSRDrL4lBFCK0HIMxqKFxhlB011paIh9HJgYvDPngFpXHoorvvTLW2%2FEedQlCxATW2qadYKsa0GTgcwZ4Z5qw6HBoEXXRe29Q8c4NFitSItz5%2FqN%2F8Va8L8dw9sDOtZG&amp;amp;acctmode=0&amp;amp;pass_ticket=zWZJRzF22vLRbI3%2FIiMIV%2BEEbqt90cGsTaqsbZnVfKlRo3v8I6n6kEju2q64kFfP&amp;amp;wx_header=0#rd&quot;&gt;技术帖——飞凌嵌入式RK3588开发板推理模型转换及测试&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;NVIDIA Dynamo&lt;/h3&gt;
+&lt;p&gt;NVIDIA Dynamo 是一个开源、低延迟的模块化推理框架，用于在分布式环境中服务生成式 AI 模型。&lt;br /&gt;
+&lt;a href=&quot;https://developer.nvidia.cn/dynamo&quot;&gt;https://developer.nvidia.cn/dynamo&lt;/a&gt;&lt;br /&gt;
+揭秘 NVIDIA Dynamo：分布式AI推理的高效引擎&lt;br /&gt;
+&lt;a href=&quot;https://cloud.tencent.com/developer/article/2508888&quot;&gt;https://cloud.tencent.com/developer/article/2508888&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;TensorFlow Lite&lt;/h3&gt;
+&lt;p&gt;TensorFlow Lite 是一组工具，可帮助开发者在移动设备、嵌入式设备和 loT 设备上运行模型，以便实现设备端机器学习。&lt;br /&gt;
+主要特性 ：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;通过解决以下 5 项约束条件，针对设备端机器学习进行了优化：延时（数据无需往返服务器）、隐私（没有任何个人数据离开设备）、连接性（无需连接互联网）、大小（缩减了模型和二进制文件的大小）和功耗（高效推断，且无需网络连接）。&lt;/li&gt;
+&lt;li&gt;支持多种平台，涵盖 Android 和 iOS 设备、嵌入式 Linux 和微控制器。&lt;/li&gt;
+&lt;li&gt;支持多种语言，包括 Java、Swift、Objective-C、C++ 和 Python。&lt;/li&gt;
+&lt;li&gt;高性能，支持硬件加速和模型优化。&lt;/li&gt;
+&lt;li&gt;提供多种平台上的常见机器学习任务的端到端示例，例如图像分类、对象检测、姿势估计、问题回答、文本分类等。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.tensorflow.org/lite/guide?hl=zh-cn&quot;&gt;https://www.tensorflow.org/lite/guide?hl=zh-cn&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;https://github.com/tensorflow/tflite-micro&quot;&gt;https://github.com/tensorflow/tflite-micro&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;ExecuTorch (PyTorch Mobile)&lt;/h3&gt;
+&lt;p&gt;ExecuTorch is PyTorch’s solution to training and inference on the Edge.&lt;br /&gt;
+&lt;a href=&quot;https://docs.pytorch.org/executorch/stable/index.html&quot;&gt;https://docs.pytorch.org/executorch/stable/index.html&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;https://github.com/pytorch/executorch&quot;&gt;https://github.com/pytorch/executorch&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;Edge Impulse&lt;/h3&gt;
+&lt;p&gt;Build datasets, train models, and optimize libraries to run directly on device; from the smallest microcontrollers to gateways with the latest neural accelerators (and anything in between).&lt;br /&gt;
+&lt;a href=&quot;https://edgeimpulse.com/&quot;&gt;https://edgeimpulse.com/&lt;/a&gt;&lt;/p&gt;
+</content:encoded></item><item><title>适用于嵌入式的小型文件系统汇总</title><link>https://bigfox.me/posts/%E5%B5%8C%E5%85%A5%E5%BC%8F/micro-file-system/</link><guid isPermaLink="true">https://bigfox.me/posts/%E5%B5%8C%E5%85%A5%E5%BC%8F/micro-file-system/</guid><pubDate>Fri, 31 Oct 2025 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;参考&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://mp.weixin.qq.com/s?__biz=Mzg5MDU1OTgzMw==&amp;amp;mid=2247502543&amp;amp;idx=1&amp;amp;sn=9cd6ccc97e54623f6e11aadbd6cc3b7a&amp;amp;chksm=ceb933ebb3d5f98e64f8f998036fb8e5cd6a3aa293aaa23e6a4e6f853b668778d7aee4cd3448&amp;amp;mpshare=1&amp;amp;scene=24&amp;amp;srcid=0708Wc7JTa1WpOmRyPJ1b5H1&amp;amp;sharer_shareinfo=dac64ab5ba41669c38b8567b725c6e96&amp;amp;sharer_shareinfo_first=dac64ab5ba41669c38b8567b725c6e96&amp;amp;exportkey=n_ChQIAhIQMNkmvy5j3DgBh2WcwEzeXRLyAQIE97dBBAEAAAAAAHbtEfvU%2BZ8AAAAOpnltbLcz9gKNyK89dVj0nxgPj5JdZm0g9Ogpopt9LZBvK2BAs9t0nuOdSfv7zg3XQRB%2F7cF4bMqQGU6zlwKd8n1uXJGwwL4kTEZ1sXIiw8AqfPxZM0Cte%2FU2ohC7EntZdHj%2FqeZxey%2FasoD05WGXBwmk5HXKlQj8td7PGWD7PkAz%2FYovPFZGgjf6fxreYbi90KT7hAJIzxBi119e9jMb4ndmXcJjZl2QBApNEDHIE7u0ElmKz47SiVSVFoYK%2FtOoA4meTj9hkybFHz73OHpcuc4TcWM%2B8%2FvUCxx5&amp;amp;acctmode=0&amp;amp;pass_ticket=ITnOijyaPuPgDuYGkeNyJeFkk5l2AlBhL8gZo7fEuKwcB2wAhAbHwa0y2hrT1qgm&amp;amp;wx_header=0#rd&quot;&gt;别让文件系统毁了你项目！5款轻量级单片机文件系统&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;https://mp.weixin.qq.com/s?__biz=Mzg3ODU3Nzk3MQ==&amp;amp;mid=2247502913&amp;amp;idx=2&amp;amp;sn=58d3dd6940128145c757aaabeb9a3b93&amp;amp;chksm=cef1cf3c1fedb9884095f522b1f58af8bd61b5e4a823d9468e3391391a1b7998bf4bf5485fd4&amp;amp;mpshare=1&amp;amp;scene=24&amp;amp;srcid=0708gEuSevh0t43oFAGea4pR&amp;amp;sharer_shareinfo=0444dbdeee7576172622f4f955abadd8&amp;amp;sharer_shareinfo_first=0444dbdeee7576172622f4f955abadd8&amp;amp;exportkey=n_ChQIAhIQYpaOFSsRI9HaaEJZVhjHyRLyAQIE97dBBAEAAAAAAGG2LcpketsAAAAOpnltbLcz9gKNyK89dVj0JdOsedKOhJwxx6o8Nj8RVGKJ9lwpBfXnwMUKumrNXaKEwibHyb%2FI2YhFDvhPtXqagG7rAFHJzGGZ%2BtciL2sQefrDE35LU0QprzO%2BwKRVqBquzBK3e3EsCCjw1KwEMZ%2FOgV2SWXTKAcxxQtPGU9J2GcPBK8DDGMo%2Fgsx7qkaflNV4bOjYU2qnDxu5ns15FircwKggP7YdHPEXoWyOXi6KsKyKlHtN8MadMknXqtvdKpatFmarfZG7ozMCL16%2BlYM65tzU1GQOU8EXRNRE&amp;amp;acctmode=0&amp;amp;pass_ticket=SxnepQt%2BuBK%2FR%2FGeEvTll%2FYEl%2BjNMv8FM6ugsrrnFPvs4qflza%2BvptllXT4RsmPv&amp;amp;wx_header=0#rd&quot;&gt;嵌入式系统中那些比较知名的FAT文件系统&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;https://blog.csdn.net/zn2857/article/details/144162828&quot;&gt;小型文件系统如何选择？FatFs和LittleFs优缺点比较&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;FatFs / Petiti FatFs&lt;/h2&gt;
+&lt;p&gt;官方网址：&lt;a href=&quot;https://elm-chan.org/fsw/ff/00index_e.html&quot;&gt;FatFs - Generic FAT Filesystem Module&lt;/a&gt;&lt;br /&gt;
+源码地址：&lt;a href=&quot;https://github.com/abbrev/fatfs&quot;&gt;FatFs Github&lt;/a&gt;&lt;br /&gt;
+官方网址：&lt;a href=&quot;https://elm-chan.org/fsw/ff/00index_p.html&quot;&gt;Petit FAT File System Module&lt;/a&gt;&lt;br /&gt;
+源码地址：&lt;a href=&quot;https://github.com/forGGe/petite-fat&quot;&gt;Petiti FatFs Github&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;littleFs&lt;/h2&gt;
+&lt;p&gt;源码地址：&lt;a href=&quot;https://github.com/armmbed/mbed-littlefs&quot;&gt;https://github.com/armmbed/mbed-littlefs&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;https://mp.weixin.qq.com/s?__biz=MzAxMDM1Mzg5NA==&amp;amp;mid=2247485237&amp;amp;idx=1&amp;amp;sn=ffde89571bccc1de3d222533f197f3d2&amp;amp;chksm=9a041cdb3b1bbe8fc896d5856495411766e7a3c7059ffcaa6c99527099ea8d746db166992fab&amp;amp;mpshare=1&amp;amp;scene=24&amp;amp;srcid=0708Z4TWv4wqvUYfx8axyYwD&amp;amp;sharer_shareinfo=649c7876c3e48baa68b504a40af06bcc&amp;amp;sharer_shareinfo_first=649c7876c3e48baa68b504a40af06bcc&amp;amp;exportkey=n_ChQIAhIQCiJbtUwySgmY%2FOcrnyp6NRLyAQIE97dBBAEAAAAAAHd1EQCplREAAAAOpnltbLcz9gKNyK89dVj0Ub%2BSQwU2liZSv5um8RsmEM58pKix28cQ2u3R9OZk9WMxTXpdQskvN8BmaQxwUMy4DgUR6yjLauXpVrIn67h6%2BPJMpdQX6URFZlxYlADauW5zcQsRB%2BYz0AHTBocA8EfXJGnpcC2T3AKcrYutWlwziZB6rUo%2FvDSTxnULh8%2BJjzRw%2BIlINyUoCtSpZZwFtepDu84l%2Bq8MK4RTr04x63yvykI5JJBLzNiFwxuPOjrkL7vTfsm9qEQNowoMXpo58hWEHVdVGSoetj6hnV6y&amp;amp;acctmode=0&amp;amp;pass_ticket=%2FpJtBOHpVEgjo8PJLdSDMIy6bcU%2BNC3LU78gdKt6Aoq2dM2eHGD2Ff1emwlQ8cIx&amp;amp;wx_header=0#rd&quot;&gt;嵌入式Flash文件系统LittleFS，用过都说好！&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;https://mp.weixin.qq.com/s?__biz=MzU1NTY2MDQ2MQ==&amp;amp;mid=2247483807&amp;amp;idx=1&amp;amp;sn=0d3567f2716b6fe1ff198a0faf7709f6&amp;amp;chksm=fa45915fe9ecb691e60f93ed841f7274d4b5cbe290ab029407af9f8ae53cb575a7c67172b9b9&amp;amp;mpshare=1&amp;amp;scene=24&amp;amp;srcid=0708oH7EsGcd27bxtZjNLBRp&amp;amp;sharer_shareinfo=cb2bc1ccaea790035153e3151192d3b8&amp;amp;sharer_shareinfo_first=cb2bc1ccaea790035153e3151192d3b8&amp;amp;exportkey=n_ChQIAhIQ%2BuwbgapBdQOqshV3qTpBmRLyAQIE97dBBAEAAAAAAN%2BGJ1O3assAAAAOpnltbLcz9gKNyK89dVj0DLpgVfzMHoSB6KRsO8iCjNw%2FRXFOux%2FwMe79EGXQwxixhKk1hHWXkE2RkG0OsnkaYGZ6bBlIu5HmRxMBqQY7V3ifE35HGimJO7Z2%2F1doQnauRZSIRos4nfoBUW3sdmtr03zWAVT2smE1%2BqmUBSy%2F14hmvJ5s3xOOjstzENPOCjKpy2W3gVsTO2l8bM7jCWJ5Ugbn6QqJ2K0EhKWNqlJVSjwFdmtfi1Gjh7PTu0Yvi4z5UwOm6LQAWNswibHN1DYErOKEwnJXVTq4H%2FCS&amp;amp;acctmode=0&amp;amp;pass_ticket=Ru6weoNP4R0C4pSnNwDixVONUhvL9vlo%2FH%2F%2FWV5N811N9MvPTFCfP3hO0kwsEpYO&amp;amp;wx_header=0#rd&quot;&gt;LittleFS:一个高度完整的嵌入式文件系统&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;spiffs&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://zhuanlan.zhihu.com/p/115869248&quot;&gt;spiffs 文件系统在esp32中的应用&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;https://blog.csdn.net/weixin_44821644/article/details/109480902&quot;&gt;三分钟上马 ESP32 spiffs文件系统&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;JesFS&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://mp.weixin.qq.com/s?__biz=Mzg4MzgyNDY1NA==&amp;amp;mid=2247487643&amp;amp;idx=2&amp;amp;sn=6e0738cffed9bae73faabb1c21cb0458&amp;amp;chksm=ce6cfc6cc2617a5aba54a59d17979644f8be620812fb413d46accd6439ef25dbe0705d440e87&amp;amp;mpshare=1&amp;amp;scene=24&amp;amp;srcid=0708aw43d3BdDgQdZJJPj46d&amp;amp;sharer_shareinfo=6f14aa4da35323f0470bbfa7a29182cd&amp;amp;sharer_shareinfo_first=6f14aa4da35323f0470bbfa7a29182cd&amp;amp;exportkey=n_ChQIAhIQu2kv3UNkcKqwD2hs3TNQbBLyAQIE97dBBAEAAAAAAMmNEK9ZPBEAAAAOpnltbLcz9gKNyK89dVj05El35QcWQwWOX1hhMlp7YW85Pw2dQK3ICQzFCo%2BkTouwDIqdv9lO94PAk6u9u9IVFhBZ6jrlw0Myua1DXf89xOfvg0BTpxu1MbUv2gmdWhgmAlmWyqLIh2Sj%2Ffnv9rpMasGSV4fQOoNb9MatPjuhv4r7nj89p9Gyi2d0eaipJdwmeXWaowqZlw6Syki7j6NRB92Dt6YyiWR7kNJwbky8dJOuu5kXf08tDVNSVWn6L1rhM2OM7YY8Ygz8E0%2F7TLR1UenHv%2FYyb%2B%2Fu99lK&amp;amp;acctmode=0&amp;amp;pass_ticket=SVhxZ6nyDUEtKgcIlhgFtZK0j6HEsHsDoR%2F1uE9uNOUVbyah2O4f3kbgw%2FNKvR3f&amp;amp;wx_header=0#rd&quot;&gt;JesFS Flash文件系统：针对小型控制器的大数据存储&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;znFAT&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://gitee.com/dbembed/znfat&quot;&gt;振南的znfat，国内唯一的嵌入式文件系统方案&lt;/a&gt;&lt;/p&gt;
+</content:encoded></item><item><title>使用 Keil 开发环境的几个小经验</title><link>https://bigfox.me/posts/%E5%B5%8C%E5%85%A5%E5%BC%8F/keil-experiences/</link><guid isPermaLink="true">https://bigfox.me/posts/%E5%B5%8C%E5%85%A5%E5%BC%8F/keil-experiences/</guid><pubDate>Mon, 27 Oct 2025 00:00:00 GMT</pubDate><content:encoded>&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;新建 Keil 工程，加入工程文件（三个小方块），只需加入源码文件（*.c 文件），不需要加入头文件，但头文件文件的路径需要在魔法棒里C/C++选显卡下，include path 中加入。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;复制 Keil 工程，如果修改了源文件的路径，需要在加入工程文件的地方，删除原来的添加，重新添加源文件，否则在工程目录树下，源文件显示感叹号，表示没有找到源文件。 重新添加后，感叹号消失，表示文件已找到，可以正常编译。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;复制 Keil 工程，如果修改了头文件的路径，同样需要修改魔法棒里C/C++选显卡下，include path 的路径。修改头文件路径后，在工程目录树下，头文件还是会显示感叹号，这时编译一遍工程文件，头文件感叹号自动会消失。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</content:encoded></item><item><title>蓝牙 Mesh 网络中的 Proxy 节点的作用，有点出乎我的意料</title><link>https://bigfox.me/posts/%E5%B5%8C%E5%85%A5%E5%BC%8F/ble-mesh-proxy/</link><guid isPermaLink="true">https://bigfox.me/posts/%E5%B5%8C%E5%85%A5%E5%BC%8F/ble-mesh-proxy/</guid><pubDate>Tue, 21 Oct 2025 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;蓝牙 Mesh 网络中的 Proxy 节点，是为了手机能够连接 Mesh 网络而出现的，这有点出乎我的意料：&lt;br /&gt;
+&lt;strong&gt;手机要加入蓝牙 Mesh 网络，需要蓝牙 Mesh 协议做特别的设计——设计 Proxy 节点。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;来源：&lt;a href=&quot;https://mp.weixin.qq.com/s?__biz=MzA4MTg3MTg2Mg==&amp;amp;mid=2651236874&amp;amp;idx=2&amp;amp;sn=e2aa638d8c8047d8f1ce772961eb94b6&amp;amp;chksm=847c5c93b30bd5858efd7869a24f4364bbb3693b0f654428f52dc805a049687da95ef748d878&amp;amp;scene=21#wechat_redirect&quot;&gt;解密蓝牙mesh系列 | 第二篇&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;蓝牙mesh网络虽然推出不久，但低功耗蓝牙（Bluetooth Low Energy）却面世已久。&lt;br /&gt;
+那么市场上数十亿台设备呢？智能手机和平板电脑呢？它们能否访问蓝牙mesh网络？&lt;br /&gt;
+幸运的是，答案是YES！&lt;br /&gt;
+蓝牙mesh网络会指定一台设备来扮演代理节点（proxy node）的角色。代理节点包含一项标准：低功耗蓝牙GATT服务，具有两个GATT特性，分别是mesh代理数据输入(Mesh Proxy Data In)和mesh代理数据输出(Mesh Proxy Data Out)。诸如智能手机等低功耗蓝牙设备均可使用这些特性，与mesh网络进行数据收发。&lt;br /&gt;
+这种mesh规格定义了一种代理协议（proxy protocol），同时通过代理节点的两个GATT特性交换的数据中包含代理协议PDU。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;来源：&lt;a href=&quot;https://doc.telink-semi.cn/doc/zh/software/res/sdk/ble_mesh/sig_mesh_cn/sig_mesh_cn/?h=feature#features&quot;&gt;Telink SIG Mesh SDK 文档&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Proxy feature：proxy是用于手机APP接入mesh网络的协议。在mesh网络中，APP也是一个独立的节点，有自己的Node address。引入proxy，是因为目前大部分手机不能完全自定义发送广播包，以及不能一直处于监听mesh网络的状态(中间要切换到WiFi等)，所以手机APP需要通过BLE GATT连接一个节点，直连节点收到APP发过来的数据后会转发出去，当直连节点收到mesh网络中回复给app的message后，会先通过GATT按proxy协议回复给手机APP。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;来源：AI（夸克浏览器中问答）&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;现实中的“硬伤”（为什么手机做不了 Proxy）&lt;br /&gt;
+目前的智能手机操作系统（为了省电和系统稳定性）对蓝牙底层能力做了严格限制，导致手机无法胜任 Proxy 的角色：&lt;br /&gt;
+🚫 障碍一：无法接收广播数据（Scanning）&lt;br /&gt;
+这是最大的瓶颈。&lt;br /&gt;
+Mesh 的机制：Mesh 网络中的设备（包括 Proxy Node）需要持续不断地发送和接收广播包（Advertising PDU）来传递消息。&lt;br /&gt;
+手机的限制：&lt;br /&gt;
+Android/iOS：手机的蓝牙协议栈通常不允许 App 在后台持续进行“高占空比”的扫描（Scan）。系统为了省电，会限制扫描的频率和时长。&lt;br /&gt;
+后果：如果手机不能持续扫描，它就会漏掉网络中其他设备发出来的广播消息。这意味着，你用手机 App 看不到设备的状态变化（比如别人按了物理开关，手机不知道）。&lt;br /&gt;
+🚫 障碍二：无法发送广播数据包（Advertising）&lt;br /&gt;
+Proxy 的要求：Proxy 节点需要能够发送承载着 Mesh 数据的广播包，让周围的节点收到。&lt;br /&gt;
+手机的限制：手机虽然可以发广播（比如手机找手环），但通常只能发特定格式的广播（如 GAP 广播），很难发送符合 Mesh 协议规范的、承载着复杂网络数据的广播包。而且，手机发广播非常耗电，系统通常会阻止 App 长期占用此能力。&lt;br /&gt;
+🚫 障碍三：连接模式的冲突&lt;br /&gt;
+GATT vs ADV：手机蓝牙最稳定、最标准的工作模式是 GATT（Client/Server 模式），也就是“一问一答”的连接模式。&lt;br /&gt;
+Proxy 的本质：真正的 Proxy Node 是在 广播模式（ADV Bearer） 和 GATT 模式之间做翻译。&lt;br /&gt;
+手机 -&amp;gt; Proxy (GATT 连接，稳定)。&lt;br /&gt;
+Proxy -&amp;gt; 设备 (广播 ADV，覆盖广)。&lt;br /&gt;
+如果手机自己做 Proxy，它就必须自己发 ADV 广播，这在手机上是不被支持的。&lt;/p&gt;
+&lt;/blockquote&gt;
+</content:encoded></item><item><title>蓝牙 Mesh 网络中的 PB-ADV 与 PB-GATT</title><link>https://bigfox.me/posts/%E5%B5%8C%E5%85%A5%E5%BC%8F/ble-mesh-provisioning/</link><guid isPermaLink="true">https://bigfox.me/posts/%E5%B5%8C%E5%85%A5%E5%BC%8F/ble-mesh-provisioning/</guid><pubDate>Mon, 20 Oct 2025 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;strong&gt;说明：以下内容来源于我在夸克浏览中与 AI 的对话。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;问：&lt;/strong&gt;&lt;br /&gt;
+PB_ADV 和 PB-GATT 分别是哪些单词的缩写&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;答：&lt;/strong&gt;&lt;br /&gt;
+这两个术语是蓝牙 Mesh 网络中“配网承载层”（Provisioning Bearer）的具体实现方式。它们的全称和含义如下：&lt;/p&gt;
+&lt;h2&gt;1. PB-ADV&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;全称&lt;/strong&gt;：&lt;strong&gt;Provisioning Bearer - Advertising&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;中文含义&lt;/strong&gt;：&lt;strong&gt;基于广播信道的配网承载层&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心原理&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;它利用蓝牙的&lt;strong&gt;广播信道&lt;/strong&gt;（Advertising Channels，共 37、38、39 三个信道）来传输配网数据。&lt;/li&gt;
+&lt;li&gt;这是一种&lt;strong&gt;无连接&lt;/strong&gt;（Connectionless）的通信方式。设备通过广播包（如 ADV_NONCONN_IND）发送配网邀请或能力信息，配网者（Provisioner）通过扫描广播来接收这些信息。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;特点&lt;/strong&gt;：功耗极低，适合电池供电的传感器或简单设备，但吞吐量较低。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;2. PB-GATT&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;全称&lt;/strong&gt;：&lt;strong&gt;Provisioning Bearer - GATT&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;中文含义&lt;/strong&gt;：&lt;strong&gt;基于 GATT 连接的配网承载层&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心原理&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;它利用蓝牙的 &lt;strong&gt;GATT&lt;/strong&gt; 协议（Generic Attribute Profile，通用属性配置文件）来传输配网数据。&lt;/li&gt;
+&lt;li&gt;这是一种&lt;strong&gt;基于连接&lt;/strong&gt;（Connected）的通信方式。手机或配网器需要先与设备建立标准的 BLE 连接，然后通过读写特定的 GATT 特征值（如 Mesh Provisioning Data In/Out）来交换配网信息。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;特点&lt;/strong&gt;：传输速率较高，支持长包分片，适合手机、平板等作为配网端，或者需要大量数据交换的复杂设备。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;总结对比&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;缩写&lt;/th&gt;
+&lt;th&gt;全称&lt;/th&gt;
+&lt;th&gt;传输媒介&lt;/th&gt;
+&lt;th&gt;连接方式&lt;/th&gt;
+&lt;th&gt;典型应用场景&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;PB-ADV&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;P&lt;/strong&gt;rovisioning &lt;strong&gt;B&lt;/strong&gt;earer - &lt;strong&gt;Adv&lt;/strong&gt;ertising&lt;/td&gt;
+&lt;td&gt;广播信道&lt;/td&gt;
+&lt;td&gt;无连接&lt;/td&gt;
+&lt;td&gt;传感器、灯泡、开关等低功耗设备&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;PB-GATT&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;P&lt;/strong&gt;rovisioning &lt;strong&gt;B&lt;/strong&gt;earer -&lt;strong&gt;GATT&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;GATT 通道&lt;/td&gt;
+&lt;td&gt;有连接&lt;/td&gt;
+&lt;td&gt;手机 App 配网、网关、复杂终端&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;简单来说，&lt;strong&gt;PB-ADV&lt;/strong&gt; 是“喊话”式的配网（广播），而 &lt;strong&gt;PB-GATT&lt;/strong&gt; 是“打电话”式的配网（连接）。&lt;/p&gt;
+</content:encoded></item><item><title>小心你的日志打印：又遇到一次，一行日志打印引起的问题</title><link>https://bigfox.me/posts/%E5%B5%8C%E5%85%A5%E5%BC%8F/log-print-notion/</link><guid isPermaLink="true">https://bigfox.me/posts/%E5%B5%8C%E5%85%A5%E5%BC%8F/log-print-notion/</guid><pubDate>Wed, 15 Oct 2025 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;问题&lt;/h2&gt;
+&lt;p&gt;基于 Telink mesh SDK 开发，需要控制 LED，SDK 中提供了一个 LED 管理的参考代码，按文档中的说明完成 LED 相关代码的添加后，测试时发现一个现象：控制 LED 灯闪烁 3 次，但实际仅闪烁 1 次后就停止了。&lt;/p&gt;
+&lt;h2&gt;排查&lt;/h2&gt;
+&lt;p&gt;为了验证 LED 相关代码的添加是否有问题，增加一个控制：控制 LED 灯常亮 3 秒后熄灭。经测试，没有问题。基本说明 LED 相关代码的添加是 OK 的。&lt;br /&gt;
+再次对比文档说明和相关代码，没有发现问题。&lt;br /&gt;
+于是在 LED 模块关键位置添加打印，烧录程序后继续测试，问题竟然消失了！&lt;br /&gt;
+不会吧，前后除了添加 2 行日志打印，我并没有修改其它任何地方啊——又一个&quot;聊斋&quot;（诡异）故事出现了？&lt;br /&gt;
+为了确认确实没有修改其它地方，只添加了日志打印，把新增的 2 行打印代码暂时屏蔽，重新编译烧录——问题又出现了。&lt;br /&gt;
+由此可知，确实是日志打印影响了程序的表现。&lt;br /&gt;
+然后也是通过分别屏蔽 2 个函数中 2 行日志的其中一行，确定是主循环里调用的 LED 处理函数 led_proc 里的日志影响的。&lt;/p&gt;
+&lt;p&gt;一个小小的日志打印，会导致程序表现完全不一样？为什么。&lt;br /&gt;
+根据多年开发的一点小小的经验，基本可以判断：日志打印是通过串口实现的，串口输出是阻塞的，会占用主循环的时间（特别是本项目中，用的还是 GPIO 口模拟串口），主循里阻塞的操作，可能会影响时间相关的函数（LED 亮灭控制，就有时间控制）。&lt;br /&gt;
+如何验证这个判断？把日志打印的代码，替换为延时函数，再测试一下，就可以判断。&lt;br /&gt;
+于是我把日志打印的代码，替换为 sleep_ms(10)，延时 10 ms，和日志打印的效果一样，问题不会出现。&lt;br /&gt;
+又把日志打印的代码，替换为 sleep_ms(2)，延时 2 ms，问题就出现了！&lt;/p&gt;
+&lt;h2&gt;解决&lt;/h2&gt;
+&lt;p&gt;if(clock_time_exceed(device_led.startTick, (device_led.onTime_ms-5)*1000)) 中 -5 导致，改为 if(clock_time_exceed(device_led.startTick, (device_led.onTime_ms)*1000))，就 OK 了。&lt;/p&gt;
+&lt;h2&gt;总结&lt;/h2&gt;
+&lt;p&gt;日志打印引起的问题，根本原因，一般都是有无日志输出时，程序延时的不同而导致的问题。&lt;/p&gt;
+</content:encoded></item><item><title>某些问题，是会让人抓狂的：手机 APP 突然扫描不到蓝牙设备</title><link>https://bigfox.me/posts/%E5%B5%8C%E5%85%A5%E5%BC%8F/telink-ble-scan/</link><guid isPermaLink="true">https://bigfox.me/posts/%E5%B5%8C%E5%85%A5%E5%BC%8F/telink-ble-scan/</guid><pubDate>Mon, 13 Oct 2025 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;问题&lt;/h2&gt;
+&lt;p&gt;基于 Telink mesh SDK 开发，之前一切安好，手机 APP 扫描设备并配网，一直都好好的，修改代码重新烧录，手机 APP 突然扫描不到设备。&lt;br /&gt;
+好吧，大概率是修改代码造成的，把代码改回去看看：什么？不行？
+这下，开始怀疑人生......&lt;/p&gt;
+&lt;p&gt;于是连接上开发板的串口，看看能不能从设备端的 log 输出中找到原因。设备上电，日志输出如下：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;[USER]:(USER)Start user init...
+[ERR]:tx_access:key array index not existed,nk:2,ak:2
+[ERR]:not found app key
+[ERR]:tx upper layer:not found device or app key
+[ERR]:tx upper layer failed: 1(see tx_errno_e)
+[ERR]:tx_access:key array index not existed,nk:2,ak:2
+[ERR]:not found app key
+[ERR]:tx upper layer:not found device or app key
+[ERR]:tx upper layer failed: 1(see tx_errno_e)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;有线索，之前正常时，只有第一行日志，没有后面的 ERR。ERR 中也说得清楚：not found device or app key。但是为什么会这样，还是不知道。&lt;/p&gt;
+&lt;h2&gt;过程&lt;/h2&gt;
+&lt;p&gt;实在没辙，只能用官网的 SDK 中 demo 再次实验，不做任何修改，看看有没有问题。&lt;br /&gt;
+什么？还是不行？&lt;br /&gt;
+好吧，我都不自己编译了，直接用 SDK 中提供的编译好的程序烧录，我就不信邪了。&lt;br /&gt;
+当看到同样的结果，心拔凉拔凉的......&lt;br /&gt;
+这时，已经怀疑人生了......&lt;/p&gt;
+&lt;p&gt;这时，你会想什么。&lt;br /&gt;
+官方 demo 问题？之前官网的 SDK demo，是实验过的，没有问题的，所以这个不用怀疑。&lt;br /&gt;
+硬件问题？嗯，很有可能，这时只能让硬件来暂时背锅了。可是目前只有一块开发板，如果有多个设备，倒是可以一试。&lt;br /&gt;
+没招了，只能喝杯水，上个厕所，暂时逃避一下。&lt;/p&gt;
+&lt;p&gt;不能罢工不干了吧。&lt;br /&gt;
+回到座位，开始回想自己从上次设备可以正常工作，到现在为止，自己到底做了些什么。&lt;br /&gt;
+之前是一个 ADC 采样通道，现在是两个：于是去掉新增的连线试试，不行。&lt;br /&gt;
+外接的各种连线都去掉，只保留烧录器连线和串口连线，不行。
+单独用适配器给设备供电，不使用 USB hub，不用电脑供电，不行。&lt;/p&gt;
+&lt;p&gt;不能罢工不干了吧。&lt;br /&gt;
+开始逛官方论坛，在论坛提问，长时间没有人回复......&lt;br /&gt;
+开始再次从前往后看官方文档（因为之前自己是边看文档，边实验成功的），看看是不是有什么地方遗漏了。&lt;/p&gt;
+&lt;p&gt;看了很久很久（其实也就 1 个小时左右）。&lt;br /&gt;
+Kuang！上天垂怜，文档中的一段话提醒了我：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;QA(常见问答)  
+Q3. 剔除、删除或者踢出节点的时候，可以用组号作为目的地址吗？
+设备剔除出网络，是必须一个一个去kick out的。 原因是 kick out 发送的是 &quot;NODE_RESET&quot; 命令，这个命令属于 configure model，需要使用 device key加解密，而每个节点的device key是不一样的，所以没办法使用 组播 的方式发送命令。除非客户自定义 vendor 命令去做kick out动作。
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;剔除网络、RESET 命令，device key，这几个词，像黑夜中的明灯，让我突然有了希望！&lt;br /&gt;
+为什么：&lt;br /&gt;
+因为在问题出现之前，我确实有把设备剔除网络的操作；&lt;br /&gt;
+因为我新增 ADC 采样通道，连线时，因为开发板上没有多余的 3.3v 电压，我自作聪明，用示波器量了开发板上各可用空管脚的电压，发现 RST 管脚是 3.3v，就想临时用一下，把 RST 管脚所为 ADC 的参考电压；&lt;br /&gt;
+因为设备端串口日志中 ERR 有关键字：device or app key；&lt;br /&gt;
+于是，猜测原因：&lt;br /&gt;
+自己在 APP 中把设备剔除网络时，因为 RST 管脚是连接到外设的，导致 &quot;NODE_RESET&quot; 命令没有真正执行成功，APP 上显示删除了，没有设备了，但是设备上还保留有配网的相关信息，从而导致前面的问题！&lt;br /&gt;
+那怎么解决呢？—— 完全擦除 Flash，重新烧录！&lt;/p&gt;
+&lt;h2&gt;解决&lt;/h2&gt;
+&lt;p&gt;然后，迫不及待，打开烧录工具，连接上设备，先 &quot;Erase&quot;，再 download。设备上电，一切恢复正常！
+喜极而泣......&lt;/p&gt;
+&lt;h2&gt;反思&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;GPIO 管脚各司其职，不要乱用（不过借用 RTS 管脚确实解决了我暂时没有 3.3v 资源可用的问题，调通了两路 ADC 同时采样的程序）&lt;/li&gt;
+&lt;li&gt;遇到这种几乎让人抓狂的问题，可以怀疑人生，但不要放弃：问题就在那里，只是暂时没有找到罢了。&lt;/li&gt;
+&lt;li&gt;做为一个程序员，有问题真是家常便饭，修炼的不只是代码，还有心态，什么时候能做到云淡风轻了，说明入行了。&lt;/li&gt;
+&lt;li&gt;完全没有思路，没有招的时候，离开座位，抽烟，喝茶，上厕所......，甚至下班回去睡一觉，说不定第二天就有思路（过来人，这招屡试不爽！）。&lt;/li&gt;
+&lt;li&gt;具体到这个问题，官方 SDK 也有问题：发送 &quot;NODE_RESET&quot; 命令，因为 RST 管脚的问题，没有执行成功，APP 端为什么会显示已删除。&lt;/li&gt;
+&lt;/ul&gt;
+</content:encoded></item><item><title>泰凌微 sig_mesh_sdk 的 LOG 日志打印</title><link>https://bigfox.me/posts/%E5%B5%8C%E5%85%A5%E5%BC%8F/telink-ble-log-print/</link><guid isPermaLink="true">https://bigfox.me/posts/%E5%B5%8C%E5%85%A5%E5%BC%8F/telink-ble-log-print/</guid><pubDate>Sat, 11 Oct 2025 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;日志打印&lt;/h2&gt;
+&lt;h3&gt;配置输出接口(USB、UART、GPIO)&lt;/h3&gt;
+&lt;p&gt;文件：vendor/mesh/app_config_8258.h&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;/////////////////////HCI ACCESS OPTIONS///////////////////////////////////////
+#define HCI_USE_NONE	0
+#define HCI_USE_UART	1
+#define HCI_USE_USB		2
+
+#define HCI_ACCESS		HCI_USE_NONE
+
+//#define HCI_LOG_FW_EN   (0 || DEBUG_LOG_SETTING_DEVELOP_MODE_EN)
+#define HCI_LOG_FW_EN   (1 || DEBUG_LOG_SETTING_DEVELOP_MODE_EN)	//modify by bigfox
+
+#define DEBUG_INFO_TX_PIN           		GPIO_PB1	//modify by bigfox
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;配置输出波特率&lt;/h3&gt;
+&lt;p&gt;文件：vendor/common/myprintf.h&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#define SIMU_BAUD_115200    115200
+#define SIMU_BAUD_230400    230400
+#define SIMU_BAUD_1M        1000000
+
+//#define BAUD_USE    SIMU_BAUD_1M
+#define BAUD_USE    SIMU_BAUD_115200	//modify by bigfox
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2&gt;日志控制&lt;/h2&gt;
+&lt;p&gt;文件：proj_lib/sig_mesh/app_mesh.h&lt;/p&gt;
+&lt;h3&gt;配置日志级别&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;#define TL_LOG_LEVEL				TL_LOG_LEVEL_DEBUG	//modify by bigfox
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;配置日志模块&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;#define TL_LOG_SEL_VAL  (BIT(TL_LOG_USER))//(BIT(TL_LOG_NODE_SDK)|BIT(TL_LOG_FRIEND)|BIT(TL_LOG_IV_UPDATE)) // |BIT(TL_LOG_NODE_SDK_NW_UT)  
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;TL_LOG_SEL_VAL 需要包含对应的 module， 比如 TL_LOG_USER，该 module 才会打印。&lt;br /&gt;
+只有 level 和 module 都符合条件的情况下，对应的 log 才会打印。&lt;/p&gt;
+&lt;h2&gt;浮点数打印&lt;/h2&gt;
+&lt;p&gt;文件：proj/common/printf.c&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;- - please enable FLOAT_PRINT_EN to support %f ! - -  
+#define FLOAT_PRINT_EN		1  
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;但经实际测试，不能控制小数位数，比如2位小数，%.2f，只能用%f&lt;/p&gt;
+&lt;h2&gt;注意事项&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;修改之后直接编译烧录，发现不生效！需要项目 clean 之后再 build !!!&lt;/li&gt;
+&lt;li&gt;同一个SDK，有不同的编译选项，比如：8258_mesh/8258_mesh_lpn/ 8258_mesh_gw 等，修改配置时，注意修改的是对应编译选项选择后生效的配置文件。比如 app_config_8258.h 文件，需要注意修改的是哪个目录下的此文件。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;参考&lt;/h2&gt;
+&lt;p&gt;泰凌微 sig_mesh_sdk 的 LOG 日志打印：&lt;br /&gt;
+&lt;a href=&quot;https://blog.csdn.net/weixin_45149267/article/details/125478502&quot;&gt;https://blog.csdn.net/weixin_45149267/article/details/125478502&lt;/a&gt;&lt;/p&gt;
+</content:encoded></item><item><title>泰凌微 TLSR 825x 系列 BLE Mesh 开发记录</title><link>https://bigfox.me/posts/%E5%B5%8C%E5%85%A5%E5%BC%8F/telink-ble-mesh-record/</link><guid isPermaLink="true">https://bigfox.me/posts/%E5%B5%8C%E5%85%A5%E5%BC%8F/telink-ble-mesh-record/</guid><pubDate>Fri, 10 Oct 2025 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;泰凌微（Telink）的开发资料与文档，相对比较混乱（官网文档、官方 wiki 网站、pdf文档三者之间内容重复，又新旧不一致），加之蓝牙开发又相对复杂，现把开发过程中使用的文档，遇到的问题纪录一下。&lt;/p&gt;
+&lt;h2&gt;官方文档&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://doc.telink-semi.cn/doc/zh/software/res/sdk/ble_mesh/sig_mesh_cn/sig_mesh_cn/&quot;&gt;SIG Mesh SDK 官方文档&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;TLSR825x Mesh SDK 下载地址&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://gitee.com/telink-semi/tc_ble_mesh/tags&quot;&gt;Gitee 下载地址&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;https://github.com/telink-semi/tc_ble_mesh/tags&quot;&gt;Github 下载地址&lt;/a&gt;&lt;br /&gt;
+注意：下载 SDK 之后，需要打 patch，才有最近的更新。&lt;/p&gt;
+&lt;h2&gt;集成开发环境（IDE）&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://wiki.telink-semi.cn/wiki/IDE-and-Tools/Telink_IoT_Studio/&quot;&gt;Telink IoT Studio 下载地址&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;https://doc.telink-semi.cn/doc/zh/software/res/tools/telink_ide/Telink_IoT_Studio_User_Guide_cn/&quot;&gt;Telink IoT Studio 用户指南&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;IDE 中 Warnings 的解决&lt;/h2&gt;
+&lt;p&gt;首次打开官方 SDK 中的项目，IDE 开发环境中 Problems 标签中会出现警告：
+Project &apos;firmware&apos; has no explicit encoding set。&lt;br /&gt;
+这是因为 IDE 中，没有显式配置项目的文件编码，即使 IDE 有默认配置的文件编码 UTF-8。&lt;br /&gt;
+解决方法：鼠标选中 IDE 左侧项目文件夹，右键，最底下的 properties，Resource，Text file encoding，Other 选择 UTF-8。&lt;/p&gt;
+&lt;h2&gt;如何确认使用的 SDK 版本&lt;/h2&gt;
+&lt;p&gt;在 IDE 中，可以通过编译完成后，Console 中最后的输出来判断使用的 SDK 版本：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;---------------------------  SDK version info ---------------------------
+telink_sig_mesh_sdk_V4.1.0.1.2
+---------------------------  SDK version end  ---------------------------
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2&gt;如何修改设备端的固件版本号&lt;/h2&gt;
+&lt;p&gt;SDK目录/vendor/common/version.h 文件中修改：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#define SW_VERSION_SPEC			(4)		// &quot;3&quot; means SIG MESH 1.0.x, &quot;4&quot; means SIG MESH 1.1.x; 0 mean beta version.
+#define SW_VERSION_MAJOR		(1)		// &quot;1&quot; means single connection&quot;2&quot;, means multi connection. 
+#define SW_VERSION_MINOR		(0)		// 
+#define SW_VERSION_2ND_MINOR	(1)		// second minor or fix version
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;注意：&lt;/strong&gt;&lt;br /&gt;
+修改版本号后，需要 make clean 后再重新编译（IDE 中：Project-&amp;gt;Clean...），代码注释中有说明：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#define BUILD_VERSION		(MESH_PID_SEL|(MESH_VID &amp;lt;&amp;lt; 16))	// if value change, must make clean. same sequence with cps
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2&gt;设置 MCU 时钟频率&lt;/h2&gt;
+&lt;p&gt;项目中实际使用的 MCU 时钟来源于外部 24M Hz 晶振，需要核对 SDK 中的时钟配置。&lt;br /&gt;
+SDK目录/vendor/mesh/app_config_8258.h 文件中修改：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#define CLOCK_SYS_CLOCK_HZ  	24000000
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2&gt;设置 publish addr&lt;/h2&gt;
+&lt;p&gt;出处：&lt;a href=&quot;https://doc.telink-semi.cn/doc/zh/software/res/sdk/ble_mesh/sig_mesh_cn/sig_mesh_cn/?h=publish+addr#device-settinglight&quot;&gt;Sensor设备Sensor Control&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Sensor设备Sensor Control&lt;br /&gt;
+当Sensor设备支持Sensor Server时，设备Control页面下会出现Sensor Control子页面入口。&lt;br /&gt;
+(a) publish adr是能够接收到传感器状态数据的地址。publish adr为0表示传感器不上报状态数据。publish adr为0xFFFF表示所有设备都可以接收到传感器状态数据。如果只想单个设备接收到这个传感器的状态数据，则需要将publish adr设置为该设备的Light LC Server所在的element地址。&lt;br /&gt;
+(b) period默认设置为0，表示Sensor数据不会周期性上报，而是Sensor数据的值有变化时才会进行数据上报。&lt;br /&gt;
+(c) Sensor Data是传感器通过SensorStatus指令上报的传感器数据，Sensor Descriptor是传感器通过SensorDescriptorStatus指令上报的传感器固化的配置参数，Sensor Cadence是传感器通过SensorCadenceStatus指令上报的传感器可修改的配置参数。&lt;/p&gt;
+&lt;/blockquote&gt;
+</content:encoded></item><item><title>异地组网工具 Tailscale 的学习与实践</title><link>https://bigfox.me/posts/%E5%85%B6%E5%AE%83/vpn-tailscale-records/</link><guid isPermaLink="true">https://bigfox.me/posts/%E5%85%B6%E5%AE%83/vpn-tailscale-records/</guid><pubDate>Fri, 05 Sep 2025 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;缘起&lt;/h2&gt;
+&lt;p&gt;需要在家里访问公司的电脑和服务器。&lt;/p&gt;
+&lt;h2&gt;异地组网工具概述&lt;/h2&gt;
+&lt;h3&gt;Tailscale、ZeroTier 和 Netbird&lt;/h3&gt;
+&lt;p&gt;Tailscale、ZeroTier 和 Netbird 都是功能相似的优秀异地组网工具，且均支持自建服务器。&lt;br /&gt;
+与 ZeroTier 相比，Tailscale 功能更丰富、自建更为简便，同时 WireGuard 效率更高；缺点是 Tailscale 客户端资源占用略高（要求RAM＞512M）。&lt;br /&gt;
+与 Netbird 相比，Tailscale 起步较早实践资料和可用插件更多（如 OpenWRT Luci-UI，&lt;a href=&quot;https://github.com/asvow/luci-app-tailscale&quot;&gt;https://github.com/asvow/luci-app-tailscale&lt;/a&gt;），并且不强制要求独占80与443端口；缺点是 WireGuard 在 go 下性能略逊于内核态，同时 Headscale 并非 Netbird 一样由官方支持。&lt;/p&gt;
+&lt;h3&gt;TigerVNC&lt;/h3&gt;
+&lt;p&gt;High performance, multi-platform VNC client and server.&lt;br /&gt;
+官网：&lt;a href=&quot;https://tigervnc.org/&quot;&gt;https://tigervnc.org/&lt;/a&gt;&lt;br /&gt;
+源码：&lt;a href=&quot;https://github.com/TigerVNC/tigervnc&quot;&gt;https://github.com/TigerVNC/tigervnc&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;参考&lt;/h3&gt;
+&lt;p&gt;知乎专栏：&lt;a href=&quot;https://www.zhihu.com/column/c_1584682109159034881&quot;&gt;大内网战略&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;Tailscale 异地组网&lt;/h2&gt;
+&lt;h3&gt;Tailscale 官网&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://tailscale.com/&quot;&gt;https://tailscale.com/&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;Tailscale 工作原理&lt;/h3&gt;
+&lt;p&gt;官方文档：&lt;br /&gt;
+&lt;a href=&quot;https://tailscale.com/blog/how-tailscale-works&quot;&gt;https://tailscale.com/blog/how-tailscale-works&lt;/a&gt;。&lt;br /&gt;
+Tailscale 服务器端分为两部分，包括负责通信与认证的 Headscale 服务器和负责打洞和转发的 DERP 服务器。&lt;br /&gt;
+以两台计算机为例，它们首先分别通过 Tailscale 客户端注册至 Headscale 服务器，在建立通信时先通过 Headscale 服务器交换握手信息，随后分配到合适的 DERP 服务器进行中继连接和 STUN 打洞。若打洞成功，两端将在 Headscale 服务器引导下绕过中继服务器建立点对点的直连隧道；若打洞失败，两端将保持通过 DERP 服务器中继的互联模式。&lt;/p&gt;
+&lt;p&gt;流量穿透原理：&lt;br /&gt;
+原文：&lt;a href=&quot;https://tailscale.com/blog/how-nat-traversal-works&quot;&gt;https://tailscale.com/blog/how-nat-traversal-works&lt;/a&gt;&lt;br /&gt;
+翻译：&lt;a href=&quot;https://arthurchiao.art/blog/how-nat-traversal-works-zh/&quot;&gt;NAT 穿透是如何工作的：技术原理及企业级实践&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;自建 DERP 中继服务&lt;/h3&gt;
+&lt;p&gt;官方文档：&lt;br /&gt;
+&lt;a href=&quot;https://tailscale.com/kb/1118/custom-derp-servers&quot;&gt;https://tailscale.com/kb/1118/custom-derp-servers&lt;/a&gt;&lt;br /&gt;
+网络文章：&lt;br /&gt;
+&lt;a href=&quot;https://zhuanlan.zhihu.com/p/9863627411&quot;&gt;Tailscale自定义DERP服务器&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;https://sspai.com/post/89200&quot;&gt;更好更快的的家庭组网，自建 Tailscale DERP服务（IPv4）&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;https://icloudnative.io/posts/custom-derp-servers/&quot;&gt;Tailscale 基础教程：部署私有 DERP 中继服务器&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;部署 Headscale&lt;/h3&gt;
+&lt;p&gt;Headscale 是 Tailscale 的一个开源服务端，通过 go 语言完整地支持了绝大多数 Tailscale 的基础功能，使   Tailscale 能够完全工作于独立自建的服务端之上。&lt;br /&gt;
+官方文档：&lt;br /&gt;
+Headscale : &lt;a href=&quot;https://tailscale.com/&quot;&gt;https://github.com/juanfont/headscale&lt;/a&gt;&lt;br /&gt;
+Headscale WebUI: &lt;a href=&quot;https://github.com/GoodiesHQ/headscale-admin&quot;&gt;https://github.com/GoodiesHQ/headscale-admin&lt;/a&gt;&lt;br /&gt;
+网络文章：&lt;br /&gt;
+&lt;a href=&quot;https://zhuanlan.zhihu.com/p/584825172&quot;&gt;一款超牛逼的 P2P 内网穿透神器（附安装、使用教程）&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;https://icloudnative.io/posts/how-to-set-up-or-migrate-headscale/&quot;&gt;Tailscale 基础教程：Headscale 的部署方法和使用教程&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;https://cloud.tencent.com/developer/article/2457464&quot;&gt;自建境内 Headscale 实现点对点直连异地组网——以双栈腾讯云轻量为例&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;Tailscale Derper 服务部署实践&lt;/h2&gt;
+&lt;p&gt;参考：使用 Let’s Encrypt 免费申请泛域名 SSL 证书，并实现自动续期&lt;br /&gt;
+&lt;a href=&quot;https://www.cnblogs.com/michaelshen/p/18538178&quot;&gt;https://www.cnblogs.com/michaelshen/p/18538178&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;二级域名SSL证书申请：&lt;br /&gt;
+方法1：certbot certonly --standalone -d derper.example.com 需要关闭80端口服务&lt;br /&gt;
+方法2：sudo certbot --nginx -d example.com -d www.example.com 需要nginx&lt;br /&gt;
+方法3：certbot --manual --preferred-challenges dns certonly --domains example.com 最后我使用的方法&lt;/p&gt;
+&lt;p&gt;查看域名 https 证书有效期的多种方法：&lt;br /&gt;
+https://blog.csdn.net/citycloudpeter/article/details/113942161&lt;/p&gt;
+&lt;p&gt;验证txt记录&lt;br /&gt;
+Linux: dig -t txt _acme-challenge.example.com  查看记录值的配置是否生效&lt;br /&gt;
+Windows: nslookup -type=TXT _acme-challenge.example.com 8.8.8.8&lt;/p&gt;
+&lt;p&gt;关于证书部分需要重点说明：&lt;br /&gt;
+假设你的域名是 xxx.com，那么证书的名称必须是 xxx.com.crt，同理，私钥名称必须是 xxx.com.key&lt;/p&gt;
+&lt;p&gt;创建软链接并同时重命名证书&lt;br /&gt;
+ln -s /etc/letsencrypt/live/example/fullchain.pem /root/go/bin/example.com.crt&lt;br /&gt;
+ln -s /etc/letsencrypt/live/example/privkey.pem   /root/go/bin/example.com.key&lt;/p&gt;
+&lt;p&gt;derper.service：&lt;br /&gt;
+systemctl daemon-reload 修改 service 文件后需要&lt;br /&gt;
+systemctl restart derper 重启 derper服务（derper.service）&lt;br /&gt;
+systemctl enable derper 加入开机启动&lt;/p&gt;
+&lt;p&gt;检查：&lt;br /&gt;
+tailscale netcheck&lt;br /&gt;
+tailscale status 可以看到和对方是否打洞成功，成功就是直连，不成功就走中继&lt;br /&gt;
+https://example.com:33456/  检查DERP服务是否在正常运行，同时可查看SSL证书过期时间&lt;br /&gt;
+tailscale ping &amp;lt;节点IP地址&amp;gt; 这个更加友好一点，会直接告诉你是通过 哪个 DERP 中继服务器来和对方通信的&lt;/p&gt;
+</content:encoded></item><item><title>内网穿透 Tailscale（二）：Derper 服务部署实践</title><link>https://bigfox.me/posts/%E5%85%B6%E5%AE%83/vpn-tailscale-practice/</link><guid isPermaLink="true">https://bigfox.me/posts/%E5%85%B6%E5%AE%83/vpn-tailscale-practice/</guid><pubDate>Tue, 02 Sep 2025 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;参考&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.cnblogs.com/michaelshen/p/18538178&quot;&gt;使用 Let’s Encrypt 免费申请泛域名 SSL 证书，并实现自动续期&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;第1步：二级域名 SSL 证书申请&lt;/h2&gt;
+&lt;p&gt;方法1：certbot certonly --standalone -d derper.example.com（需要关闭 80 端口服务）&lt;br /&gt;
+方法2：sudo certbot --nginx -d derper.example.com（需要 nginx ）&lt;br /&gt;
+方法3：certbot --manual --preferred-challenges dns certonly --domains derper.example.com （最后我使用的方法）&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;[root@VM_0_3_centos tailscale]# certbot --manual --preferred-challenges dns certonly --domains derper.example.com
+Saving debug log to /var/log/letsencrypt/letsencrypt.log
+Renewing an existing certificate for derper.example.com
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Please deploy a DNS TXT record under the name:
+
+_acme-challenge.derper.example.com.
+
+with the following value:
+
+2NAlm8663zIkfaeBi5X8rLOyrOimu0oS_S1578DVwBU
+
+Before continuing, verify the TXT record has been deployed. Depending on the DNS
+provider, this may take some time, from a few seconds to multiple minutes. You can
+check if it has finished deploying with aid of online tools, such as the Google
+Admin Toolbox: https://toolbox.googleapps.com/apps/dig/#TXT/_acme-challenge.derper.example.com.
+Look for one or more bolded line(s) below the line &apos;;ANSWER&apos;. It should show the
+value(s) you&apos;ve just added.
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Press Enter to Continue
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2&gt;第2步：添加域名验证&lt;/h2&gt;
+&lt;p&gt;出现上述提示，说明需要域名验证。在域名注册处通过添加 TXT 记录的方式验证域名属于自己。&lt;/p&gt;
+&lt;h2&gt;第3步：确认 TXT 记录是否生效&lt;/h2&gt;
+&lt;p&gt;Linux 系统下：dig -t txt _acme-challenge.derper.example.com  查看记录值的配置是否生效&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;[root@VM_0_3_centos bin]# dig -t txt _acme-challenge.derper.example.com
+
+; &amp;lt;&amp;lt;&amp;gt;&amp;gt; DiG 9.11.4-P2-RedHat-9.11.4-26.P2.el7_9.13 &amp;lt;&amp;lt;&amp;gt;&amp;gt; -t txt _acme-challenge.derper.example.com
+;; global options: +cmd
+;; Got answer:
+;; -&amp;gt;&amp;gt;HEADER&amp;lt;&amp;lt;- opcode: QUERY, status: NOERROR, id: 8425
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 0
+
+;; QUESTION SECTION:
+;_acme-challenge.derper.example.com. IN      TXT
+
+;; ANSWER SECTION:
+_acme-challenge.derper.example.com. 495 IN   TXT     &quot;2NAlm8663zIkfaeBi5X8rLOyrOimu0oS_S1578DVwBU&quot;
+
+;; Query time: 0 msec
+;; SERVER: 100.100.100.100#53(100.100.100.100)
+;; WHEN: 一 8月 18 11:29:16 CST 2025
+;; MSG SIZE  rcvd: 103
+
+[root@VM_0_3_centos bin]#
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Windows 系统下：nslookup -type=TXT _acme-challenge.derper.example.com 8.8.8.8&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;PS C:\Users\bigfox&amp;gt; nslookup -type=TXT _acme-challenge.derper.example.com 8.8.8.8
+服务器:  dns.google
+Address:  8.8.8.8
+
+非权威应答:
+_acme-challenge.derper.example.com   text =
+
+        &quot;2NAlm8663zIkfaeBi5X8rLOyrOimu0oS_S1578DVwBU&quot;
+PS C:\Users\bigfox&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2&gt;第4步：回车确认第1步&lt;/h2&gt;
+&lt;p&gt;如果 TXT 记录已生效，在第1步的终端回车确认。输出如下：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Successfully received certificate.
+Certificate is saved at: /etc/letsencrypt/live/derper.example.com/fullchain.pem
+Key is saved at:         /etc/letsencrypt/live/derper.example.com/privkey.pem
+This certificate expires on 2025-11-16.
+These files will be updated when the certificate renews.
+
+NEXT STEPS:
+- This certificate will not be renewed automatically. Autorenewal of --manual certificates requires the use of an authentication hook script (--manual-auth-hook) but one was not provided. To renew this certificate, repeat this same certbot command before the certificate&apos;s expiry date.
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+If you like Certbot, please consider supporting our work by:
+ * Donating to ISRG / Let&apos;s Encrypt:   https://letsencrypt.org/donate
+ * Donating to EFF:                    https://eff.org/donate-le
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+[root@VM_0_3_centos tailscale]#
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2&gt;第5步：创建软链接指向域名证书&lt;/h2&gt;
+&lt;p&gt;ln -s /etc/letsencrypt/live/derper.example.com/fullchain.pem /root/go/bin/derper.example.com.crt&lt;br /&gt;
+ln -s /etc/letsencrypt/live/derper.example.com/privkey.pem   /root/go/bin/derper.example.com.key&lt;/p&gt;
+&lt;p&gt;关于证书需要重点说明：&lt;br /&gt;
+假设你的域名是 xxx.com，那么证书的名称必须是 xxx.com.crt，同理，私钥名称必须是 xxx.com.key&lt;/p&gt;
+&lt;h2&gt;第6步：重启 derper 服务&lt;/h2&gt;
+&lt;p&gt;systemctl daemon-reload 修改 service 文件后需要&lt;br /&gt;
+systemctl restart derper 重启 derper服务&lt;br /&gt;
+systemctl enable derper 服务加入开机启动&lt;/p&gt;
+&lt;h2&gt;运维&lt;/h2&gt;
+&lt;p&gt;查看域名 https 证书有效期的多种方法：&lt;br /&gt;
+https://blog.csdn.net/citycloudpeter/article/details/113942161&lt;/p&gt;
+&lt;p&gt;检查DERP服务是否在正常运行，同时可查看SSL证书过期时间：&lt;br /&gt;
+https://derper.example.com:33456/&lt;/p&gt;
+&lt;p&gt;检查 tailscale 运行状态常用命令：&lt;br /&gt;
+tailscale netcheck  查看 Derp 中继服务器及时延&lt;br /&gt;
+tailscale status 可以看到和对方是否打洞成功，成功就是直连，不成功就走中继&lt;br /&gt;
+tailscale ping &amp;lt;节点IP地址&amp;gt; 这个更加友好一点，会直接告诉你是通过哪个 DERP 中继服务器来和对方通信的&lt;/p&gt;
+</content:encoded></item><item><title>内网穿透 Tailscale（一）：参考资源</title><link>https://bigfox.me/posts/%E5%85%B6%E5%AE%83/vpn-tailscale-resource/</link><guid isPermaLink="true">https://bigfox.me/posts/%E5%85%B6%E5%AE%83/vpn-tailscale-resource/</guid><pubDate>Mon, 01 Sep 2025 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;Tailscale 官网&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://tailscale.com/&quot;&gt;https://tailscale.com/&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;Tailscale 工作原理&lt;/h2&gt;
+&lt;p&gt;官方文档：&lt;br /&gt;
+&lt;a href=&quot;https://tailscale.com/blog/how-tailscale-works&quot;&gt;https://tailscale.com/blog/how-tailscale-works&lt;/a&gt;。&lt;br /&gt;
+Tailscale 服务器端分为两部分，包括负责通信与认证的 Headscale 服务器和负责打洞和转发的 DERP 服务器。&lt;br /&gt;
+以两台计算机为例，它们首先分别通过 Tailscale 客户端注册至 Headscale 服务器，在建立通信时先通过 Headscale 服务器交换握手信息，随后分配到合适的 DERP 服务器进行中继连接和 STUN 打洞。若打洞成功，两端将在 Headscale 服务器引导下绕过中继服务器建立点对点的直连隧道；若打洞失败，两端将保持通过 DERP 服务器中继的互联模式。&lt;/p&gt;
+&lt;p&gt;流量穿透原理：&lt;br /&gt;
+原文：&lt;a href=&quot;https://tailscale.com/blog/how-nat-traversal-works&quot;&gt;https://tailscale.com/blog/how-nat-traversal-works&lt;/a&gt;&lt;br /&gt;
+翻译：&lt;a href=&quot;https://arthurchiao.art/blog/how-nat-traversal-works-zh/&quot;&gt;NAT 穿透是如何工作的：技术原理及企业级实践&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;自建 DERP 中继服务&lt;/h2&gt;
+&lt;p&gt;官方文档：&lt;br /&gt;
+&lt;a href=&quot;https://tailscale.com/kb/1118/custom-derp-servers&quot;&gt;https://tailscale.com/kb/1118/custom-derp-servers&lt;/a&gt;&lt;br /&gt;
+网络文章：&lt;br /&gt;
+&lt;a href=&quot;https://zhuanlan.zhihu.com/p/9863627411&quot;&gt;Tailscale自定义DERP服务器&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;https://sspai.com/post/89200&quot;&gt;更好更快的的家庭组网，自建 Tailscale DERP服务（IPv4）&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;https://icloudnative.io/posts/custom-derp-servers/&quot;&gt;Tailscale 基础教程：部署私有 DERP 中继服务器&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;部署 Headscale&lt;/h2&gt;
+&lt;p&gt;Headscale 是 Tailscale 的一个开源服务端，通过 go 语言完整地支持了绝大多数 Tailscale 的基础功能，使   Tailscale 能够完全工作于独立自建的服务端之上。&lt;br /&gt;
+官方文档：&lt;br /&gt;
+Headscale : &lt;a href=&quot;https://tailscale.com/&quot;&gt;https://github.com/juanfont/headscale&lt;/a&gt;&lt;br /&gt;
+Headscale WebUI: &lt;a href=&quot;https://github.com/GoodiesHQ/headscale-admin&quot;&gt;https://github.com/GoodiesHQ/headscale-admin&lt;/a&gt;&lt;br /&gt;
+网络文章：&lt;br /&gt;
+&lt;a href=&quot;https://zhuanlan.zhihu.com/p/584825172&quot;&gt;一款超牛逼的 P2P 内网穿透神器（附安装、使用教程）&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;https://icloudnative.io/posts/how-to-set-up-or-migrate-headscale/&quot;&gt;Tailscale 基础教程：Headscale 的部署方法和使用教程&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;https://cloud.tencent.com/developer/article/2457464&quot;&gt;自建境内 Headscale 实现点对点直连异地组网——以双栈腾讯云轻量为例&lt;/a&gt;&lt;/p&gt;
+</content:encoded></item><item><title>嵌入式软硬件信创方案预研报告</title><link>https://bigfox.me/posts/%E5%B5%8C%E5%85%A5%E5%BC%8F/info-innovation-research/</link><guid isPermaLink="true">https://bigfox.me/posts/%E5%B5%8C%E5%85%A5%E5%BC%8F/info-innovation-research/</guid><pubDate>Fri, 29 Aug 2025 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;信创处理器举例&lt;/h2&gt;
+&lt;p&gt;目前 CPU 的国产选择主要有：海光、兆芯、鲲鹏、飞腾、龙芯、申威等。&lt;br /&gt;
+其中海光和兆芯是通用IP内核授权模式，基于X86授权来开发自己的芯片，特点是速度够快，成本够低，但自主可控性就稍微略差了。&lt;br /&gt;
+飞腾和华为的鲲鹏是通过指令集架构授权模式，基于ARM授权开发自己的芯片，特点是自主化程度更高，对移动端产品的支持更优秀。目前基于Arm V8的永久授权没有啥问题，可以在此基础上不断改改改。但Arm在升级至V9后将不再向这些国产CPU厂商提供Armv9的永久授权，后续风险不小。&lt;br /&gt;
+最后龙芯和申威走的是授权+自主研制的模式，早期使用国外的指令集授权，后来自己开发，完全自主可控。其中龙芯是走了一条完全与众不同拓荒路，从MIPS架构入手，并且买断了MIPS架构的永久授权，然后从底层开始研究，开发出了LoongArch指令集。未来最可能真正国产化的可能就是龙芯了。&lt;/p&gt;
+&lt;h3&gt;瑞芯微处理器&lt;/h3&gt;
+&lt;p&gt;瑞芯微处理器属于国产处理器，是通过指令集架构授权模式，基于ARM授权开发自己的芯片。&lt;br /&gt;
+瑞芯微虽未被明确纳入信创名录，但其处理器也是符合信创要求的。&lt;br /&gt;
+参考：RK3588芯片或主板在信创名录内吗?&lt;/p&gt;
+&lt;h2&gt;信创操作系统举例&lt;/h2&gt;
+&lt;p&gt;以下简要介绍满足信创要求的主要操作系统。&lt;/p&gt;
+&lt;h3&gt;OpenHarmony（开源鸿蒙）&lt;/h3&gt;
+&lt;p&gt;官网：https://www.openharmony.cn/&lt;br /&gt;
+OpenHarmony 源自华为自研的鸿蒙操作系统。华为于 2020 年 9 月及 2021 年 5 月分两次将鸿蒙系统的基础能力全部捐献给了开放原子开源基金会。开放原子开源基金会把受捐赠代码遵循 Apache 许可证开源，并将该项目命名为 OpenAtom OpenHarmony（简称“OpenHarmony”）。&lt;br /&gt;
+参考：项目介绍&lt;br /&gt;
+参考：官方支持的开发板&lt;br /&gt;
+参考：开源鸿蒙开发板汇总贴
+参考：触觉智能RK3506核心板工业应用之开源鸿蒙+星闪&lt;/p&gt;
+&lt;h3&gt;KaihongOS（深开鸿）&lt;/h3&gt;
+&lt;p&gt;官网：https://www.kaihong.com/&lt;br /&gt;
+深圳开鸿数字产业发展有限公司（简称“深开鸿”）成立于2021年，是一家专注于开源鸿蒙（OpenHarmony）的生态平台型企业。&lt;br /&gt;
+参考：项目介绍&lt;br /&gt;
+参考：官方支持的开发板&lt;br /&gt;
+参考：瑞芯微RK35最小算力的开鸿鸿蒙主板&lt;br /&gt;
+参考：瑞芯微100%全国产化RK3568工业核心板-适配鸿蒙系统&lt;br /&gt;
+KaihongOS 4.1.2版本分类&lt;br /&gt;
+KaihongOS 4.1.2 Stan.是针对 L2 级 （RAM&amp;gt;1GB，芯片如RK3568、RK3588或更高等级）设备，专为极致体验与性能的专业操作系统版本。适合用于中控设备、手持终端、高清大屏、高端无人机、智能机器人以及专业级PC等设备场景。&lt;br /&gt;
+KaihongOS 4.1.2 Small是针对 L1 级（RAM&amp;gt;128MB，芯片如Hi3519、Hi3516）设备的小型操作系统版本。适合用于摄像头、工业网关等场景。&lt;br /&gt;
+KaihongOS 4.1.2 Lite则是针对 L0 级（RAM&amp;gt;128KB，芯片如ESP32、Hi3863）设备的轻量操作系统版本。适合用于连接类模组、传感器设备、穿戴类设备等场景。&lt;/p&gt;
+&lt;h3&gt;openEuler （开源欧拉）&lt;/h3&gt;
+&lt;p&gt;官网：https://www.openeuler.openatom.cn/zh/&lt;br /&gt;
+openEuler是由开放原子开源基金会孵化的全场景开源操作系统项目，面向数字基础设施四大核心场景（服务器、云计算、边缘计算、嵌入式），全面支持ARM、x86、RISC-V、loongArch、PowerPC、SW-64等多样性计算架构。&lt;br /&gt;
+openEuler Embedded&lt;br /&gt;
+openEuler Embedded 是基于openEuler社区、面向嵌入式场景的版本，旨在成为一个高质量、开放的以Linux为中心的综合嵌入式系统软件平台。&lt;br /&gt;
+openEuler Embedded 当前主要支持ARM64、ARM32、x86-64、RISC-V等多种体系架构，支持海鸥派、RK3568/RK3588、Hi3093、树莓派4B、x86-64工控机等具体硬件。&lt;br /&gt;
+openEuler Embedded的中心是Linux，当前采用了与openEuler其他场景相同的，高质量的，openEuler Linux内核版本，目前支持5.10，6.6两大版本。&lt;br /&gt;
+同时针对嵌入式场景的需求，openEuler Embedded会在内核特性、系统配置、软件包组合、镜像裁剪等方面进行创新，包括但不限于 基于Preempt-RT补丁提供软实时能力、小型化（最小OS镜像&amp;lt;5 MB）、快速启动（启动时间小于&amp;lt;5S） 等。&lt;br /&gt;
+参考：openEuler Embedded使用与开发手册&lt;/p&gt;
+&lt;h3&gt;openKylin（开源麒麟）&lt;/h3&gt;
+&lt;p&gt;官网：https://www.openkylin.top/&lt;br /&gt;
+openKylin 是由开放原子开源基金会（OpenAtom Foundation）孵化及运营的开源项目。&lt;br /&gt;
+其系统支持X86、RISC-V、LoongArch（龙芯）、ARM架构的 CPU。&lt;br /&gt;
+参考：https://www.openkylin.top/downloads/&lt;/p&gt;
+&lt;h3&gt;统信软件&lt;/h3&gt;
+&lt;p&gt;官网：https://www.uniontech.com/&lt;br /&gt;
+统信软件的操作系统主要包括：桌面操作系统、服务器操作系统、云原生操作系统和智能终端操作系统。&lt;br /&gt;
+就嵌入式设备而言，可以考虑的是其智能终端操作系统。&lt;br /&gt;
+统信智能终端操作系统又分为：专业版、云终端专用版。&lt;br /&gt;
+统信智能终端操作系统专业版&lt;br /&gt;
+统信智能终端操作系统（英文简称： USmart）是一款专为智能终端打造 的多端融合操作系统，基于Linux内核自主研发，实现了对Linux Qt应用 和Android 应用的兼容，可在平板电 脑、手持终端、智慧大屏、自助终端 和云终端等不同形态的智能终端设备 上部署。&lt;br /&gt;
+参考：https://www.uniontech.com/OS-V20Professional.html&lt;br /&gt;
+统信智能终端操作系统云终端专用版&lt;br /&gt;
+统信智能终端操作系统云终端专用版基于Linux内核开发，支持AMD64、ARM64等多种CPU架构，支持兆芯、瑞芯微等多个国产平台和Intel系列处理器芯片，专门面向云终端设备量身定制，同时满足业务场景对操作系统的特性需求。&lt;br /&gt;
+参考：https://www.uniontech.com/OS-V20CloudProfessional.html&lt;/p&gt;
+&lt;h3&gt;麒麟软件&lt;/h3&gt;
+&lt;p&gt;官网：https://kylinos.cn/&lt;br /&gt;
+麒麟软件的操作系统主要包括：桌面操作系统、服务器操作系统、云原生操作系统、工业操作系统、智算操作系统，旗下有银河麒麟、中标麒麟、星光麒麟等子品牌。&lt;br /&gt;
+就嵌入式设备而言，可以考虑的是星光麒麟操作系统（银河麒麟要求的硬件配置比较高）。&lt;br /&gt;
+星光麒麟： 其Linux内核版本高，本质是基于AOSP（安卓开源项目）进行深度开发的国产AOSP商用发行版系统，因此天然兼容安卓APK系统应用及底层运行环境，可以直接安装apk应用，系统软件开发方式基本延用安卓开发方式及接口文档，开发套件等。&lt;br /&gt;
+银河麒麟： 其系统架构则是基于Ubuntu生态进行开发的国产Linux商用发行版，与ubuntu存在高度兼容性，所以客户可以很快熟悉开发环境。&lt;br /&gt;
+参考：https://product.kylinos.cn/productCase/178/38&lt;br /&gt;
+参考：支持国产化麒麟kylin系统的ARM开发板&lt;/p&gt;
+&lt;h3&gt;其它&lt;/h3&gt;
+&lt;p&gt;中科方德：主要是服务器操作系统和桌面操作系统，不适合嵌入式设备。&lt;br /&gt;
+中科红旗：主要是服务器操作系统和桌面操作系统，不适合嵌入式设备。&lt;br /&gt;
+HarmonyOS NEXT：华为的手机操作系统，不适合嵌入式设备。&lt;br /&gt;
+EulerOS：华为自主研发的服务器操作系统，不适合嵌入式设备。&lt;br /&gt;
+Deepin：武汉深之度科技有限公司开发的Linux操作系统，属于桌面操作系统，不适合嵌入式设备。&lt;/p&gt;
+&lt;h2&gt;附：信创产品认证&lt;/h2&gt;
+&lt;h3&gt;什么是信创产品认证&lt;/h3&gt;
+&lt;p&gt;信创产品认证是针对国产信息技术产品（如操作系统、数据库、中间件等）进行的评估和认证，确保这些产品在性能、安全性和兼容性上达到国家标准。认证的核心目标是实现信息技术的自主可控，减少对外部技术的依赖，保障信息安全，并推动国产化产业链的发展。&lt;/p&gt;
+&lt;h3&gt;申请信创产品认证的方式&lt;/h3&gt;
+&lt;p&gt;直接申请：企业可以向工业和信息化局或经济和信息化委员会申请办理信创产品认证。&lt;br /&gt;
+第三方机构：企业也可以选择找第三方机构进行认证，这样可以节省时间和精力。&lt;/p&gt;
+&lt;h3&gt;信创产品认证的类型&lt;/h3&gt;
+&lt;p&gt;信创认证包括多种证书，如适配认证证书、兼容性互认证书、信创软件产品证书和信创产品评估证书等。这些证书在信创环境中各自发挥不同的作用，确保产品的质量和兼容性。&lt;/p&gt;
+&lt;h3&gt;信创产品认证的两大阶段&lt;/h3&gt;
+&lt;p&gt;信创产品认证分为两大阶段：产品测试阶段和综合评审阶段。&lt;/p&gt;
+&lt;h4&gt;产品测试阶段&lt;/h4&gt;
+&lt;p&gt;产品测试阶段由具有国家资质的第三方检测机构负责。该阶段的核心是对产品进行全面的信创检测（即在国产化环境下检测），包括功能、性能、安全性等方面的测试。&lt;br /&gt;
+具体步骤如下：&lt;br /&gt;
+准备阶段：企业需提供产品的委托单、说明书、访问地址、账号、密码、安装包等资料。此外，产品需在国产化环境下进行部署和运行。&lt;br /&gt;
+测试实施：检测机构根据企业的要求进行功能、性能、安全性测试，并关注产品的适配测试。&lt;br /&gt;
+报告出具：测试完成后，检测机构将出具一份带有CNAS/CMA标识的检测报告。该报告在全国范围内得到认可。&lt;/p&gt;
+&lt;h4&gt;综合评审阶段&lt;/h4&gt;
+&lt;p&gt;除了产品本身的认证，信创认证还涉及知识产权、供应链、股权架构等方面的要求。具体步骤如下：&lt;br /&gt;
+材料准备：企业需提供专利、软件著作权等知识产权证明，填写申请表，并提交营业执照等相关文件。&lt;br /&gt;
+提交评审：将检测报告和相关材料提交给信创专委会，由专委会组织专家对产品进行全面评审。&lt;br /&gt;
+证书颁发：评审通过后，企业将获得信创评估证书。&lt;br /&gt;
+参考：信创产品认证 | 信创产品如何适配评估及认证，验收阶段的要求有哪些&lt;/p&gt;
+</content:encoded></item><item><title>关于信创的参考文章</title><link>https://bigfox.me/posts/%E5%B5%8C%E5%85%A5%E5%BC%8F/info-innovation-articles/</link><guid isPermaLink="true">https://bigfox.me/posts/%E5%B5%8C%E5%85%A5%E5%BC%8F/info-innovation-articles/</guid><pubDate>Wed, 27 Aug 2025 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;缘起&lt;/h2&gt;
+&lt;p&gt;最近嵌入式项目需要满足信创要求，第一次接触信创，网上没有找到系统的资料，无奈之下，只能慢慢收集。这篇文章权当是关于信创的网文收藏夹。&lt;/p&gt;
+&lt;h2&gt;基本概念&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://baijiahao.baidu.com/s?id=1794267475817915465&quot;&gt;什么是信创？为什么搞信创？怎样成为信创产品？&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;https://blog.csdn.net/CQC_rjlhsys/article/details/149743452&quot;&gt;信创符合性测试主要测试哪些内容（一）&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;https://blog.csdn.net/CQC_rjlhsys/article/details/148712332&quot;&gt;企业申请信创产品的标准、测评内容与证明材料都有哪些?（二）&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.itsec.gov.cn/aqkkcp/cpgg/&quot;&gt;安全可靠测评结果公告&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;https://blog.csdn.net/bjzhang75/article/details/144831991&quot;&gt;2024国产化信创产品名录&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://zhouxx.blog.csdn.net/article/details/149292642&quot;&gt;科普文：【支持信创、宣传国产】X86 、 ARM 、 RISC-V 、 MIPS 和 LoongArch 等CPU架构梳理&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;瑞芯微/定昌电子&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.gzdcsmt.com/sys-nd/1996.html&quot;&gt;rk3588安装安卓系统算不算信创？&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;https://www.gzdcsmt.com/sys-nd/1221.html&quot;&gt;RK3588芯片或主板在信创名录内吗?&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;https://www.gzdcsmt.com/sys-nd/3237.html&quot;&gt;支持国产化麒麟kylin系统的ARM开发板&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;https://www.gzdcsmt.com/sys-nd/3378.html&quot;&gt;瑞芯微RK35最小算力的开鸿鸿蒙主板&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;https://www.gzdcsmt.com/sys-nd/3411.html&quot;&gt;国产化麒麟官方认证RK3568芯片主板&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;https://www.gzdcsmt.com/sys-nd/3374.html&quot;&gt;瑞芯微100%全国产化RK3568工业核心板-适配鸿蒙系统&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;https://www.gzdcsmt.com/sys-nd/1140.html&quot;&gt;rk3588 国产操作系统Linux开发板&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;https://www.gzdcsmt.com/sys-nd/3358.html&quot;&gt;国产化边缘ai算力盒子-支持国产麒麟鸿蒙系统&lt;/a&gt;&lt;/p&gt;
+</content:encoded></item><item><title>编译 rootfs 时出现：undefined reference to `libiconv&apos;</title><link>https://bigfox.me/posts/%E5%B5%8C%E5%85%A5%E5%BC%8F/rockchip-rootfs-libiconv/</link><guid isPermaLink="true">https://bigfox.me/posts/%E5%B5%8C%E5%85%A5%E5%BC%8F/rockchip-rootfs-libiconv/</guid><pubDate>Thu, 14 Aug 2025 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;起因&lt;/h2&gt;
+&lt;p&gt;半年前用瑞芯微的 RV1109 芯片及 SDK 进行软件开发，顺利完成编译 SDK。最近需要重新去编译 SDK，因为移动了 SDK 的位置，不得不&lt;code&gt;./build.sh cleanall&lt;/code&gt;清空原有的编译输出，重新编译系统（如果不清空，直接编译，经实操，编译错误更多，解决一个还有下一个，无法进行下去）。&lt;/p&gt;
+&lt;h2&gt;问题&lt;/h2&gt;
+&lt;p&gt;当使用&lt;code&gt;./build.sh all&lt;/code&gt;重新编译到 rootfs 时，编译失败，提示：undefined reference to &apos;libiconv&apos;。编译输出如下（其中 ...... 表示省略了非关键的信息）：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;2025-08-06T17:19:07 &amp;gt;&amp;gt;&amp;gt; host-libglib2 2.64.4 Building
+......
+[11/400] Compiling C object &apos;glib/4430778@@glib-2.0@sha/gbacktrace.c.o&apos;
+......
+[96/400] Linking target glib/libglib-2.0.so.0.6400.4
+2025-08-06T17:19:11 FAILED: glib/libglib-2.0.so.0.6400.4
+......
+2025-08-06T17:19:11 glib/4430778@@glib-2.0@sha/gconvert.c.o: In function `try_conversion&apos;:
+2025-08-06T17:19:11 gconvert.c:(.text+0x5): undefined reference to `libiconv_open&apos;
+2025-08-06T17:19:11 glib/4430778@@glib-2.0@sha/gconvert.c.o: In function `g_iconv&apos;:
+2025-08-06T17:19:11 gconvert.c:(.text+0x6a1): undefined reference to `libiconv&apos;
+2025-08-06T17:19:11 glib/4430778@@glib-2.0@sha/gconvert.c.o: In function `g_iconv_close&apos;:
+2025-08-06T17:19:11 gconvert.c:(.text+0x6b1): undefined reference to `libiconv_close&apos;
+2025-08-06T17:19:11 collect2: error: ld returned 1 exit status
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2&gt;原因&lt;/h2&gt;
+&lt;p&gt;在这未编译 SDK 的半年的时间里，开发环境发生了变化：我在 Ubuntu 系统中安装了 libiconv 库，和 glib 中的 iconv 库发生了冲突。具体为什么会冲突，未深究，如果感兴趣，可以查看文末参考的文章。&lt;/p&gt;
+&lt;h2&gt;解决办法&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;先通过修改头文件格式的方式，让自己安装的 libiconv 库的头文件失效：
+&lt;code&gt;mv /usr/local/include/iconv.h /usr/local/include/iconv.h.bak&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;然后重新编译 Linux 内核。&lt;/li&gt;
+&lt;li&gt;编译完成后，别忘记恢复系统原来的模样，否则后续如果用到自己安装的 libiconv 库，又会出现问题：
+&lt;code&gt;mv /usr/local/include/iconv.h.bak /usr/local/include/iconv.h&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;参考&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/jjblxd/article/details/110181344&quot;&gt;编译出现 undefined reference to &apos;libiconv&apos;&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;https://www.cnblogs.com/lovemdx/archive/2013/06/09/3128371.html&quot;&gt;undefined reference to &apos;libiconv&apos;&lt;/a&gt;&lt;/p&gt;
+</content:encoded></item><item><title>编译 rootfs 时出现：Could not find a package configuration file provided by MiniLogger</title><link>https://bigfox.me/posts/%E5%B5%8C%E5%85%A5%E5%BC%8F/rockchip-rootfs-minilogger/</link><guid isPermaLink="true">https://bigfox.me/posts/%E5%B5%8C%E5%85%A5%E5%BC%8F/rockchip-rootfs-minilogger/</guid><pubDate>Thu, 14 Aug 2025 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;起因&lt;/h2&gt;
+&lt;p&gt;半年前用瑞芯微的 RV1109 芯片及 SDK 进行软件开发，顺利完成编译 SDK。最近需要重新去编译 SDK，因为移动了 SDK 的位置，不得不&lt;code&gt;./build.sh cleanall&lt;/code&gt;清空原有的编译输出，重新编译系统（如果不清空，直接编译，经实操，编译错误更多，解决一个还有下一个，无法进行下去）。&lt;/p&gt;
+&lt;h2&gt;问题&lt;/h2&gt;
+&lt;p&gt;当使用&lt;code&gt;./build.sh all&lt;/code&gt;重新编译到 rootfs 时，编译失败，提示：Could not find a package configuration file provided by &quot;MiniLogger&quot;。&lt;br /&gt;
+编译输出如下（其中 ...... 表示省略了非关键的信息）：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;2025-08-07T09:46:33 &amp;gt;&amp;gt;&amp;gt; ipcweb-backend release Syncing from source dir /home/levy/RV1109/P30/rv1109-26-25/buildroot/../app/ipcweb-backend
+......
+2025-08-07T09:46:42 &amp;gt;&amp;gt;&amp;gt; ipcweb-backend release Configuring
+......
+2025-08-07T09:46:42 -- The CXX compiler identification is GNU 8.3.0
+......
+2025-08-07T09:46:42 -- Detecting CXX compiler ABI info
+2025-08-07T09:46:42 -- Detecting CXX compiler ABI info - done
+2025-08-07T09:46:42 -- Detecting CXX compile features
+2025-08-07T09:46:43 -- Detecting CXX compile features - done
+2025-08-07T09:46:44 CMake Error at CMakeLists.txt:29 (find_package):
+2025-08-07T09:46:44 By not providing &quot;FindMiniLogger.cmake&quot; in CMAKE_MODULE_PATH this project
+2025-08-07T09:46:44 has asked CMake to find a package configuration file provided by
+2025-08-07T09:46:44 &quot;MiniLogger&quot;, but CMake did not find one.
+2025-08-07T09:46:44
+2025-08-07T09:46:44 Could not find a package configuration file provided by &quot;MiniLogger&quot; with
+2025-08-07T09:46:44 any of the following names:
+2025-08-07T09:46:44
+2025-08-07T09:46:44 MiniLoggerConfig.cmake
+2025-08-07T09:46:44 minilogger-config.cmake
+2025-08-07T09:46:44
+2025-08-07T09:46:44 Add the installation prefix of &quot;MiniLogger&quot; to CMAKE_PREFIX_PATH or set
+2025-08-07T09:46:44 &quot;MiniLogger_DIR&quot; to a directory containing one of the above files.  If
+2025-08-07T09:46:44 &quot;MiniLogger&quot; provides a separate development package or SDK, be sure it has
+2025-08-07T09:46:44 been installed.
+2025-08-07T09:46:44
+2025-08-07T09:46:44
+2025-08-07T09:46:44 -- Configuring incomplete, errors occurred!
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2&gt;排查&lt;/h2&gt;
+&lt;p&gt;出现这个现象，首先想到的是 MiniLogger 的编译配置没有选中。但是经确认，MiniLogger 的编译配置是打开的！&lt;/p&gt;
+&lt;h2&gt;原因&lt;/h2&gt;
+&lt;p&gt;ipcweb-backend 的编译依赖于 MiniLogger 先编译，但是 MiniLogger 没有先编译。
+为什么MiniLogger 没有先编译？编译输出中可能有详细原因，但是我不想去改动官方 SDK。&lt;/p&gt;
+&lt;h2&gt;解决办法&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;在 SDK 目录下，运行 make menuconfig，先取消 ipcweb-backend 的编译配置：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Target packages → Rockchip BSP packages
+[ ]   ipcweb backend for Linux&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;重新编译 rootfs；&lt;/li&gt;
+&lt;li&gt;如果需要 ipcweb-backend，再打开配置，再编译。&lt;/li&gt;
+&lt;/ol&gt;
+</content:encoded></item><item><title>360T7 路由器刷机记录</title><link>https://bigfox.me/posts/%E8%BF%90%E7%BB%B4/routerd-flash-record/</link><guid isPermaLink="true">https://bigfox.me/posts/%E8%BF%90%E7%BB%B4/routerd-flash-record/</guid><pubDate>Wed, 30 Jul 2025 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;参考：深度记录360T7刷机历程，帮小白的你避坑&lt;br /&gt;
+&lt;a href=&quot;https://blog.csdn.net/u014193285/article/details/143305239&quot;&gt;https://blog.csdn.net/u014193285/article/details/143305239&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;通过串口连接路由器，开机后按 f 键进入 failsafe mode 后操作：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;[   11.025567] mtk_soc_eth 15100000.ethernet eth0: configuring for fixed/2500base-x link mode
+[   11.033896] mtk_soc_eth 15100000.ethernet eth0: Link is Up - 2.5Gbps/Full - flow control rx/tx
+Press the [f] key and hit [enter] to enter failsafe mode
+Press the [1], [2], [3] or [4] key and hit [enter] to select the debug level
+[   13.608363] mt753x gsw@0: Port 1 Link is Up - 1Gbps/Full
+[   13.614189] mt753x gsw@0: linkstatus_mask front:2 after:2
+Before mount_root
+[   15.210583] UBIFS (ubi0:2): Mounting in unauthenticated mode
+
+root@Openwrt:~# md5sum /tmp/mt7981_360t7-fip-fixed-parts.bin
+72bc149016da90d743754a808f474595  /tmp/mt7981_360t7-fip-fixed-parts.bin
+root@Openwrt:~#
+root@Openwrt:~# mtd erase fip
+Unlocking fip ...
+Erasing fip ...
+root@Openwrt:~# mtd write /tmp/mt7981_360t7-fip-fixed-parts.bin fip
+Unlocking fip ...
+
+Writing from /tmp/mt7981_360t7-fip-fixed-parts.bin to fip ...
+root@Openwrt:~# mtd verify /tmp/mt7981_360t7-fip-fixed-parts.bin fip
+Verifying fip against /tmp/mt7981_360t7-fip-fixed-parts.bin ...
+9014bc72d790da16804a75439545478f - fip
+9014bc72d790da16804a75439545478f - /tmp/mt7981_360t7-fip-fixed-parts.bin
+Success
+root@Openwrt:~#
+
+Web failsafe UI started
+T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T T GET /
+GET /style.css
+T GET /index.js
+GET /version
+GET /getmtdlayout
+GET /favicon.ico
+T T T T T T T T T T T T T T T T T T T T T T T T T T
+
+root@(none):/# passwd root
+Changing password for root
+New password:
+Bad password: too weak
+Retype password:
+passwd: password for root changed by root
+root@(none):/#
+&lt;/code&gt;&lt;/pre&gt;
+</content:encoded></item><item><title>Windows 下 Docker、虚拟机、WSL2 同时运行，爽！</title><link>https://bigfox.me/posts/%E8%BF%90%E7%BB%B4/wsl2-virtual-machine/</link><guid isPermaLink="true">https://bigfox.me/posts/%E8%BF%90%E7%BB%B4/wsl2-virtual-machine/</guid><pubDate>Fri, 25 Jul 2025 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;不记得多久以前，我试图在 Windows 下同时运行 Docker，和 VMware 虚拟机，尽然不允许！当时甚是苦恼！至于原因，随便网络上搜一搜，就知道了。&lt;/p&gt;
+&lt;p&gt;近日，我又有了这个需求，这个问题已经得到了解决，一个字，爽！&lt;/p&gt;
+&lt;p&gt;现在，我有了3个开发环境：VMware 虚拟机运行着 Ubuntu18.04、WSL2 运行着 Ubuntu22.04、WSL2 运行着Docker。&lt;/p&gt;
+&lt;p&gt;以前只会用虚拟机，现在多了一个选择 WSL2，至少有以下好处：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;WSL2 运行 Linux 的资源开销更小；&lt;/li&gt;
+&lt;li&gt;Windows下的C盘、D盘对应wsl的/mnt/c、/mnt/d，可用于wsl与Windows之间传输数据。而Linux虚拟机与Windows之间数据传输通常使用xshell等。&lt;/li&gt;
+&lt;/ul&gt;
+</content:encoded></item><item><title>Windows 下 C 盘爆满，如何安装 Docker 及其数据等至其它盘</title><link>https://bigfox.me/posts/%E8%BF%90%E7%BB%B4/windows-docker-install/</link><guid isPermaLink="true">https://bigfox.me/posts/%E8%BF%90%E7%BB%B4/windows-docker-install/</guid><pubDate>Tue, 22 Jul 2025 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;首先，你可以搜索网络文章解决，如果遇到问题，再往下看。&lt;/p&gt;
+&lt;p&gt;第1步：安装 WSL2&lt;br /&gt;
+第2步：下载 Docker Desktop&lt;br /&gt;
+第3步：以管理员身份打开 Windows 终端，进入下载的安装文件所在文件夹，输入：&lt;br /&gt;
+./&quot;Docker Desktop Installer.exe&quot; install --backend=wsl-2 --installation-dir=E:\Docker --wsl-default-data-root=E:\Docker\data --accept-license --windows-containers-default-data-root=&quot;E:\Docker&quot;&lt;/p&gt;
+&lt;p&gt;可能遇到的问题：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;如果安装程序 docker Desktop Installer.exe 也在 --installation-dir 指定的目录，会有如下报错：&lt;br /&gt;
+Unpacking failed: 文件“E:\Docker\Docker Desktop Installer.exe”正由另一进程使用，因此该进程无法访问此文件。&lt;br /&gt;
+所以，不要把安装程序放在 --installation-dir 指定的目录就可以了。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;程序安装成功后，双击桌面的 Docker Desktop 图标，打不开docker应用程序，解决方法如下：&lt;br /&gt;
+这可能是因为 Docker Desktop Service 没有启动，在服务管理器里启动此项服务。&lt;br /&gt;
+也可能是需要使用管理员权限打开，右键 Docker Desktop 应用的快捷方式，选择&quot;属性&quot;，点击&quot;高级&quot;，勾选&quot;用管理员身份运行&quot;。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Docker 网络文章精选：&lt;br /&gt;
+&lt;a href=&quot;https://juejin.cn/post/7306146705971740710&quot;&gt;一文介绍Docker高级玩法（满满干货）&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;https://blog.csdn.net/m0_60204812/article/details/139362321&quot;&gt;Docker:容器（Container）和镜像(Image)的关系&lt;/a&gt;&lt;/p&gt;
+</content:encoded></item><item><title>Android 开发者 AI 时代的相关工具汇总</title><link>https://bigfox.me/posts/android/android-ai-tools/</link><guid isPermaLink="true">https://bigfox.me/posts/android/android-ai-tools/</guid><pubDate>Thu, 12 Jun 2025 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;ML Kit&lt;/h2&gt;
+&lt;p&gt;面向移动开发者的机器学习产品：ML Kit。&lt;br /&gt;
+ML Kit 通过一个强大且易用的软件包将 Google 的机器学习专业知识带给移动开发者。借助专为在设备上运行而优化的解决方案，让您的 iOS 和 Android 应用更具吸引力、更加个性化和实用。&lt;br /&gt;
+&lt;a href=&quot;https://developers.google.cn/ml-kit?hl=zh-cn&quot;&gt;https://developers.google.cn/ml-kit?hl=zh-cn&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;Android Studio Gemini&lt;/h2&gt;
+&lt;p&gt;Android Studio Gemini 是一个内置在 Android Studio 中的 AI 驱动的编码助手。它可以通过生成代码、提供复杂的代码补全、回答问题、找到相关资源、添加代码注释等方式加速开发高质量 Android 应用程序的能力。&lt;br /&gt;
+&lt;a href=&quot;https://developer.android.com/studio/preview/gemini?hl=zh-cn&quot;&gt;https://developer.android.com/studio/preview/gemini?hl=zh-cn&lt;/a&gt;&lt;/p&gt;
+</content:encoded></item><item><title>Android 相机和媒体应用开发相关链接</title><link>https://bigfox.me/posts/android/android-app-dev-camera/</link><guid isPermaLink="true">https://bigfox.me/posts/android/android-app-dev-camera/</guid><pubDate>Tue, 10 Jun 2025 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;Android 相机和媒体应用&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://developer.android.google.cn/media?hl=zh-cn&quot;&gt;https://developer.android.google.cn/media?hl=zh-cn&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;音视频：Jetpack Media3 库&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://developer.android.google.cn/media/audio-and-video?hl=zh-cn&quot;&gt;https://developer.android.google.cn/media/audio-and-video?hl=zh-cn&lt;/a&gt;&lt;br /&gt;
+使用 ExoPlayer 流式传输媒体内容：&lt;br /&gt;
+&lt;a href=&quot;https://developer.android.google.cn/codelabs/exoplayer-intro?hl=zh-cn#0&quot;&gt;https://developer.android.google.cn/codelabs/exoplayer-intro?hl=zh-cn#0&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;相机：cameraX 库 、camera2 库&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://developer.android.google.cn/media/camera/get-started-with-camera?hl=zh-cn&quot;&gt;https://developer.android.google.cn/media/camera/get-started-with-camera?hl=zh-cn&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;https://developer.android.google.cn/media/camera/camerax?hl=zh-cn&quot;&gt;https://developer.android.google.cn/media/camera/camerax?hl=zh-cn&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Github 代码示例：&lt;br /&gt;
+&lt;a href=&quot;https://github.com/android/camera-samples/&quot;&gt;https://github.com/android/camera-samples/&lt;/a&gt;&lt;br /&gt;
+CameraX 使用入门：&lt;br /&gt;
+&lt;a href=&quot;https://developer.android.google.cn/codelabs/camerax-getting-started?hl=zh-cn#0&quot;&gt;https://developer.android.google.cn/codelabs/camerax-getting-started?hl=zh-cn#0&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;设备等级：&lt;br /&gt;
+如果要同时支持预览+视频拍摄，那么相机都能支持。但是如果想预览+视频拍摄+图片拍摄，那么需要LIMITED以及更好的相机，&lt;br /&gt;
+而预览+视频拍摄+分析 就需要LEVEL_3以及更好的相机。&lt;br /&gt;
+因为很多设备前后双摄的性能是不一样的。所以有些功能后摄支持而前摄不支持。那么如何了解呢？&lt;br /&gt;
+可以通过Camera2CameraInfo类来了解。&lt;br /&gt;
+等级范围为：LEGACY &amp;lt; LIMITED &amp;lt; FULL &amp;lt; LEVEL_3。&lt;/p&gt;
+&lt;h2&gt;参考&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/Mr_ZJC/article/details/140222899&quot;&gt;Google CameraX，看这篇文章就够了&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;https://blog.csdn.net/hnjzfwy/article/details/134331074&quot;&gt;Android NDK开发详解相机之CameraX 架构&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;https://developer.aliyun.com/article/1536079&quot;&gt;安卓kotlin JetPack Compose 实现摄像头监控画面变化并录制视频&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;https://blog.csdn.net/userhu2012/article/details/134413862&quot;&gt;结合JetPack Compose和CameraX实现视频的录制和存储&lt;/a&gt;&lt;/p&gt;
+</content:encoded></item><item><title>Android 开发中令人头疼的各种版本</title><link>https://bigfox.me/posts/android/android-app-dev-version/</link><guid isPermaLink="true">https://bigfox.me/posts/android/android-app-dev-version/</guid><pubDate>Mon, 09 Jun 2025 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;Android 开发中涉及的相关版本&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Android Studio 版本&lt;/li&gt;
+&lt;li&gt;Android Gradle 插件（AGP）版本&lt;/li&gt;
+&lt;li&gt;Gradle 版本&lt;/li&gt;
+&lt;li&gt;Android SDK 版本（Android API 级别）&lt;/li&gt;
+&lt;li&gt;SDK Build Tools 版本&lt;/li&gt;
+&lt;li&gt;JDK 版本&lt;/li&gt;
+&lt;li&gt;NDK 版本&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;版本兼容性说明&lt;/h2&gt;
+&lt;p&gt;版本兼容性官方说明：https://developer.android.com/build/releases/gradle-plugin?hl=zh-cn&lt;/p&gt;
+&lt;h2&gt;实践记录&lt;/h2&gt;
+&lt;p&gt;用最新的 Android Studio 开发环境打开一个 3 年前的项目，Sync 时出现：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Your build is currently configured to use incompatible Java 21.0.6 and Gradle 7.4. Cannot sync the project.
+We recommend upgrading to Gradle version 8.12.
+The minimum compatible Gradle version is 8.5.
+The maximum compatible Gradle JVM version is 17.
+Possible solutions:
+ - Upgrade to Gradle 8.12 and re-sync
+ - Upgrade to Gradle 8.5 and re-sync
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;由上述提示可知：Gradle 版本和 Java 版本不兼容。&lt;br /&gt;
+解决方法：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;按提示直接升级 Gradle 版本。（也可修改 gradle-wrapper.properties 文件中 gradle 的版本号）&lt;/li&gt;
+&lt;li&gt;配置 Gradle JDK 的版本：Settings -&amp;gt; Build, Execution, Deployment -&amp;gt; Build Tools -&amp;gt; Gradle -&amp;gt; Gradle Projects -&amp;gt; Gradle JDK&lt;br /&gt;
+根据自己项目的情况选择。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;由于我打开的项目比较老旧，JDK 版本我先考虑用了 1.8。Sync 之后，又出现提示：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;    Android Gradle plugin requires Java 11 to run. You are currently using Java 1.8.
+     Your current JDK is located in C:\Program Files\Java\jdk1.8.0_411\jre
+     You can try some of the following options:
+      - changing the IDE settings.
+      - changing the JAVA_HOME environment variable.
+      - changing `org.gradle.java.home` in `gradle.properties`.
+    Gradle settings
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;由上述提示可知：Gradle 插件版本和 Java 版本不兼容。&lt;/p&gt;
+&lt;p&gt;此时可选择降低 Gradle 插件版本或使用更高的版本的 Java 11, 查了一下，Android Gradle 插件从 6.7 版本开始，它要求至少使用 Java 11。考虑 Gradle 插件版本 6.7 太早了，并考虑项目还要继续开发更新，不是仅仅编译通过就可以，所以选择更新到更高的版本的 Java 11。&lt;br /&gt;
+配置 Gradle JDK 的版本为 Java 11 后，Sync 成功。&lt;/p&gt;
+&lt;h2&gt;参考&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://juejin.cn/post/7451502116018044947&quot;&gt;如何在 Android Studio 中配置 JDK 路径并确保生效&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;https://developer.android.google.cn/build/jdks?hl=cs&quot;&gt;[官方] Android build 中的 Java 版本&lt;/a&gt;&lt;/p&gt;
+</content:encoded></item><item><title>什么是现代安卓开发，与传统安卓开发有什么不同？</title><link>https://bigfox.me/posts/android/android-mad/</link><guid isPermaLink="true">https://bigfox.me/posts/android/android-mad/</guid><pubDate>Thu, 29 May 2025 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;现代安卓开发（MAD：Modern Android Development），是 Google 针对 Android 平台提出的全新开发技术。&lt;/p&gt;
+&lt;h2&gt;开发语言：从 Java 到 Kotlin&lt;/h2&gt;
+&lt;p&gt;使用 Kotlin 语言开发 Android 应用:&lt;br /&gt;
+&lt;a href=&quot;https://developer.android.google.cn/kotlin?hl=zh_cn&quot;&gt;https://developer.android.google.cn/kotlin?hl=zh_cn&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;UI 界面：从传统 View 到 Jetpack Compose&lt;/h2&gt;
+&lt;p&gt;传统 View:&lt;br /&gt;
+&lt;a href=&quot;https://developer.android.google.cn/develop/ui/views/layout/declaring-layout?hl=zh-cn&quot;&gt;https://developer.android.google.cn/develop/ui/views/layout/declaring-layout?hl=zh-cn&lt;/a&gt;&lt;br /&gt;
+Jetpack Compose:&lt;br /&gt;
+&lt;a href=&quot;https://developer.android.google.cn/develop/ui/compose/documentation?hl=zh-cn&quot;&gt;https://developer.android.google.cn/develop/ui/compose/documentation?hl=zh-cn&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;Gradle 脚本语言：从 Groovy DSL 到 Kotlin DSL&lt;/h2&gt;
+&lt;p&gt;参考：  &lt;a href=&quot;https://blog.csdn.net/fjnu_se/article/details/145121767&quot;&gt;Groovy 和 Kotlin DSL的比较&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;管理依赖库：从 app/build.gradle 到 Version Catalog&lt;/h2&gt;
+&lt;p&gt;参考：&lt;a href=&quot;https://juejin.cn/post/7393306884558094345&quot;&gt;Android 使用 Version Catalog 管理依赖项&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;数据存储方案：从 SharedPreferences 到 Jetpack DataStore&lt;/h2&gt;
+&lt;p&gt;参考：&lt;a href=&quot;https://developer.aliyun.com/article/912957&quot;&gt;[Google] 再见 SharedPreferences 拥抱 Jetpack DataStore&lt;/a&gt;&lt;/p&gt;
+</content:encoded></item><item><title>Android 开发相关术语解释</title><link>https://bigfox.me/posts/android/android-term/</link><guid isPermaLink="true">https://bigfox.me/posts/android/android-term/</guid><pubDate>Wed, 28 May 2025 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;strong&gt;MAD&lt;/strong&gt;：Modern Android Development，是 Google 针对 Android 平台提出的全新开发技术。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;AGP&lt;/strong&gt;：Android Gradle Plugin，是Android项目构建系统的核心组件，作为连接Android开发工具（如Android Studio）与Gradle构建工具的桥梁，专门处理Android项目特有的构建逻辑。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;DSL&lt;/strong&gt;：Domain-Specific Language，领域特定语言。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;ADB&lt;/strong&gt;：AndroidDebug Bridge，是AndroidSDK中的命令行调试工具，采用客户端-服务器-守护进程架构，通过TCP端口实现开发机与Android设备的通信。&lt;/p&gt;
+</content:encoded></item><item><title>C 盘满了，如何完全安装 Android Studio 至 D 盘？</title><link>https://bigfox.me/posts/android/android-studio-install-disk/</link><guid isPermaLink="true">https://bigfox.me/posts/android/android-studio-install-disk/</guid><pubDate>Fri, 23 May 2025 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Android Studio 非常占用磁盘空间，C 盘空间不足，需要完全安装 Android Studio 至 D 盘。&lt;br /&gt;
+下面是自己安装过程的一个简单记录：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;安装 Android studio IDE 时，选择 D 盘的目录。&lt;/li&gt;
+&lt;li&gt;迁移 .gradle 文件至 D 盘。&lt;br /&gt;
+不需要把 .gradle 目录拷贝到 D 盘， .gradle 目录可以重建。（原因：目录很大；拷贝过程中会因为路径太长不能完全拷贝，导致拷贝不完全）&lt;br /&gt;
+参考：&lt;a href=&quot;https://zhuanlan.zhihu.com/p/24519564798&quot;&gt;https://zhuanlan.zhihu.com/p/24519564798&lt;/a&gt;  修改 gradle 的下载地址，否则因国内网络环境的原因，导致 sync 失败。&lt;/li&gt;
+&lt;li&gt;迁移 SDK 目录至 D 盘。&lt;/li&gt;
+&lt;li&gt;迁移 AVD 至 D 盘。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;每一步具体如何操作，可在网络上搜索，比如：&lt;br /&gt;
+&lt;a href=&quot;https://blog.csdn.net/weixin_44987713/article/details/115656391&quot;&gt;https://blog.csdn.net/weixin_44987713/article/details/115656391&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;https://blog.csdn.net/AoXue2017/article/details/130322535&quot;&gt;https://blog.csdn.net/AoXue2017/article/details/130322535&lt;/a&gt;&lt;/p&gt;
+</content:encoded></item><item><title>如何管理 Java 多个版本，随时在不同的版本间切换？</title><link>https://bigfox.me/posts/android/java-version-management/</link><guid isPermaLink="true">https://bigfox.me/posts/android/java-version-management/</guid><pubDate>Wed, 21 May 2025 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;有时我们需要在 java 的不同版本间切换，本文记录了在 Windows 平台下自己使用的一个简单的 java 多版本管理方法。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;安装不同的 java 到不同的目录下（不同的 java 发行版，默认安装目录存在比较大的差异，可以默认路径安装，也可以把不同的版本集中在一个目录下，方便管理）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;配置不同的系统变量指向不同的安装目录， 如：&lt;br /&gt;
+变量名: JAVA_HOME8   变量值: C:\Program Files\Java\jdk1.8.0_361&lt;br /&gt;
+变量名: JAVA_HOME11  变量值: C:\Program Files\Java\jdk-11&lt;br /&gt;
+变量名: JAVA_HOME17  变量值: C:\Program Files\Java\jdk-17&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;如果开发环境需要 JAVA_HOME 环境变量，就配置  JAVA_HOME 指向上一步配置的对应版本的系统变量，如：&lt;br /&gt;
+变量名: JAVA_HOME  变量值: %JAVA_HOME11%&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;如果开发环境需要 Shell 环境下执行 java 命令，就在系统的 Path 变量中，删除可能已经自动添加的 java 的 bin 目录，新增对应版本的 bin 目录。
+路径可以这样写：%JAVA_HOME11%\bin&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+</content:encoded></item><item><title>初识大模型应用开发技术（番外篇）</title><link>https://bigfox.me/posts/ai/llm-agents-app-other/</link><guid isPermaLink="true">https://bigfox.me/posts/ai/llm-agents-app-other/</guid><pubDate>Fri, 11 Apr 2025 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;大模型的两大缺陷&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;1. 没有最新信息&lt;/strong&gt;&lt;br /&gt;
+大模型的训练需要大量的计算资源和时间，因此它们的知识库通常是在某个时间点之前的数据集上训练的。例如，GPT-3.5 和 GPT-4 的知识截至 2021 年 9 月。这意味着它们无法提供此后的新信息或事件。为保持时效性，需定期重训模型，但成本高昂且耗时，导致大模型难以及时跟上信息更新。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2. 没有真逻辑&lt;/strong&gt;&lt;br /&gt;
+大模型生成的文本和回答主要基于训练数据的统计规律，而非严格的逻辑推理或形式化证明。因此，在处理复杂或需深入逻辑推理的问题时，它们可能产生看似合理但实际不准确的回答。此外，大模型通过预测给定上下文中的下一个词来生成文本，可能受训练数据中的偏见和错误影响，从而削弱逻辑严谨性。&lt;/p&gt;
+&lt;h2&gt;普通人对大模型的认识误区&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;误区一：大模型就是全能的。&lt;/li&gt;
+&lt;li&gt;误区二：大模型意味着更准确。&lt;/li&gt;
+&lt;li&gt;误区三：使用大模型不需要技术背景。&lt;/li&gt;
+&lt;li&gt;误区二：模型参数越大越厉害。&lt;/li&gt;
+&lt;li&gt;误区三：只要持续跟大模型聊天它就会越来越聪明。&lt;/li&gt;
+&lt;li&gt;误区四：只要通过持续的 fine-tune（微调），模型就可以做到百分百正确。&lt;/li&gt;
+&lt;/ul&gt;
+</content:encoded></item><item><title>初识大模型应用开发技术（工具篇）</title><link>https://bigfox.me/posts/ai/llm-agents-app-tools/</link><guid isPermaLink="true">https://bigfox.me/posts/ai/llm-agents-app-tools/</guid><pubDate>Thu, 10 Apr 2025 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;应用开发平台&lt;/h2&gt;
+&lt;h3&gt;Coze（扣子)&lt;/h3&gt;
+&lt;p&gt;字节跳动旗下产品，新一代 AI 应用开发平台。借助扣子提供的可视化设计与编排工具，可以通过零代码或低代码的方式，快速搭建出基于大模型的各类 AI 项目。&lt;/p&gt;
+&lt;h3&gt;Dify&lt;/h3&gt;
+&lt;p&gt;构建定制化 AI 应用（如智能写作助手、数据分析工具）。需要开发多类型大模型应用、具备研发投入能力。&lt;/p&gt;
+&lt;h3&gt;LangChain&lt;/h3&gt;
+&lt;p&gt;基于大语言模型（LLM）的框架，为各种LLM实现通用的接口，将相关的组件“链”在一起，简化LLM应用的开发。它支持模型集成、提示工程、索引、记忆、链、代理等多种组件功能。
+更适合需要复杂对话流程、上下文管理、以及多步骤任务的应用场景，如聊天机器人、任务自动化等。&lt;/p&gt;
+&lt;h2&gt;知识库平台&lt;/h2&gt;
+&lt;h3&gt;FastGPT&lt;/h3&gt;
+&lt;p&gt;基于 LLM 大模型的开源 AI 知识库构建平台。提供了开箱即用的数据处理、模型调用、RAG 检索、可视化 AI 工作流编排等能力。&lt;/p&gt;
+&lt;h3&gt;RagFlow&lt;/h3&gt;
+&lt;p&gt;一款开源的 RAG（Retrieval-Augmented Generation）引擎，专注于深度文档理解，能够助力企业及个人构建高效的 RAG 工作流程。借助大语言模型（LLM），它可以精准处理各种复杂格式的数据，为用户提供可靠的问答服务，并附上详实的引用依据。&lt;/p&gt;
+&lt;h3&gt;LlamaIndex&lt;/h3&gt;
+&lt;p&gt;基于向量搜索的索引框架，主要用于提升大型语言模型在长文本或大量数据上的查询效率。它侧重于处理数据的索引和检索，使得模型能够快速定位到最相关的信息。
+当应用场景主要涉及大量数据的快速检索和查询时，LlamaIndex更加适用，如知识问答系统、文档搜索引擎等。&lt;/p&gt;
+&lt;h2&gt;大模型本地部署平台&lt;/h2&gt;
+&lt;h3&gt;Ollama&lt;/h3&gt;
+&lt;p&gt;Ollama 是一个专注于本地部署大型语言模型的工具，通过提供便捷的模型管理、丰富的预建模型库、跨平台支持以及灵活的自定义选项，使得开发者和研究人员能够在本地环境中高效利用大型语言模型进行各种自然语言处理任务，而无需依赖云服务或复杂的基础设施设置。&lt;/p&gt;
+&lt;h3&gt;LM Studio&lt;/h3&gt;
+&lt;p&gt;一款 开源 的本地 LLM 推理 GUI 工具，支持 GGUF 格式大模型（Llama.cpp 后端），支持 GPU 加速，可用 RTX 4060 / 4070 / 4090 运行大模型，可直接在本地进行离线 AI 对话。
+支持的模型：Meta LLaMA2 / LLaMA3、Mistral / Mixtral、Qwen / DeepSeek、Gemma / Phi-2、Hugging Face 上的任意 GGUF 格式模型。&lt;/p&gt;
+&lt;h3&gt;vLLM&lt;/h3&gt;
+&lt;p&gt;vLLM是一个高效的大模型推理与服务引擎，专为大型语言模型（LLM）打造。它通过创新的PagedAttention技术、连续批处理、CUDA核心优化以及分布式推理支持，显著提高了LLM的推理性能。
+vLLM支持多种模型格式，包括PyTorch、TensorFlow等，方便用户根据自己的需求选择合适的模型。此外，vLLM还提供了高性能的推理引擎，支持在线推理和批量推理，能够快速响应大量并发请求。&lt;/p&gt;
+</content:encoded></item><item><title>初识大模型应用开发技术（技术篇）</title><link>https://bigfox.me/posts/ai/llm-agents-app-tech/</link><guid isPermaLink="true">https://bigfox.me/posts/ai/llm-agents-app-tech/</guid><pubDate>Wed, 09 Apr 2025 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;前言&lt;/h2&gt;
+&lt;p&gt;ChatGPT 时刻，初探AI。DeepSeek 时刻，入局AI。&lt;/p&gt;
+&lt;p&gt;ChatGPT 时刻&lt;br /&gt;
+2023年3月，第一次听说ChatGPT，当时公司就要求去了解学习一下，看看是否能使用上。由于各种原因，最终也只是停留在知道的层面。&lt;/p&gt;
+&lt;p&gt;DeepSeek 时刻&lt;br /&gt;
+2025年3月，整整2年过后，随着DeepSeek的爆火，公司再一次要求去了解学习，希望能对现有项目，对公司未来业务有所帮助。&lt;br /&gt;
+这篇文章就是我作为一个 AI 的初学者，了解过相关技术后，对 AI 应用开发的总结。&lt;/p&gt;
+&lt;p&gt;从应用开发的角度，来看看大模型的相关技术。&lt;/p&gt;
+&lt;h2&gt;模型内部（将改变大模型本身参数）&lt;/h2&gt;
+&lt;h3&gt;预训练（Pre-training）&lt;/h3&gt;
+&lt;p&gt;预训练是为了让模型在见到特定任务数据之前，先通过学习大量通用数据来捕获广泛有用的特征，从而提升模型在目标任务上的表现和泛化能力。预训练数据成本、硬件成本高，普通用户和企业一般不参与。&lt;/p&gt;
+&lt;h3&gt;微调（Fine-tuning）&lt;/h3&gt;
+&lt;p&gt;预训练模型已经在大规模数据集上学到了丰富的通用特征和先验知识，但这些特征和知识可能并不完全适用于特定的目标任务。微调通过在新任务的少量标注数据上进一步训练预训练模型，使模型能够学习到与目标任务相关的特定特征和规律，从而更好地适应新任务。微调相比预训练成本大幅降低，但也需要一定的数据、硬件成本。&lt;/p&gt;
+&lt;h4&gt;微调分类&lt;/h4&gt;
+&lt;p&gt;A. &lt;strong&gt;按策略分类&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;这种方式通常使用预训练模型作为基础，并在新任务的小规模标注数据集上进行进一步的训练。这种训练过程可以根据具体的训练方法和目标细分为不同的策略， 如监督微调和基于人类反馈的强化学习微调。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;监督微调（SFT）&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;定义： 在新任务的小规模标注数据集上，使用有监督学习的方法对预训练模型进行微调，以使其适应新任务。&lt;/p&gt;
+&lt;p&gt;步骤： 加载预训练模型 → 准备新任务的数据集 → 调整模型输出层 → 在新任务数据集上训练模型。&lt;/p&gt;
+&lt;p&gt;应用： 适用于那些有明确标注数据集的任务，如文本分类、命名实体识别等。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;基于人类反馈的强化学习微调（RLHF）&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;定义： 在SFT的基础上，通过强化学习和人类反馈来进一步微调模型，使其输出更加符合人类的偏好或期望。&lt;/p&gt;
+&lt;p&gt;步骤： 首先进行SFT → 收集人类反馈数据 → 训练奖励模型 → 使用奖励模型指导强化学习过程来微调模型。&lt;/p&gt;
+&lt;p&gt;应用：适用于那些需要高度人类判断或创造力的任务，如对话生成、文本摘要等。&lt;/p&gt;
+&lt;p&gt;B. &lt;strong&gt;按参数分类&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;这种方式更加关注于模型参数层面的调整，根据是否调整全部参数，可以细分为全面微调（Full Fine-tuning）和部分/参数高效微调（Parameter-Efficient Fine-tuning, PEFT）。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;全面微调（Full Fine-tuning）&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;定义：在新任务上调整模型的全部参数，以使其完全适应新任务。&lt;/p&gt;
+&lt;p&gt;步骤：加载预训练模型 → 在新任务数据集上训练模型，调整所有参数。&lt;/p&gt;
+&lt;p&gt;应用：当新任务与预训练任务差异较大，或者想要充分利用新任务数据集时，可以选择全面微调。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;部分/参数高效微调（PEFT）&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;定义： 仅调整模型的部分参数，如添加一些可训练的适配器（adapters）、前缀（prefixes）或微调少量的参数，以保持模型大部分参数不变的同时，实现对新任务的适应。&lt;/p&gt;
+&lt;p&gt;步骤： 加载预训练模型 → 在模型中添加可训练的组件或选择部分参数 → 在新任务数据集上训练这些组件或参数。&lt;/p&gt;
+&lt;p&gt;应用：当计算资源有限，或者想要快速适应新任务而不影响模型在其他任务上的性能时，PEFT是一个很好的选择。&lt;/p&gt;
+&lt;h4&gt;微调工具&lt;/h4&gt;
+&lt;p&gt;开源的大模型的微调工具：unsloth、XTuner、LLaMA-Factory、ms-SWIFT、Firefly 等。&lt;/p&gt;
+&lt;p&gt;使用Python语言编程微调：Pytorch框架/TensorFlow框架、Transformers库、peft库、LoRA库 等。&lt;/p&gt;
+&lt;h2&gt;模型外部（不改变大模型本身参数）&lt;/h2&gt;
+&lt;h3&gt;大模型API调用&lt;/h3&gt;
+&lt;h4&gt;代码方式&lt;/h4&gt;
+&lt;p&gt;以调用deepseek的API为例（DeepSeek API 采用与 OpenAI 兼容的 API 格式）：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# Please install OpenAI SDK first: `pip3 install openai`
+
+from openai import OpenAI
+
+client = OpenAI(api_key=&quot;&amp;lt;DeepSeek API Key&amp;gt;&quot;, base_url=&quot;https://api.deepseek.com&quot;)
+
+response = client.chat.completions.create(
+    model=&quot;deepseek-chat&quot;,
+    messages=[
+        {&quot;role&quot;: &quot;system&quot;, &quot;content&quot;: &quot;You are a helpful assistant&quot;},
+        {&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;Hello&quot;},
+    ],
+    stream=False
+)
+
+print(response.choices[0].message.content)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;给API接口提供API key、模型名称、角色定位、用户输入即可。&lt;/p&gt;
+&lt;h4&gt;前端/客户端方式&lt;/h4&gt;
+&lt;p&gt;有很多免费或开源的大模型前端/客户端工具可以使用，如：Open WebUI、chatbox、CherryStudio 等。&lt;/p&gt;
+&lt;h3&gt;Function Call&lt;/h3&gt;
+&lt;p&gt;Function Call 给 LLM 提供了调用外部工具或函数的能力。这个函数或工具可以是可以自定义的，这样 LLM 本身能力可以依靠 Function Call 得到极大补充，同时也使 LLM 可以极大地适配自己的业务。&lt;/p&gt;
+&lt;p&gt;使用Function Call功能时，需要定义（并不是真的写程序去定义一个函数，而仅仅是用文字来描述一个函数）一些function（需要指定函数名，函数用途的描述，参数名，参数描述），传给 LLM，当用户输入一个问题时，LLM通过文本分析是否需要调用某一个function，如果需要调用，那么LLM返回一个json，json包括需要调用的function名，需要输入到function的参数名，以及参数值。&lt;/p&gt;
+&lt;p&gt;总而言之，function call帮我们做了两件事情：&lt;/p&gt;
+&lt;p&gt;判断是否要调用某个预定义的函数。&lt;/p&gt;
+&lt;p&gt;如果要调用，从用户输入的文本里提取出函数所需要的函数值。&lt;/p&gt;
+&lt;p&gt;Function Call 机制为AI模型带来了许多优势：&lt;/p&gt;
+&lt;p&gt;扩展功能：模型可以通过调用外部函数执行更复杂的任务，扩展其功能。&lt;/p&gt;
+&lt;p&gt;实时交互：模型可以与外部系统进行实时交互，获取最新的信息或执行实时操作。&lt;/p&gt;
+&lt;p&gt;模块化：通过定义和调用函数，模型可以实现模块化的设计，提高代码的可维护性和可扩展性。&lt;/p&gt;
+&lt;h3&gt;提示工程&lt;/h3&gt;
+&lt;p&gt;提示工程（Prompt Engingering），也被称为上下文提示（In-Context Prompting），指的是通过结构化文本等方式来完善提示词，引导LLM输出我们期望的结果。 通过提示词工程可以在不更新模型权重的情况下，让LLM完成不同类型的任务。&lt;/p&gt;
+&lt;p&gt;提示工程方法有：零样本提示、少样本提示、思维链（CoT）、检索增强生成（RAG）、自我一致性、自我反思 Reflexion、思维树 等等。&lt;/p&gt;
+&lt;p&gt;举例说明：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;零样本提示&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;直接向LLM提出查询的方法，无需进行任何工程改进以提升LLM性能，这是大多数提示策略背后的核心目标。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;少样本提示&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;利用大语言模型的上下文学习能力，通过在提示中增加“示例样本”来启发大语言模型达到举一反三的效果。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;思维链&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;通过让大模型逐步参与将一个复杂问题分解为一步一步的子问题并依次进行求解的过程可以显著提升大模型的性能。区别于传统的 Prompt 从输入直接到输出的映射 &amp;lt;input——&amp;gt;output&amp;gt; 的方式，CoT 完成了从输入到思维链再到输出的映射，即 &amp;lt;input——&amp;gt;reasoning chain——&amp;gt;output&amp;gt;。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;RAG&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;RAG 技术：即检索增强生成技术，通过检索外部知识源来增强大语言模型的回答能力，使其能够生成更准确、更有依据的答案，尤其适用于需要最新或特定领域知识的任务。&lt;/p&gt;
+&lt;h3&gt;Agent&lt;/h3&gt;
+&lt;p&gt;智能体（Agent）是一种基于大型语言模型（LLM）构建的智能系统，具备环境感知、自主理解、决策制定和执行行动的能力。它能够模拟独立思考过程，灵活调用各种工具，逐步达成预设目标。&lt;/p&gt;
+&lt;h4&gt;核心组成&lt;/h4&gt;
+&lt;p&gt;智能体由四个关键部分组成：规划（Planning）、记忆（Memory）、工具（Tools）和行动（Action）。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;规划（Planning）&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;规划是智能体的思维模型，负责将复杂任务拆解为可执行的子任务，并评估执行策略。通过大模型提示工程（如ReAct、CoT推理模式），智能体能够精准拆解任务，分步解决。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;记忆（Memory）&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;记忆包括短期记忆和长期记忆。短期记忆用于存储会话上下文，支持多轮对话；长期记忆则存储用户特征、业务数据等，通常通过向量数据库实现快速存取。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;工具（Tools）&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;工具是智能体感知环境、执行决策的辅助手段，如API调用、插件扩展等。通过接入外部工具（如API、插件），智能体可以扩展其能力，如解析文档、生成图像等。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;行动（Action）&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;行动是智能体将规划与记忆转化为具体输出的过程，包括与外部环境的互动或工具调用。智能体根据规划与记忆执行具体行动，如智能客服回复、查询天气预报等。&lt;/p&gt;
+&lt;p&gt;智能体作为人工智能领域的重要技术突破，正在推动各行各业的创新和转型。&lt;/p&gt;
+&lt;h4&gt;构建原则&lt;/h4&gt;
+&lt;p&gt;两个核心原则：了解自己的需求；了解智能体的能力。&lt;/p&gt;
+&lt;h4&gt;应用场景&lt;/h4&gt;
+&lt;p&gt;文案：爆款标题、文案输出、爆款文章&lt;/p&gt;
+&lt;p&gt;写作：续写、改写、周报&lt;/p&gt;
+&lt;p&gt;效率工具：翻译、记账、百科，提效工具&lt;/p&gt;
+&lt;p&gt;编程助手：代码审查、代码解释&lt;/p&gt;
+&lt;p&gt;客服：智能回复&lt;/p&gt;
+&lt;p&gt;生活：什么值得买、旅行规划等等&lt;/p&gt;
+&lt;h3&gt;MCP&lt;/h3&gt;
+&lt;p&gt;MCP（Model Context Protocol，模型上下文协议）定义了应用程序和 AI 模型之间交换上下文信息的方式。这使得开发者能够以一致的方式将各种数据源、工具和功能连接到 AI 模型（一个中间协议层），就像 USB-C 让不同设备能够通过相同的接口连接一样。MCP 的目标是创建一个通用标准，使 AI 应用程序的开发和集成变得简单和统一。&lt;/p&gt;
+&lt;h4&gt;MCP的优势&lt;/h4&gt;
+&lt;p&gt;MCP充当 AI 模型的&quot;万能转接头&quot;，让 LLM 能轻松的获取数据或者调用工具。MCP 的优势在于：&lt;/p&gt;
+&lt;p&gt;生态 - MCP 提供很多现成的插件，AI 应用可以直接使用。&lt;/p&gt;
+&lt;p&gt;统一性 - 不限制于特定的 AI 模型，任何支持 MCP 的模型都可以灵活切换。&lt;/p&gt;
+&lt;p&gt;数据安全 - 敏感数据留在自己的电脑上，不必全部上传。（因为我们可以自行设计接口确定传输哪些数据）&lt;/p&gt;
+&lt;h4&gt;MCP 与 Function Calling 的区别&lt;/h4&gt;
+&lt;p&gt;这两种技术都旨在增强 AI 模型与外部数据的交互能力，但 MCP 不止可以增强 AI 模型，还可以是其他的应用系统。&lt;/p&gt;
+</content:encoded></item><item><title>嵌入式系统中回调函数的使用（翻译与理解）</title><link>https://bigfox.me/posts/%E5%B5%8C%E5%85%A5%E5%BC%8F/callback-function/</link><guid isPermaLink="true">https://bigfox.me/posts/%E5%B5%8C%E5%85%A5%E5%BC%8F/callback-function/</guid><pubDate>Tue, 25 Mar 2025 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;在嵌入式系统的开发过程中，回调函数的使用，是避不开的一个话题。看过很多关于回调函数的讲解，发现一篇较为清晰而全面的课件，推荐给大家。&lt;/p&gt;
+&lt;p&gt;本文源自下述链接课件的翻译：&lt;br /&gt;
+&lt;a href=&quot;https://pemaker.com.br/wp-content/uploads/Tech-Archive/Embedded-Systems/The-use-of-Callback-Functions-on-Embedded-Systems.pdf&quot;&gt;https://pemaker.com.br/wp-content/uploads/Tech-Archive/Embedded-Systems/The-use-of-Callback-Functions-on-Embedded-Systems.pdf&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;目录&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;引言&lt;/li&gt;
+&lt;li&gt;什么是回调函数&lt;/li&gt;
+&lt;li&gt;何时以及为何使用回调函数&lt;/li&gt;
+&lt;li&gt;在嵌入式 C 中实现回调函数&lt;/li&gt;
+&lt;li&gt;使用回调函数的最佳实践&lt;/li&gt;
+&lt;li&gt;回调函数的优缺点&lt;/li&gt;
+&lt;li&gt;回调函数的高级概念&lt;/li&gt;
+&lt;li&gt;回调函数的实际应用&lt;/li&gt;
+&lt;li&gt;调试回调实现&lt;/li&gt;
+&lt;li&gt;结论&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;引言&lt;/h2&gt;
+&lt;p&gt;回调函数在灵活且模块化的嵌入式系统设计中起着根本性的作用。它们被广泛用于解耦软件组件，使代码更具可维护性和可扩展性。在嵌入式C编程中，回调函数能够异步执行、事件驱动编程，以及硬件抽象，这些对于嵌入式应用都是至关重要的。&lt;/p&gt;
+&lt;p&gt;本文探讨回调函数的概念，解释其实现方式，强调最佳实践，讨论其实际应用，并评估使用回调函数的优势和潜在风险，确保读者能够获得其使用方式的理论与实践两方面的知识。&lt;/p&gt;
+&lt;h2&gt;什么是回调函数&lt;/h2&gt;
+&lt;p&gt;回调函数是一个作为参数传递给另一个函数并在稍后执行的函数，通常在响应特定事件时调用。在嵌入式 C 中，回调依赖于函数指针，允许在不硬编码依赖关系的情况下动态调用函数。&lt;/p&gt;
+&lt;h3&gt;示例 – 基本回调函数&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;#include &amp;lt;stdio.h&amp;gt;
+
+// 函数原型
+void executecallback(void (* callback)(void));
+
+// 一个示例回调函数
+void mycallback() {
+   printf(&quot; 回调函数执行完毕。\n&quot;);
+}
+
+// 函数接受一个回调
+void executeCallback(void (* callback)(void)) {
+   if (callback != NULL) { // 验证函数指针
+   	callback(); // 执行回调函数
+   }
+}
+
+int main() {
+   executeCallback(myCallback)；// 传递函数指针
+   return 0；
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这个例子演示了如何动态传递和调用函数指针。&lt;/p&gt;
+&lt;h2&gt;何时以及为何使用回调函数&lt;/h2&gt;
+&lt;p&gt;回调函数适用于需要异步事件处理、中断驱动的任务或模块解耦的场景。&lt;/p&gt;
+&lt;p&gt;常见使用场景：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;中断服务程序（ISRs）：在发生中断时执行特定操作，例如处理GPIO变化。&lt;/li&gt;
+&lt;li&gt;基于定时的任务：在不阻塞执行的情况下执行周期性操作。&lt;/li&gt;
+&lt;li&gt;硬件抽象层（HALs）： 允许在不同应用程序之间复用外设驱动程序。&lt;/li&gt;
+&lt;li&gt;通信协议：管理 UART、SPI 或 I2C 事件，如数据接收或传输。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;在嵌入式 C 中实现回调函数&lt;/h2&gt;
+&lt;h3&gt;示例 – GPIO中断处理&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;#include &amp;lt;avr/io.h&amp;gt;
+#include &amp;lt;avr/interrupt.h&amp;gt;
+
+// 定义回调函数的指针类型
+typedef void (*Callback)(void);
+Callback gpioCallback = NULL;
+
+// 外部中断服务程序
+ISR(INT0_vect) {
+	if (gpioCallback != NULL) { // 检查回调是否已设置
+		gpioCallback(); // 执行回调函数
+	}
+}
+
+// 用于注册回调的函数
+void registerGPIOCallback(Callback callback) {
+	gpioCallback = callback；// 赋值函数指针
+}
+
+// 回调示例
+void ledToggle() {
+	PORTB ^= (1 &amp;lt;&amp;lt; PORTB0); // 切换连接到 PORTB0 的 LED
+}
+
+int main() {
+	// 配置 GPIO
+	DDRB |= (1 &amp;lt;&amp;lt; DDB0); // 设置 PORTB0 为输出
+	EIMSK |= (1 &amp;lt;&amp;lt; INT0); // 启用 INT0 中断
+	EICRA |= (1 &amp;lt;&amp;lt; ISC01); // 触发于下降沿
+	sei(); // 开启全局中断
+
+	// 注册回调
+	registerGPIOCallback(ledToggle);
+
+	while (1) {
+		// 主循环
+	}
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这个例子为 GPIO 中断注册了一个回调，启用模块化事件处理。&lt;/p&gt;
+&lt;h2&gt;使用回调函数的最佳实践&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;验证函数指针：在调用它之前始终检查指针是否非空，以避免运行时错误。&lt;/li&gt;
+&lt;li&gt;封装回调：使用结构体或 typedef 来提高可读性和可维护性。&lt;/li&gt;
+&lt;li&gt;最小化执行时间：保持回调执行简短，以避免阻塞中断或实时进程。&lt;/li&gt;
+&lt;li&gt;避免全局变量：使用参数传递数据，减少对全局状态的依赖。&lt;/li&gt;
+&lt;li&gt;文档清晰：包含说明回调的目的和行为的注释。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;回调函数的优缺点&lt;/h2&gt;
+&lt;p&gt;优点：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;模块化： 通过解耦软件组件来实现职责分离。&lt;/li&gt;
+&lt;li&gt;可重用性： 通过通用实现促进代码复用。&lt;/li&gt;
+&lt;li&gt;灵活性： 允许在运行时无需修改代码即可动态改变行为。&lt;/li&gt;
+&lt;li&gt;异步支持：高效处理实时事件而不会阻塞执行。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;缺点：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;调试挑战： 间接函数调用会使代码执行追踪更困难。&lt;/li&gt;
+&lt;li&gt;空指针错误： 初始化不当可能导致运行时崩溃。&lt;/li&gt;
+&lt;li&gt;代码复杂度： 过度的回调链可能降低可读性，增加维护成本。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;回调函数的高级概念&lt;/h2&gt;
+&lt;p&gt;回调链式调用：&lt;br /&gt;
+可以注册并按顺序调用多个回调，适用于需要分层处理的系统。&lt;/p&gt;
+&lt;p&gt;动态与静态回调：&lt;br /&gt;
+静态回调更快但灵活性较差，而动态回调允许在运行时进行修改，但会带来额外开销。&lt;/p&gt;
+&lt;p&gt;实时操作系统中的线程安全：&lt;br /&gt;
+当在多线程系统中使用回调时，应采用互斥锁或信号量等同步机制，以确保线程安全。&lt;/p&gt;
+&lt;h2&gt;回调函数的实际应用&lt;/h2&gt;
+&lt;h2&gt;示例 – 基于定时器的任务执行&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;#include &amp;lt;avr/io.h&amp;gt;
+#include &amp;lt;avr/interrupt.h&amp;gt;
+
+// 回调函数指针
+typedef void (*TimerCallback)(void);
+TimerCallback timerCallback = NULL;
+
+// 定时器溢出中断服务程序
+ISR(TIMER1_OVF_vect) {
+	if (timerCallback != NULL) {
+		timerCallback();
+	}
+}
+
+// 注册回调函数
+void registerTimerCallback(TimerCallback callback) {
+	timerCallback = callback;
+}
+
+// 回调示例
+void toggleLED() {
+	PORTB ^= (1 &amp;lt;&amp;lt; PORTB0); // Toggle LED
+}
+
+int main() {
+	// 设置 Timer1
+	TCCR1B |= (1 &amp;lt;&amp;lt; CS12);  // 分频器 256
+	TIMSK1 |= (1 &amp;lt;&amp;lt; TOIE1); // 启用溢出中断
+	sei(); // 启用全局中断
+
+	// 配置 GPIO
+	DDRB |= (1 &amp;lt;&amp;lt; DDB0);
+
+	// 注册回调
+	registerTimerCallback(toggleLED);
+
+	while (1) {
+		// 主循环
+	}
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这个例子演示了一个定时器触发回调函数来切换LED。&lt;/p&gt;
+&lt;h2&gt;调试回调实现&lt;/h2&gt;
+&lt;p&gt;调试模式下验证指针：在开发过程中使用断言来检查函数指针。&lt;br /&gt;
+记录执行过程：打印日志或切换测试引脚以追踪回调的执行。&lt;br /&gt;
+代码剖析工具：测量执行时间以在实时系统中进行性能评估。&lt;/p&gt;
+&lt;h2&gt;结论&lt;/h2&gt;
+&lt;p&gt;回调函数是嵌入式系统中一种强大的编程工具，能够实现灵活性、可扩展性和模块化。当正确实现时，它们可以简化诸如事件处理和异步操作等复杂任务。然而，开发者必须仔细管理函数指针，以避免空指针错误和调试困难等问题。&lt;/p&gt;
+&lt;p&gt;遵循最佳实践并借鉴现实世界案例，嵌入式开发者可以充分利用回调函数，打造稳健且高效的应用程序。无论是处理 GPIO 中断还是管理定时器，回调函数始终是现代嵌入式编程的基石。&lt;/p&gt;
+&lt;h2&gt;后记&lt;/h2&gt;
+&lt;p&gt;看完这篇课件，我自己的一些通俗化理解：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;回调函数的指针变量加上参数列表，就可以表示执行回调函数。&lt;/li&gt;
+&lt;li&gt;所谓的注册回调函数，其实就是给回调函数指针赋值，以便让回调函数指针指向某一个具体的回调。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;要理解 C 语言的回调函数，需要一些前置的 C 语言概念和知识：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;指针函数与函数指针&lt;br /&gt;
+指针函数：如果一个函数的返回值是指针，此函数被称为指针函数。&lt;br /&gt;
+指针函数语法结构：&lt;code&gt;返回类型* 函数名(参数列表);&lt;/code&gt;。&lt;br /&gt;
+函数指针：如果一个指针指向某函数，此指针被称为函数指针。&lt;br /&gt;
+函数指针语法结构：&lt;code&gt;返回类型 (*指针名)(参数列表);&lt;/code&gt;。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;函数指针的类型&lt;br /&gt;
+函数指针和其它指针一样，也是有类型的，函数指针的类型由函数的参数列表和返回值共同决定。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;获取函数的地址&lt;br /&gt;
+函数和其它数据类型一样，也是有地址的，获取函数的地址有两种方式：直接使用函数名、使用取地址运算符 &amp;amp;。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+</content:encoded></item><item><title>我经常使用的 Linux 常用命令</title><link>https://bigfox.me/posts/%E8%BF%90%E7%BB%B4/linux-commonly-used-cmd/</link><guid isPermaLink="true">https://bigfox.me/posts/%E8%BF%90%E7%BB%B4/linux-commonly-used-cmd/</guid><pubDate>Sun, 23 Mar 2025 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;Linux 与 Windows 容易记混的命令&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;功能&lt;/th&gt;
+&lt;th&gt;Linux&lt;/th&gt;
+&lt;th&gt;Windows&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;查看网卡信息&lt;/td&gt;
+&lt;td&gt;ifconfig&lt;/td&gt;
+&lt;td&gt;ipconfig&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;路由跟踪&lt;/td&gt;
+&lt;td&gt;traceroute&lt;/td&gt;
+&lt;td&gt;tracert&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;查看系统环境变量&lt;/td&gt;
+&lt;td&gt;echo $PATH&lt;/td&gt;
+&lt;td&gt;PowerShell: echo $env:PATH / CMD 命令提示符：echo %PATH%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;nslookup
+&lt;a href=&quot;https://blog.csdn.net/qq_47742555/article/details/144718343&quot;&gt;nslookup 功能介绍、常用命令、使用注意事项&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Linux 如何查看端口被谁占用（lsof -i 与 netstat 命令):&lt;br /&gt;
+lsof -i&lt;br /&gt;
+lsof -i:端口号&lt;br /&gt;
+netstat -tunlp&lt;br /&gt;
+netstat -tunplp | grep 端口号&lt;/p&gt;
+&lt;h2&gt;查看系统信息相关命令&lt;/h2&gt;
+&lt;p&gt;查看 Linux 内核版本&lt;br /&gt;
+uname -r&lt;br /&gt;
+uname -a&lt;/p&gt;
+&lt;p&gt;查看 linux 发行版
+lsb_release -a&lt;br /&gt;
+cat /etc/os-release&lt;br /&gt;
+cat /etc/issue&lt;br /&gt;
+cat /etc/debian_version （Debian 系统）&lt;br /&gt;
+cat /etc/redhat-release （Red Hat 系统）&lt;/p&gt;
+&lt;p&gt;监控 CPU 及内存使用率：top，htop&lt;/p&gt;
+&lt;p&gt;查看磁盘空间：df -h&lt;/p&gt;
+&lt;p&gt;查看内存空间：free -m&lt;/p&gt;
+&lt;h2&gt;查找文件相关命令&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;grep&lt;/strong&gt;&lt;br /&gt;
+-r: 递归查找&lt;br /&gt;
+-s: 不显示错误信息&lt;br /&gt;
+--color：高亮显示搜索结果&lt;/p&gt;
+&lt;p&gt;--exclude-dir 排除某文件夹&lt;br /&gt;
+举例：grep -r &quot;要查找的字符串&quot; --exclude-dir=&quot;要排除的文件夹1&quot; --exclude-dir=&quot;要排除的文件夹2&quot;&lt;/p&gt;
+&lt;p&gt;--binary-files=without-match 排除二进制文件&lt;br /&gt;
+举例：grep -sr --binary-files=without-match --color mac_pwr_lut_ctrl .&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;find&lt;/strong&gt;&lt;br /&gt;
+find 起始路径 -name &quot;被查找文件名&quot;&lt;/p&gt;
+&lt;h2&gt;Linux 内核模块管理相关命令&lt;/h2&gt;
+&lt;p&gt;lsmod：查看内核已加载的模块&lt;br /&gt;
+modinfo：查看模块的基本信息&lt;br /&gt;
+insmod：将指定模块加载到内核，建议使用modeprobe命令&lt;br /&gt;
+rmmod：将已加载模块从内核中移除，建议使用modeprobe命令&lt;br /&gt;
+modprobe (-r)：加载（或卸载）内核模块，需要根据modules.dep.bin文件进行加载操作，可以自动解决模块间的依赖关系&lt;br /&gt;
+depmod：查找/lib/moduels/(uname -r)/中的所有模块并建立modules.dep.bin文件，该文件记录了模块位置及依赖关系&lt;/p&gt;
+&lt;h2&gt;进程管理&lt;/h2&gt;
+&lt;p&gt;pkill -f &quot;进程名称&quot; 按名称关闭进程&lt;/p&gt;
+</content:encoded></item><item><title>如何修改 Rockchip RV1126/RV1109 平台的 Flash 分区大小</title><link>https://bigfox.me/posts/%E5%B5%8C%E5%85%A5%E5%BC%8F/rockchip-flash-partition/</link><guid isPermaLink="true">https://bigfox.me/posts/%E5%B5%8C%E5%85%A5%E5%BC%8F/rockchip-flash-partition/</guid><pubDate>Thu, 20 Mar 2025 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;RV1126/RV1109 分区参数配置文件：&lt;br /&gt;
+瑞芯微 SDK 目录/device/rockchip/rv1126_rv1109/parameter-buildroot-fit.txt&lt;/p&gt;
+&lt;p&gt;其中有一行即是修改位置：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;CMDLINE: mtdparts=rk29xxnand:0x00002000@0x00004000(uboot),0x00002000@0x00006000(misc),0x00010000@0x00008000(boot),0x00010000@0x00018000(recovery),0x0    0010000@0x00028000(backup),0x00200000@0x00038000(rootfs),0x00200000@0x00238000(oem),0x00200000@0x00438000(userdata),-@0x00638000(media:grow)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;同型号Flash，大小从 8G 直接更改为 16/32/64G，可以直接使用。media 分区自动增大，就是因为配置：-@0x00638000(media:grow)。&lt;/p&gt;
+</content:encoded></item><item><title>嵌入式 Linux 系统中，未识别 USB CDC 设备的解决办法</title><link>https://bigfox.me/posts/%E5%B5%8C%E5%85%A5%E5%BC%8F/linux-usb-cdc/</link><guid isPermaLink="true">https://bigfox.me/posts/%E5%B5%8C%E5%85%A5%E5%BC%8F/linux-usb-cdc/</guid><pubDate>Tue, 18 Mar 2025 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;起因&lt;/h2&gt;
+&lt;p&gt;最近在使用瑞芯微的 RV1109 芯片及 SDK 进行软件开发，需要使用 USB CDC 协议与 GD32L233 通信。&lt;/p&gt;
+&lt;h2&gt;问题&lt;/h2&gt;
+&lt;p&gt;GD32L233 上已经运行了 USB CDC 的 Demo 程序，通过 USB 接口接入 PC，PC 可识别出一个虚拟串口。&lt;br /&gt;
+但是当把 GD32L233 通过 USB 接口接入 RV1109 开发板，通过 &lt;code&gt;ls /dev/tty*&lt;/code&gt; 查看，没有此设备的设备文件。&lt;/p&gt;
+&lt;h2&gt;排查&lt;/h2&gt;
+&lt;p&gt;通过拔插 USB 连接线，插入连接线时开发板的 dmesg 信息如下：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;[  418.101649] usb 1-1.2.3: new full-speed USB device number 11 using ehci-platform
+[  418.201364] usb 1-1.2.3: New USB device found, idVendor=28e9, idProduct=018a, bcdDevice= 1.00
+[  418.201540] usb 1-1.2.3: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+[  418.201653] usb 1-1.2.3: Product: GD32-CDC_ACM
+[  418.201687] usb 1-1.2.3: Manufacturer: GigaDevice
+[  418.201714] usb 1-1.2.3: SerialNumber: 8F7FA3710636
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;表明已识别出 USB 设备，但是没有设备文件。&lt;/p&gt;
+&lt;h2&gt;解决办法&lt;/h2&gt;
+&lt;p&gt;在 SDK 的 kernel 目录下，运行 make menuconfig，内核打开配置：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Device Drivers &amp;gt; USB support ：USB Modem (CDC ACM) support&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;重新编译内核，烧录到开发板。&lt;/p&gt;
+&lt;h2&gt;验证&lt;/h2&gt;
+&lt;p&gt;再次拔插 USB 连接线，开发板的 dmesg 信息如下：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;[ 1098.801007] usb 1-1.2: new full-speed USB device number 6 using ehci-platform
+[ 1098.919135] usb 1-1.2: New USB device found, idVendor=28e9, idProduct=018a, bcdDevice= 1.00
+[ 1098.919203] usb 1-1.2: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+[ 1098.919233] usb 1-1.2: Product: GD32-CDC_ACM
+[ 1098.919270] usb 1-1.2: Manufacturer: GigaDevice
+[ 1098.919308] usb 1-1.2: SerialNumber: 8F7FA3710636
+[ 1098.921296] cdc_acm 1-1.2:1.0: ttyACM0: USB ACM device
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;表明已识别出USB 设备，并且其设备文件为：ttyACM0。&lt;/p&gt;
+</content:encoded></item><item><title>记录一次单片机 LCD 显示驱动移植到 Linux 环境下的曲折过程</title><link>https://bigfox.me/posts/%E5%B5%8C%E5%85%A5%E5%BC%8F/linux-lcd-porting/</link><guid isPermaLink="true">https://bigfox.me/posts/%E5%B5%8C%E5%85%A5%E5%BC%8F/linux-lcd-porting/</guid><pubDate>Wed, 12 Mar 2025 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;单片机 LCD 显示驱动移植到 Linux 环境时，先后进行了如下修改：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;文件需要由 GB2312 编码转换为 UTF8 编码；&lt;/li&gt;
+&lt;li&gt;结构体中汉字所占字节大小由 2 改为 3；&lt;/li&gt;
+&lt;li&gt;程序中循环显示每个汉字时，s+=2，改为 s+=3；&lt;/li&gt;
+&lt;li&gt;程序中从字库中循环寻找汉字时，由比较 2 个字节改为比较 3 个字节；&lt;/li&gt;
+&lt;li&gt;提升显示速度（由一次写 2 个字节，改为写每个字符的所有字节）；&lt;/li&gt;
+&lt;/ol&gt;
+</content:encoded></item><item><title>4G 设备定位技术概览</title><link>https://bigfox.me/posts/%E5%B5%8C%E5%85%A5%E5%BC%8F/4g-location-outline/</link><guid isPermaLink="true">https://bigfox.me/posts/%E5%B5%8C%E5%85%A5%E5%BC%8F/4g-location-outline/</guid><pubDate>Mon, 10 Mar 2025 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;4G 模组厂商&lt;/h2&gt;
+&lt;p&gt;移远通信：&lt;a href=&quot;https://www.quectel.com.cn/&quot;&gt;https://www.quectel.com.cn/&lt;/a&gt;&lt;br /&gt;
+合宙通信：&lt;a href=&quot;https://official.openluat.com/&quot;&gt;https://official.openluat.com/&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;位置查询&lt;/h2&gt;
+&lt;h3&gt;经纬度位置查询&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;http://jingweidu.757dy.com/&quot;&gt;http://jingweidu.757dy.com/&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;百度坐标拾取器&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://api.map.baidu.com/lbsapi/getpoint/index.html&quot;&gt;https://api.map.baidu.com/lbsapi/getpoint/index.html&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;高德坐标拾取器&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://lbs.amap.com/tools/picker&quot;&gt;https://lbs.amap.com/tools/picker&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;腾讯坐标拾取器&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://lbs.qq.com/getPoint/&quot;&gt;https://lbs.qq.com/getPoint/&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;基站定位查询&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://iot.openluat.com/lbs/bs&quot;&gt;https://iot.openluat.com/lbs/bs&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;智能硬件定位接口&lt;/h2&gt;
+&lt;h3&gt;百度接口&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://lbsyun.baidu.com/faq/api?title=webapi/intel-hardware-base&quot;&gt;https://lbsyun.baidu.com/faq/api?title=webapi/intel-hardware-base&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;高德接口&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://lbs.amap.com/api/webservice/guide/api-advanced/hardware-location&quot;&gt;https://lbs.amap.com/api/webservice/guide/api-advanced/hardware-location&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;腾讯接口&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://lbs.qq.com/service/webService/webServiceGuide/position/location&quot;&gt;https://lbs.qq.com/service/webService/webServiceGuide/position/location&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;参考&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/u014436243/article/details/110863584&quot;&gt;通过4G模块定位设备&lt;/a&gt;&lt;/p&gt;
+</content:encoded></item><item><title>WiFi 芯片 RTL8821CS，Rockchip RV1109 平台系统软重启后不能正常工作</title><link>https://bigfox.me/posts/%E5%B5%8C%E5%85%A5%E5%BC%8F/rockchip-wifi-reboot/</link><guid isPermaLink="true">https://bigfox.me/posts/%E5%B5%8C%E5%85%A5%E5%BC%8F/rockchip-wifi-reboot/</guid><pubDate>Sun, 09 Mar 2025 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;问题&lt;/h2&gt;
+&lt;p&gt;Rockchip RV1109 平台，系统软重启后，WiFi 模块不能正常工作；断电重启后，WiFi 模块正常。&lt;/p&gt;
+&lt;h2&gt;Rockchip 回复&lt;/h2&gt;
+&lt;p&gt;RTL8821CS 这颗模块比较特别， 由于模块CHIP_EN 没有引出来，reboot 时断电不完全。所以 RK 参考设计是有用单独 gpio 控电 vbat，这个要看你们硬件设计，是否预留相应 gpio。可打下面补丁进行控制。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;diff --git a/arch/arm64/boot/dts/rockchip/rk3399-sapphire.dtsi b/arch/arm64/boot/dts/rockchip/rk3399-sapphire.dtsi
+
+index a4076b888f7d..1bd289e2b4bc 100644
+
+--- a/arch/arm64/boot/dts/rockchip/rk3399-sapphire.dtsi
+
++++ b/arch/arm64/boot/dts/rockchip/rk3399-sapphire.dtsi
+
+@@ -100,7 +100,7 @@
+
+         clocks = &amp;amp;lt;&amp;amp;amp;rk808 1&amp;amp;gt;;
+
+         clock-names = &quot;ext_clock&quot;;
+
+         pinctrl-names = &quot;default&quot;;
+
+-        pinctrl-0 = &amp;amp;lt;&amp;amp;amp;wifi_enable_h&amp;amp;gt;;
+
++        pinctrl-0 = &amp;amp;lt;&amp;amp;amp;wifi_enable_h &amp;amp;amp;wifi_poweren_h&amp;amp;gt;;
+
+         /*
+
+          * On the module itself this is one of these (depending
+
+@@ -109,6 +109,7 @@
+
+          * - PDN (power down when low)
+
+          */
+
+         reset-gpios = &amp;amp;lt;&amp;amp;amp;gpio0 10 GPIO_ACTIVE_LOW&amp;amp;gt;; /* GPIO0_B2 */
+
++        poweren-gpios = &amp;amp;lt;&amp;amp;amp;gpio0 8 GPIO_ACTIVE_LOW&amp;amp;gt;; /* GPIO0_B2 */
+
+     };
+
+     vcc3v3_sys: vcc3v3-sys {
+
+@@ -731,4 +732,14 @@
+
+             rockchip,pins = &amp;amp;lt;1 2 RK_FUNC_GPIO &amp;amp;amp;pcfg_pull_up&amp;amp;gt;;
+
+         };
+
+     };
+
++
+
++     sdio-pwrseq {
+
++                wifi_enable_h: wifi-enable-h {
+
++                        rockchip,pins = &amp;amp;lt;0 RK_PB2 RK_FUNC_GPIO &amp;amp;amp;pcfg_pull_none&amp;amp;gt;;
+
++                };
+
++               
+
++                wifi_poweren_h: wifi-poweren-h {
+
++                        rockchip,pins = &amp;amp;lt;0 RK_PB0 RK_FUNC_GPIO &amp;amp;amp;pcfg_pull_up&amp;amp;gt;;
+
++                };
+
++     };
+
+};
+
+--- a/drivers/mmc/core/pwrseq_simple.c
+
++++ b/drivers/mmc/core/pwrseq_simple.c
+
+@@ -14,6 +14,7 @@
+
+#include &amp;amp;lt;linux/err.h&amp;amp;gt;
+
+#include &amp;amp;lt;linux/of_gpio.h&amp;amp;gt;
+
+#include &amp;amp;lt;linux/gpio/consumer.h&amp;amp;gt;
+
++#include &amp;amp;lt;linux/delay.h&amp;amp;gt;
+
+#include &amp;amp;lt;linux/mmc/host.h&amp;amp;gt;
+
+@@ -24,12 +25,27 @@ struct mmc_pwrseq_simple {
+
+        bool clk_enabled;
+
+        struct clk *ext_clk;
+
+        struct gpio_descs *reset_gpios;
+
++       struct gpio_descs *poweren_gpios;
+
+};
+
+static void mmc_pwrseq_simple_set_gpios_value(struct mmc_pwrseq_simple *pwrseq,
+                                              int value)
+{
+        struct gpio_descs *reset_gpios = pwrseq-&amp;amp;gt;reset_gpios;
+
++       struct gpio_descs *poweren_gpios = pwrseq-&amp;amp;gt;poweren_gpios;
+
++
+
++       if (!IS_ERR(poweren_gpios)) {
+
++               int i;
+
++               int values&amp;amp;#91;poweren_gpios-&amp;amp;gt;ndescs];
+
++
+
++               for (i = 0; i &amp;amp;lt; poweren_gpios-&amp;amp;gt;ndescs; i++)
+
++                       values&amp;amp;#91;i] = value;
+
++
+
++               gpiod_set_array_value_cansleep(
+
++                       poweren_gpios-&amp;amp;gt;ndescs, poweren_gpios-&amp;amp;gt;desc, values);
+
++       }
+
++
+
++       msleep(200); //200ms
+
+        if (!IS_ERR(reset_gpios)) {
+
+                int i;
+
+@@ -41,6 +57,7 @@ static void mmc_pwrseq_simple_set_gpios_value(struct mmc_pwrseq_simple *pwrseq,
+
+                gpiod_set_array_value_cansleep(
+
+                        reset_gpios-&amp;amp;gt;ndescs, reset_gpios-&amp;amp;gt;desc, values);
+        }
+
++
+
+}
+
+static void mmc_pwrseq_simple_pre_power_on(struct mmc_host *host)
+
+@@ -122,6 +139,14 @@ struct mmc_pwrseq *mmc_pwrseq_simple_alloc(struct mmc_host *host,
+
+                ret = PTR_ERR(pwrseq-&amp;amp;gt;reset_gpios);
+
+                goto clk_put;
+
+        }
++
+
++               pwrseq-&amp;amp;gt;poweren_gpios = gpiod_get_array(dev, &quot;poweren&quot;, GPIOD_OUT_HIGH);
+
++       if (IS_ERR(pwrseq-&amp;amp;gt;poweren_gpios) &amp;amp;amp;&amp;amp;amp;
+
++           PTR_ERR(pwrseq-&amp;amp;gt;poweren_gpios) != -ENOENT &amp;amp;amp;&amp;amp;amp;
+
++           PTR_ERR(pwrseq-&amp;amp;gt;poweren_gpios) != -ENOSYS) {
+
++               ret = PTR_ERR(pwrseq-&amp;amp;gt;poweren_gpios);
+
++               //goto clk_put;
+
++       }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2&gt;说明&lt;/h2&gt;
+&lt;p&gt;官方给出的回复是 RK3399 平台的修改代码，RV1109 平台可以参考修改 dtsi 文件。&lt;/p&gt;
+</content:encoded></item><item><title>Linux 调试 WiFi 的常用命令</title><link>https://bigfox.me/posts/%E5%B5%8C%E5%85%A5%E5%BC%8F/linux-wifi-debug/</link><guid isPermaLink="true">https://bigfox.me/posts/%E5%B5%8C%E5%85%A5%E5%BC%8F/linux-wifi-debug/</guid><pubDate>Sat, 08 Mar 2025 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;wpa_cli&lt;/h2&gt;
+&lt;h3&gt;查看当前连接的 WiFi 热点信息&lt;/h3&gt;
+&lt;p&gt;wpa_cli -i wlan0 -p /var/run/wpa_supplicant/ status&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;[bigfox@RV1126_RV1109]#wpa_cli -i wlan0 -p /var/run/wpa_supplicant/ status
+bssid=5c:02:14:b5:ff:03
+freq=5240
+ssid=RDwifi-5G
+id=0
+mode=station
+pairwise_cipher=CCMP
+group_cipher=CCMP
+key_mgmt=WPA2-PSK
+wpa_state=COMPLETED
+ip_address=192.168.31.25
+p2p_device_address=a0:9f:10:26:03:98
+address=a0:9f:10:26:03:98
+uuid=4733e679-57e1-52da-aa08-6ec6286ddadd
+[bigfox@RV1126_RV1109]#
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;获取附近无线 WiFi 热点信息&lt;/h3&gt;
+&lt;p&gt;wpa_cli -i wlan0 -p /var/run/wpa_supplicant scan_results&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;[bigfox@RV1126_RV1109]# wpa_cli -i wlan0 -p /var/run/wpa_supplicant scan_results
+bssid / frequency / signal level / flags / ssid
+5c:02:14:b5:ff:03       5240    -44     [WPA2-PSK-CCMP][WPS][ESS]       RDwifi-5G
+34:47:d4:af:e6:9d       5220    -53     [WPA-PSK-CCMP][WPA2-PSK-CCMP][ESS]      RDpub-5G
+36:47:d4:cf:e6:9c       5220    -52     [WPA2-PSK-CCMP][ESS]
+48:5f:08:44:9c:38       5240    -52     [WPA-PSK-CCMP][WPA2-PSK-CCMP][ESS]      RD888
+aa:8c:21:2f:9d:b3       5180    -64     [WPA-PSK-CCMP][WPA2-PSK-CCMP][ESS]      TP-LINK_9DB0
+[bigfox@RV1126_RV1109]#
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2&gt;iwlist&lt;/h2&gt;
+&lt;p&gt;iwlist wlan0 scan&lt;/p&gt;
+</content:encoded></item><item><title>Linux 下新增文件后立即关机，开机后文件为什么没有了？</title><link>https://bigfox.me/posts/%E8%BF%90%E7%BB%B4/linux-file-shutdown/</link><guid isPermaLink="true">https://bigfox.me/posts/%E8%BF%90%E7%BB%B4/linux-file-shutdown/</guid><pubDate>Wed, 05 Mar 2025 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;Linux 新增文件后立即关机&lt;/h2&gt;
+&lt;p&gt;实际开发过程中遇到：Linux 下新增文件后立即关机，开机后文件并没有创建成功。&lt;/p&gt;
+&lt;p&gt;问问人工智能，答案是：&lt;br /&gt;
+Linux 系统会将文件写入操作先缓存到内存中，而不是直接写入磁盘。如果在文件写入后立即关机，而缓存中的数据尚未写入磁盘，就会导致数据丢失！&lt;/p&gt;
+&lt;h2&gt;Linux 删除文件后立即关机&lt;/h2&gt;
+&lt;p&gt;那么，Linux 下删除文件后，立即关机，开机后文件还存在吗？实际开发过程中经测试，结果是：有时还存在，有时不存在！&lt;/p&gt;
+&lt;p&gt;问问人工智能，答案是：&lt;br /&gt;
+当删除文件时，操作系统的文件系统管理器会标记文件为“已删除”，但实际的磁盘操作可能尚未完成。如果在删除操作完成之前立即关机，可能会出现以下情况：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;文件仍然存在：如果删除操作尚未完成，且关机时系统没有将删除操作的元数据同步到磁盘，文件可能仍然存在。&lt;/li&gt;
+&lt;li&gt;文件部分存在：如果删除操作只完成了部分（例如，文件元数据被修改，但实际数据块未释放），文件可能在重启后仍然部分存在。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;总结：使用 sync 类命令&lt;/h2&gt;
+&lt;p&gt;所以，在软件开发中，新增或删除文件后，为了防止可能立即关机导致的与预期不一致，需要使用 sync 类命令强制把缓存中的数据写入磁盘！&lt;/p&gt;
+</content:encoded></item><item><title>Linux 平台调试摄像头的常用命令</title><link>https://bigfox.me/posts/%E5%B5%8C%E5%85%A5%E5%BC%8F/linux-camera-debug/</link><guid isPermaLink="true">https://bigfox.me/posts/%E5%B5%8C%E5%85%A5%E5%BC%8F/linux-camera-debug/</guid><pubDate>Tue, 04 Mar 2025 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;列出系统中所有的 USB 设备，包括 USB 摄像头&lt;/h2&gt;
+&lt;p&gt;lsusb  可查看设备号、厂商ID和产品ID&lt;br /&gt;
+lsusb -t  可查看拓扑和速度&lt;/p&gt;
+&lt;h2&gt;内核对 USB (或 UVC) 设备的加载和识别过程&lt;/h2&gt;
+&lt;p&gt;dmesg | grep -i usb&lt;br /&gt;
+dmesg | grep -i uvc&lt;/p&gt;
+&lt;h2&gt;检查内核模块是否加载 UVC 驱动&lt;/h2&gt;
+&lt;p&gt;lsmod | grep uvcvideo&lt;/p&gt;
+&lt;h2&gt;查看 UVC 驱动版本&lt;/h2&gt;
+&lt;p&gt;cat /sys/module/uvcvideo/version&lt;br /&gt;
+modinfo uvcvideo | grep version&lt;/p&gt;
+&lt;h2&gt;查看设备节点&lt;/h2&gt;
+&lt;p&gt;ls /dev/video*&lt;/p&gt;
+&lt;h2&gt;使用 ffplay 进行实时预览&lt;/h2&gt;
+&lt;p&gt;为了能够在系统上使用 ffplay, 需要先确保已正确安装了 FFmpeg 。&lt;br /&gt;
+sudo apt install ffmpeg&lt;br /&gt;
+ffplay /dev/video25&lt;/p&gt;
+&lt;h2&gt;使用 cheese 进行实时预览&lt;/h2&gt;
+&lt;p&gt;cheese 是一个简单的摄像头应用程序，可以用来进行实时预览和拍摄照片或视频。&lt;br /&gt;
+apt install cheese&lt;br /&gt;
+cheese&lt;/p&gt;
+&lt;h2&gt;使用 guvcview 进行高级控制&lt;/h2&gt;
+&lt;p&gt;guvcview 提供了更多的摄像头控制选项，可以用来进行高级调试。&lt;br /&gt;
+sudo apt install guvcview&lt;br /&gt;
+guvcview&lt;/p&gt;
+&lt;h2&gt;v4l2-ctl&lt;/h2&gt;
+&lt;p&gt;v4l2-ctl 是 Linux 系统中用于控制 Video for Linux 2 (V4L2) 设备的命令行工具，主要用于管理摄像头、视频采集卡等多媒体设备的参数和功能。&lt;/p&gt;
+&lt;h3&gt;安装v4l2-ctl (Debian/Ubuntu)&lt;/h3&gt;
+&lt;p&gt;sudo apt install v4l-utils&lt;/p&gt;
+&lt;h3&gt;全部选项&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;bigfox@ubuntu:~$ v4l2-ctl -h
+
+General/Common options:
+  --all              display all information available
+  -C, --get-ctrl=&amp;lt;ctrl&amp;gt;[,&amp;lt;ctrl&amp;gt;...]
+                     get the value of the controls [VIDIOC_G_EXT_CTRLS]
+  -c, --set-ctrl=&amp;lt;ctrl&amp;gt;=&amp;lt;val&amp;gt;[,&amp;lt;ctrl&amp;gt;=&amp;lt;val&amp;gt;...]
+                     set the value of the controls [VIDIOC_S_EXT_CTRLS]
+  -D, --info         show driver info [VIDIOC_QUERYCAP]
+  -d, --device=&amp;lt;dev&amp;gt; use device &amp;lt;dev&amp;gt; instead of /dev/video0
+                     if &amp;lt;dev&amp;gt; starts with a digit, then /dev/video&amp;lt;dev&amp;gt; is used
+  -e, --out-device=&amp;lt;dev&amp;gt; use device &amp;lt;dev&amp;gt; for output streams instead of the
+                     default device as set with --device
+                     if &amp;lt;dev&amp;gt; starts with a digit, then /dev/video&amp;lt;dev&amp;gt; is used
+  -h, --help         display this help message
+  --help-all         all options
+  --help-io          input/output options
+  --help-misc        miscellaneous options
+  --help-overlay     overlay format options
+  --help-sdr         SDR format options
+  --help-selection   crop/selection options
+  --help-stds        standards and other video timings options
+  --help-streaming   streaming options
+  --help-tuner       tuner/modulator options
+  --help-vbi         VBI format options
+  --help-vidcap      video capture format options
+  --help-vidout      vidout output format options
+  --help-edid        edid handling options
+  -k, --concise      be more concise if possible.
+  -l, --list-ctrls   display all controls and their values [VIDIOC_QUERYCTRL]
+  -L, --list-ctrls-menus
+                     display all controls and their menus [VIDIOC_QUERYMENU]
+  -r, --subset=&amp;lt;ctrl&amp;gt;[,&amp;lt;offset&amp;gt;,&amp;lt;size&amp;gt;]+
+                     the subset of the N-dimensional array to get/set for control &amp;lt;ctrl&amp;gt;,
+                     for every dimension an (&amp;lt;offset&amp;gt;, &amp;lt;size&amp;gt;) tuple is given.
+  -w, --wrapper      use the libv4l2 wrapper library.
+  --list-devices     list all v4l devices
+  --log-status       log the board status in the kernel log [VIDIOC_LOG_STATUS]
+  --get-priority     query the current access priority [VIDIOC_G_PRIORITY]
+  --set-priority=&amp;lt;prio&amp;gt;
+                     set the new access priority [VIDIOC_S_PRIORITY]
+                     &amp;lt;prio&amp;gt; is 1 (background), 2 (interactive) or 3 (record)
+  --silent           only set the result code, do not print any messages
+  --sleep=&amp;lt;secs&amp;gt;     sleep &amp;lt;secs&amp;gt;, call QUERYCAP and close the file handle
+  --verbose          turn on verbose ioctl status reporting
+bigfox@ubuntu:~$
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;常用选项说明&lt;/h3&gt;
+&lt;p&gt;列出所有 V4L2 设备：v4l2-ctl --list-devices&lt;/p&gt;
+&lt;p&gt;查看摄像头支持的图像格式：v4l2-ctl -d /dev/video25 --list-formats&lt;br /&gt;
+查看摄像头支持的图像格式和分辨率：v4l2-ctl -d /dev/video25 --list-formats-ext&lt;br /&gt;
+查看摄像头详细参数：v4l2-ctl -d /dev/video25 --all&lt;br /&gt;
+查看摄像头驱动信息：v4l2-ctl -d /dev/video25 -D&lt;br /&gt;
+查看摄像头编码格式所支持的分辨率：&lt;br /&gt;
+v4l2-ctl --list-framesizes=MJPG -d /dev/video25&lt;br /&gt;
+v4l2-ctl --list-framesizes=YUYV -d /dev/video25&lt;br /&gt;
+设置帧率：v4l2-ctl --device=/dev/video25 --set-parm=30&lt;/p&gt;
+&lt;p&gt;设置摄像头的编码格式和分辨率：v4l2-ctl -d /dev/video25 --set-fmt-video=width=640,height=480,pixelformat=MJPG&lt;br /&gt;
+查看摄像头编码格式和分辨率：v4l2-ctl -d /dev/video25 --get-fmt-video&lt;/p&gt;
+&lt;p&gt;设置摄像头曝光参数、亮度、对比度等参数：&lt;br /&gt;
+v4l2-ctl -d /dev/video25 --set-ctrl=exposure_auto=1 # 关闭自动曝光&lt;br /&gt;
+v4l2-ctl -d /dev/video25 --set-ctrl=exposure_absolute=1000&lt;br /&gt;
+v4l2-ctl -d /dev/video25 --set-ctrl=brightness=128&lt;br /&gt;
+v4l2-ctl -d /dev/video25 --set-ctrl=contrast=32&lt;br /&gt;
+并非所有摄像头支持所有控制参数，--list-ctrls 可以查看支持的参数：&lt;br /&gt;
+v4l2-ctl --list-ctrls&lt;br /&gt;
+v4l2-ctl --list-ctrls-menus&lt;/p&gt;
+&lt;h3&gt;拍照&lt;/h3&gt;
+&lt;p&gt;v4l2-ctl -d /dev/video25 --set-fmt-video=width=2592,height=1944,pixelformat=MJPG --stream-mmap=3 --stream-to=/userdata/media/test.jpg --stream-count=1 --stream-skip=3 --stream-poll&lt;br /&gt;
+参数说明：&lt;br /&gt;
+-d /dev/video25 指定video设备&lt;br /&gt;
+--set-fmt-video 指定宽高及pxielformat&lt;br /&gt;
+--stream-mmap 指定内存映射缓冲区的数量
+--stream-to 指定帧数据保存的文件路径&lt;br /&gt;
+--stream-count 指定抓取的帧数&lt;br /&gt;
+--stream-skip 指定丢弃（不保存到文件）前 3 帧&lt;br /&gt;
+--stream-poll 该选项指示 v4l2-ctl 采用异步 IO&lt;/p&gt;
+&lt;h3&gt;录像&lt;/h3&gt;
+&lt;p&gt;v4l2-ctl -d /dev/video25 --set-fmt-video=width=1920,height=1080,pixelformat=MJPG --stream-mmap=3 --stream-to=/userdata/media/test --stream-count=120 --stream-skip=3 --stream-poll&lt;/p&gt;
+&lt;p&gt;录像后的视频流封装为可播放的 mp4 格式（使用 ffmpeg)：&lt;br /&gt;
+/oem/usr/bin/ffmpeg -r 60 -i /userdata/media/test -b:v 10M /userdata/media/test.mp4 -y&lt;br /&gt;
+参数说明：&lt;br /&gt;
+-r：设置帧率&lt;br /&gt;
+-i：输入文件&lt;br /&gt;
+-b:v：设置码率&lt;br /&gt;
+-y：不用确认覆盖同名文件&lt;/p&gt;
+&lt;h3&gt;选项总结&lt;/h3&gt;
+&lt;p&gt;--all	显示设备全部信息&lt;br /&gt;
+--list-devices	列出视频设备及节点&lt;br /&gt;
+--list-formats / --list-formats-ext	列出支持的视频格式和分辨率&lt;br /&gt;
+--get-fmt-video / --set-fmt-video	获取或设置视频格式（分辨率、像素格式）&lt;br /&gt;
+--get-parm / --set-parm	获取或设置帧率&lt;br /&gt;
+--get-ctrl / --set-ctrl	获取或设置控制参数（亮度、曝光等）&lt;br /&gt;
+--stream-mmap=N		使用内存映射方式抓帧&lt;br /&gt;
+--stream-to=文件名		抓帧数据保存到文件&lt;br /&gt;
+--stream-count=N		抓取 N 帧&lt;/p&gt;
+&lt;h2&gt;media-ctl&lt;/h2&gt;
+&lt;p&gt;media-ctl 是 Linux 系统中用于配置和管理 V4L2（Video for Linux 2）子设备的命令行工具，它主要用于配置媒体控制器（Media Controller）框架下的复杂视频设备（如摄像头、图像传感器、CSI/DSI接口、图像处理单元等）的拓扑结构和数据流路径。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;bigfox@ubuntu:~$ media-ctl -h
+media-ctl [options]
+-d, --device dev        Media device name (default: /dev/media0)
+-e, --entity name       Print the device name associated with the given entity
+-V, --set-v4l2 v4l2     Comma-separated list of formats to setup
+    --get-v4l2 pad      Print the active format on a given pad
+    --set-dv pad        Configure DV timings on a given pad
+-h, --help              Show verbose help and exit
+-i, --interactive       Modify links interactively
+-l, --links links       Comma-separated list of link descriptors to setup
+    --known-mbus-fmts   List known media bus formats and their numeric values
+-p, --print-topology    Print the device topology. If an entity
+                        is specified through the -e option, print
+                        information for that entity only.
+    --print-dot         Print the device topology as a dot graph
+-r, --reset             Reset all links to inactive
+-v, --verbose           Be verbose
+......
+bigfox@ubuntu:~$ 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2&gt;参考&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/m0_49857167/article/details/145603913&quot;&gt;RK3576——MIPI CSI之v4l2-ctl、media-ctl命令分析&lt;/a&gt;&lt;/p&gt;
+</content:encoded></item><item><title>忘记 MySQL 数据库 root 用户的密码了，怎么办？</title><link>https://bigfox.me/posts/%E8%BF%90%E7%BB%B4/mysql-root-pwd/</link><guid isPermaLink="true">https://bigfox.me/posts/%E8%BF%90%E7%BB%B4/mysql-root-pwd/</guid><pubDate>Thu, 27 Feb 2025 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;注：以下内容来源于 AI 问答的整理。&lt;/p&gt;
+&lt;p&gt;如果忘记 MySQL 数据库 root 用户的密码，可以使用 mysqld_safe 加 --init-file 参数重置 root 的密码。具体操作如下：&lt;/p&gt;
+&lt;h2&gt;第一步：停止MySQL服务&lt;/h2&gt;
+&lt;p&gt;sudo systemctl stop mysql&lt;/p&gt;
+&lt;h2&gt;第二步：创建一个包含密码重置命令的文件&lt;/h2&gt;
+&lt;p&gt;echo &quot;ALTER USER &apos;root&apos;@&apos;localhost&apos; IDENTIFIED BY &apos;new_password&apos;;&quot; &amp;gt; /tmp/mysql-init.sql&lt;br /&gt;
+将 new_password 替换为你想要设置的新密码。&lt;/p&gt;
+&lt;h2&gt;第三步：以 --init-file 参数启动 MySQL&lt;/h2&gt;
+&lt;p&gt;使用 mysqld_safe 而不是直接使用 mysqld 来启动 MySQL 服务，以避免以 root 用户身份运行的问题：&lt;br /&gt;
+sudo mysqld_safe --init-file=/tmp/mysql-init.sql &amp;amp;&lt;br /&gt;
+等待 MySQ L 服务启动并执行初始化文件中的命令，这个过程可能需要一些时间，具体取决于你的系统配置和性能。&lt;/p&gt;
+&lt;h2&gt;第四步：删除初始化文件&lt;/h2&gt;
+&lt;p&gt;rm /tmp/mysql-init.sql&lt;/p&gt;
+&lt;h2&gt;第五步：重启MySQL服务&lt;/h2&gt;
+&lt;p&gt;sudo systemctl restart mysql&lt;/p&gt;
+&lt;p&gt;通过以上步骤，即可成功重置 MySQL 的 root 密码。&lt;/p&gt;
+</content:encoded></item><item><title>我想远程操作服务器上的 MySQL，怎么做？</title><link>https://bigfox.me/posts/%E8%BF%90%E7%BB%B4/mysql-remote-access/</link><guid isPermaLink="true">https://bigfox.me/posts/%E8%BF%90%E7%BB%B4/mysql-remote-access/</guid><pubDate>Wed, 26 Feb 2025 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;strong&gt;说明：以下内容来源于我在夸克浏览中与 AI 的对话。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;问：&lt;/strong&gt;&lt;br /&gt;
+如何查看用户在数据库中是否具有远程访问权限 ，如果没有，如何配置。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;答：&lt;/strong&gt;&lt;br /&gt;
+要查看并配置 MySQL 用户的远程访问权限，通常需要完成两个层面的操作：&lt;br /&gt;
+&lt;strong&gt;一是查看/修改数据库内部的用户权限设置，二是检查数据库服务器的网络配置&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;很多情况下连接不上并不是用户没权限，而是服务器防火墙或 MySQL 的配置文件限制了外部访问。&lt;/p&gt;
+&lt;p&gt;下面我为你详细梳理了从“查看”到“配置”的完整流程：&lt;/p&gt;
+&lt;h2&gt;第一步：查看当前用户权限（数据库内部）&lt;/h2&gt;
+&lt;p&gt;登录到 MySQL 服务器后（通常使用 root 用户），执行以下命令来查看现有用户的访问权限情况。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1. 查看所有用户及其允许的连接主机&lt;/strong&gt;&lt;br /&gt;
+SELECT User, Host FROM mysql.user;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;关键点：&lt;/strong&gt; 关注 Host 列。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;如果是 localhost 或 127.0.0.1：只能本地连接，&lt;strong&gt;不能&lt;/strong&gt;远程访问。&lt;/li&gt;
+&lt;li&gt;如果是 %：代表允许从任何 IP 地址远程连接。&lt;/li&gt;
+&lt;li&gt;如果是特定 IP（如 192.168.1.100）：只允许该 IP 远程连接。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;2. 查看特定用户的详细权限&lt;/strong&gt;&lt;br /&gt;
+如果你想看某个用户具体有哪些操作权限（如 SELECT, INSERT 等）：&lt;br /&gt;
+SHOW GRANTS FOR &apos;用户名&apos;@&apos;主机名&apos;;&lt;br /&gt;
+例如：SHOW GRANTS FOR &apos;root&apos;@&apos;%&apos;;&lt;/p&gt;
+&lt;h2&gt;第二步：配置用户权限（如果查看发现没有权限）&lt;/h2&gt;
+&lt;p&gt;如果你发现用户只能本地访问（Host 是 localhost），或者用户根本不存在，你需要进行授权。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;方式一：修改现有用户（推荐）&lt;/strong&gt;&lt;br /&gt;
+如果你已经有这个用户，但只能本地登录，可以修改其 Host 属性。&lt;br /&gt;
+将 root 用户从 localhost 修改为允许任意主机 (%)：&lt;br /&gt;
+UPDATE mysql.user SET Host=&apos;%&apos; WHERE User=&apos;root&apos; AND Host=&apos;localhost&apos;;&lt;br /&gt;
+刷新权限，立即生效：&lt;br /&gt;
+FLUSH PRIVILEGES;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;方式二：创建新用户并授权（最常用）&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;创建用户：允许从任意地方 (%) 连接，设置密码&lt;br /&gt;
+CREATE USER &apos;your_username&apos;@&apos;%&apos; IDENTIFIED BY &apos;your_password&apos;;&lt;/li&gt;
+&lt;li&gt;授予权限：授予该用户所有数据库所有表的全部权限&lt;br /&gt;
+GRANT ALL PRIVILEGES ON &lt;em&gt;.&lt;/em&gt; TO &apos;your_username&apos;@&apos;%&apos; WITH GRANT OPTION;&lt;/li&gt;
+&lt;li&gt;刷新权限&lt;br /&gt;
+FLUSH PRIVILEGES;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;安全建议：&lt;/strong&gt;&lt;br /&gt;
+生产环境不要轻易用 %，尽量指定具体的 IP 地址，例如 &apos;your_username&apos;@&apos;192.168.1.100&apos;。&lt;/p&gt;
+&lt;h2&gt;第三步：检查服务器配置文件（关键步骤）&lt;/h2&gt;
+&lt;p&gt;很多时候，即使你在数据库里设置了 %，外部依然连不上，是因为 MySQL 服务默认只监听本地回环地址。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1. 修改配置文件 my.cnf 或 my.ini&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Linux 路径：&lt;/strong&gt; /etc/mysql/my.cnf 或 /etc/my.cnf&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Windows 路径：&lt;/strong&gt; MySQL 安装目录下的 my.ini&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;找到 [mysqld] 部分，修改或添加以下配置：
+[mysqld]
+绑定地址设置为 0.0.0.0 表示监听所有网络接口
+bind-address = 0.0.0.0&lt;/p&gt;
+&lt;p&gt;确保跳过网络锁定（确保这一行被注释掉或删除）
+skip-networking&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2. 重启 MySQL 服务&lt;/strong&gt;
+修改配置文件后必须重启服务才能生效。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Linux:&lt;/strong&gt;
+sudo systemctl restart mysql
+或 sudo service mysql restart&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Windows:&lt;/strong&gt; 在服务管理器中重启 MySQL 服务。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;第四步：检查防火墙与安全组&lt;/h2&gt;
+&lt;p&gt;这是最容易被忽视的环节，尤其是使用云服务器（如阿里云、腾讯云、AWS）时。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1. 服务器本地防火墙：&lt;/strong&gt;&lt;br /&gt;
+确保服务器的防火墙放行了 MySQL 的默认端口 &lt;strong&gt;3306&lt;/strong&gt;。
+*  &lt;em&gt;Linux (ufw):&lt;/em&gt; sudo ufw allow 3306
+*  &lt;em&gt;Linux (firewalld):&lt;/em&gt; sudo firewall-cmd --permanent --add-port=3306/tcp&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2. 云平台安全组：&lt;/strong&gt;&lt;br /&gt;
+登录云服务器控制台，在“安全组”规则中，添加一条&lt;strong&gt;入站规则&lt;/strong&gt;，允许 TCP 协议的 3306 端口。&lt;/p&gt;
+&lt;h2&gt;总结检查清单&lt;/h2&gt;
+&lt;p&gt;| 检查项   | 需满足的条件
+| --- | --- | ---
+| &lt;strong&gt;1. 用户 Host 属性&lt;/strong&gt;   | 必须是 % 或 指定的远程 IP
+| &lt;strong&gt;2. MySQL 配置文件&lt;/strong&gt;   | bind-address 必须设置为 0.0.0.0
+| &lt;strong&gt;3. 服务器防火墙&lt;/strong&gt;   | 必须开放 3306 端口
+| &lt;strong&gt;4. 云安全组&lt;/strong&gt;   | 必须允许 3306 端口入站&lt;/p&gt;
+&lt;p&gt;完成以上所有步骤后，你就可以使用 Navicat、DBeaver 或命令行工具尝试从远程连接了：&lt;br /&gt;
+mysql -h 你的服务器IP -u 用户名 -p&lt;/p&gt;
+</content:encoded></item><item><title>MySQL 相关常用命令</title><link>https://bigfox.me/posts/%E8%BF%90%E7%BB%B4/mysql-cmd-list/</link><guid isPermaLink="true">https://bigfox.me/posts/%E8%BF%90%E7%BB%B4/mysql-cmd-list/</guid><pubDate>Tue, 25 Feb 2025 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;MySQL 运行状态&lt;/h2&gt;
+&lt;p&gt;sudo systemctl status mysql&lt;br /&gt;
+sudo service mysql status&lt;/p&gt;
+&lt;h2&gt;MySQL 启动/停止服务&lt;/h2&gt;
+&lt;p&gt;sudo systemctl start mysql&lt;br /&gt;
+sudo systemctl restart mysql&lt;br /&gt;
+sudo systemctl stop mysql&lt;/p&gt;
+&lt;h2&gt;MySQL 设置开机自启&lt;/h2&gt;
+&lt;p&gt;sudo systemctl enable mysql&lt;/p&gt;
+&lt;h2&gt;MySQL 系统进程&lt;/h2&gt;
+&lt;p&gt;ps aux | grep mysql&lt;br /&gt;
+ps -ef | grep mysqld&lt;/p&gt;
+&lt;h2&gt;MySQL 端口监听&lt;/h2&gt;
+&lt;p&gt;sudo netstat -tuln | grep 3306&lt;br /&gt;
+sudo ss -tuln | grep 3306&lt;/p&gt;
+</content:encoded></item></channel></rss>
