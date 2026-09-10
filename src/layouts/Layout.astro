@@ -127,8 +127,6 @@ const homePageSchema = isHomePage ? JSON.stringify({
 		<meta name="generator" content={Astro.generator} />
 	        <link rel="canonical" href={Astro.url}>
         {homePageSchema && <script type="application/ld+json" set:html={homePageSchema}></script>}
-        <link rel="preconnect" href="https://pic1.acofork.com" />
-        <link rel="preconnect" href="https://umami.acofork.com" />
         <link rel="preconnect" href="https://support.nodeget.com" />
 
 		<!-- 霞鹜文楷字体已通过 npm 本地化 -->

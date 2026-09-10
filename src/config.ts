@@ -66,10 +66,6 @@ export const siteConfig: SiteConfig = {
 		{ url: "https://bigfox.me", alias: "主页" },
 		{ url: "https://www.bigfox.me", alias: "WWW" },
 	],
-	server: [
-		{ url: "https://umami.acofork.com", text: "Umami" },
-		{ url: "https://pic1.acofork.com", text: "RandomPic" },
-	],
 };
 
 export const navBarConfig: NavBarConfig = {
@@ -148,16 +144,18 @@ export const licenseConfig: LicenseConfig = {
 	url: "https://creativecommons.org/licenses/by-nc-sa/4.0/",
 };
 
+// 图片域名回退：未启用。如需启用，请填入自己的图床域名。
 export const imageFallbackConfig: ImageFallbackConfig = {
 	enable: false,
-	originalDomain: "https://eopfapi.acofork.com/pic?img=ua",
-	fallbackDomain: "https://eopfapi.acofork.com/pic?img=ua",
+	originalDomain: "",
+	fallbackDomain: "",
 };
 
+// 阅读量统计（Umami share API）：未启用。如需启用，请填入自建 Umami 的 baseUrl / shareId。
 export const umamiConfig: UmamiConfig = {
-	enable: true,
-	baseUrl: "https://umami.acofork.com",
-	shareId: "CdkXbGgZr6ECKOyK",
+	enable: false,
+	baseUrl: "",
+	shareId: "",
 	timezone: "Asia/Shanghai",
 };
 

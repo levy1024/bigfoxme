@@ -54,10 +54,6 @@ export default defineConfig({
 			status: 302,
 			destination: "https://akile.io/register?aff_code=503fe5ea-e7c5-4d68-ae05-6de99513680e",
 		},
-		"/yyb": {
-			status: 302,
-			destination: "https://www.rainyun.com/acofork_?s=bilibili",
-		},
 		"/wly": {
 			status: 302,
 			destination: "https://wl.awcmam.com/#/register?code=FNQwOQBM",
@@ -78,10 +74,6 @@ export default defineConfig({
 			status: 302,
 			destination: "https://i.2x.nz/posts/94",
 		},
-		"/ok": {
-			status: 302,
-			destination: "https://acofork-uptime.zeabur.app/status/acofork",
-		},
 		"/donate": {
 			status: 302,
 			destination: "/sponsors",
@@ -97,10 +89,6 @@ export default defineConfig({
 		"/s": {
 			status: 302,
 			destination: "https://2x.nz/_url",
-		},
-		"/plan": {
-			status: 302,
-			destination: "https://acofork.notion.site/2e11e011d4e5800fa050e8f7cf448347",
 		},
 	},
 	integrations: [
