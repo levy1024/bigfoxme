@@ -50,26 +50,6 @@ export default defineConfig({
 			status: 302,
 			destination: "https://i.2x.nz",
 		},
-		"/ak": {
-			status: 302,
-			destination: "https://akile.io/register?aff_code=503fe5ea-e7c5-4d68-ae05-6de99513680e",
-		},
-		"/wly": {
-			status: 302,
-			destination: "https://wl.awcmam.com/#/register?code=FNQwOQBM",
-		},
-		"/mly": {
-			status: 302,
-			destination: "https://muleyun.com/aff/GOTRJLPN",
-		},
-		"/tly": {
-			status: 302,
-			destination: "https://tianlicloud.cn/aff/HNNCFKGP",
-		},
-		"/kook": {
-			status: 302,
-			destination: "https://kook.vip/K29zpT",
-		},
 		"/gal": {
 			status: 302,
 			destination: "https://i.2x.nz/posts/94",
@@ -81,10 +61,6 @@ export default defineConfig({
 		"/tg": {
 			status: 302,
 			destination: "https://t.me/+_07DERp7k1ljYTc1",
-		},
-		"/esa": {
-			status: 302,
-			destination: "https://tianchi.aliyun.com/specials/promotion/freetier/esa?taskCode=25254&recordId=c856e61228828a0423417a767828d166",
 		},
 		"/s": {
 			status: 302,

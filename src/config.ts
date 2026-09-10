@@ -7,7 +7,6 @@ import type {
 	NoticeConfig,
 	ProfileConfig,
 	SiteConfig,
-	UmamiConfig,
 } from "./types/config";
 import { LinkPreset } from "./types/config";
 
@@ -149,14 +148,6 @@ export const imageFallbackConfig: ImageFallbackConfig = {
 	enable: false,
 	originalDomain: "",
 	fallbackDomain: "",
-};
-
-// 阅读量统计（Umami share API）：未启用。如需启用，请填入自建 Umami 的 baseUrl / shareId。
-export const umamiConfig: UmamiConfig = {
-	enable: false,
-	baseUrl: "",
-	shareId: "",
-	timezone: "Asia/Shanghai",
 };
 
 export const expressiveCodeConfig: ExpressiveCodeConfig = {
