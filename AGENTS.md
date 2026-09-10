@@ -86,7 +86,7 @@ description: ""           # optional — auto-extracts first paragraph if empty
 - `siteConfig` — title, subtitle, lang, theme color (hue: 250 blue), banner, favicon
 - `navBarConfig` — navigation links
 - `profileConfig` — avatar, name, bio, social links
-- `licenseConfig`, `imageFallbackConfig`, `umamiConfig`, `expressiveCodeConfig`, `gitHubEditConfig`
+- `licenseConfig`, `imageFallbackConfig`, `expressiveCodeConfig`, `gitHubEditConfig`
 
 ### Components
 - `src/components/widget/` — sidebar widgets (Profile, CategoryList, TagList 3D cloud)

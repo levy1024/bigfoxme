@@ -69,7 +69,7 @@ pnpm del-space      # 删除文件名空格
 
 ### 配置入口 `src/config.ts`
 
-导出 `siteConfig`（标题「程序员大狐狸」、hue: 260 蓝色系主题、favicon、TOC）、`navBarConfig`（含 `/notes/` `/nav/` 链接）、`profileConfig`、`licenseConfig`、`imageFallbackConfig`、`umamiConfig`、`expressiveCodeConfig`、`gitHubEditConfig`、`noticeConfig`。类型在 `src/types/config.ts`。`src/constants/` 有主题常量与图标集合。
+导出 `siteConfig`（标题「程序员大狐狸」、hue: 260 蓝色系主题、favicon、TOC）、`navBarConfig`（含 `/notes/` `/nav/` 链接）、`profileConfig`、`licenseConfig`、`imageFallbackConfig`、`expressiveCodeConfig`、`gitHubEditConfig`、`noticeConfig`。类型在 `src/types/config.ts`。`src/constants/` 有主题常量与图标集合。
 
 ### 组件分层
 
