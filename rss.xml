@@ -1312,6 +1312,38 @@ Deepin：武汉深之度科技有限公司开发的Linux操作系统，属于桌
 &lt;a href=&quot;https://www.gzdcsmt.com/sys-nd/3374.html&quot;&gt;瑞芯微100%全国产化RK3568工业核心板-适配鸿蒙系统&lt;/a&gt;&lt;br /&gt;
 &lt;a href=&quot;https://www.gzdcsmt.com/sys-nd/1140.html&quot;&gt;rk3588 国产操作系统Linux开发板&lt;/a&gt;&lt;br /&gt;
 &lt;a href=&quot;https://www.gzdcsmt.com/sys-nd/3358.html&quot;&gt;国产化边缘ai算力盒子-支持国产麒麟鸿蒙系统&lt;/a&gt;&lt;/p&gt;
+</content:encoded></item><item><title>编译 rootfs 时出现：undefined reference to `libiconv&apos;</title><link>https://bigfox.me/posts/%E5%B5%8C%E5%85%A5%E5%BC%8F/rockchip-rootfs-libiconv/</link><guid isPermaLink="true">https://bigfox.me/posts/%E5%B5%8C%E5%85%A5%E5%BC%8F/rockchip-rootfs-libiconv/</guid><pubDate>Thu, 14 Aug 2025 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;起因&lt;/h2&gt;
+&lt;p&gt;半年前用瑞芯微的 RV1109 芯片及 SDK 进行软件开发，顺利完成编译 SDK。最近需要重新去编译 SDK，因为移动了 SDK 的位置，不得不&lt;code&gt;./build.sh cleanall&lt;/code&gt;清空原有的编译输出，重新编译系统（如果不清空，直接编译，经实操，编译错误更多，解决一个还有下一个，无法进行下去）。&lt;/p&gt;
+&lt;h2&gt;问题&lt;/h2&gt;
+&lt;p&gt;当使用&lt;code&gt;./build.sh all&lt;/code&gt;重新编译到 rootfs 时，编译失败，提示：undefined reference to &apos;libiconv&apos;。编译输出如下（其中 ...... 表示省略了非关键的信息）：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;2025-08-06T17:19:07 &amp;gt;&amp;gt;&amp;gt; host-libglib2 2.64.4 Building
+......
+[11/400] Compiling C object &apos;glib/4430778@@glib-2.0@sha/gbacktrace.c.o&apos;
+......
+[96/400] Linking target glib/libglib-2.0.so.0.6400.4
+2025-08-06T17:19:11 FAILED: glib/libglib-2.0.so.0.6400.4
+......
+2025-08-06T17:19:11 glib/4430778@@glib-2.0@sha/gconvert.c.o: In function `try_conversion&apos;:
+2025-08-06T17:19:11 gconvert.c:(.text+0x5): undefined reference to `libiconv_open&apos;
+2025-08-06T17:19:11 glib/4430778@@glib-2.0@sha/gconvert.c.o: In function `g_iconv&apos;:
+2025-08-06T17:19:11 gconvert.c:(.text+0x6a1): undefined reference to `libiconv&apos;
+2025-08-06T17:19:11 glib/4430778@@glib-2.0@sha/gconvert.c.o: In function `g_iconv_close&apos;:
+2025-08-06T17:19:11 gconvert.c:(.text+0x6b1): undefined reference to `libiconv_close&apos;
+2025-08-06T17:19:11 collect2: error: ld returned 1 exit status
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2&gt;原因&lt;/h2&gt;
+&lt;p&gt;在这未编译 SDK 的半年的时间里，开发环境发生了变化：我在 Ubuntu 系统中安装了 libiconv 库，和 glib 中的 iconv 库发生了冲突。具体为什么会冲突，未深究，如果感兴趣，可以查看文末参考的文章。&lt;/p&gt;
+&lt;h2&gt;解决办法&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;先通过修改头文件格式的方式，让自己安装的 libiconv 库的头文件失效：
+&lt;code&gt;mv /usr/local/include/iconv.h /usr/local/include/iconv.h.bak&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;然后重新编译 Linux 内核。&lt;/li&gt;
+&lt;li&gt;编译完成后，别忘记恢复系统原来的模样，否则后续如果用到自己安装的 libiconv 库，又会出现问题：
+&lt;code&gt;mv /usr/local/include/iconv.h.bak /usr/local/include/iconv.h&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;参考&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/jjblxd/article/details/110181344&quot;&gt;编译出现 undefined reference to &apos;libiconv&apos;&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;https://www.cnblogs.com/lovemdx/archive/2013/06/09/3128371.html&quot;&gt;undefined reference to &apos;libiconv&apos;&lt;/a&gt;&lt;/p&gt;
 </content:encoded></item><item><title>编译 rootfs 时出现：Could not find a package configuration file provided by MiniLogger</title><link>https://bigfox.me/posts/%E5%B5%8C%E5%85%A5%E5%BC%8F/rockchip-rootfs-minilogger/</link><guid isPermaLink="true">https://bigfox.me/posts/%E5%B5%8C%E5%85%A5%E5%BC%8F/rockchip-rootfs-minilogger/</guid><pubDate>Thu, 14 Aug 2025 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;起因&lt;/h2&gt;
 &lt;p&gt;半年前用瑞芯微的 RV1109 芯片及 SDK 进行软件开发，顺利完成编译 SDK。最近需要重新去编译 SDK，因为移动了 SDK 的位置，不得不&lt;code&gt;./build.sh cleanall&lt;/code&gt;清空原有的编译输出，重新编译系统（如果不清空，直接编译，经实操，编译错误更多，解决一个还有下一个，无法进行下去）。&lt;/p&gt;
 &lt;h2&gt;问题&lt;/h2&gt;
@@ -1363,38 +1395,6 @@ Deepin：武汉深之度科技有限公司开发的Linux操作系统，属于桌
 &lt;li&gt;重新编译 rootfs；&lt;/li&gt;
 &lt;li&gt;如果需要 ipcweb-backend，再打开配置，再编译。&lt;/li&gt;
 &lt;/ol&gt;
-</content:encoded></item><item><title>编译 rootfs 时出现：undefined reference to `libiconv&apos;</title><link>https://bigfox.me/posts/%E5%B5%8C%E5%85%A5%E5%BC%8F/rockchip-rootfs-libiconv/</link><guid isPermaLink="true">https://bigfox.me/posts/%E5%B5%8C%E5%85%A5%E5%BC%8F/rockchip-rootfs-libiconv/</guid><pubDate>Thu, 14 Aug 2025 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;起因&lt;/h2&gt;
-&lt;p&gt;半年前用瑞芯微的 RV1109 芯片及 SDK 进行软件开发，顺利完成编译 SDK。最近需要重新去编译 SDK，因为移动了 SDK 的位置，不得不&lt;code&gt;./build.sh cleanall&lt;/code&gt;清空原有的编译输出，重新编译系统（如果不清空，直接编译，经实操，编译错误更多，解决一个还有下一个，无法进行下去）。&lt;/p&gt;
-&lt;h2&gt;问题&lt;/h2&gt;
-&lt;p&gt;当使用&lt;code&gt;./build.sh all&lt;/code&gt;重新编译到 rootfs 时，编译失败，提示：undefined reference to &apos;libiconv&apos;。编译输出如下（其中 ...... 表示省略了非关键的信息）：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;2025-08-06T17:19:07 &amp;gt;&amp;gt;&amp;gt; host-libglib2 2.64.4 Building
-......
-[11/400] Compiling C object &apos;glib/4430778@@glib-2.0@sha/gbacktrace.c.o&apos;
-......
-[96/400] Linking target glib/libglib-2.0.so.0.6400.4
-2025-08-06T17:19:11 FAILED: glib/libglib-2.0.so.0.6400.4
-......
-2025-08-06T17:19:11 glib/4430778@@glib-2.0@sha/gconvert.c.o: In function `try_conversion&apos;:
-2025-08-06T17:19:11 gconvert.c:(.text+0x5): undefined reference to `libiconv_open&apos;
-2025-08-06T17:19:11 glib/4430778@@glib-2.0@sha/gconvert.c.o: In function `g_iconv&apos;:
-2025-08-06T17:19:11 gconvert.c:(.text+0x6a1): undefined reference to `libiconv&apos;
-2025-08-06T17:19:11 glib/4430778@@glib-2.0@sha/gconvert.c.o: In function `g_iconv_close&apos;:
-2025-08-06T17:19:11 gconvert.c:(.text+0x6b1): undefined reference to `libiconv_close&apos;
-2025-08-06T17:19:11 collect2: error: ld returned 1 exit status
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h2&gt;原因&lt;/h2&gt;
-&lt;p&gt;在这未编译 SDK 的半年的时间里，开发环境发生了变化：我在 Ubuntu 系统中安装了 libiconv 库，和 glib 中的 iconv 库发生了冲突。具体为什么会冲突，未深究，如果感兴趣，可以查看文末参考的文章。&lt;/p&gt;
-&lt;h2&gt;解决办法&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;先通过修改头文件格式的方式，让自己安装的 libiconv 库的头文件失效：
-&lt;code&gt;mv /usr/local/include/iconv.h /usr/local/include/iconv.h.bak&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;然后重新编译 Linux 内核。&lt;/li&gt;
-&lt;li&gt;编译完成后，别忘记恢复系统原来的模样，否则后续如果用到自己安装的 libiconv 库，又会出现问题：
-&lt;code&gt;mv /usr/local/include/iconv.h.bak /usr/local/include/iconv.h&lt;/code&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2&gt;参考&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/jjblxd/article/details/110181344&quot;&gt;编译出现 undefined reference to &apos;libiconv&apos;&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&quot;https://www.cnblogs.com/lovemdx/archive/2013/06/09/3128371.html&quot;&gt;undefined reference to &apos;libiconv&apos;&lt;/a&gt;&lt;/p&gt;
 </content:encoded></item><item><title>360T7 路由器刷机记录</title><link>https://bigfox.me/posts/%E8%BF%90%E7%BB%B4/routerd-flash-record/</link><guid isPermaLink="true">https://bigfox.me/posts/%E8%BF%90%E7%BB%B4/routerd-flash-record/</guid><pubDate>Wed, 30 Jul 2025 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;参考：深度记录360T7刷机历程，帮小白的你避坑&lt;br /&gt;
 &lt;a href=&quot;https://blog.csdn.net/u014193285/article/details/143305239&quot;&gt;https://blog.csdn.net/u014193285/article/details/143305239&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;通过串口连接路由器，开机后按 f 键进入 failsafe mode 后操作：&lt;/p&gt;
