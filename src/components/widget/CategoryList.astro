@@ -1,0 +1,204 @@
+---
+import fs from "node:fs";
+import path from "node:path";
+/**
+ * 文章分类组件
+ * 显示所有分类及其文章数量
+ * 自动检测 content/posts 下的文件夹作为分类
+ */
+import { getCollection } from "astro:content";
+
+// 获取所有文章并统计分类
+const allPosts = await getCollection("posts", ({ data }) => {
+	return import.meta.env.PROD ? data.draft !== true : true;
+});
+
+// 统计每个分类的文章数量
+const categoryCount = new Map<string, number>();
+for (const post of allPosts) {
+	const category = post.data.category || "未分类";
+	categoryCount.set(category, (categoryCount.get(category) || 0) + 1);
+}
+
+// 自动检测 content/posts 下的文件夹作为分类
+const postsDir = path.join(process.cwd(), "src/content/posts");
+let validCategories: Set<string>;
+
+if (fs.existsSync(postsDir)) {
+	const folders = fs
+		.readdirSync(postsDir, { withFileTypes: true })
+		.filter((dirent) => dirent.isDirectory())
+		.map((dirent) => dirent.name);
+	validCategories = new Set(folders);
+} else {
+	validCategories = new Set(["Software", "Technical", "AIHacks", "Other"]);
+}
+
+// 自定义分类排序顺序
+const customOrder = ["Software", "Technical", "AIHacks", "Other"];
+
+// 转换为数组并排序
+const categories = Array.from(categoryCount.entries())
+	.filter(([name]) => validCategories.has(name))
+	.map(([name, count]) => ({
+		name,
+		count,
+	}))
+	.sort((a, b) => {
+		const aIndex = customOrder.indexOf(a.name);
+		const bIndex = customOrder.indexOf(b.name);
+		if (aIndex !== -1 && bIndex !== -1) return aIndex - bIndex;
+		if (aIndex !== -1) return -1;
+		if (bIndex !== -1) return 1;
+		return a.name.localeCompare(b.name);
+	});
+---
+
+<div class="card-base p-3 border border-black/10 dark:border-white/10">
+  <div class="mb-2.5 flex items-center justify-between">
+    <span class="text-sm font-semibold text-black/80 dark:text-white/80">分类</span>
+  </div>
+
+  <div class="flex flex-col gap-2">
+        {categories.map((category, index) => {
+            const displayCount = category.count < 10 ? `0${category.count}` : String(category.count);
+            return (
+                <a href={`/categories/${category.name}/`} class="category-item group">
+                    <div class="category-card">
+                        <span class="category-name">{category.name}</span>
+                        <span class="category-count">{displayCount}</span>
+                    </div>
+                </a>
+            );
+        })}
+    </div>
+</div>
+
+<style>
+    /* 通用渐变样式 */
+    .gradient-text {
+        background: linear-gradient(135deg, #0ea5e9, #8b5cf6);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .dark .gradient-text {
+        background: linear-gradient(135deg, #38bdf8, #a78bfa);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .hacker-icon {
+        font-size: 13px;
+        font-weight: 600;
+        font-family: 'Courier New', 'Consolas', monospace;
+    }
+
+    .hacker-icon {
+        background: linear-gradient(135deg, #0ea5e9, #8b5cf6);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .dark .hacker-icon {
+        background: linear-gradient(135deg, #38bdf8, #a78bfa);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .category-title {
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        background: linear-gradient(135deg, #0ea5e9, #8b5cf6);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    html.dark .category-title {
+        background: linear-gradient(135deg, #38bdf8, #a78bfa);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .category-item {
+        text-decoration: none;
+        display: block;
+    }
+
+    .category-card {
+        background: transparent;
+        backdrop-filter: none;
+        border-radius: 2px;
+        padding: 10px 14px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        transition: all 0.2s ease;
+        border: 1px solid oklch(0.58 0.16 268 / 0.2);
+    }
+
+    html.dark .category-card {
+        background: transparent;
+        border-color: oklch(0.58 0.16 268 / 0.25);
+    }
+
+    .category-card:hover {
+        background: #00a2e8;
+        border-color: #00a2e8;
+        transform: translateX(2px);
+    }
+
+    html.dark .category-card:hover {
+        background: #00a2e8;
+        border-color: #00a2e8;
+    }
+
+    .category-name {
+        font-size: 14px;
+        color: #1B365D;
+        font-weight: 600;
+        transition: color 0.2s ease;
+        flex: 1;
+        text-align: center;
+    }
+
+    html.dark .category-name {
+        color: #6B9BD2;
+    }
+
+    .category-card:hover .category-name {
+        color: #ffffff;
+    }
+
+    html.dark .category-card:hover .category-name {
+        color: #ffffff;
+    }
+
+    .category-count {
+        font-size: 12px;
+        color: oklch(0.50 0.01 268);
+        font-variant-numeric: tabular-nums;
+        font-weight: 600;
+        transition: color 0.2s ease;
+    }
+
+    html.dark .category-count {
+        color: oklch(0.55 0.01 268);
+    }
+
+    .category-card:hover .category-count {
+        color: #ffffff;
+    }
+
+    html.dark .category-card:hover .category-count {
+        color: #ffffff;
+    }
+</style>

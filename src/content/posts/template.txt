@@ -1,0 +1,12 @@
+---
+title: "XXX"
+published: 2026-07-30
+tags:
+- XXX
+- XXX
+category: XXX
+draft: false			# true=草稿不显示，false=公开
+pinned: false		# true=置顶
+image: 
+---
+

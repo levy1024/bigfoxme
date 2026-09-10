@@ -1,0 +1,133 @@
+---
+import { siteConfig } from "@/config";
+import MainGridLayout from "@layouts/MainGridLayout.astro";
+import { Icon } from "astro-icon/components";
+---
+
+<MainGridLayout title="赞助支持">
+    <div class="card-base p-6 md:p-8">
+        <div class="flex items-center gap-2 mb-6">
+            <div class="h-8 w-8 rounded-lg bg-[var(--primary)] flex items-center justify-center text-white dark:text-black/70">
+                <Icon name="material-symbols:favorite" class="text-[1.5rem]" />
+            </div>
+            <h1 class="text-2xl font-bold text-black dark:text-white">赞助支持</h1>
+        </div>
+
+        <div class="mb-6">
+            <p class="text-lg text-black/80 dark:text-white/80 mb-3">
+                如果您觉得我的内容对您有帮助，欢迎通过以下方式支持我的创作。您的每一份支持都是我持续创作的动力！
+            </p>
+            <p class="text-sm text-black/60 dark:text-white/60">
+                所有赞助将用于网站维护、服务器费用以及内容创作。
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6 max-w-4xl mx-auto">
+            <!-- 支付宝 -->
+            <div class="donate-card">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="h-10 w-10 rounded-lg bg-blue-500 flex items-center justify-center">
+                        <Icon name="simple-icons:alipay" class="text-[1.5rem] text-white" />
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-black dark:text-white">支付宝</h3>
+                        <p class="text-sm text-black/60 dark:text-white/60">扫码支付</p>
+                    </div>
+                </div>
+                <div class="qr-code-placeholder">
+                    <div class="relative w-48 h-48 mx-auto rounded-lg overflow-hidden" style={`--theme-hue: ${siteConfig.themeColor.hue}`}>
+                        <img src="/sponsors/alipay.webp" alt="支付宝二维码" class="w-full h-full object-cover transition duration-500" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- 微信支付 -->
+            <div class="donate-card">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="h-10 w-10 rounded-lg flex items-center justify-center" style="background: linear-gradient(135deg, #0ea5e9, #8b5cf6);">
+                        <Icon name="simple-icons:wechat" class="text-[1.5rem] text-white" />
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-black dark:text-white">微信支付</h3>
+                        <p class="text-sm text-black/60 dark:text-white/60">扫码支付</p>
+                    </div>
+                </div>
+                <div class="qr-code-placeholder">
+                    <div class="relative w-48 h-48 mx-auto rounded-lg overflow-hidden" style={`--theme-hue: ${siteConfig.themeColor.hue}`}>
+                        <img src="/sponsors/wechat.png" alt="微信支付二维码" class="w-full h-full object-cover transition duration-500" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 已赞助的小伙伴 -->
+        <div class="card-base p-6 mb-6">
+            <h2 class="text-xl font-bold text-black dark:text-white mb-4">已赞助的小伙伴</h2>
+            <p class="text-sm text-black/60 dark:text-white/60 mb-4">
+                感谢以下朋友对本博客的支持！（按时间倒序）
+            </p>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+            </div>
+        </div>
+
+        <!-- 其他支持方式 -->
+        <div class="card-base p-6 mb-6">
+            <h2 class="text-xl font-bold text-black dark:text-white mb-3">其他支持方式</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="support-card">
+                    <div class="flex items-center gap-2 mb-2">
+                        <Icon name="material-symbols:share" class="text-[1.2rem] text-[var(--primary)]" />
+                        <span class="font-semibold text-black dark:text-white">分享推荐</span>
+                    </div>
+                    <p class="text-sm text-black/60 dark:text-white/60">
+                        将我的博客分享给更多朋友
+                    </p>
+                </div>
+
+                <div class="support-card">
+                    <div class="flex items-center gap-2 mb-2">
+                        <Icon name="material-symbols:comment" class="text-[1.2rem] text-[var(--primary)]" />
+                        <span class="font-semibold text-black dark:text-white">留言互动</span>
+                    </div>
+                    <p class="text-sm text-black/60 dark:text-white/60">
+                        在文章下方留下您的想法
+                    </p>
+                </div>
+
+                <div class="support-card">
+                    <div class="flex items-center gap-2 mb-2">
+                        <Icon name="material-symbols:star" class="text-[1.2rem] text-[var(--primary)]" />
+                        <span class="font-semibold text-black dark:text-white">关注订阅</span>
+                    </div>
+                    <p class="text-sm text-black/60 dark:text-white/60">
+                        订阅RSS或关注社交媒体
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</MainGridLayout>
+
+<style>
+.donate-card {
+    @apply flex flex-col p-4 rounded-lg bg-[var(--card-bg)] border border-black/10 dark:border-white/10 hover:border-black/20 dark:hover:border-white/20 transition;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.support-card {
+    @apply p-4 rounded-lg bg-[var(--card-bg)] border border-black/10 dark:border-white/10 hover:border-black/20 dark:hover:border-white/20 hover:bg-black/5 dark:hover:bg-white/5 transition;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.qr-code-placeholder {
+    @apply text-center;
+}
+
+.sponsor-card {
+    @apply flex flex-col items-center p-3 rounded-lg bg-[var(--card-bg)] border border-black/10 dark:border-white/10 hover:border-black/20 dark:hover:border-white/20 transition;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+</style>

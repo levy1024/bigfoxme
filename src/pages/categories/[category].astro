@@ -1,0 +1,70 @@
+---
+import { getCollection } from "astro:content";
+import MainGridLayout from "@layouts/MainGridLayout.astro";
+import { getSortedPosts } from "@utils/content-utils";
+
+export async function getStaticPaths() {
+	const posts = await getCollection("posts", ({ data }) => {
+		return import.meta.env.PROD ? data.draft !== true : true;
+	});
+
+	// 获取所有唯一的分类
+	const categories = [
+		...new Set(posts.map((post) => post.data.category || "未分类")),
+	];
+
+	// 英文名称映射
+	const categoryEnglishName = new Map<string, string>();
+	categoryEnglishName.set("软件安利", "Software");
+	categoryEnglishName.set("技术教程", "Technical");
+	categoryEnglishName.set("AI新鲜玩法", "AIHacks");
+
+	return categories.map((category) => ({
+		params: { category: categoryEnglishName.get(category) || category },
+		props: { chineseName: category },
+	}));
+}
+
+const { category: englishCategory } = Astro.params;
+const { chineseName } = Astro.props;
+
+// 获取当前分类的文章（使用英文名过滤，与侧边栏保持一致）
+const allPosts = await getSortedPosts();
+const categoryPosts = allPosts.filter(
+	(post) => (post.data.category || "未分类") === englishCategory,
+);
+
+const config = {
+	title: `${englishCategory} - 文章分类`,
+	description: `查看所有 ${chineseName}(${englishCategory}) 分类下的文章`,
+};
+---
+
+<MainGridLayout title={config.title} description={config.description}>
+    <div class="card-base p-6 rounded-xl">
+        <div class="mb-6">
+            <h1 class="text-2xl font-bold text-neutral-800 dark:text-neutral-200 mb-2">
+                📁 {englishCategory}
+            </h1>
+            <p class="text-neutral-600 dark:text-neutral-400">共 {categoryPosts.length} 篇文章</p>
+        </div>
+
+        {categoryPosts.length > 0 ? (
+            <div class="flex flex-col gap-4">
+                {categoryPosts.map((post) => (
+                    <a href={`/posts/${post.id}/`} class="block group">
+                        <div class="p-4 rounded-lg border border-neutral-200 dark:border-neutral-800 hover:border-[var(--primary)] transition-all hover:bg-neutral-50 dark:hover:bg-neutral-900/50">
+                            <h2 class="text-lg font-bold text-neutral-800 dark:text-neutral-200 group-hover:text-[var(--primary)] transition-colors">
+                                {post.data.title}
+                            </h2>
+                        </div>
+                    </a>
+                ))}
+            </div>
+        ) : (
+            <div class="text-center py-12 text-neutral-500 dark:text-neutral-400">
+                <p>暂无该分类的文章</p>
+            </div>
+        )}
+    </div>
+</MainGridLayout>

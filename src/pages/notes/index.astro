@@ -1,0 +1,872 @@
+---
+import MainGridLayout from "@layouts/MainGridLayout.astro";
+import PageHeader from "@components/widget/PageHeader.astro";
+import { Icon } from "astro-icon/components";
+import { profileConfig } from "@/config";
+import { parseNotes, formatDate, NOTES_PAGE_SIZE, type DayGroup } from "@utils/notes-utils";
+
+// 单页模式：全量笔记在客户端筛选 + 分页
+const days = parseNotes();
+const totalNotes = days.reduce((sum, d) => sum + d.notes.length, 0);
+const totalDays = days.length;
+
+// 全部标签及其计数（按数量降序）
+const tagCountMap = new Map<string, number>();
+for (const day of days) {
+  for (const note of day.notes) {
+    for (const tag of note.tags) {
+      tagCountMap.set(tag, (tagCountMap.get(tag) || 0) + 1);
+    }
+  }
+}
+const allTags = Array.from(tagCountMap.entries())
+  .sort((a, b) => b[1] - a[1])
+  .map(([tag, count]) => ({ tag, count }));
+
+// 序列化全量数据供客户端渲染（内容已含 HTML，用 < 转义防注入）
+// 注意：Astro 内联 <script> 不支持模板插值，所以把 PAGE_SIZE/AVATAR/AUTHOR 一并打包进 JSON
+const notesJson = JSON.stringify({
+  days,
+  pageSize: NOTES_PAGE_SIZE,
+  avatar: profileConfig.avatar,
+  author: profileConfig.name,
+}).replace(/</g, "\\u003c");
+---
+
+<MainGridLayout title="Notes">
+  <!-- 笔记内容（铺满主区域） -->
+  <div>
+    <!-- 顶部横幅 -->
+    <PageHeader
+      icon="material-symbols:notes-rounded"
+      title="笔记"
+      description="记录灵感 · 积累思考"
+      stats={[
+        { value: String(totalNotes), label: "条" },
+        { value: String(totalDays), label: "天" },
+      ]}
+    />
+
+    <!-- 标签筛选栏 -->
+    <div class="card-base px-6 py-3 mb-4 tag-filter-bar">
+      <div class="tag-filter-inner">
+        <div class="tag-filter-scroll">
+          <button class="tag-pill active" data-filter="all">全部 ({totalNotes})</button>
+          {allTags.map(({ tag, count }) => (
+            <button class="tag-pill" data-filter={tag}>#{tag} ({count})</button>
+          ))}
+        </div>
+        <!-- 日期导航按钮 -->
+        <div class="notes-date-nav">
+          <button id="date-nav-toggle" class="date-toggle-btn" aria-label="日期导航">
+            <Icon name="material-symbols:calendar-month-outline" class="text-[0.95rem]" />
+          </button>
+          <div id="date-nav-panel" class="date-nav-panel">
+            <div class="date-panel-header">日期导航</div>
+            <nav class="date-nav" id="date-nav-list">
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 笔记流（客户端渲染） -->
+    <div class="card-base px-6 py-2 relative" id="notes-stream">
+    </div>
+
+    <!-- 客户端分页 -->
+    <div id="notes-pagination" class="flex flex-row gap-3 justify-center mt-4">
+    </div>
+  </div>
+</MainGridLayout>
+
+<!-- 图片灯箱 -->
+<div id="note-lightbox" class="note-lightbox">
+  <img id="note-lightbox-img" src="" alt="" />
+</div>
+
+<script type="application/json" id="notes-data" set:html={notesJson} />
+
+<script>
+  const payload = JSON.parse(document.getElementById('notes-data').textContent);
+  document.getElementById('notes-data').remove();
+  const NOTES_DATA = payload.days;
+  const PAGE_SIZE = payload.pageSize;
+  const AVATAR = payload.avatar;
+  const AUTHOR = payload.author;
+
+  let currentTag = 'all';
+  let currentPage = 1;
+
+  // ---------- 数据准备 ----------
+  // 过滤出当前标签的笔记
+  function filterNotes() {
+    if (currentTag === 'all') return NOTES_DATA;
+    return NOTES_DATA
+      .map(day => ({ ...day, notes: day.notes.filter(n => n.tags.includes(currentTag)) }))
+      .filter(day => day.notes.length > 0);
+  }
+
+  // 按天分组 + 分页：每页 PAGE_SIZE 天
+  function paginateDays(days) {
+    const pages = [];
+    for (let i = 0; i < days.length; i += PAGE_SIZE) {
+      pages.push(days.slice(i, i + PAGE_SIZE));
+    }
+    return pages;
+  }
+
+  // ---------- 渲染 ----------
+  function esc(s) {
+    return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  }
+
+  function renderNote(note) {
+    return `
+      <div class="moment-card" data-tags="${esc(note.tags.join(','))}">
+        <div class="moment-left">
+          <div class="avatar">
+            <img src="${esc(AVATAR)}" alt="avatar" />
+          </div>
+        </div>
+        <div class="moment-body">
+          <div class="moment-header">
+            <span class="moment-name">${esc(AUTHOR)}</span>
+            <span class="moment-time">${esc(note.time)}</span>
+          </div>
+          ${note.content ? `
+            <div class="moment-text-wrap">
+              <div class="moment-text collapse-text">${note.content}</div>
+              <button class="expand-btn" aria-label="展开">展开</button>
+            </div>` : ''}
+          ${note.images.length > 0 ? `
+            <div class="moment-images img-grid-${note.images.length === 1 ? 1 : note.images.length === 2 ? 2 : note.images.length === 3 ? 3 : note.images.length === 4 ? 4 : 'multi'}">
+              ${note.images.map(img => `
+                <div class="img-wrapper">
+                  <img src="${esc(img)}" alt="" loading="lazy" />
+                </div>`).join('')}
+            </div>` : ''}
+          ${note.tags.length > 0 ? `
+            <div class="moment-tags">
+              ${note.tags.map(t => `<span class="note-tag" data-tag="${esc(t)}">#${esc(t)}</span>`).join('')}
+            </div>` : ''}
+        </div>
+        <div class="moment-actions">
+          <button class="copy-btn" title="复制" data-content="${esc(note.content)}">
+            <svg width="1em" height="1em" viewBox="0 0 24 24" class="text-[0.85rem]" data-icon="material-symbols:content-copy-outline-rounded"><path fill="currentColor" d="M16 1H4a2 2 0 0 0-2 2v14h2V3h12zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2m0 16H8V7h11z"/></svg>
+          </button>
+        </div>
+      </div>`;
+  }
+
+  function renderDay(day) {
+    return `
+      <div class="day-section" id="day-${day.date}">
+        <div class="day-divider">
+          <span class="day-badge">${esc(formatDate(day.date))} ${esc(day.weekday)}</span>
+        </div>
+        ${day.notes.map(renderNote).join('')}
+      </div>`;
+  }
+
+  function render() {
+    const filtered = filterNotes();
+    const pages = paginateDays(filtered);
+    if (currentPage > pages.length) currentPage = Math.max(1, pages.length);
+
+    const stream = document.getElementById('notes-stream');
+    const pagination = document.getElementById('notes-pagination');
+    const navList = document.getElementById('date-nav-list');
+
+    // 笔记流
+    if (pages.length === 0) {
+      stream.innerHTML = `<div class="card-base empty-state py-12">
+        <svg width="3rem" height="3rem" viewBox="0 0 24 24" class="text-[3rem] opacity-30" data-icon="material-symbols:note-add"><path fill="currentColor" d="M11 9h2V6h3V4h-3V1h-2v3H8v2h3zm-6 12q-.825 0-1.412-.587T3 19V5q0-.825.588-1.412T5 3h6v2H5v14h14v-8h2v8q0 .825-.587 1.413T19 21z"/></svg>
+        <p class="text-50 mt-2">还没有笔记</p>
+      </div>`;
+    } else {
+      stream.innerHTML = pages[currentPage - 1].map(renderDay).join('');
+    }
+
+    // 日期导航（当前页）
+    const pageDays = pages[currentPage - 1] || [];
+    navList.innerHTML = pageDays.map(d =>
+      `<a href="#day-${d.date}" class="date-link" data-date="${d.date}">
+         <span>${esc(formatDate(d.date))} ${esc(d.weekday)}</span>
+       </a>`
+    ).join('');
+
+    // 分页
+    renderPagination(pages.length);
+
+    // 重新初始化折叠按钮
+    initExpandButtons();
+    initDateNav();
+  }
+
+  function renderPagination(totalPages) {
+    const pagination = document.getElementById('notes-pagination');
+    if (totalPages <= 1) {
+      pagination.innerHTML = '';
+      return;
+    }
+    // 页码窗口算法与 Pagination.astro 保持一致
+    const HIDDEN = -1;
+    const ADJ_DIST = 2;
+    const VISIBLE = ADJ_DIST * 2 + 1;
+    let count = 1;
+    let l = currentPage;
+    let r = currentPage;
+    while (0 < l - 1 && r + 1 <= totalPages && count + 2 <= VISIBLE) {
+      count += 2; l--; r++;
+    }
+    while (0 < l - 1 && count < VISIBLE) {
+      count++; l--;
+    }
+    while (r + 1 <= totalPages && count < VISIBLE) {
+      count++; r++;
+    }
+    const pages = [];
+    if (l > 1) pages.push(1);
+    if (l === 3) pages.push(2);
+    if (l > 3) pages.push(HIDDEN);
+    for (let i = l; i <= r; i++) pages.push(i);
+    if (r < totalPages - 2) pages.push(HIDDEN);
+    if (r === totalPages - 2) pages.push(totalPages - 1);
+    if (r < totalPages) pages.push(totalPages);
+
+    const prevDisabled = currentPage === 1 ? 'disabled' : '';
+    const nextDisabled = currentPage === totalPages ? 'disabled' : '';
+
+    // 类名与 Pagination.astro 组件逐一对应（btn-card / w-11 / #00a2e8 等均为全局样式）
+    const numberBtn = (p) => p === currentPage
+      ? `<div class="h-11 w-11 rounded-lg bg-[#00a2e8] flex items-center justify-center font-bold text-white">${p}</div>`
+      : `<button type="button" data-page="${p}" aria-label="第 ${p} 页" class="transition flex items-center justify-center w-11 h-11 rounded-lg overflow-hidden active:scale-[0.85] hover:bg-[var(--btn-card-bg-hover)] active:bg-[var(--btn-card-bg-active)] text-black/75 dark:text-white/75 font-bold">${p}</button>`;
+
+    pagination.innerHTML = `
+      <button type="button" id="page-prev" class="btn-card overflow-hidden rounded-lg text-[#00a2e8] w-11 h-11 ${prevDisabled}" aria-label="上一页">
+        <svg width="1em" height="1em" viewBox="0 0 24 24" class="text-[1.75rem]" data-icon="material-symbols:chevron-left-rounded"><path fill="currentColor" d="m10.8 12l3.9 3.9q.275.275.275.7t-.275.7t-.7.275t-.7-.275l-4.6-4.6q-.15-.15-.212-.325T8.425 12t.063-.375t.212-.325l4.6-4.6q.275-.275.7-.275t.7.275t.275.7t-.275.7z"/></svg>
+      </button>
+      <div class="bg-[var(--card-bg)] flex flex-row rounded-lg items-center text-neutral-700 dark:text-neutral-300 font-bold" style="backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);">
+        ${pages.map(p => p === HIDDEN
+          ? `<svg width="1em" height="1em" viewBox="0 0 24 24" class="mx-1" data-icon="material-symbols:more-horiz"><path fill="currentColor" d="M6 14q-.825 0-1.412-.587T4 12t.588-1.412T6 10t1.413.588T8 12t-.587 1.413T6 14m6 0q-.825 0-1.412-.587T10 12t.588-1.412T12 10t1.413.588T14 12t-.587 1.413T12 14m6 0q-.825 0-1.412-.587T16 12t.588-1.412T18 10t1.413.588T20 12t-.587 1.413T18 14"/></svg>`
+          : numberBtn(p)).join('')}
+      </div>
+      <button type="button" id="page-next" class="btn-card overflow-hidden rounded-lg text-[#00a2e8] w-11 h-11 ${nextDisabled}" aria-label="下一页">
+        <svg width="1em" height="1em" viewBox="0 0 24 24" class="text-[1.75rem]" data-icon="material-symbols:chevron-right-rounded"><path fill="currentColor" d="M12.6 12L8.7 8.1q-.275-.275-.275-.7t.275-.7t.7-.275t.7.275l4.6 4.6q.15.15.213.325t.062.375t-.062.375t-.213.325l-4.6 4.6q-.275-.275-.7.275t-.7-.275t-.275-.7t.275-.7z"/></svg>
+      </button>`;
+  }
+
+  function formatDate(dateStr) {
+    const d = new Date(dateStr + 'T00:00:00');
+    return (d.getMonth() + 1) + '月' + d.getDate() + '日';
+  }
+
+  // ---------- 交互 ----------
+  function initExpandButtons() {
+    document.querySelectorAll('.moment-text.collapse-text').forEach(function(el) {
+      if (el.scrollHeight > el.clientHeight + 2) {
+        el.parentElement.querySelector('.expand-btn').classList.add('show');
+      }
+    });
+  }
+
+  function initDateNav() {
+    var toggleBtn = document.getElementById('date-nav-toggle');
+    var navPanel = document.getElementById('date-nav-panel');
+    if (!toggleBtn || !navPanel) return;
+
+    var newToggle = toggleBtn.cloneNode(true);
+    toggleBtn.parentNode.replaceChild(newToggle, toggleBtn);
+    toggleBtn = newToggle;
+    toggleBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      var isOpen = navPanel.classList.toggle('open');
+      toggleBtn.classList.toggle('active', isOpen);
+    });
+    document.addEventListener('click', function(e) {
+      if (!navPanel.contains(e.target) && e.target !== toggleBtn) {
+        navPanel.classList.remove('open');
+        toggleBtn.classList.remove('active');
+      }
+    });
+    navPanel.querySelectorAll('.date-link').forEach(function(link) {
+      link.addEventListener('click', function() {
+        navPanel.classList.remove('open');
+        toggleBtn.classList.remove('active');
+      });
+    });
+  }
+
+  // 点击分页按钮（事件委托）
+  document.addEventListener('click', function(e) {
+    const pageBtn = e.target.closest('[data-page]');
+    if (pageBtn) {
+      currentPage = parseInt(pageBtn.getAttribute('data-page'), 10);
+      render();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+    if (e.target.closest('#page-prev')) {
+      if (currentPage > 1) { currentPage--; render(); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+      return;
+    }
+    if (e.target.closest('#page-next')) {
+      const pages = paginateDays(filterNotes());
+      if (currentPage < pages.length) { currentPage++; render(); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+      return;
+    }
+
+    // 标签筛选（pill）
+    const pill = e.target.closest('.tag-pill');
+    if (pill) {
+      currentTag = pill.getAttribute('data-filter') || 'all';
+      currentPage = 1;
+      document.querySelectorAll('.tag-pill').forEach(p => p.classList.toggle('active', p === pill));
+      render();
+      return;
+    }
+    // 动态内标签点击
+    const noteTag = e.target.closest('.note-tag');
+    if (noteTag) {
+      currentTag = noteTag.getAttribute('data-tag') || 'all';
+      currentPage = 1;
+      document.querySelectorAll('.tag-pill').forEach(p => p.classList.toggle('active', p.getAttribute('data-filter') === currentTag));
+      render();
+      return;
+    }
+
+    // 灯箱
+    const imgWrap = e.target.closest('.img-wrapper');
+    if (imgWrap) {
+      const img = imgWrap.querySelector('img');
+      if (img) {
+        const lb = document.getElementById('note-lightbox');
+        const lbImg = document.getElementById('note-lightbox-img');
+        lbImg.src = img.src;
+        lb.classList.add('open');
+      }
+      return;
+    }
+    const lb = document.getElementById('note-lightbox');
+    if (lb && lb.classList.contains('open')) {
+      lb.classList.remove('open');
+      return;
+    }
+
+    // 展开/收起
+    const expandBtn = e.target.closest('.expand-btn');
+    if (expandBtn) {
+      const textEl = expandBtn.previousElementSibling;
+      if (textEl) {
+        textEl.classList.toggle('expanded');
+        expandBtn.textContent = textEl.classList.contains('expanded') ? '收起' : '展开';
+      }
+      return;
+    }
+
+    // 复制
+    const copyBtn = e.target.closest('.copy-btn');
+    if (copyBtn) {
+      const content = copyBtn.getAttribute('data-content');
+      if (content) {
+        navigator.clipboard.writeText(content).then(function() {
+          copyBtn.classList.add('copied');
+          setTimeout(function() { copyBtn.classList.remove('copied'); }, 1500);
+        });
+      }
+    }
+  });
+
+  // 初始渲染
+  render();
+</script>
+
+<style is:global>
+  /* 横幅 - 已移至 PageHeader 组件 */
+  /* 笔记流由客户端 innerHTML 渲染，无法命中 Astro 作用域选择器，故整个样式块设为 is:global */
+
+  /* 日期分割 */
+  .day-section { margin-bottom: 4px; }
+
+  .day-divider {
+    display: flex;
+    align-items: center;
+    padding: 14px 0 8px;
+  }
+
+  .day-badge {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--primary);
+    background: color-mix(in srgb, var(--primary) 8%, transparent);
+    padding: 4px 14px;
+    border-radius: 20px;
+  }
+
+  /* 卡片 */
+  .moment-card {
+    display: flex;
+    gap: 12px;
+    padding: 14px 0;
+    border-bottom: 1px solid oklch(0.92 0.005 268);
+  }
+
+  .dark .moment-card {
+    border-bottom-color: oklch(0.26 0.01 268);
+  }
+
+  .moment-card:last-child { border-bottom: none; }
+
+  .moment-left { flex-shrink: 0; }
+
+  .avatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 8px;
+    overflow: hidden;
+    background: oklch(0.95 0.005 268);
+  }
+
+  .dark .avatar { background: oklch(0.25 0.008 268); }
+
+  .avatar img { width: 100%; height: 100%; object-fit: cover; }
+
+  .moment-body { flex: 1; min-width: 0; }
+
+  .moment-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 6px;
+  }
+
+  .moment-name { font-size: 0.85rem; font-weight: 600; color: var(--primary); }
+  .moment-time { font-size: 0.72rem; color: oklch(0.60 0.01 268); }
+  .dark .moment-time { color: oklch(0.50 0.01 268); }
+
+  .moment-text {
+    font-size: 0.88rem;
+    line-height: 1.7;
+    color: oklch(0.30 0.01 268);
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+
+  .moment-text strong {
+    font-weight: 900;
+    color: oklch(0.10 0.01 268);
+  }
+
+  .dark .moment-text strong {
+    color: oklch(0.95 0.005 268);
+  }
+
+  .dark .moment-text { color: oklch(0.82 0.005 268); }
+
+  .moment-text a {
+    color: #00a2e8 !important;
+    text-decoration: underline;
+    text-decoration-color: #00a2e8;
+    text-underline-offset: 3px;
+    word-break: break-all;
+  }
+
+  html.dark .moment-text a {
+    color: #00a2e8 !important;
+    text-decoration-color: #00a2e8;
+  }
+
+  .moment-text a:hover {
+    color: #0090d0 !important;
+    text-decoration-color: #0090d0;
+  }
+
+  html.dark .moment-text a:hover {
+    color: #38bdf8 !important;
+    text-decoration-color: #38bdf8;
+  }
+
+  /* 折叠长文本 */
+  .moment-text-wrap { position: relative; }
+
+  .collapse-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .collapse-text.expanded {
+    -webkit-line-clamp: unset;
+    overflow: visible;
+  }
+
+  .expand-btn {
+    display: none;
+    border: none;
+    background: transparent;
+    color: var(--primary);
+    font-size: 0.78rem;
+    cursor: pointer;
+    padding: 2px 0;
+    margin-top: 2px;
+  }
+
+  .expand-btn.show { display: inline-block; }
+
+  .expand-btn:hover { text-decoration: underline; }
+
+  /* 复制按钮 */
+  .moment-actions {
+    flex-shrink: 0;
+    display: flex;
+    align-items: flex-start;
+    padding-top: 2px;
+  }
+
+  .copy-btn {
+    width: 26px;
+    height: 26px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    color: oklch(0.70 0.01 268);
+    cursor: pointer;
+    transition: all 0.2s;
+    border: none;
+    position: relative;
+  }
+
+  .dark .copy-btn { color: oklch(0.45 0.01 268); }
+
+  .copy-btn:hover {
+    background: color-mix(in srgb, var(--primary) 10%, transparent);
+    color: var(--primary);
+  }
+
+  .copy-btn.copied {
+    color: oklch(0.65 0.15 145);
+    background: oklch(0.95 0.05 145);
+  }
+
+  .dark .copy-btn.copied {
+    color: oklch(0.70 0.15 145);
+    background: oklch(0.25 0.05 145);
+  }
+
+  .copy-btn.copied::after {
+    content: '已复制';
+    position: absolute;
+    top: -22px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.6rem;
+    white-space: nowrap;
+    background: oklch(0.2 0.01 268);
+    color: white;
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+
+  .dark .copy-btn.copied::after {
+    background: oklch(0.80 0.01 268);
+    color: oklch(0.15 0.01 268);
+  }
+
+  /* 图片网格 */
+  .moment-images {
+    margin-top: 10px;
+    display: grid;
+    gap: 4px;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .img-grid-1 { grid-template-columns: 1fr; max-width: 360px; }
+  .img-grid-2 { grid-template-columns: 1fr 1fr; max-width: 300px; }
+  .img-grid-3 { grid-template-columns: 1fr 1fr 1fr; max-width: 340px; }
+  .img-grid-4 { grid-template-columns: 1fr 1fr; max-width: 300px; }
+  .img-grid-multi { grid-template-columns: 1fr 1fr 1fr; max-width: 340px; }
+
+  .img-wrapper {
+    overflow: hidden;
+    background: oklch(0.96 0.005 268);
+    cursor: pointer;
+    border-radius: 6px;
+  }
+
+  .img-grid-2 .img-wrapper,
+  .img-grid-3 .img-wrapper,
+  .img-grid-4 .img-wrapper,
+  .img-grid-multi .img-wrapper {
+    aspect-ratio: 1;
+  }
+
+  .dark .img-wrapper { background: oklch(0.20 0.008 268); }
+
+  .img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+  }
+
+  .img-grid-1 .img-wrapper img {
+    object-fit: contain;
+    max-height: 360px;
+  }
+
+  .img-wrapper:hover img { transform: scale(1.03); }
+
+  /* 日期导航容器 */
+  .notes-date-nav {
+    position: relative;
+    flex-shrink: 0;
+    z-index: 50;
+  }
+
+  /* 切换按钮 */
+  .date-toggle-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--card-bg);
+    border: 1px solid oklch(0.90 0.005 268);
+    color: oklch(0.55 0.01 268);
+    cursor: pointer;
+    transition: color 0.15s, border-color 0.15s;
+  }
+
+  .dark .date-toggle-btn {
+    border-color: oklch(0.28 0.01 268);
+    color: oklch(0.50 0.01 268);
+  }
+
+  .date-toggle-btn:hover,
+  .date-toggle-btn.active {
+    color: var(--primary);
+    border-color: color-mix(in srgb, var(--primary) 40%, transparent);
+  }
+
+  /* 弹出面板 - 绝对定位，不影响布局 */
+  .date-nav-panel {
+    display: none;
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 120px;
+    max-height: 360px;
+    overflow-y: auto;
+    border-radius: 10px;
+    background: var(--card-bg);
+    border: 1px solid oklch(0.90 0.005 268);
+    box-shadow: 0 4px 20px oklch(0 0 0 / 0.1);
+    padding: 6px;
+    z-index: 50;
+  }
+
+  .dark .date-nav-panel {
+    border-color: oklch(0.28 0.01 268);
+    box-shadow: 0 4px 20px oklch(0 0 0 / 0.4);
+  }
+
+  .date-nav-panel.open {
+    display: block;
+  }
+
+  .date-panel-header {
+    font-size: 0.65rem;
+    font-weight: 600;
+    color: oklch(0.55 0.01 268);
+    padding: 4px 8px 6px;
+  }
+
+  .dark .date-panel-header {
+    color: oklch(0.50 0.01 268);
+  }
+
+  .date-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+  }
+
+  .date-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px 10px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 0.78rem;
+    color: oklch(0.50 0.01 268);
+    transition: all 0.15s;
+    white-space: nowrap;
+  }
+
+  .dark .date-link { color: oklch(0.55 0.01 268); }
+
+  .date-link:hover {
+    background: color-mix(in srgb, var(--primary) 8%, transparent);
+    color: var(--primary);
+  }
+
+  .date-link.active {
+    background: color-mix(in srgb, var(--primary) 12%, transparent);
+    color: var(--primary);
+    font-weight: 600;
+  }
+
+  .date-link-dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: oklch(0.80 0.005 268);
+  }
+
+  .dark .date-link-dot {
+    background: oklch(0.35 0.008 268);
+  }
+
+  .date-link.active .date-link-dot {
+    background: var(--primary);
+  }
+
+  .date-link-count {
+    font-size: 0.65rem;
+    background: oklch(0.93 0.005 268);
+    padding: 1px 6px;
+    border-radius: 10px;
+    color: oklch(0.55 0.01 268);
+  }
+
+  .dark .date-link-count {
+    background: oklch(0.28 0.008 268);
+    color: oklch(0.50 0.01 268);
+  }
+
+  .date-link.active .date-link-count {
+    background: color-mix(in srgb, var(--primary) 20%, transparent);
+    color: var(--primary);
+  }
+
+  /* 图片灯箱 */
+  .note-lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: oklch(0 0 0 / 0.85);
+    justify-content: center;
+    align-items: center;
+    cursor: zoom-out;
+  }
+
+  .note-lightbox.open {
+    display: flex;
+  }
+
+  .note-lightbox img {
+    max-width: 92vw;
+    max-height: 92vh;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 8px 40px oklch(0 0 0 / 0.5);
+  }
+
+  /* 空状态 */
+  .empty-state { text-align: center; }
+
+  .hidden-card { display: none !important; }
+
+  /* 标签筛选栏 */
+  .tag-filter-bar {
+    overflow: visible;
+  }
+
+  .tag-filter-inner {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .tag-filter-scroll {
+    display: flex;
+    gap: 6px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding: 2px 0;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .tag-filter-scroll::-webkit-scrollbar { display: none; }
+
+  .tag-pill {
+    flex-shrink: 0;
+    padding: 4px 12px;
+    border-radius: 14px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    border: 1px solid oklch(0.88 0.005 268);
+    background: transparent;
+    color: oklch(0.50 0.01 268);
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+
+  .dark .tag-pill {
+    border-color: oklch(0.30 0.01 268);
+    color: oklch(0.55 0.01 268);
+  }
+
+  .tag-pill:hover {
+    border-color: color-mix(in srgb, var(--primary) 40%, transparent);
+    color: var(--primary);
+  }
+
+  .tag-pill.active {
+    background: #00a2e8;
+    border-color: #00a2e8;
+    color: white;
+  }
+
+  /* 笔记内标签 */
+  .moment-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 8px;
+  }
+
+  .note-tag {
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: var(--primary);
+    background: color-mix(in srgb, var(--primary) 8%, transparent);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .note-tag:hover {
+    background: color-mix(in srgb, var(--primary) 18%, transparent);
+  }
+
+  /* 客户端分页：样式与主页文章列表一致，复用 Pagination.astro 的全局类（btn-card、w-11、#00a2e8、--btn-card-bg-hover 等） */
+
+  /* 响应式 */
+  @media (max-width: 1024px) {
+    .avatar { width: 34px; height: 34px; }
+  }
+</style>

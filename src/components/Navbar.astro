@@ -1,0 +1,186 @@
+---
+import { Icon } from "astro-icon/components";
+import { navBarConfig, siteConfig } from "../config";
+import { LinkPresets } from "../constants/link-presets";
+import { LinkPreset, type NavBarLink } from "../types/config";
+import { url } from "../utils/url-utils";
+
+import Search from "./Search.svelte";
+import DisplaySettings from "./widget/DisplaySettings.svelte";
+import NavMenuPanel from "./widget/NavMenuPanel.astro";
+const className = Astro.props.class;
+
+let links: NavBarLink[] = navBarConfig.links.map(
+	(item: NavBarLink | LinkPreset): NavBarLink => {
+		if (typeof item === "number") {
+			return LinkPresets[item];
+		}
+		return item;
+	},
+);
+const moreLinkNames = ["标签", "友链"];
+const moreLinks = moreLinkNames
+	.map((name) => links.find((link) => link.name === name))
+	.filter((link): link is NavBarLink => link !== undefined);
+---
+<div id="navbar" class="z-50">
+    <div class="absolute h-8 left-0 right-0 -top-8 bg-[var(--page-bg)] transition"></div> <!-- used for onload animation -->
+    <div class:list={[
+        className,
+        "card-base border border-black/10 dark:border-white/10 !overflow-visible max-w-[var(--page-width)] h-[4.5rem] !rounded-t-none mx-auto flex items-center justify-between px-4"]}>
+        <a href={url('/')} class="btn-plain rounded-lg h-[3.25rem] px-5 font-bold">
+            <div class="flex flex-row items-center text-md">
+                <Icon name="material-symbols:home-outline-rounded" class="text-[1.75rem] mb-1 mr-2 navbar-title-gradient-icon" />
+                <span class="navbar-title-gradient text-lg navbar-blog-title">BigFox</span>
+            </div>
+        </a>
+        <div class="hidden md:flex items-center gap-1">
+            {/* 主链接：排除下拉菜单项和RSS */}
+            {links.filter(l => ![...moreLinkNames, 'RSS'].includes(l.name)).map((l) => (
+                <a aria-label={l.name} href={l.external ? l.url : url(l.url)} target={l.external ? "_blank" : null}
+                   class="btn-plain rounded-lg h-11 px-3 font-bold"
+                >
+                    <div class="flex items-center">
+                        {l.name}
+                        {l.external && <Icon name="fa6-solid:arrow-up-right-from-square" class="text-[0.875rem] transition -translate-y-[1px] ml-1 text-black/[0.2] dark:text-white/[0.2]"></Icon>}
+                    </div>
+                </a>
+            ))}
+            {/* 更多下拉菜单 */}
+            <div class="relative" id="more-menu-wrapper">
+                <button aria-label="更多" class="btn-plain rounded-lg h-11 px-3 font-bold flex items-center gap-1" style="font-family: inherit" id="more-menu-btn">
+                    更多
+                    <Icon name="material-symbols:expand-more" class="text-[1.1rem] transition-transform" id="more-menu-arrow"></Icon>
+                </button>
+                <div id="more-menu-panel" class="float-panel float-panel-closed absolute !top-[calc(100%+4px)] right-0 min-w-[140px] p-2 flex flex-col gap-0.5">
+                    {moreLinks.map((l) => (
+                        <a href={l.url} target="_blank" rel="noopener noreferrer" class="btn-plain rounded-lg h-10 px-4 font-bold flex items-center justify-between gap-2 text-sm">
+                            <span>{l.name}</span>
+                            <Icon name="fa6-solid:arrow-up-right-from-square" class="text-[0.7rem] text-black/20 dark:text-white/20" />
+                        </a>
+                    ))}
+                </div>
+            </div>
+            {/* RSS单独渲染 */}
+            <a aria-label="RSS" href={url(links.find(l => l.name === 'RSS')?.url || '/rss.xml')} target="_blank" class="btn-plain rounded-lg h-11 px-2 font-bold">
+                <img src="/rss-icon.png" alt="RSS" class="w-5 h-5 rss-icon" />
+            </a>
+        </div>
+        <div class="flex">
+            <!--<SearchPanel client:load>-->
+            <!-- 搜索框容器：固定宽度防止 Svelte 水合时布局抖动 -->
+                <div class="w-11 lg:w-44 h-11 flex items-center justify-end">
+                    <Search client:only="svelte"></Search>
+                </div>
+            {!siteConfig.themeColor.fixed && (
+                    <button aria-label="Display Settings" class="btn-plain rounded-lg h-11 w-11" id="display-settings-switch">
+                        <Icon name="material-symbols:palette-outline" class="text-[1.25rem]"></Icon>
+                    </button>
+            )}
+
+            <button aria-label="Menu" name="Nav Menu" class="btn-plain rounded-lg w-11 h-11 md:!hidden" id="nav-menu-switch">
+                <Icon name="material-symbols:menu-rounded" class="text-[1.25rem]"></Icon>
+            </button>
+        </div>
+        <NavMenuPanel links={links}></NavMenuPanel>
+        <DisplaySettings client:only="svelte"></DisplaySettings>
+    </div>
+</div>
+
+<script>
+function loadButtonScript() {
+
+    let settingBtn = document.getElementById("display-settings-switch");
+    if (settingBtn) {
+        settingBtn.onclick = function () {
+            let settingPanel = document.getElementById("display-setting");
+            if (settingPanel) {
+                settingPanel.classList.toggle("float-panel-closed");
+            }
+        };
+    }
+
+    let menuBtn = document.getElementById("nav-menu-switch");
+    if (menuBtn) {
+        menuBtn.onclick = function () {
+            let menuPanel = document.getElementById("nav-menu-panel");
+            if (menuPanel) {
+                menuPanel.classList.toggle("float-panel-closed");
+            }
+        };
+    }
+
+    // 更多下拉菜单
+    let moreBtn = document.getElementById("more-menu-btn");
+    let morePanel = document.getElementById("more-menu-panel");
+    let moreArrow = document.getElementById("more-menu-arrow");
+    if (moreBtn && morePanel) {
+        moreBtn.onclick = function (e) {
+            e.stopPropagation();
+            morePanel.classList.toggle("float-panel-closed");
+            if (moreArrow) moreArrow.classList.toggle("rotate-180");
+        };
+        document.addEventListener("click", function (e) {
+            let wrapper = document.getElementById("more-menu-wrapper");
+            if (wrapper && !wrapper.contains(e.target)) {
+                morePanel.classList.add("float-panel-closed");
+                if (moreArrow) moreArrow.classList.remove("rotate-180");
+            }
+        });
+    }
+}
+
+loadButtonScript();
+</script>
+
+<style>
+.rss-icon {
+  transition: transform 0.4s ease-in-out;
+}
+
+a:hover .rss-icon {
+  transform: rotate(360deg);
+}
+
+/* 通用渐变样式 - 天蓝到紫 */
+.gradient-text {
+    background: linear-gradient(135deg, #0ea5e9, #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.dark .gradient-text {
+    background: linear-gradient(135deg, #38bdf8, #a78bfa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* 导航栏标题 - 主题蓝 */
+.navbar-title-gradient {
+    color: #00a2e8;
+}
+
+/* Blog 标题 - 斜体艺术风格 */
+.navbar-blog-title {
+    font-style: italic;
+    font-family: 'Georgia', 'Palatino Linotype', 'Book Antiqua', serif;
+    letter-spacing: 0.08em;
+}
+
+/* 导航栏图标 - 渐变色 */
+.navbar-title-gradient-icon {
+    background: linear-gradient(135deg, #0ea5e9, #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+html.dark .navbar-title-gradient-icon {
+    background: linear-gradient(135deg, #38bdf8, #a78bfa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+</style>

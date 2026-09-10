@@ -1,0 +1,382 @@
+---
+import { getSortedPosts } from "@utils/content-utils";
+import { render } from "astro:content";
+import { Icon } from "astro-icon/components";
+import { profileConfig, siteConfig, umamiConfig } from "../../config";
+
+const config = profileConfig;
+const posts = await getSortedPosts();
+const totalPosts = posts.length;
+let totalWords = 0;
+for (const post of posts) {
+	const { remarkPluginFrontmatter } = await render(post);
+	if (remarkPluginFrontmatter && remarkPluginFrontmatter.words) {
+		totalWords += remarkPluginFrontmatter.words;
+	}
+}
+---
+<div class="profile-glow-wrapper">
+<div class="card-base p-3 border border-black/10 dark:border-white/10 profile-card-enhanced">
+    <div class="relative mx-auto mt-1 mb-3 w-28 h-28 rounded-full overflow-hidden" style={`--theme-hue: ${siteConfig.themeColor.hue}`}>
+        <img src="/avatar-112.jpg" srcset="/avatar-112.jpg 1x, /avatar-224.jpg 2x" alt="Profile Image of the Author" class="w-full h-full object-cover transition duration-500" width="112" height="112" loading="eager" />
+    </div>
+    <div class="px-2 text-center">
+        <div class="inline-flex flex-col items-center">
+            <div class="font-bold text-xl mb-1 transition text-black dark:text-white profile-name">{config.name}</div>
+            <div class="h-px w-full mb-3 transition bg-[oklch(0.58_0.16_268)]"></div>
+        </div>
+        <div class="text-center mb-2.5 transition text-black dark:text-neutral-400 profile-bio" set:html={config.bio}></div>
+        <div class="flex flex-wrap gap-2 justify-center mb-1">
+            <!-- 微信图标 - 点击弹窗 -->
+            <button aria-label="微信" onclick="openQRModal()" class="social-icon-btn rounded-lg h-10 w-10 active:scale-90">
+                <svg class="w-6 h-6 transition fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M21.502 19.525c1.524-1.105 2.498-2.738 2.498-4.554 0-3.326-3.237-6.023-7.229-6.023s-7.229 2.697-7.229 6.023c0 3.327 3.237 6.024 7.229 6.024.825 0 1.621-.117 2.36-.33l.212-.032c.139 0 .265.043.384.111l1.583.914.139.045c.133 0 .241-.108.241-.241l-.039-.176-.326-1.215-.025-.154c0-.162.08-.305.202-.392zm-12.827-17.228c-4.791 0-8.675 3.236-8.675 7.229 0 2.178 1.168 4.139 2.997 5.464.147.104.243.276.243.471l-.03.184-.391 1.458-.047.211c0 .16.13.29.289.29l.168-.054 1.899-1.097c.142-.082.293-.133.46-.133l.255.038c.886.255 1.842.397 2.832.397l.476-.012c-.188-.564-.291-1.158-.291-1.771 0-3.641 3.542-6.593 7.911-6.593l.471.012c-.653-3.453-4.24-6.094-8.567-6.094zm5.686 11.711c-.532 0-.963-.432-.963-.964 0-.533.431-.964.963-.964.533 0 .964.431.964.964 0 .532-.431.964-.964.964zm4.82 0c-.533 0-.964-.432-.964-.964 0-.533.431-.964.964-.964.532 0 .963.431.963.964 0 .532-.431.964-.963.964zm-13.398-5.639c-.639 0-1.156-.518-1.156-1.156 0-.639.517-1.157 1.156-1.157.639 0 1.157.518 1.157 1.157 0 .638-.518 1.156-1.157 1.156zm5.783 0c-.639 0-1.156-.518-1.156-1.156 0-.639.517-1.157 1.156-1.157.639 0 1.157.518 1.157 1.157 0 .638-.518 1.156-1.157 1.156z"/>
+                </svg>
+            </button>
+
+            <!-- 其他社交链接 -->
+            {config.links.slice(1).map((item) => (
+                <a rel="me" aria-label={item.name} href={item.url} target="_blank" class="social-icon-btn rounded-lg h-10 w-10 active:scale-90">
+                    <Icon name={item.icon} class="text-[1.5rem]"></Icon>
+                </a>
+            ))}
+        </div>
+
+        <!-- 全站文章与字数统计 -->
+        <div class="grid grid-cols-2 mt-3 pt-3 border-t border-neutral-300 dark:border-neutral-700">
+            <div class="text-center">
+                <div class="text-xs mb-1 flex items-center justify-center gap-1 text-neutral-600 dark:text-neutral-400">
+                    <Icon name="material-symbols:article-outline" class="text-base"></Icon>
+                    <span class="text-xs">文章数</span>
+                </div>
+                <div class="font-bold text-lg text-neutral-700 dark:text-neutral-300">{totalPosts}</div>
+            </div>
+            <div class="text-center border-l border-neutral-300 dark:border-neutral-700">
+                <div class="text-xs mb-1 flex items-center justify-center gap-1 text-neutral-600 dark:text-neutral-400">
+                    <Icon name="material-symbols:format-list-numbered" class="text-base"></Icon>
+                    <span class="text-xs">总字数</span>
+                </div>
+                <div class="font-bold text-lg text-neutral-700 dark:text-neutral-300">
+                    {(totalWords / 10000).toFixed(1)}w
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<script is:inline define:vars={{ name: config.name }}>
+    // 立即设置标题渐变
+    document.addEventListener('DOMContentLoaded', () => {
+        const updateGradient = () => {
+            const isDark = document.documentElement.classList.contains('dark');
+            const nameElements = document.querySelectorAll('.profile-name-gradient');
+            nameElements.forEach(el => {
+                el.style.background = isDark
+                    ? 'linear-gradient(135deg, #38bdf8, #a78bfa)'
+                    : 'linear-gradient(135deg, #0ea5e9, #8b5cf6)';
+                el.style.webkitBackgroundClip = 'text';
+                el.style.webkitTextFillColor = 'transparent';
+                el.style.backgroundClip = 'text';
+                el.style.color = 'transparent';
+            });
+        };
+        updateGradient();
+        // 监听主题变化
+        new MutationObserver(updateGradient).observe(document.documentElement, {
+            attributes: true,
+            attributeFilter: ['class']
+        });
+    });
+</script>
+
+<style>
+    .loading-bar {
+        transition: opacity 0.5s ease-out;
+    }
+
+    /* 二维码弹窗动画 */
+    @keyframes scale-in {
+        from {
+            opacity: 0;
+            transform: scale(0.9);
+        }
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    .animate-scale-in {
+        animation: scale-in 0.2s ease-out;
+    }
+</style>
+
+<style is:global>
+    /* 标题渐变样式 - 全局样式 */
+    .profile-name-gradient {
+        background: linear-gradient(135deg, #0ea5e9, #8b5cf6) !important;
+        -webkit-background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
+        background-clip: text !important;
+        color: transparent !important;
+    }
+
+    /* 暗黑模式适配 */
+    html.dark .profile-name-gradient {
+        background: linear-gradient(135deg, #38bdf8, #a78bfa) !important;
+        -webkit-background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
+        background-clip: text !important;
+    }
+
+    /* 社交图标按钮 */
+    .social-icon-btn {
+        background: #e2e8f0 !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s ease;
+        border: 1px solid #cbd5e1;
+    }
+
+    .social-icon-btn:hover {
+        transform: translateY(-1px);
+        filter: brightness(1.2);
+    }
+
+    html.dark .social-icon-btn {
+        background: rgba(51, 65, 85, 0.8) !important;
+        border: 1px solid rgba(148, 163, 184, 0.2);
+    }
+
+    /* 品牌色 - 默认显示品牌图标色，悬停白字+品牌背景 */
+    .social-icon-btn[aria-label="微信"] svg,
+    .social-icon-btn[aria-label="微信"] svg * {
+        fill: #07a33e !important;
+        color: #07a33e !important;
+    }
+    .social-icon-btn[aria-label="微信"]:hover {
+        background: #07a33e !important;
+        border-color: #07a33e !important;
+    }
+    .social-icon-btn[aria-label="微信"]:hover svg,
+    .social-icon-btn[aria-label="微信"]:hover svg * {
+        fill: #ffffff !important;
+        color: #ffffff !important;
+    }
+
+    .social-icon-btn[aria-label="Telegram"] svg,
+    .social-icon-btn[aria-label="Telegram"] svg * {
+        fill: #1d8ed2 !important;
+        color: #1d8ed2 !important;
+    }
+    .social-icon-btn[aria-label="Telegram"]:hover {
+        background: #1d8ed2 !important;
+        border-color: #1d8ed2 !important;
+    }
+    .social-icon-btn[aria-label="Telegram"]:hover svg,
+    .social-icon-btn[aria-label="Telegram"]:hover svg * {
+        fill: #ffffff !important;
+        color: #ffffff !important;
+    }
+
+    .social-icon-btn[aria-label="Bilibili"] svg,
+    .social-icon-btn[aria-label="Bilibili"] svg * {
+        fill: #e5567a !important;
+        color: #e5567a !important;
+    }
+    .social-icon-btn[aria-label="Bilibili"]:hover {
+        background: #e5567a !important;
+        border-color: #e5567a !important;
+    }
+    .social-icon-btn[aria-label="Bilibili"]:hover svg,
+    .social-icon-btn[aria-label="Bilibili"]:hover svg * {
+        fill: #ffffff !important;
+        color: #ffffff !important;
+    }
+
+    .social-icon-btn[aria-label="GitHub"] svg,
+    .social-icon-btn[aria-label="GitHub"] svg * {
+        fill: #1f2937 !important;
+        color: #1f2937 !important;
+    }
+    .social-icon-btn[aria-label="GitHub"]:hover {
+        background: #1f2937 !important;
+        border-color: #1f2937 !important;
+    }
+    .social-icon-btn[aria-label="GitHub"]:hover svg,
+    .social-icon-btn[aria-label="GitHub"]:hover svg * {
+        fill: #ffffff !important;
+        color: #ffffff !important;
+    }
+
+    /* 暗黑模式 - GitHub 图标改浅色 */
+    html.dark .social-icon-btn[aria-label="GitHub"] svg,
+    html.dark .social-icon-btn[aria-label="GitHub"] svg * {
+        fill: #94a3b8 !important;
+        color: #94a3b8 !important;
+    }
+
+    /* 个人信息卡片 - 浅色模式 */
+    .card-base.profile-card-enhanced {
+        background: #F8F6F2 !important;
+        background-color: #F8F6F2 !important;
+        box-shadow:
+            0 1px 3px rgba(0, 0, 0, 0.08),
+            0 4px 12px rgba(0, 0, 0, 0.05) !important;
+    }
+
+    /* 个人信息卡片 - 暗黑模式霓虹光效 */
+    @property --neon-angle {
+        syntax: "<angle>";
+        initial-value: 0deg;
+        inherits: false;
+    }
+
+    .profile-glow-wrapper {
+        position: relative;
+        border-radius: 0.75rem;
+    }
+
+    html.dark .profile-glow-wrapper::before {
+        content: "";
+        position: absolute;
+        inset: -2px;
+        border-radius: 1rem;
+        background: conic-gradient(from var(--neon-angle), #38bdf8, #a78bfa, #38bdf8);
+        opacity: 0.25;
+        z-index: -1;
+        animation: neon-spin 4s linear infinite;
+    }
+
+    html.dark .profile-glow-wrapper::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: 0.75rem;
+        background: radial-gradient(ellipse at 30% 20%, rgba(56, 189, 248, 0.04), transparent 60%),
+                    radial-gradient(ellipse at 70% 80%, rgba(167, 139, 250, 0.04), transparent 60%);
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    @keyframes neon-spin {
+        to { --neon-angle: 360deg; }
+    }
+
+    html.dark .card-base.profile-card-enhanced {
+        background: #141414 !important;
+        background-color: #141414 !important;
+        box-shadow:
+            0 1px 3px rgba(0, 0, 0, 0.6),
+            0 4px 12px rgba(0, 0, 0, 0.5),
+            inset 0 1px 0 rgba(255, 255, 255, 0.03) !important;
+    }
+
+    /* 名字文字阴影 */
+    .profile-name {
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    }
+
+    html.dark .profile-name {
+        text-shadow: 0 0 12px rgba(56, 189, 248, 0.3), 0 0 24px rgba(167, 139, 250, 0.15);
+    }
+
+    /* 个人简介暗黑模式颜色 */
+    html.dark .profile-bio {
+        color: rgba(255, 255, 255, 0.6) !important;
+    }
+</style>
+
+<script is:inline>
+    // 打开二维码弹窗
+    function openQRModal() {
+        const modal = document.getElementById('qr-modal');
+        modal.classList.remove('hidden');
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    }
+
+    // 关闭二维码弹窗
+    function closeQRModal() {
+        const modal = document.getElementById('qr-modal');
+        modal.classList.add('hidden');
+        modal.style.display = 'none';
+        document.body.style.overflow = '';
+    }
+
+    // 打开赞助弹窗
+    function openSponsorModal() {
+        const modal = document.getElementById('sponsor-modal');
+        modal.classList.remove('hidden');
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    }
+
+    // 关闭赞助弹窗
+    function closeSponsorModal() {
+        const modal = document.getElementById('sponsor-modal');
+        modal.classList.add('hidden');
+        modal.style.display = 'none';
+        document.body.style.overflow = '';
+    }
+
+    // 切换支付方式
+    function switchPayment(type) {
+        const qrImg = document.getElementById('sponsor-qr-img');
+        const wechatTab = document.getElementById('wechat-pay-tab');
+        const alipayTab = document.getElementById('alipay-tab');
+
+        if (type === 'wechat') {
+            qrImg.src = '/sponsors/wechat.png';
+            wechatTab.style.background = 'rgba(255,255,255,0.15)';
+            wechatTab.style.color = 'white';
+            alipayTab.style.background = 'transparent';
+            alipayTab.style.color = 'rgba(255,255,255,0.6)';
+        } else {
+            qrImg.src = '/sponsors/alipay.png';
+            alipayTab.style.background = 'rgba(255,255,255,0.15)';
+            alipayTab.style.color = 'white';
+            wechatTab.style.background = 'transparent';
+            wechatTab.style.color = 'rgba(255,255,255,0.6)';
+        }
+    }
+
+    // 复制微信号
+    function copyModalWx(e) {
+        if (e) e.stopPropagation();
+        const wxId = document.getElementById('modal-wx-id').innerText;
+        const textArea = document.createElement("textarea");
+        textArea.value = wxId;
+        textArea.style.position = "fixed";
+        textArea.style.left = "-9999px";
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        try {
+            const successful = document.execCommand('copy');
+            if (successful) {
+                const btn = e.target;
+                const oldText = btn.innerText;
+                btn.innerText = '已复制！';
+                btn.style.color = "#4ade80";
+                setTimeout(() => {
+                    btn.innerText = oldText;
+                    btn.style.color = "";
+                }, 2000);
+            }
+        } catch (err) {
+            console.error('复制失败', err);
+        }
+        document.body.removeChild(textArea);
+    }
+
+    // ESC 键关闭弹窗
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            closeQRModal();
+            closeSponsorModal();
+        }
+    });
+</script>

@@ -1,0 +1,80 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  icon: string;
+  title: string;
+  description: string;
+  stats?: { value: string; label: string }[];
+}
+
+const { icon, title, description, stats = [] } = Astro.props;
+---
+
+<div class="card-base page-banner px-6 py-5 mb-4">
+  <div class="banner-content">
+    <div class="banner-icon">
+      <Icon name={icon} class="text-[1.75rem]" />
+    </div>
+    <div>
+      <h1 class="text-lg font-bold text-black/80 dark:text-white/90">{title}</h1>
+      <p class="text-xs text-black/50 dark:text-white/50 mt-0.5">{description}</p>
+    </div>
+  </div>
+  {stats.length > 0 && (
+    <div class="banner-stats">
+      {stats.map((s) => (
+        <div class="stat-item">
+          <span class="stat-num">{s.value}</span>
+          <span class="stat-label">{s.label}</span>
+        </div>
+      ))}
+    </div>
+  )}
+</div>
+
+<style>
+  .page-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(135deg, color-mix(in srgb, var(--primary) 8%, var(--card-bg)), var(--card-bg)) !important;
+  }
+
+  .banner-content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .banner-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: color-mix(in srgb, var(--primary) 12%, transparent);
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .banner-stats {
+    display: flex;
+    gap: 18px;
+  }
+
+  .stat-item { text-align: center; }
+  .stat-num { display: block; font-size: 1.25rem; font-weight: 700; line-height: 1; color: oklch(0.25 0.02 var(--hue)); }
+  .stat-label { font-size: 0.7rem; color: oklch(0.55 0.01 268); }
+  :global(.dark) .stat-num { color: white; }
+  :global(.dark) .stat-label { color: rgba(255,255,255,0.7); }
+
+  @media (max-width: 1024px) {
+    .page-banner {
+      flex-direction: column;
+      gap: 12px;
+      text-align: center;
+    }
+    .banner-content { flex-direction: column; }
+  }
+</style>

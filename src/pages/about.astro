@@ -1,0 +1,19 @@
+---
+import MainGridLayout from "@layouts/MainGridLayout.astro";
+import Markdown from "@components/misc/Markdown.astro";
+import PageHeader from "@components/widget/PageHeader.astro";
+import AboutContent from "../content/about.md";
+---
+
+<MainGridLayout title="About">
+    <PageHeader
+        icon="material-symbols:person"
+        title="关于"
+        description="见字如面"
+    />
+    <div class="card-base px-6 py-5">
+        <Markdown>
+            <AboutContent />
+        </Markdown>
+    </div>
+</MainGridLayout>

@@ -1,0 +1,97 @@
+---
+import { Icon } from "astro-icon/components";
+
+import { umamiConfig } from "../config";
+import { formatDateToYYYYMMDD } from "../utils/date-utils";
+import { url, getDir } from "../utils/url-utils";
+
+interface Props {
+	class: string;
+	published: Date;
+	updated?: Date;
+	hideUpdateDate?: boolean;
+	hidePublishedDate?: boolean;
+	slug?: string;
+	category?: string;
+	tags?: string[];
+	words?: number;
+	minutes?: number;
+}
+const {
+	published,
+	updated,
+	hideUpdateDate = false,
+	hidePublishedDate = false,
+	slug,
+	category,
+	tags = [],
+	words,
+	minutes,
+} = Astro.props;
+const className = Astro.props.class;
+
+// 分类英文名称映射
+const categoryEnglishName = new Map<string, string>();
+categoryEnglishName.set("软件安利", "Software");
+categoryEnglishName.set("技术教程", "Technical");
+categoryEnglishName.set("AI新鲜玩法", "AIHacks");
+
+const categoryUrl = category
+	? categoryEnglishName.get(category) || category
+	: null;
+---
+
+<div class:list={["flex flex-wrap text-neutral-500 dark:text-neutral-400 items-center gap-4 gap-x-4 gap-y-2", className]}>
+    <!-- category -->
+    {category && categoryUrl && (
+        <a href={url(`/categories/${categoryUrl}/`)} class="flex items-center hover:text-[var(--primary)] transition">
+            <div class="meta-icon">
+                <Icon name="material-symbols:folder-outline-rounded" class="text-xl"></Icon>
+            </div>
+            <span class="text-50 text-sm font-medium">{categoryEnglishName.get(category) || category}</span>
+        </a>
+    )}
+
+    <!-- publish date -->
+    {!hidePublishedDate && (
+        <div class="flex items-center">
+            <div class="meta-icon">
+                <Icon name="material-symbols:calendar-today-outline-rounded" class="text-xl"></Icon>
+            </div>
+            <span class="text-50 text-sm font-medium">{formatDateToYYYYMMDD(published)}</span>
+        </div>
+    )}
+
+    <!-- update date -->
+    {!hideUpdateDate && updated && updated.getTime() !== published.getTime() && (
+        <div class="flex items-center">
+            <div class="meta-icon"
+            >
+                <Icon name="material-symbols:edit-calendar-outline-rounded" class="text-xl"></Icon>
+            </div>
+            <span class="text-50 text-sm font-medium">{formatDateToYYYYMMDD(updated)}</span>
+        </div>
+    )}
+
+    <!-- word count & reading time -->
+    {(words !== undefined || minutes !== undefined) && (
+        <>
+            {words !== undefined && (
+                <div class="flex items-center">
+                    <div class="meta-icon">
+                        <Icon name="material-symbols:notes-rounded" class="text-xl"></Icon>
+                    </div>
+                    <span class="text-50 text-sm font-medium">{words} 字</span>
+                </div>
+            )}
+            {minutes !== undefined && (
+                <div class="flex items-center">
+                    <div class="meta-icon">
+                        <Icon name="material-symbols:schedule-outline-rounded" class="text-xl"></Icon>
+                    </div>
+                    <span class="text-50 text-sm font-medium">{minutes} 分钟</span>
+                </div>
+            )}
+        </>
+    )}
+</div>

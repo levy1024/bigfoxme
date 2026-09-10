@@ -1,0 +1,8 @@
+{
+	"name": "Android Bench",
+	"avatar": "https://www.google.com/s2/favicons?domain=developer.android.com&sz=64",
+	"description": "Google 官方 Android 开发 LLM 排行榜",
+	"url": "https://developer.android.com/bench",
+	"category": "LLM 排行榜",
+	"subcategory": "Android"
+}

@@ -1,0 +1,73 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<!-- There can't be a filter on parent element, or it will break `fixed` -->
+<div class="back-to-top-wrapper hidden lg:block">
+    <div id="go-to-comments-btn" class="back-to-top-btn hide flex items-center justify-center transition" onclick="goToComments()">
+        <button aria-label="Go to Comments" class="flex items-center justify-center">
+            <Icon name="material-symbols:mode-comment-outline" class="go-to-comments-icon"></Icon>
+        </button>
+    </div>
+    <div id="back-to-top-btn" class="back-to-top-btn hide flex items-center justify-center transition" onclick="backToTop()">
+        <button aria-label="Back to Top" class="flex items-center justify-center">
+            <Icon name="material-symbols:keyboard-arrow-up-rounded" class="back-to-top-icon"></Icon>
+        </button>
+    </div>
+</div>
+
+<style lang="stylus">
+.back-to-top-wrapper
+    width: 3.75rem
+    height: 3.75rem
+    position: absolute
+    right: 0
+    top: 0
+    pointer-events: none
+
+.back-to-top-btn
+    color: var(--primary)
+    font-weight: bold
+    border: none
+    position: fixed
+    bottom: 6rem
+    opacity: 1
+    cursor: pointer
+    transform: translateX(5rem)
+    pointer-events: auto
+    z-index: 50
+    background: transparent !important
+    &.hide
+        transform: translateX(5rem) scale(0.9)
+        opacity: 0
+        pointer-events: none
+    &:active
+      transform: translateX(5rem) scale(0.9)
+
+.go-to-comments-icon
+    font-size: 1.5rem
+    display: block
+    margin: 0 auto
+
+.back-to-top-icon
+    font-size: 2.25rem
+    display: block
+    margin: 0 auto
+
+#go-to-comments-btn
+    bottom: 10.5rem
+    padding-left: 0.35rem
+</style>
+
+<script is:raw is:inline>
+function backToTop() {
+    window.scroll({ top: 0, behavior: 'smooth' });
+}
+
+function goToComments() {
+    const comments = document.getElementById('giscus-container');
+    if (comments) {
+        comments.scrollIntoView({ behavior: 'smooth' });
+    }
+}
+</script>

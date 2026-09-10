@@ -1,0 +1,173 @@
+---
+import { siteConfig } from "@/config";
+import type { Friend } from "@/types/data";
+import MainGridLayout from "@layouts/MainGridLayout.astro";
+import PageHeader from "@components/widget/PageHeader.astro";
+import { Icon } from "astro-icon/components";
+
+const friends = Object.values(
+	import.meta.glob<Friend>("@/data/friends/*.json", {
+		eager: true,
+		import: "default",
+	}),
+);
+
+// 按分类分组友链
+const friendsByCategory = new Map<string, Friend[]>();
+for (const friend of friends) {
+	const category = friend.category || "未分类";
+	if (!friendsByCategory.has(category)) {
+		friendsByCategory.set(category, []);
+	}
+	friendsByCategory.get(category)!.push(friend);
+}
+
+const sortedCategories = Array.from(friendsByCategory.entries()).sort((a, b) =>
+	a[0].localeCompare(b[0], "zh-CN"),
+);
+---
+
+<MainGridLayout title="友链">
+    <PageHeader
+        icon="material-symbols:diversity-3"
+        title="友链"
+        description="相逢的人会再相逢"
+    />
+
+    <div class="card-base p-6 md:p-8">
+        <p class="text-sm text-black/60 dark:text-white/60 mb-6">
+            如果您也想加入友链名单，关注我的微信公众号，并联系我。
+        </p>
+
+        <!-- 按分类显示友链 -->
+        <div class="space-y-8">
+            {sortedCategories.map(([category, categoryFriends]) => (
+                <div class="category-section">
+                    <div class="category-header">
+                        <span class="font-bold text-base" style="color: var(--primary)">{category}</span>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                        {categoryFriends.map((friend) => (
+                            <a href={friend.url} target="_blank" class="friend-card">
+                                <div class="friend-card-inner">
+                                    <div class="friend-card-icon">
+                                        <img src={friend.avatar} loading="lazy" alt={friend.name} />
+                                    </div>
+                                    <div class="friend-card-content">
+                                        <div class="friend-card-name">{friend.name}</div>
+                                        <div class="friend-card-desc">{friend.description}</div>
+                                    </div>
+                                </div>
+                            </a>
+                        ))}
+                    </div>
+                </div>
+            ))}
+        </div>
+    </div>
+</MainGridLayout>
+
+<style>
+    .category-section {
+        margin-bottom: 1rem;
+    }
+
+    .category-header {
+        margin-bottom: 1rem;
+        padding-left: 0.25rem;
+    }
+
+    .friend-card {
+        display: block;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+    .friend-card-inner {
+        background: rgb(255, 255, 255);
+        border-radius: 12px;
+        padding: 12px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        height: 100%;
+    }
+
+    .dark .friend-card-inner {
+        background: rgb(45, 45, 45);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .friend-card:hover .friend-card-inner {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    .dark .friend-card:hover .friend-card-inner {
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    }
+
+    .friend-card-icon {
+        width: 36px;
+        height: 36px;
+        flex-shrink: 0;
+        border-radius: 8px;
+        overflow: hidden;
+        background: rgb(245, 245, 245);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .dark .friend-card-icon {
+        background: rgb(55, 55, 55);
+    }
+
+    .friend-card-icon img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .friend-card-content {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .friend-card-name {
+        font-size: 14px;
+        font-weight: 600;
+        color: rgb(30, 30, 30);
+        margin-bottom: 2px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .dark .friend-card-name {
+        color: rgb(230, 230, 230);
+    }
+
+    .friend-card-desc {
+        font-size: 12px;
+        color: rgb(140, 140, 140);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .dark .friend-card-desc {
+        color: rgb(160, 160, 160);
+    }
+
+    .friend-card:hover .friend-card-name {
+        color: var(--primary);
+    }
+
+    .friend-card:hover .friend-card-icon {
+        background: color-mix(in srgb, var(--primary) 10%, transparent);
+    }
+</style>

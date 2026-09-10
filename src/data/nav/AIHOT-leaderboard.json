@@ -1,0 +1,9 @@
+{
+	"name": "AIHOT - 大模型排行榜",
+	"avatar": "https://www.google.com/s2/favicons?domain=aihot.virxact.com&sz=64",
+	"description": "汇总全网多家公开模型榜单，用统一方法计算 AIHOT 共识分，直观呈现当前主流大模型的综合表现。",
+	"url": "https://aihot.virxact.com/leaderboard",
+	"category": "LLM 排行榜",
+	"subcategory": "综合"
+}
+

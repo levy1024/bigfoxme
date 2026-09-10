@@ -1,0 +1,32 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git commit:*)",
+      "Bash(git push)",
+      "Bash(npm run organize-posts:*)",
+      "Bash(node:*)",
+      "Bash(git add:*)",
+      "Bash(curl -s \"https://raw.githubusercontent.com/dqtx760/Firefly/main/src/content/posts/AI新鲜玩法/aicode-prompt.md\")",
+      "Bash(curl:*)",
+      "Bash(findstr:*)",
+      "Bash(powershell:*)",
+      "Bash(git -C \"D:\\\\project2026\\\\fuwari\" log --oneline -5)",
+      "Bash(git -C:*)",
+      "Bash(git -C \"D:\\\\project2026\\\\fuwari\" commit -m \"$\\(cat <<''EOF''\nfeat: 添加实用导航分类及LinkCard组件\n\n- 创建 LinkCard.astro 组件用于卡片式导航链接展示\n- 创建 12 篇实用导航文章，涵盖：\n  - 常用推荐、网站搭建、人工智能\n  - 下载工具、系统相关、效率工具\n  - 影音娱乐、壁纸网站、图片工具\n  - 运营工具、网络相关、苹果相关\n- 每篇包含对应分类的实用网站链接\n- 采用卡片式布局，支持图标、标题、描述展示\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(npm run build:*)",
+      "Bash(ls:*)",
+      "Bash(git push:*)",
+      "Bash(grep:*)",
+      "Bash(for:*)",
+      "Bash(do sed:*)",
+      "Bash(done)",
+      "Bash(npm run dev:*)",
+      "Bash(start http://localhost:4323/)",
+      "mcp__fetch__fetch",
+      "PowerShell(Get-Content -Path \"C:\\\\Users\\\\Administrator\\\\Desktop\\\\微信桥接.bat\" -Encoding Byte -TotalCount 3 | ForEach-Object { \"{0:X2}\" -f $_ })",
+      "Bash(pnpm dev *)",
+      "Bash(sed -i '95d' \"G:/myblog/Firefly/src/config.ts\")",
+      "Bash(sed -i 's/^\\\\t\\\\t\\\\t\\\\tname: \"About\"/\\\\t\\\\t\\\\t{\\\\n\\\\t\\\\t\\\\tname: \"About\"/' \"G:/myblog/Firefly/src/config.ts\")"
+    ]
+  }
+}

@@ -1,0 +1,74 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { getCollection } from "astro:content";
+import { getPostUrlBySlug } from "@utils/url-utils";
+import PostCard from "./PostCard.astro";
+
+const { page } = Astro.props;
+
+let delay = 0;
+const interval = 50;
+
+// 从 Markdown 内容中提取第一张图片URL
+function extractFirstImageFromMarkdown(markdown: string): string | undefined {
+	if (!markdown) return undefined;
+	// 匹配 Markdown 图片语法 ![alt](url) 或 ![alt](url "title")
+	const imgMatch = markdown.match(/!\[.*?\]\(([^)]+)\)/i);
+	if (imgMatch) {
+		// 提取 URL，可能是 ![alt](url) 或 ![alt](url "title")
+		const url = imgMatch[1].split(/\s+/)[0];
+		// 验证 URL 格式：必须是 http://, https://, 或 / 开头
+		if (url.match(/^https?:\/\//) || url.match(/^\//)) {
+			return url;
+		}
+	}
+	return undefined;
+}
+
+// 为每篇文章准备封面图（如果没有设置，则自动提取第一张）
+const postsWithCover = await Promise.all(
+	page.data.map(async (entry: CollectionEntry<"posts">) => {
+		let coverImage = entry.data.image;
+
+		// 如果没有设置封面图，尝试从文章内容中提取第一张
+		if (!coverImage) {
+			// 读取文章原始内容
+			const allPosts = await getCollection("posts");
+			const post = allPosts.find((p) => p.id === entry.id);
+			if (post) {
+				const rawContent = post.body;
+				coverImage = extractFirstImageFromMarkdown(rawContent);
+			}
+		}
+
+		return {
+			entry,
+			title: entry.data.title,
+			published: entry.data.published,
+			updated: entry.data.updated,
+			url: getPostUrlBySlug(entry.id),
+			image: coverImage,
+			description: entry.data.description,
+			draft: entry.data.draft,
+		};
+	}),
+);
+---
+
+<div class="transition flex flex-col rounded-[var(--radius-large)] bg-transparent gap-4 mb-4">
+
+    {postsWithCover.map((post) => (
+        <div class="onload-animation" style={`animation-delay: calc(var(--content-delay) + ${delay++ * interval}ms);`}>
+            <PostCard
+                    entry={post.entry}
+                    title={post.title}
+                    published={post.published}
+                    updated={post.updated}
+                    url={post.url}
+                    image={post.image}
+                    description={post.description}
+                    draft={post.draft}
+            ></PostCard>
+        </div>
+    ))}
+</div>

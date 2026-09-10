@@ -1,0 +1,101 @@
+/* utils */
+white(a)
+  rgba(255, 255, 255, a)
+
+black(a)
+  rgba(0, 0, 0, a)
+
+rainbow-light = linear-gradient(to right, oklch(0.80 0.10 0), oklch(0.80 0.10 30), oklch(0.80 0.10 60), oklch(0.80 0.10 90), oklch(0.80 0.10 120), oklch(0.80 0.10 150), oklch(0.80 0.10 180), oklch(0.80 0.10 210), oklch(0.80 0.10 240), oklch(0.80 0.10 270), oklch(0.80 0.10 300), oklch(0.80 0.10 330), oklch(0.80 0.10 360))
+rainbow-dark = linear-gradient(to right, oklch(0.70 0.10 0), oklch(0.70 0.10 30), oklch(0.70 0.10 60), oklch(0.70 0.10 90), oklch(0.70 0.10 120), oklch(0.70 0.10 150), oklch(0.70 0.10 180), oklch(0.70 0.10 210), oklch(0.70 0.10 240), oklch(0.70 0.10 270), oklch(0.70 0.10 300), oklch(0.70 0.10 330), oklch(0.70 0.10 360))
+
+:root
+  --radius-large 1rem
+  --content-delay 150ms
+
+/* An util to define variables that vary with light and dark mode */
+define(vars)
+  :root
+    for key, value in vars
+      {key}: value[0]
+  :root.dark
+    for key, value in vars
+      if length(value) > 1
+        {key}: value[1]
+
+define({
+  --primary: #1B365D #D4AF37
+  --page-bg: #f5f4ed #0A0A0A
+  --card-bg: #faf9f5 #141414
+  --card-bg-transparent: rgba(250, 249, 245, 0.8) rgba(20, 20, 20, 0.8)
+
+  --btn-content: #1B365D #D4AF37
+
+  --btn-regular-bg: #e8e6dc #1a1a1a
+  --btn-regular-bg-hover: #dddbd0 #242424
+  --btn-regular-bg-active: #d2d0c5 #2a2a2a
+
+  --btn-plain-bg-hover: #e8e6dc #1a1a1a
+  --btn-plain-bg-active: #dddbd0 #242424
+
+  --btn-card-bg-hover: #f0efe8 #1a1a1a
+  --btn-card-bg-active: #e8e6dc #242424
+
+  --enter-btn-bg: var(--btn-regular-bg)
+  --enter-btn-bg-hover: var(--btn-regular-bg-hover)
+  --enter-btn-bg-active: var(--btn-regular-bg-active)
+
+  --deep-text: oklch(0.25 0.02 var(--hue))
+
+  --title-active: oklch(0.6 0.1 var(--hue))
+
+  --line-divider: rgba(0,0,0,0.08) rgba(255,255,255,0.06)
+
+  --line-color: #e8e6dc #1a1a1a
+  --meta-divider: #6b6a64 #888888
+
+  --inline-code-bg: #EEF2F7 #1a1a1a
+  --inline-code-color: #1B365D #D4AF37
+  --selection-bg: #E4ECF5 #3D2E0A
+  --codeblock-selection: #3D2E0A
+  --codeblock-bg: #141413 #0A0A0A
+  --codeblock-topbar-bg: #3d3d3a #141414
+
+  --license-block-bg: rgba(0,0,0,0.03) var(--codeblock-bg)
+
+  --link-underline: #e8e6dc #333333
+  --link-hover: #1B365D #D4AF37
+  --link-active: #2D5A8A #C4A030
+
+  --float-panel-bg: rgba(250,249,245,0.9) rgba(20,20,20,0.9)
+  --float-panel-bg-transparent: rgba(250,249,245,0.8) rgba(20,20,20,0.8)
+  --float-panel-bg-opaque: #faf9f5 #141414
+
+  --scrollbar-bg-light: black(0.4)
+  --scrollbar-bg-hover-light: black(0.5)
+  --scrollbar-bg-active-light: black(0.6)
+
+  --scrollbar-bg-dark: white(0.4)
+  --scrollbar-bg-hover-dark: white(0.5)
+  --scrollbar-bg-active-dark: white(0.6)
+
+  --scrollbar-bg: var(--scrollbar-bg-light) var(--scrollbar-bg-dark)
+  --scrollbar-bg-hover: var(--scrollbar-bg-hover-light) var(--scrollbar-bg-hover-dark)
+  --scrollbar-bg-active: var(--scrollbar-bg-active-light) var(--scrollbar-bg-active-dark)
+
+  --color-selection-bar: rainbow-light rainbow-dark
+
+  --display-light-icon: 1 0
+  --display-dark-icon: 0 1
+
+  --admonitions-color-tip: oklch(0.7 0.14 180) oklch(0.75 0.14 180)
+  --admonitions-color-note: oklch(0.7 0.14 250) oklch(0.75 0.14 250)
+  --admonitions-color-important: oklch(0.7 0.14 310) oklch(0.75 0.14 310)
+  --admonitions-color-warning: oklch(0.7 0.14 60) oklch(0.75 0.14 60)
+  --admonitions-color-caution: oklch(0.6 0.2 25) oklch(0.65 0.2 25)
+
+  --toc-badge-bg: #EEF2F7 #3d3d3a
+  --toc-btn-hover: #f0efe8 #3d3d3a
+  --toc-btn-active: #e8e6dc #4d4c48
+  --toc-width: calc((100vw - var(--page-width)) / 2 - 1rem)
+  --toc-item-active: #1B365D #6B9BD2
+})

@@ -1,0 +1,84 @@
+---
+import { Icon } from "astro-icon/components";
+import { getCollection } from "astro:content";
+import MainGridLayout from "@layouts/MainGridLayout.astro";
+import PageHeader from "@components/widget/PageHeader.astro";
+
+const allPosts = await getCollection("posts", ({ data }) => {
+  return import.meta.env.PROD ? data.draft !== true : true;
+});
+
+const tagCount = new Map<string, number>();
+for (const post of allPosts) {
+  const tags = post.data.tags || [];
+  for (const tag of tags) {
+    tagCount.set(tag, (tagCount.get(tag) || 0) + 1);
+  }
+}
+
+const tags = Array.from(tagCount.entries())
+  .map(([name, count]) => ({ name, count }))
+  .sort((a, b) => b.count - a.count);
+
+const maxCount = tags.length > 0 ? tags[0].count : 1;
+---
+
+<MainGridLayout title="标签" description="浏览所有文章标签">
+  <div class="card-base p-6 md:p-9 rounded-xl">
+    <PageHeader
+      icon="material-symbols:bookmark-outline"
+      title="标签"
+      description={`共 ${tags.length} 个标签`}
+      stats={[]}
+    />
+
+    <div class="tag-cloud">
+      {tags.map((tag) => {
+        const scale = 0.8 + (tag.count / maxCount) * 0.8;
+        return (
+          <a
+            href={`/tags/${tag.name}/`}
+            class="tag-cloud-item"
+            style={`font-size: ${(0.75 + scale * 0.5).toFixed(2)}rem; opacity: ${(0.55 + (tag.count / maxCount) * 0.45).toFixed(2)}`}
+          >
+            {tag.name}
+            <span class="tag-cloud-count">{tag.count}</span>
+          </a>
+        );
+      })}
+    </div>
+  </div>
+</MainGridLayout>
+
+<style>
+  .tag-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 14px;
+    align-items: center;
+    line-height: 1.6;
+  }
+
+  .tag-cloud-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s;
+    padding: 2px 4px;
+    border-radius: 4px;
+  }
+
+  .tag-cloud-item:hover {
+    background: oklch(0.95 0.02 var(--hue));
+    color: oklch(0.5 0.2 var(--hue));
+  }
+
+  .tag-cloud-count {
+    font-size: 0.65em;
+    opacity: 0.55;
+    font-weight: 400;
+  }
+</style>

@@ -1,0 +1,659 @@
+---
+import { profileConfig, siteConfig } from "@/config";
+import ConfigCarrier from "@components/ConfigCarrier.astro";
+import NewPostNotification from "@components/widget/NewPostNotification.astro";
+import {
+	AUTO_MODE,
+	BANNER_HEIGHT,
+	BANNER_HEIGHT_EXTEND,
+	BANNER_HEIGHT_HOME,
+	DARK_MODE,
+	DEFAULT_THEME,
+	LIGHT_MODE,
+	PAGE_WIDTH,
+} from "../constants/constants";
+import { defaultFavicons } from "../constants/icon";
+import type { Favicon } from "../types/config";
+import { url, pathsEqual } from "../utils/url-utils";
+import "lxgw-wenkai-webfont/style.css";
+import "../styles/expressive-code.css";
+
+interface Props {
+	title?: string;
+	banner?: string;
+	description?: string;
+	lang?: string;
+	setOGTypeArticle?: boolean;
+}
+
+let { title, banner, description, lang, setOGTypeArticle } = Astro.props;
+
+// apply a class to the body element to decide the height of the banner, only used for initial page load
+// Swup can update the body for each page visit, but it's after the page transition, causing a delay for banner height change
+// so use Swup hooks instead to change the height immediately when a link is clicked
+const isHomePage = pathsEqual(Astro.url.pathname, url("/"));
+
+// defines global css variables
+// why doing this in Layout instead of GlobalStyles: https://github.com/withastro/astro/issues/6728#issuecomment-1502203757
+const configHue = siteConfig.themeColor.hue;
+if (!banner || typeof banner !== "string" || banner.trim() === "") {
+	banner = siteConfig.banner.src;
+}
+
+// TODO don't use post cover as banner for now
+banner = siteConfig.banner.src;
+
+const enableBanner = siteConfig.banner.enable;
+
+let pageTitle: string;
+if (title) {
+	pageTitle = `${title} - ${siteConfig.title}`;
+} else {
+	if (siteConfig.subtitle && siteConfig.subtitle.trim() !== "") {
+		pageTitle = `${siteConfig.title} - ${siteConfig.subtitle}`;
+	} else {
+		pageTitle = siteConfig.title;
+	}
+}
+
+// Use siteConfig.description as fallback for meta description when no description is provided
+if (!description) {
+	description = siteConfig.description || pageTitle;
+}
+
+const favicons: Favicon[] =
+	siteConfig.favicon.length > 0 ? siteConfig.favicon : defaultFavicons;
+
+// const siteLang = siteConfig.lang.replace('_', '-')
+if (!lang) {
+	lang = `${siteConfig.lang}`;
+}
+const siteLang = lang.replace("_", "-");
+
+const bannerOffsetByPosition = {
+	top: `${BANNER_HEIGHT_EXTEND}vh`,
+	center: `${BANNER_HEIGHT_EXTEND / 2}vh`,
+	bottom: "0",
+};
+const bannerOffset =
+	bannerOffsetByPosition[siteConfig.banner.position || "center"];
+
+const homePageSchema = isHomePage ? JSON.stringify({
+	"@context": "https://schema.org",
+	"@type": "WebSite",
+	"name": siteConfig.title,
+	"url": Astro.site?.href || "https://bigfox.me",
+	"description": siteConfig.description,
+	"author": {
+		"@type": "Person",
+		"name": profileConfig.name,
+		"url": Astro.site?.href || "https://bigfox.me",
+		"description": "程序员大狐狸，嵌入式 · AI · 独立开发",
+	},
+}) : null;
+---
+
+<!DOCTYPE html>
+    <html lang={siteLang} class="bg-[var(--page-bg)] text-[12px] md:text-[16px] dark"
+	  data-overlayscrollbars-initialize>  <!-- 手机端适配 -->
+
+	<head>
+		<title>{pageTitle}</title>
+
+		<meta name="referrer" content="no-referrer">
+		<meta charset="UTF-8" />
+		<meta name="description" content={description}>
+		<meta name="author" content={profileConfig.name}>
+		{siteConfig.keywords && (
+			<meta name="keywords" content={siteConfig.keywords.join(", ")}>
+		)}
+
+		<meta property="og:site_name" content={siteConfig.title}>
+		<meta property="og:url" content={Astro.url}>
+		<meta property="og:title" content={pageTitle}>
+		<meta property="og:description" content={description}>
+		{setOGTypeArticle ? (
+        <meta property="og:type" content="article" />
+        ) : (
+        <meta property="og:type" content="website" />
+        )}
+
+		<meta name="twitter:card" content="summary_large_image">
+		<meta property="twitter:url" content={Astro.url}>
+		<meta name="twitter:title" content={pageTitle}>
+		<meta name="twitter:description" content={description}>
+
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+	        <link rel="canonical" href={Astro.url}>
+        {homePageSchema && <script type="application/ld+json" set:html={homePageSchema}></script>}
+        <link rel="preconnect" href="https://pic1.acofork.com" />
+        <link rel="preconnect" href="https://umami.acofork.com" />
+        <link rel="preconnect" href="https://support.nodeget.com" />
+
+		<!-- 霞鹜文楷字体已通过 npm 本地化 -->
+
+		<script src="/js/umami-share.js" defer></script>
+
+
+{/* <!-- Content Security Policy -->
+		<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://giscus.app https://hpic.072103.xyz https://umami.2x.nz https://hm.baidu.com https://www.googletagmanager.com https://www.google-analytics.com https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net https://static.cloudflareinsights.com https://*.adtrafficquality.google; style-src 'self' 'unsafe-inline' https://giscus.app https://fonts.googleapis.com https://api.iconify.design; font-src 'self' https://fonts.gstatic.com https://api.iconify.design; img-src 'self' data: https: http:; connect-src 'self' https://umami.2x.nz https://hm.baidu.com https://www.google-analytics.com https://analytics.google.com https://api.iconify.design https://static.cloudflareinsights.com https://pic.2x.nz https://q2.qlogo.cn https://ep1.adtrafficquality.google https://googleads.g.doubleclick.net; frame-src 'self' https://giscus.app *.bilibili.com https://www.google.com https://googleads.g.doubleclick.net https://support.nodeget.com https://*.adtrafficquality.google; object-src 'none'; base-uri 'self'; form-action 'self';"> */}
+		{favicons.map(favicon => (
+			<link rel="icon"
+				  href={favicon.src.startsWith('/') ? url(favicon.src) : favicon.src}
+				  sizes={favicon.sizes}
+				  media={favicon.theme && `(prefers-color-scheme: ${favicon.theme})`}
+			/>
+		))}
+
+		<!-- Set the theme before the page is rendered to avoid a flash -->
+		<script is:inline define:vars={{DEFAULT_THEME, LIGHT_MODE, DARK_MODE, AUTO_MODE, BANNER_HEIGHT_EXTEND, PAGE_WIDTH, configHue, forceDarkMode: siteConfig.themeColor.forceDarkMode}}>
+			// Force dark mode if configured
+			if (forceDarkMode) {
+				document.documentElement.classList.add('dark');
+				localStorage.setItem('theme', DARK_MODE);
+			} else {
+				// Load the theme from local storage
+			const theme = localStorage.getItem('theme') || DEFAULT_THEME;
+			switch (theme) {
+				case LIGHT_MODE:
+					document.documentElement.classList.remove('dark');
+					document.documentElement.style.backgroundColor = '#f5f4ed';
+					break
+				case DARK_MODE:
+					document.documentElement.classList.add('dark');
+					document.documentElement.style.backgroundColor = '#0A0A0A';
+					break
+				case AUTO_MODE:
+					if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+						document.documentElement.classList.add('dark');
+						document.documentElement.style.backgroundColor = '#0A0A0A';
+					} else {
+						document.documentElement.classList.remove('dark');
+						document.documentElement.style.backgroundColor = '#f5f4ed';
+					}
+			}
+			}
+
+			// Load the hue from local storage
+			const hue = localStorage.getItem('hue') || configHue;
+			document.documentElement.style.setProperty('--hue', hue);
+
+			// calculate the --banner-height-extend, which needs to be a multiple of 4 to avoid blurry text
+			let offset = Math.floor(window.innerHeight * (BANNER_HEIGHT_EXTEND / 100));
+			offset = offset - offset % 4;
+			document.documentElement.style.setProperty('--banner-height-extend', `${offset}px`);
+		</script>
+
+		<!-- 防止闪烁：立即设置渐变色样式 -->
+		<style is:inline>
+			/* 导航栏 */
+			.navbar-title-gradient-icon,
+			/* 分类组件 */
+			.hacker-icon,
+			.category-title,
+			/* 微信公众号 */
+			.decoration-title,
+			.gradient-text,
+			.gradient-icon {
+				background: linear-gradient(135deg, #0ea5e9, #8b5cf6) !important;
+				-webkit-background-clip: text !important;
+				-webkit-text-fill-color: transparent !important;
+				background-clip: text !important;
+			}
+			/* 导航栏 BigFox 标题 - 主题蓝 */
+			.navbar-title-gradient {
+				color: #00a2e8 !important;
+				-webkit-text-fill-color: currentColor !important;
+				-webkit-background-clip: initial !important;
+				background-clip: initial !important;
+			}
+			html.dark .navbar-title-gradient-icon,
+			html.dark .hacker-icon,
+			html.dark .category-title,
+			html.dark .decoration-title,
+			html.dark .gradient-text,
+			html.dark .gradient-icon {
+				background: linear-gradient(135deg, #38bdf8, #a78bfa) !important;
+				-webkit-background-clip: text !important;
+				-webkit-text-fill-color: transparent !important;
+				background-clip: text !important;
+			}
+			html.dark .navbar-title-gradient {
+				color: #00a2e8 !important;
+				-webkit-text-fill-color: currentColor !important;
+				-webkit-background-clip: initial !important;
+				background-clip: initial !important;
+			}
+			/* 确保卡片背景色 */
+			.card-base {
+				background: oklch(0.97 0.003 268) !important;
+			}
+			html.dark .card-base {
+				background: oklch(0.22 0.008 268) !important;
+			}
+			/* 全局背景色 - 强制羊皮纸色 */
+			html, body, .os-viewport, .os-content {
+				background-color: #f5f4ed !important;
+			}
+			html.dark, html.dark body, html.dark .os-viewport, html.dark .os-content {
+				background-color: #0A0A0A !important;
+			}
+			#bg-box {
+				background-color: #f5f4ed !important;
+				opacity: 0 !important;
+			}
+			html.dark #bg-box {
+				background-color: #0A0A0A !important;
+			}
+		</style>
+        
+        <style define:vars={{ configHue }}>
+            /* Fallback for no-js: Apply default theme hue */
+            :root {
+                --hue: var(--configHue);
+            }
+        </style>
+		<style define:vars={{
+			configHue,
+			'page-width': `${PAGE_WIDTH}rem`,
+			'bg-url': siteConfig.background.src ? `url(${siteConfig.background.src})` : 'none',
+			'bg-enable': siteConfig.background.enable ? '1' : '0',
+			'bg-position': siteConfig.background.position || 'center',
+			'bg-size': siteConfig.background.size || 'cover',
+			'bg-repeat': siteConfig.background.repeat || 'no-repeat',
+			'bg-attachment': siteConfig.background.attachment || 'fixed',
+			'bg-opacity': (siteConfig.background.opacity || 0.3).toString()
+		}}>
+			:root {
+				--bg-url: var(--bg-url);
+				--bg-enable: var(--bg-enable);
+				--bg-position: var(--bg-position);
+				--bg-size: var(--bg-size);
+				--bg-repeat: var(--bg-repeat);
+				--bg-attachment: var(--bg-attachment);
+				--bg-opacity: var(--bg-opacity);
+			}
+			
+			/* Background image configuration */
+			body {
+				background-color: #f5f4ed;
+			}
+			html.dark body {
+				background-color: #0A0A0A;
+			}
+			body {
+				--bg-url: var(--bg-url);
+				--bg-enable: var(--bg-enable);
+				--bg-position: var(--bg-position);
+				--bg-size: var(--bg-size);
+				--bg-repeat: var(--bg-repeat);
+				--bg-attachment: var(--bg-attachment);
+				--bg-opacity: var(--bg-opacity);
+			}
+
+			#bg-box {
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background-color: #f5f4ed;
+				background-image: var(--bg-url);
+				background-position: var(--bg-position);
+				background-size: var(--bg-size);
+				background-repeat: var(--bg-repeat);
+				background-attachment: var(--bg-attachment);
+				opacity: 0;
+				pointer-events: none;
+				z-index: -1;
+				transition: opacity 0.3s ease-in-out;
+			}
+			html.dark #bg-box {
+				background-color: #0A0A0A;
+			}
+			#bg-box.loaded {
+				opacity: calc(var(--bg-opacity) * var(--bg-enable));
+			}
+		</style>
+
+		<slot name="head"></slot>
+
+
+		<link rel="alternate" type="application/rss+xml" title={profileConfig.name} href={`${Astro.site}rss.xml`}/>
+
+	</head>
+	<body class=" min-h-screen " class:list={[{"lg:is-home": isHomePage, "enable-banner": enableBanner}]}
+		  data-overlayscrollbars-initialize
+	>
+
+
+		<noscript>
+			<style>
+				#bg-box {
+					opacity: 1 !important;
+				}
+			</style>
+		</noscript>
+		<div id="bg-box"></div>
+		<ConfigCarrier></ConfigCarrier>
+        <NewPostNotification></NewPostNotification>
+		<slot />
+
+		<!-- increase the page height during page transition to prevent the scrolling animation from jumping -->
+		<div id="page-height-extend" class="hidden h-[300vh]"></div>
+
+
+	</body>
+</html>
+
+<style is:global define:vars={{
+	bannerOffset,
+	'banner-height-home': `${BANNER_HEIGHT_HOME}vh`,
+	'banner-height': `${BANNER_HEIGHT}vh`,
+}}>
+@tailwind components;
+@layer components {
+	.enable-banner.is-home #banner-wrapper {
+		@apply h-[var(--banner-height-home)] translate-y-[var(--banner-height-extend)]
+	}
+	.enable-banner #banner-wrapper {
+		@apply h-[var(--banner-height-home)]
+	}
+
+	.enable-banner.is-home #banner {
+		@apply h-[var(--banner-height-home)] translate-y-0
+	}
+	.enable-banner #banner {
+		@apply h-[var(--banner-height-home)] translate-y-[var(--bannerOffset)]
+	}
+	.enable-banner.is-home #main-grid {
+		@apply translate-y-[var(--banner-height-extend)];
+	}
+	.enable-banner #top-row {
+		@apply h-[calc(var(--banner-height-home)_-_4.5rem)] transition-all duration-300
+	}
+	.enable-banner.is-home #sidebar-sticky {
+		@apply top-[calc(1rem_-_var(--banner-height-extend))]
+	}
+	#navbar-wrapper {
+		transition: opacity 0.3s ease, transform 0.3s ease;
+	}
+	.navbar-hidden {
+		@apply opacity-0 -translate-y-16
+	}
+}
+</style>
+
+<script>
+import 'overlayscrollbars/overlayscrollbars.css';
+import {
+	OverlayScrollbars,
+	// ScrollbarsHidingPlugin,
+	// SizeObserverPlugin,
+	// ClickScrollPlugin
+} from 'overlayscrollbars';
+import {getHue, getStoredTheme, setHue, setTheme, getBgBlur, setBgBlur, getHideBg, setHideBg} from "../utils/setting-utils";
+import {pathsEqual, url} from "../utils/url-utils";
+import {
+	BANNER_HEIGHT,
+	BANNER_HEIGHT_HOME,
+	BANNER_HEIGHT_EXTEND,
+	MAIN_PANEL_OVERLAPS_BANNER_HEIGHT
+} from "../constants/constants";
+import { siteConfig } from '../config';
+
+const bannerEnabled = !!document.getElementById('banner-wrapper')
+
+function setClickOutsideToClose(panel: string, ignores: string[]) {
+	document.addEventListener("click", event => {
+		let panelDom = document.getElementById(panel);
+		let tDom = event.target;
+		if (!(tDom instanceof Node)) return;		// Ensure the event target is an HTML Node
+		for (let ig of ignores) {
+			let ie = document.getElementById(ig)
+			if (ie == tDom || (ie?.contains(tDom))) {
+				return;
+			}
+		}
+		panelDom!.classList.add("float-panel-closed");
+	});
+}
+setClickOutsideToClose("display-setting", ["display-setting", "display-settings-switch"])
+setClickOutsideToClose("nav-menu-panel", ["nav-menu-panel", "nav-menu-switch"])
+setClickOutsideToClose("search-panel", ["search-panel", "search-bar", "search-switch"])
+
+
+function loadTheme() {
+	const theme = getStoredTheme()
+	setTheme(theme)
+}
+
+function loadHue() {
+	setHue(getHue())
+}
+
+function loadBgBlur() {
+	setBgBlur(getBgBlur())
+    setHideBg(getHideBg())
+}
+
+function initCustomScrollbar() {
+	const bodyElement = document.querySelector('body');
+	if (!bodyElement) return;
+	OverlayScrollbars(
+		// docs say that a initialization to the body element would affect native functionality like window.scrollTo
+		// but just leave it here for now
+		{
+			target: bodyElement,
+			cancel: {
+				nativeScrollbarsOverlaid: true,    // don't initialize the overlay scrollbar if there is a native one
+			}
+		}, {
+		scrollbars: {
+			theme: 'scrollbar-base scrollbar-auto py-1',
+			autoHide: 'move',
+			autoHideDelay: 500,
+			autoHideSuspend: false,
+		},
+	});
+	
+}
+
+function showBanner() {
+	if (!siteConfig.banner.enable) return;
+	
+	const banner = document.getElementById('banner');
+	if (!banner) {
+		console.error('Banner element not found');
+		return;
+	}
+	
+	banner.classList.remove('opacity-0', 'scale-105');
+}
+
+function loadGiscus() {
+	const container = document.getElementById('giscus-container');
+	if (!container) return;
+
+	if (container.querySelector('iframe.giscus-frame') || container.querySelector('script[src*="giscus"]')) return;
+
+	const script = document.createElement('script');
+	script.src = "https://giscus.app/client.js";
+	const attributes = [
+		"data-repo", "data-repo-id", "data-category", "data-category-id",
+		"data-mapping", "data-strict", "data-reactions-enabled",
+		"data-emit-metadata", "data-input-position", "data-lang", "data-loading"
+	];
+	attributes.forEach(attr => {
+		const val = container.getAttribute(attr);
+		if (val) script.setAttribute(attr, val);
+	});
+	script.setAttribute("data-theme", document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+	script.crossOrigin = "anonymous";
+	script.async = true;
+
+	container.appendChild(script);
+}
+
+function init() {
+	// console.time("init");
+	// disableAnimation()()		// TODO
+	loadTheme();
+	loadHue();
+    loadBgBlur();
+	// console.time("initCustomScrollbar");
+	// initCustomScrollbar();
+	// console.timeEnd("initCustomScrollbar");
+	showBanner();
+	loadGiscus();
+
+	// 显示背景
+	const bgBox = document.getElementById('bg-box');
+	if (bgBox) {
+		bgBox.classList.add('loaded');
+	}
+
+	// 设置标题渐变颜色
+	const updateTitleGradient = () => {
+		const isDark = document.documentElement.classList.contains('dark');
+		const titleElement = document.querySelector('.profile-name-gradient');
+		if (titleElement) {
+			if (isDark) {
+				titleElement.style.background = 'linear-gradient(135deg, #38bdf8, #a78bfa)';
+			} else {
+				titleElement.style.background = 'linear-gradient(135deg, #0ea5e9, #8b5cf6)';
+			}
+			titleElement.style.webkitBackgroundClip = 'text';
+			titleElement.style.webkitTextFillColor = 'transparent';
+			titleElement.style.backgroundClip = 'text';
+			titleElement.style.color = 'transparent';
+		}
+	};
+	updateTitleGradient();
+
+	new MutationObserver(() => {
+		const frame = document.querySelector('iframe.giscus-frame');
+		if (!frame) return;
+		const theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+		frame.contentWindow.postMessage({ giscus: { setConfig: { theme } } }, 'https://giscus.app');
+		updateTitleGradient();
+	}).observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+	// console.timeEnd("init");
+}
+
+/* Load settings when entering the site */
+init();
+
+let backToTopBtn = document.getElementById('back-to-top-btn');
+let goToCommentsBtn = document.getElementById('go-to-comments-btn');
+let toc = document.getElementById('toc-wrapper');
+let navbar = document.getElementById('navbar-wrapper')
+function refreshControlRefs() {
+	backToTopBtn = document.getElementById('back-to-top-btn');
+	goToCommentsBtn = document.getElementById('go-to-comments-btn');
+	toc = document.getElementById('toc-wrapper');
+	navbar = document.getElementById('navbar-wrapper')
+}
+function scrollFunction() {
+	refreshControlRefs()
+	let bannerHeight = window.innerHeight * (BANNER_HEIGHT / 100)
+
+	if (backToTopBtn) {
+		if (document.body.scrollTop > bannerHeight || document.documentElement.scrollTop > bannerHeight) {
+			backToTopBtn.classList.remove('hide')
+		} else {
+			backToTopBtn.classList.add('hide')
+		}
+	}
+
+    if (goToCommentsBtn) {
+        // Only show if comments exist and scrolled down
+        const commentsExist = !!document.getElementById('giscus-container');
+        if (commentsExist) {
+            goToCommentsBtn.classList.remove('hide')
+        } else {
+            goToCommentsBtn.classList.add('hide')
+        }
+    }
+
+	if (bannerEnabled && toc) {
+		if (document.body.scrollTop > bannerHeight || document.documentElement.scrollTop > bannerHeight) {
+			toc.classList.remove('toc-hide')
+		} else {
+			toc.classList.add('toc-hide')
+		}
+	}
+
+	if (!bannerEnabled) return
+	if (navbar) {
+		const NAVBAR_HEIGHT = 72
+		const MAIN_PANEL_EXCESS_HEIGHT = MAIN_PANEL_OVERLAPS_BANNER_HEIGHT * 16			// The height the main panel overlaps the banner
+
+		let bannerHeight = BANNER_HEIGHT
+		if (document.body.classList.contains('lg:is-home') && window.innerWidth >= 1024) {
+			bannerHeight = BANNER_HEIGHT_HOME
+		}
+		let threshold = window.innerHeight * (bannerHeight / 100) - NAVBAR_HEIGHT - MAIN_PANEL_EXCESS_HEIGHT - 16
+		if (document.body.scrollTop >= threshold || document.documentElement.scrollTop >= threshold) {
+			navbar.classList.add('navbar-hidden')
+		} else {
+			navbar.classList.remove('navbar-hidden')
+		}
+	}
+}
+window.onscroll = scrollFunction
+if (document.readyState === 'loading') {
+	document.addEventListener('DOMContentLoaded', scrollFunction)
+} else {
+	scrollFunction()
+}
+
+window.onresize = () => {
+	// calculate the --banner-height-extend, which needs to be a multiple of 4 to avoid blurry text
+	let offset = Math.floor(window.innerHeight * (BANNER_HEIGHT_EXTEND / 100));
+	offset = offset - offset % 4;
+	document.documentElement.style.setProperty('--banner-height-extend', `${offset}px`);
+}
+
+</script>
+
+<script>
+import { Fancybox } from "@fancyapps/ui"
+import "@fancyapps/ui/dist/fancybox/fancybox.css"
+
+Fancybox.bind(".custom-md img, #post-cover img", {
+	wheel: 'zoom',
+	clickContent: 'close',
+	dblclickContent: 'zoom',
+	click: 'close',
+	dblclick: 'zoom',
+	Panels: {
+		display: ['counter', 'zoom']
+	},
+	Images: {
+		panning: true,
+		zoom: true,
+		protect: false
+	}
+})
+</script>
+
+
+
+<svg style="position: absolute; width: 0; height: 0; overflow: hidden;" aria-hidden="true">
+  <defs>
+    <!-- Grainient 噪点滤镜 -->
+    <filter id="grain">
+      <feTurbulence type="turbulence" baseFrequency="0.75" numOctaves="3" stitchTiles="stitch" result="noise" />
+      <feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.4 0" in="noise" result="coloredNoise" />
+      <feComposite operator="in" in="coloredNoise" in2="SourceGraphic" result="composite" />
+      <feBlend mode="overlay" in="composite" in2="SourceGraphic" />
+    </filter>
+    <!-- 液体玻璃滤镜（保留原有效果） -->
+    <filter id="liquid-glass">
+      <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="2" result="noise" />
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="20" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
+  </defs>
+</svg>

@@ -1,0 +1,305 @@
+import sitemap from "@astrojs/sitemap";
+import svelte from "@astrojs/svelte";
+import tailwind from "@astrojs/tailwind";
+import { pluginCollapsibleSections } from "@expressive-code/plugin-collapsible-sections";
+import expressiveCode from "astro-expressive-code";
+import icon from "astro-icon";
+import { defineConfig } from "astro/config";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import rehypeComponents from "rehype-components"; /* Render the custom directive content */
+import rehypeExternalLinks from "rehype-external-links";
+import rehypeKatex from "rehype-katex";
+import rehypeSlug from "rehype-slug";
+import remarkDirective from "remark-directive"; /* Handle directives */
+import { remarkGithubAdmonitions } from "./src/plugins/remark-github-admonitions.js";
+import remarkMath from "remark-math";
+import remarkSectionize from "remark-sectionize";
+import { imageFallbackConfig, siteConfig } from "./src/config.ts";
+import { expressiveCodeConfig } from "./src/config.ts";
+import memoriaAssets from "./src/integrations/memoria-assets.ts";
+import { pluginLanguageBadge } from "./src/plugins/expressive-code/language-badge.ts";
+import { pluginCustomCopyButton } from "./src/plugins/expressive-code/custom-copy-button.js";
+import { AdmonitionComponent } from "./src/plugins/rehype-component-admonition.mjs";
+import { GithubCardComponent } from "./src/plugins/rehype-component-github-card.mjs";
+import { UrlCardComponent } from "./src/plugins/rehype-component-url-card.mjs";
+import rehypeImageFallback from "./src/plugins/rehype-image-fallback.mjs";
+import { parseDirectiveNode } from "./src/plugins/remark-directive-rehype.js";
+import { remarkExcerpt } from "./src/plugins/remark-excerpt.js";
+import { remarkReadingTime } from "./src/plugins/remark-reading-time.mjs";
+
+// https://astro.build/config
+export default defineConfig({
+	site: "https://bigfox.me",
+	base: "/",
+	trailingSlash: "always",
+	output: "static",
+	redirects: {
+		"/long": {
+			status: 302,
+			destination: "https://iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii.iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii.in/",
+		},
+		"/tit": {
+			status: 302,
+			destination: "/posts/pin/",
+		},
+  "/q": {
+			status: 302,
+			destination: "/posts/pin/",
+		},
+  "/t": {
+			status: 302,
+			destination: "https://i.2x.nz",
+		},
+		"/ak": {
+			status: 302,
+			destination: "https://akile.io/register?aff_code=503fe5ea-e7c5-4d68-ae05-6de99513680e",
+		},
+		"/yyb": {
+			status: 302,
+			destination: "https://www.rainyun.com/acofork_?s=bilibili",
+		},
+		"/wly": {
+			status: 302,
+			destination: "https://wl.awcmam.com/#/register?code=FNQwOQBM",
+		},
+		"/mly": {
+			status: 302,
+			destination: "https://muleyun.com/aff/GOTRJLPN",
+		},
+		"/tly": {
+			status: 302,
+			destination: "https://tianlicloud.cn/aff/HNNCFKGP",
+		},
+		"/kook": {
+			status: 302,
+			destination: "https://kook.vip/K29zpT",
+		},
+		"/gal": {
+			status: 302,
+			destination: "https://i.2x.nz/posts/94",
+		},
+		"/ok": {
+			status: 302,
+			destination: "https://acofork-uptime.zeabur.app/status/acofork",
+		},
+		"/donate": {
+			status: 302,
+			destination: "/sponsors",
+		},
+		"/tg": {
+			status: 302,
+			destination: "https://t.me/+_07DERp7k1ljYTc1",
+		},
+		"/esa": {
+			status: 302,
+			destination: "https://tianchi.aliyun.com/specials/promotion/freetier/esa?taskCode=25254&recordId=c856e61228828a0423417a767828d166",
+		},
+		"/s": {
+			status: 302,
+			destination: "https://2x.nz/_url",
+		},
+		"/plan": {
+			status: 302,
+			destination: "https://acofork.notion.site/2e11e011d4e5800fa050e8f7cf448347",
+		},
+	},
+	integrations: [
+		memoriaAssets(),
+		tailwind({
+			nesting: true,
+		}),
+		icon({
+			include: {
+				"fa6-brands": ["github"],
+				"fa6-solid": [
+					"arrow-up-right-from-square",
+					"box-archive",
+					"clock-rotate-left",
+					"face-sad-tear",
+					"house",
+				],
+				"simple-icons": ["alipay", "wechat"],
+				"material-symbols": [
+					"article-outline",
+					"bookmark-outline",
+					"calendar-month-outline",
+					"calendar-today-outline-rounded",
+					"chevron-left-rounded",
+					"chevron-right-rounded",
+					"comment",
+					"contact-mail-outline",
+					"content-copy-outline-rounded",
+					"diversity-3",
+					"edit-calendar-outline-rounded",
+					"edit-outline",
+						"explore-outline",
+					"expand-more",
+					"favorite",
+					"favorite-outline",
+					"folder-outline-rounded",
+					"format-list-numbered",
+					"help-outline",
+					"home-outline-rounded",
+					"keyboard-arrow-up-rounded",
+					"menu-rounded",
+					"mode-comment-outline",
+					"more-horiz",
+					"note-add",
+					"notes-rounded",
+					"open-in-new",
+					"palette-outline",
+					"person",
+					"schedule-outline-rounded",
+					"share",
+					"star",
+					"visibility-outline-rounded",
+				],
+			},
+			iconDir: "public/icons",
+		}),
+		svelte(),
+		sitemap(),
+		expressiveCode({
+			themes: [expressiveCodeConfig.theme, expressiveCodeConfig.theme],
+			plugins: [
+				pluginCollapsibleSections(),
+				pluginLanguageBadge(),
+				pluginCustomCopyButton(),
+			],
+			defaultProps: {
+				wrap: true,
+			},
+			styleOverrides: {
+				codeBackground: "var(--codeblock-bg)",
+				borderRadius: "0.25rem",
+				borderColor: "none",
+				codeFontSize: "0.875rem",
+				codeFontFamily:
+					"'JetBrains Mono Variable', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace",
+				codeLineHeight: "1.5rem",
+				frames: {
+					editorBackground: "var(--codeblock-bg)",
+					terminalBackground: "var(--codeblock-bg)",
+					terminalTitlebarBackground: "var(--codeblock-topbar-bg)",
+					editorTabBarBackground: "var(--codeblock-topbar-bg)",
+					editorActiveTabBackground: "none",
+					editorActiveTabIndicatorBottomColor: "var(--primary)",
+					editorActiveTabIndicatorTopColor: "none",
+					editorTabBarBorderBottomColor: "var(--codeblock-topbar-bg)",
+					terminalTitlebarBorderBottomColor: "none",
+				},
+				textMarkers: {
+					delHue: 0,
+					insHue: 180,
+					markHue: 250,
+				},
+			},
+			frames: {
+				showCopyToClipboardButton: false,
+			},
+		}),
+	],
+	markdown: {
+		remarkPlugins: [
+			remarkMath,
+			remarkReadingTime,
+			remarkExcerpt,
+			remarkGithubAdmonitions,
+			remarkDirective,
+			remarkSectionize,
+			parseDirectiveNode,
+		],
+		rehypePlugins: [
+			rehypeKatex,
+			rehypeSlug,
+			[rehypeImageFallback, imageFallbackConfig],
+			[
+				rehypeComponents,
+				{
+					components: {
+						github: GithubCardComponent,
+						url: UrlCardComponent,
+						note: (x, y) => AdmonitionComponent(x, y, "note"),
+						tip: (x, y) => AdmonitionComponent(x, y, "tip"),
+						important: (x, y) => AdmonitionComponent(x, y, "important"),
+						caution: (x, y) => AdmonitionComponent(x, y, "caution"),
+						warning: (x, y) => AdmonitionComponent(x, y, "warning"),
+					},
+				},
+			],
+			[
+				rehypeExternalLinks,
+				{
+					target: "_blank",
+				},
+			],
+			[
+				rehypeAutolinkHeadings,
+				{
+					behavior: "append",
+					properties: {
+						className: ["anchor"],
+					},
+					content: {
+						type: "element",
+						tagName: "span",
+						properties: {
+							className: ["anchor-icon"],
+							"data-pagefind-ignore": true,
+						},
+						children: [
+							{
+								type: "text",
+								value: "#",
+							},
+						],
+					},
+				},
+			],
+		],
+	},
+	vite: {
+		assetsInclude: ["**/*.amr"],
+		plugins: [
+			{
+				name: "ignore-canvas-and-attachments",
+				load(id) {
+					if (id.endsWith(".canvas")) return "export default {}";
+					// 忽略 get attachment 目录下无扩展名的附件文件，防止 Vite 当 JS 解析
+					if (id.includes("get attachment")) {
+						const fileName = id.split(/[\\/]/).pop();
+						if (fileName && !fileName.includes(".")) return "export default {}";
+					}
+					// 忽略 content 目录下代码项目的 JS/TS 文件，防止 Rollup 尝试解析外部依赖
+					if (id.includes("obsidian-home-console") && /\.(mjs|js|ts|cjs)$/.test(id)) {
+						return "export default {}";
+					}
+				},
+				// 忽略 get/、get attachment 或 get笔记 目录下 md 文件引用的本地图片，防止 Rollup 解析失败
+				resolveId(source, importer) {
+					if (importer && (importer.includes("content/get") || importer.includes("get笔记")) && (source.includes("get/") || source.includes("get attachment"))) {
+						return { id: source, external: true };
+					}
+				},
+			},
+		],
+		server: {
+			port: 4321,
+			host: true,
+		},
+		build: {
+			rollupOptions: {
+				onwarn(warning, warn) {
+					// temporarily suppress this warning
+					if (
+						warning.message.includes("is dynamically imported by") &&
+						warning.message.includes("but also statically imported by")
+					) {
+						return;
+					}
+					warn(warning);
+				},
+			},
+		},
+	},
+});

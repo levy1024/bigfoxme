@@ -1,0 +1,32 @@
+---
+/**
+ * 图片装饰组件
+ * 显示装饰性图片
+ */
+const src = "/wechat-search.png";
+---
+
+<div class="image-decoration-wrapper">
+    <div class="image-decoration">
+        <img src={src} alt="装饰图片" class="image-decoration-img" />
+    </div>
+</div>
+
+<style>
+    .image-decoration-wrapper {
+        width: 100%;
+        padding: 0.5rem 0;
+    }
+
+    .image-decoration {
+        width: 100%;
+        overflow: hidden;
+        border-radius: 12px;
+    }
+
+    .image-decoration-img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+</style>

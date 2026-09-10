@@ -1,0 +1,246 @@
+---
+import path from "node:path";
+import License from "@components/misc/License.astro";
+import Markdown from "@components/misc/Markdown.astro";
+
+import MainGridLayout from "@layouts/MainGridLayout.astro";
+import { getSortedPosts } from "@utils/content-utils";
+import { render } from "astro:content";
+import { getDir, getPostUrlBySlug } from "@utils/url-utils";
+import { Icon } from "astro-icon/components";
+import { gitHubEditConfig, licenseConfig } from "src/config";
+import PostMetadata from "../../components/PostMeta.astro";
+import ImageWrapper from "../../components/misc/ImageWrapper.astro";
+import { profileConfig, siteConfig, umamiConfig } from "../../config";
+import { formatDateToYYYYMMDD } from "../../utils/date-utils";
+
+export async function getStaticPaths() {
+	const blogEntries = await getSortedPosts();
+	return blogEntries.map((entry) => ({
+		params: { slug: entry.id },
+		props: { entry },
+	}));
+}
+
+const { entry } = Astro.props;
+const { Content, headings, remarkPluginFrontmatter } = await render(entry);
+
+const jsonLd = {
+	"@context": "https://schema.org",
+	"@type": "BlogPosting",
+	headline: entry.data.title,
+	description: entry.data.description || entry.data.title,
+	author: {
+		"@type": "Person",
+		name: profileConfig.name,
+		url: Astro.site,
+	},
+	datePublished: formatDateToYYYYMMDD(entry.data.published),
+	inLanguage: entry.data.lang
+		? entry.data.lang.replace("_", "-")
+		: siteConfig.lang.replace("_", "-"),
+	// TODO include cover image here
+};
+---
+<MainGridLayout banner={entry.data.image} title={entry.data.title} description={entry.data.description} lang={entry.data.lang} setOGTypeArticle={true} headings={headings}>
+    <script is:inline slot="head" type="application/ld+json" set:html={JSON.stringify(jsonLd)}></script>
+    <div class="flex w-full rounded-[var(--radius-large)] overflow-hidden relative mb-4">
+        <div id="post-container" class:list={["card-base z-10 px-6 md:px-9 pt-6 pb-4 relative w-full",
+            {}
+        ]}>
+            <!-- title -->
+            <div class="relative onload-animation">                <div
+                    data-pagefind-body data-pagefind-weight="10" data-pagefind-meta="title"
+                    class="transition w-full flex items-center font-bold mb-3
+                    text-3xl md:text-[2.25rem]/[2.75rem]
+                    text-black/90 dark:text-white/90
+                    md:before:w-1 before:h-5 before:rounded-md before:bg-[var(--primary)]
+                    before:absolute before:top-[0.75rem] before:left-[-1.125rem]
+                ">
+
+                    <span>{entry.data.title}</span>
+                </div>
+            </div>
+
+            <!-- description/excerpt - 已隐藏，避免与文章开头重复 -->
+            <!-- {(entry.data.description || remarkPluginFrontmatter.excerpt) && (
+                <div class="onload-animation mb-4">
+                    <div class="text-black/75 dark:text-white/75 text-sm leading-relaxed">
+                        {entry.data.description || remarkPluginFrontmatter.excerpt}
+                    </div>
+                </div>
+            )} -->
+
+            <!-- metadata -->
+            <div class="onload-animation">
+                <PostMetadata
+                        class="mb-5"
+                        published={entry.data.published}
+                        updated={entry.data.updated}
+                        tags={entry.data.tags}
+                        category={entry.data.category}
+                        words={remarkPluginFrontmatter.words}
+                        minutes={remarkPluginFrontmatter.minutes}
+                ></PostMetadata>
+                {!entry.data.image && <div class="border-[var(--line-divider)] border-dashed border-b-[1px] mb-5"></div>}
+            </div>
+
+            <!-- 封面图已移至文章内容中显示 -->
+
+            <Markdown class="mb-6 markdown-content onload-animation">
+                <Content />
+            </Markdown>
+
+            <!-- 文章底部标签 -->
+            {entry.data.tags && entry.data.tags.length > 0 && (
+                <div class="flex flex-wrap items-center gap-2 mt-6 mb-6">
+                    {entry.data.tags.map((tag) => (
+                        <a href={`/tags/${tag}/`} class="tag-chip-hover inline-flex items-center px-3 py-1.5 text-xs rounded-full border border-neutral-200 dark:border-neutral-700 text-[#00a2e8] transition-all duration-300">
+                            <span class="text-xs mr-0.5 font-bold">#</span>{tag}
+                        </a>
+                    ))}
+                </div>
+            )}
+
+            <!-- 文章反馈与编辑区域 -->
+            <div class="mb-4 p-4 rounded-lg bg-[var(--license-block-bg)] border border-[var(--line-divider)] onload-animation">
+                <!-- 反馈区域 -->
+                <div class="flex items-center justify-between mb-4">
+                    <div class="flex items-center gap-3">
+                        <div class="h-5 w-5 rounded bg-[var(--primary)] flex items-center justify-center">
+                            <Icon name="material-symbols:help-outline" class="text-[0.75rem] text-white dark:text-black/70"></Icon>
+                        </div>
+                        <p class="text-black/80 dark:text-white/80 text-sm">这篇文章是否对你有帮助？</p>
+                    </div>
+                    <div class="flex gap-2">
+                        <a href="/sponsors/" class="group flex items-center gap-1 px-3 py-1.5 rounded bg-[#00a2e8] hover:bg-[#0090d0] active:bg-[#007ab8] dark:bg-[#00a2e8] dark:hover:bg-[#0090d0] dark:active:bg-[#007ab8] text-white text-xs font-medium transition-all active:scale-95">
+                            <Icon name="material-symbols:favorite-outline" class="text-[0.875rem] group-hover:scale-110 transition-transform"></Icon>
+                            赞助
+                        </a>
+                    </div>
+                </div>
+                
+                {gitHubEditConfig.enable && (
+                    <>
+                        <!-- 分隔线 -->
+                        <div class="border-t border-[var(--line-divider)] my-3"></div>
+                        
+                        <!-- GitHub编辑区域 -->
+                        <div class="flex items-start gap-3">
+                            <div class="h-5 w-5 rounded bg-[var(--primary)] flex items-center justify-center">
+                                <Icon name="material-symbols:edit-outline" class="text-[0.875rem] text-white dark:text-black/70"></Icon>
+                            </div>
+                            <div class="flex-1">
+                                <p class="text-black/80 dark:text-white/80 text-sm mb-1">发现错误或想要改进这篇文章？</p>
+                                <a 
+                                    href={`${gitHubEditConfig.baseUrl}/${entry.id}.md`}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="inline-flex items-center gap-1 text-[var(--primary)] hover:text-[oklch(0.65_0.16_var(--hue))] text-sm font-medium transition-colors"
+                                >
+                                    <Icon name="fa6-brands:github" class="text-[0.875rem]"></Icon>
+                                    在 GitHub 上编辑此页
+                                    <Icon name="material-symbols:open-in-new" class="text-[0.75rem]"></Icon>
+                                </a>
+                            </div>
+                        </div>
+                    </>
+                )}
+            </div>
+
+            {licenseConfig.enable && <License title={entry.data.title} slug={entry.id} pubDate={entry.data.published} class="mb-6 rounded-xl license-container onload-animation"></License>}
+
+    <div class="flex flex-col md:flex-row justify-between mb-4 gap-4 overflow-hidden w-full">
+        <a href={entry.data.nextSlug ? getPostUrlBySlug(entry.data.nextSlug) : "#"}
+           class:list={["w-full font-bold overflow-hidden active:scale-95", {"pointer-events-none": !entry.data.nextSlug}]}>
+            {entry.data.nextSlug && <div class="btn-card rounded-2xl w-full h-[3.75rem] max-w-full px-4 flex items-center !justify-start gap-4" >
+                <Icon name="material-symbols:chevron-left-rounded" class="text-[2rem] text-[var(--primary)]" />
+                <div class="overflow-hidden transition overflow-ellipsis whitespace-nowrap max-w-[calc(100%_-_3rem)] text-black/75 dark:text-white/75">
+                    {entry.data.nextTitle}
+                </div>
+            </div>}
+        </a>
+
+        <a href={entry.data.prevSlug ? getPostUrlBySlug(entry.data.prevSlug) : "#"}
+           class:list={["w-full font-bold overflow-hidden active:scale-95", {"pointer-events-none": !entry.data.prevSlug}]}>
+            {entry.data.prevSlug && <div class="btn-card rounded-2xl w-full h-[3.75rem] max-w-full px-4 flex items-center !justify-end gap-4" >
+                <div class="overflow-hidden transition overflow-ellipsis whitespace-nowrap max-w-[calc(100%_-_3rem)] text-black/75 dark:text-white/75">
+                    {entry.data.prevTitle}
+                </div>
+                <Icon name="material-symbols:chevron-right-rounded" class="text-[2rem] text-[var(--primary)]" />
+            </div>}
+        </a>
+    </div>
+
+            <!-- Giscus 评论区 -->
+            <div id="giscus-container" class="giscus"
+                data-repo="levy1024/bigfoxme"
+                data-repo-id="R_kgDOUTSJcQ"
+                data-category="Announcements"
+                data-category-id="DIC_kwDOUTSJcc4DFRbq"
+                data-mapping="pathname"
+                data-strict="0"
+                data-reactions-enabled="1"
+                data-emit-metadata="0"
+                data-input-position="bottom"
+                data-theme="preferred_color_scheme"
+                data-lang="zh-CN"
+                data-loading="lazy"
+            ></div>
+
+</MainGridLayout>
+
+<style>
+    .post-container :global(img) {
+        opacity: 0;
+        transition: opacity 0.5s ease-out;
+    }
+    .post-container :global(img.loaded) {
+        opacity: 1;
+    }
+    /* 文章底部标签 - 悬停效果（天空蓝系） */
+    .tag-chip-hover:hover {
+        background: rgb(0 162 232 / 0.10);
+        border-color: rgb(0 162 232 / 0.7);
+        color: #0090d0;
+    }
+</style>
+
+<script>
+    // 隐藏 Giscus "N 条评论" 和 reactions 计数文字
+    function hideGiscusMeta() {
+        const container = document.getElementById('giscus-container');
+        if (!container) return;
+
+        // 隐藏评论计数 — 找包含 "条评论" 文本的元素
+        const walker = document.createTreeWalker(
+            container,
+            NodeFilter.SHOW_TEXT
+        );
+        const toHide = [];
+        let node;
+        while (node = walker.nextNode()) {
+            if (node.textContent.includes('条评论') || node.textContent.includes('表情')) {
+                let parent = node.parentElement;
+                if (parent) toHide.push(parent);
+            }
+        }
+        toHide.forEach(el => el.style.display = 'none');
+    }
+
+    // 等 Giscus 渲染完成后执行
+    const observer = new MutationObserver(() => {
+        hideGiscusMeta();
+    });
+    observer.observe(document.getElementById('giscus-container'), {
+        childList: true,
+        subtree: true
+    });
+</script>
+
+<style is:global>
+    /* 确保包裹容器继承原图的圆角等样式 */
+    .markdown-content img {
+        margin: 0 !important; /* 让wrapper来控制margin */
+    }
+</style>

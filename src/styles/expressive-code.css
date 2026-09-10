@@ -1,0 +1,60 @@
+.expressive-code .frame {
+  @apply !shadow-none;
+  position: relative;
+  padding-top: 0;
+  border-radius: 8px !important;
+  border: none !important;
+  overflow: hidden;
+  background: #1a1a1a !important;
+}
+
+:root.dark .expressive-code .frame {
+  background: #0A0A0A !important;
+}
+
+/* Show header as title bar for ALL frames without an explicit title */
+.expressive-code .frame:not(.has-title) .header {
+  display: flex !important;
+  align-items: center;
+  padding: 0 14px;
+  height: 1.4rem;
+  min-height: auto !important;
+  background: #1a1a1a;
+  position: relative;
+}
+
+:root.dark .expressive-code .frame:not(.has-title) .header {
+  background: #171717;
+}
+
+/* Hide sr-only labels inside header */
+.expressive-code .frame:not(.has-title) .header .sr-only {
+  display: none;
+}
+
+/* Override terminal dots — higher specificity than .expressive-code .frame.is-terminal .header::before */
+body .expressive-code .frame:not(.has-title) .header::before,
+body .expressive-code .frame.is-terminal .header::before {
+  all: unset;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ff5f57;
+  box-shadow: 9px 0 0 #febc2e, 18px 0 0 #28c840;
+}
+
+.expressive-code .frame pre {
+  border: none !important;
+  margin-top: 0 !important;
+}
+
+/* 隐藏语言徽章 */
+.expressive-code .frame pre[data-language]::before {
+  display: none !important;
+}
