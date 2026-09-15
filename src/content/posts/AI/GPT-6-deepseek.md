@@ -1,6 +1,6 @@
 ---
 title: "GPT‑6 Astra 能力范围更广了，但是目前 Deepseek-v4-flash 够我用了！"
-published: 2026-09-09
+published: 2026-09-07
 tags:
 - OpenAI
 - GPT
