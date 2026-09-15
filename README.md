@@ -51,6 +51,7 @@ pnpm preview        # 预览构建产物
 | `pnpm dev` | 开发服务器（端口固定 4321） |
 | `pnpm build` | 静态构建到 `dist/` |
 | `pnpm preview` | 预览构建产物 |
+| `pnpm deploy` | 发布 `dist/` 到 Cloudflare Workers（需先 `pnpm build`） |
 | `pnpm new-post` | 新建文章 |
 | `pnpm add-frontmatter` | 批量补 frontmatter + 自动提取封面图 |
 | `pnpm organize-posts` | 按分类整理文章 |
@@ -78,7 +79,7 @@ pnpm preview        # 预览构建产物
 │   ├── config.ts              站点配置：标题、导航栏、资料卡、评论…
 │   └── content.config.ts      内容集合 schema
 ├── astro.config.mjs           Astro 配置（Markdown 管线、短链跳转）
-└── .github/workflows/deploy.yml   构建并发布到 page 分支
+└── .github/workflows/deploy.yml   构建并部署到 Cloudflare Workers
 ```
 
 ## ✍️ 写文章
@@ -104,8 +105,13 @@ description: ""            # 留空则自动取首段作为摘要
 
 ## 📦 部署
 
-- **GitHub Actions（默认）**：push 到 `main` 触发 `.github/workflows/deploy.yml`，构建后发布到 `page` 分支（CNAME `bigfox.me`），由 GitHub Pages 托管。
-- **EdgeOne / Cloudflare Workers**：仓库内已附 `edgeone.json`、`wrangler.jsonc`，资源目录指向 `dist/`。
+**Cloudflare Workers（默认）**：push 到 `main` 触发 `.github/workflows/deploy.yml` —— 在 GitHub Actions 内 `pnpm build`，再由 `cloudflare/wrangler-action` 把 `dist/` 作为静态资源上传（Worker 配置见 `wrangler.jsonc`）。需要仓库 Secrets：`CLOUDFLARE_API_TOKEN`（权限 `Workers Scripts: Edit`）、`CLOUDFLARE_ACCOUNT_ID`。
+
+本地手动发布：`pnpm build && pnpm deploy`。
+
+> ⚠️ 构建环境的 pnpm 必须锁在 **9.x**：`patches/astro.patch`（关闭 Astro 图片优化与文件名哈希）靠 `pnpm.patchedDependencies` 生效，pnpm 10+ 已不读 `package.json` 里的该字段，补丁会静默失效导致产物不一致。因此**不要**改成让 Cloudflare 自己构建。
+
+其他平台：`edgeone.json` 仍可用于 EdgeOne Pages。原先发布到 `page` 分支的 GitHub Pages 流程已移除，`origin/page` 会停留在最后一次构建。
 
 ## 🤝 鸣谢
 

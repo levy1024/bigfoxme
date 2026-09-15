@@ -24,7 +24,7 @@ const allTags = Array.from(tagCountMap.entries())
   .map(([tag, count]) => ({ tag, count }));
 
 // 序列化全量数据供客户端渲染（内容已含 HTML，用 < 转义防注入）
-// 注意：Astro 内联 <script> 不支持模板插值，所以把 PAGE_SIZE/AVATAR/AUTHOR 一并打包进 JSON
+// 注意：Astro 内联 script 标签不支持模板插值，所以把 PAGE_SIZE/AVATAR/AUTHOR 一并打包进 JSON
 const notesJson = JSON.stringify({
   days,
   pageSize: NOTES_PAGE_SIZE,

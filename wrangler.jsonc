@@ -1,8 +1,10 @@
 {
-	"name": "fuwari",
+	"name": "bigfoxme",
 	"compatibility_date": "2025-08-11",
 	"assets": {
 		"directory": "./dist",
-		"not_found_handling": "404-page"
+		"not_found_handling": "404-page",
+		// 与 Astro 的 trailingSlash: "always" 对齐：/foo → 307 /foo/，目录索引按 /foo/ 提供
+		"html_handling": "auto-trailing-slash"
 	}
 }

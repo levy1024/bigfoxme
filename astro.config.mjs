@@ -33,6 +33,12 @@ export default defineConfig({
 	base: "/",
 	trailingSlash: "always",
 	output: "static",
+	// 开发服务器：端口固定 4321，host 让局域网/手机可访问。
+	// 注意必须写在顶层 server —— Astro 5 不读 vite.server.host，写在里面不生效。
+	server: {
+		port: 4321,
+		host: true,
+	},
 	redirects: {
 		"/long": {
 			status: 302,
@@ -247,10 +253,6 @@ export default defineConfig({
 				},
 			},
 		],
-		server: {
-			port: 4321,
-			host: true,
-		},
 		build: {
 			rollupOptions: {
 				onwarn(warning, warn) {

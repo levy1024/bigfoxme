@@ -87,6 +87,10 @@ pnpm del-space      # 删除文件名空格
 - `src/pages/nav.astro` + `src/data/nav/*.json` — 导航站页面
 - `src/pages/rss.xml.ts`、`src/pages/robots.txt.ts`、404、about、friends、sponsors
 
+### .astro 编写陷阱
+
+- **注释/正文里不要出现字面量的 `<script>`**。Vite 的依赖扫描器是用正则从 `.astro` 源文件里抠 script 标签的，注释里那个 `<script>` 会被它当成真的开标签，于是「它到下一个 `</script>` 之间」的所有内容（注释、frontmatter、模板 HTML）都被当 JS 丢给 esbuild，报 `Expected ";" but found ...`。要描述 script 相关行为时改写成「script 标签」之类不带尖括号的说法。（只针对被 Vite 扫描的 `.astro` 等源文件；`CLAUDE.md`、`README.md` 这类根目录文档不在扫描范围内。）
+
 ### Markdown 渲染管线（astro.config.mjs）
 
 remark：math → reading-time → excerpt → GitHub admonitions → directives → sectionize。rehype：katex → slug → image-fallback → 自定义组件（`:github`/`:url`/admonition 卡片）→ external links → autolink headings。
@@ -105,7 +109,8 @@ remark：math → reading-time → excerpt → GitHub admonitions → directives
 
 ## 构建与部署
 
-- GitHub Actions（`.github/workflows/deploy.yml`）：push 到 `main` → pnpm build → `peaceiris/actions-gh-pages` 部署到 `page` 分支，CNAME `bigfox.me`（仓库 `levy1024/bigfoxme`）。
-- EdgeOne（`edgeone.json`）、Cloudflare Workers（`wrangler.jsonc`，assets: `./dist`）。
-- `patches/astro.patch` — 通过 pnpm `patchedDependencies` 打补丁的 Astro。
-- astro.config 里有一批短路径 302 跳转（`/q`、`/s`、`/tg` 等）。
+- **Cloudflare Workers（唯一部署链路）**：GitHub Actions（`.github/workflows/deploy.yml`）push 到 `main` → `pnpm build` → `cloudflare/wrangler-action` 上传 `dist/`。Worker 名 `bigfoxme`、assets 目录 `./dist`、`not_found_handling: 404-page`、`html_handling: auto-trailing-slash`（对齐 Astro 的 `trailingSlash: "always"`）均在 `wrangler.jsonc`。本地发布 `pnpm deploy`（需先 build）；Secrets 为 `CLOUDFLARE_API_TOKEN` / `CLOUDFLARE_ACCOUNT_ID`。
+- **pnpm 必须锁 9.x**：`patches/astro.patch`（关闭 Astro 图片优化与哈希重命名）靠 `package.json` 的 `pnpm.patchedDependencies` 生效，pnpm 10+ 不再读该字段 → 补丁静默失效。所以不要在 Cloudflare 侧构建，也不要升级 pnpm。
+- `public/_redirects` 是 Cloudflare 的 302 规则表，需与 astro.config 的 `redirects` **手动保持同步**（新增短链时两处都改）。
+- EdgeOne（`edgeone.json`）仍可用于 EdgeOne Pages，与 Cloudflare 互不影响。
+- astro.config 里还有一批短路径 302 跳转（`/q`、`/s`、`/tg` 等），未写入 `_redirects` 的会退回 Astro 生成的 meta-refresh 占位页。

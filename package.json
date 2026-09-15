@@ -7,6 +7,7 @@
 		"start": "astro dev",
 		"build": "astro build",
 		"preview": "astro preview",
+		"deploy": "wrangler deploy",
 		"astro": "astro",
 		"type-check": "tsc --noEmit --isolatedDeclarations",
 		"new-post": "node scripts/new-post.js",
@@ -79,7 +80,8 @@
 		"sanitize-html": "^2.16.0",
 		"stylus": "^0.64.0",
 		"typescript": "^5.8.3",
-		"unist-util-visit": "^5.0.0"
+		"unist-util-visit": "^5.0.0",
+		"wrangler": "^4.131.2"
 	},
 	"packageManager": "pnpm@9.14.4",
 	"pnpm": {

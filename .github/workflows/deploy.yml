@@ -1,4 +1,4 @@
-name: 构建并发布到page分支
+name: 构建并部署到 Cloudflare Workers
 on:
   push:
     branches:
@@ -12,33 +12,32 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     permissions:
-      contents: write
+      contents: read
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
+      # 不传 version：自动读取 package.json 的 packageManager（pnpm@9.14.4）。
+      # 必须停留在 pnpm 9.x —— patches/astro.patch 依赖 pnpm.patchedDependencies 生效，
+      # pnpm 10+ 已不再读取 package.json 中的该字段，会导致补丁静默失效。
       - name: Install pnpm
-        uses: pnpm/action-setup@v2
-        with:
-          version: 9
+        uses: pnpm/action-setup@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: 'pnpm'
 
       - name: Install Dependencies
-        run: pnpm install
+        run: pnpm install --frozen-lockfile
 
       - name: Build
         run: pnpm run build
 
-      - name: Deploy to page branch
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Deploy to Cloudflare Workers
+        uses: cloudflare/wrangler-action@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
-          publish_branch: page
-          cname: bigfox.me
-          commit_message: ${{ github.event.head_commit.message }}
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: deploy
