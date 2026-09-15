@@ -23,10 +23,12 @@ jobs:
       - name: Install pnpm
         uses: pnpm/action-setup@v4
 
+      # 必须是 22+：wrangler 4 要求 Node >= 22，用 20 会让 wrangler-action 的版本探测
+      # 失败，进而静默回退安装 wrangler@3.90.0（读不懂 assets-only 配置，报 Missing entry-point）
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: 'pnpm'
 
       - name: Install Dependencies
@@ -41,3 +43,5 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: deploy
+          # 显式钉住大版本，避免探测失败时回退到 wrangler 3
+          wranglerVersion: '4'

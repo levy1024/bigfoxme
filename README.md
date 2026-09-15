@@ -28,7 +28,7 @@
 
 ## 🚀 快速开始
 
-环境要求：**Node.js ≥ 20**、**pnpm 9**。本项目仅使用 pnpm（锁文件为 `pnpm-lock.yaml`），请勿使用 npm / yarn。
+环境要求：**Node.js ≥ 22**（wrangler 4 的硬性要求）、**pnpm 9**。本项目仅使用 pnpm（锁文件为 `pnpm-lock.yaml`），请勿使用 npm / yarn。
 
 ```bash
 git clone https://github.com/levy1024/bigfoxme.git
