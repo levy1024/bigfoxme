@@ -109,9 +109,18 @@ remark：math → reading-time → excerpt → GitHub admonitions → directives
 
 ## 构建与部署
 
+- **线上地址 https://bigfox.me**（`www.bigfox.me` 同样 200）：Cloudflare Workers + 自定义域，2026-09-16 上线。日常更新只需 `git add -A && git commit && git push`，约 1 分钟自动上线，无需手动部署命令。
 - **Cloudflare Workers（唯一部署链路）**：GitHub Actions（`.github/workflows/deploy.yml`）push 到 `main` → `pnpm build` → `cloudflare/wrangler-action` 上传 `dist/`。Worker 名 `bigfoxme`、assets 目录 `./dist`、`not_found_handling: 404-page`、`html_handling: auto-trailing-slash`（对齐 Astro 的 `trailingSlash: "always"`）均在 `wrangler.jsonc`。本地发布 `pnpm deploy`（需先 build）；Secrets 为 `CLOUDFLARE_API_TOKEN` / `CLOUDFLARE_ACCOUNT_ID`。
+- **别把 `bigfoxme.bigfoxme.workers.dev` 当对外地址**：该后缀被 GFW **SNI 阻断**——实测同一 Cloudflare IP 换个 SNI 就立刻从「0.25 秒 RST」变 200，说明是看 TLS ClientHello 里的 `.workers.dev` 就发 RST。换 DNS / 写 hosts / 开 DoH **全都无效**（包到不了 HTTP 层）。它只是部署端点，国内读者打不开。另外账号子域根 `bigfoxme.workers.dev` 无 A 记录、挂不了 worker，地址格式固定为 `<worker名>.<账号子域>.workers.dev`，无法缩短。
+- **挂自定义域**：`PUT /accounts/{account_id}/workers/domains`（body 含 `zone_id` / `hostname` / `service` / `environment`）。若该 hostname 已有 A/CNAME 记录会冲突，**必须先删**（旧主机商迁移过来时尤其注意）。
 - **pnpm 必须锁 9.x**：`patches/astro.patch`（关闭 Astro 图片优化与哈希重命名）靠 `package.json` 的 `pnpm.patchedDependencies` 生效，pnpm 10+ 不再读该字段 → 补丁静默失效。所以不要在 Cloudflare 侧构建，也不要升级 pnpm。
 - **Node 必须 22+**：`wrangler` 4 要求 Node ≥ 22。CI 里若用 Node 20，`wrangler-action` 的版本探测会失败并静默回退安装 `wrangler@3.90.0`，而 3.x 读不懂只有 `assets` 没有 `main` 的配置，报 `Missing entry-point`。workflow 已钉 Node 22 + `wranglerVersion: '4'`，改回 20 就会复现。
 - `public/_redirects` 是 Cloudflare 的 302 规则表，需与 astro.config 的 `redirects` **手动保持同步**（新增短链时两处都改）。
 - EdgeOne（`edgeone.json`）仍可用于 EdgeOne Pages，与 Cloudflare 互不影响。
 - astro.config 里还有一批短路径 302 跳转（`/s`、`/t`、`/tg`、`/gal`、`/long`、`/donate`），未写入 `_redirects` 的会退回 Astro 生成的 meta-refresh 占位页。实测 Cloudflare 上 `_redirects` **优先于** `html_handling`，所以两处同步时以 `_redirects` 为准。
+
+### 站点后台待办
+
+- **Always Use HTTPS 尚未开启**（Cloudflare → bigfox.me → SSL/TLS → Edge Certificates）：`http://bigfox.me/` 目前返回 200 而不是跳转 https。顺手可一并开启 Automatic HTTPS Rewrites。
+- **giscus 评论需安装 App**：https://github.com/apps/giscus/installations/new，未安装则文章评论区不显示。
+- CI 日志里有 Node 20 弃用注释（指 `actions/checkout@v4` 等 **action 自身**的运行环境被强制跑在 Node 24，与 workflow 里的 `node-version: 22` 是两回事），**不影响构建**；等 GitHub 彻底移除 Node 20 运行时再升级 action 版本。

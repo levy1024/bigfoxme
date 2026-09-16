@@ -105,13 +105,30 @@ description: ""            # 留空则自动取首段作为摘要
 
 ## 📦 部署
 
-**Cloudflare Workers（默认）**：push 到 `main` 触发 `.github/workflows/deploy.yml` —— 在 GitHub Actions 内 `pnpm build`，再由 `cloudflare/wrangler-action` 把 `dist/` 作为静态资源上传（Worker 配置见 `wrangler.jsonc`）。需要仓库 Secrets：`CLOUDFLARE_API_TOKEN`（权限 `Workers Scripts: Edit`）、`CLOUDFLARE_ACCOUNT_ID`。
+**线上地址：<https://bigfox.me>**（`www.bigfox.me` 同样可访问），托管在 Cloudflare Workers，2026-09-16 上线。
+
+日常更新不需要任何部署命令，推上去就自动发布：
+
+```bash
+git add -A
+git commit -m "post: 新文章"
+git push          # GitHub Actions 自动构建并发布，约 1 分钟
+```
+
+流程：push 到 `main` 触发 `.github/workflows/deploy.yml` —— 在 GitHub Actions 内 `pnpm build`，再由 `cloudflare/wrangler-action` 把 `dist/` 作为静态资源上传（Worker 配置见 `wrangler.jsonc`）。wrangler 按内容哈希增量上传，只改一篇文章时只传变化的文件。需要仓库 Secrets：`CLOUDFLARE_API_TOKEN`（权限 `Workers Scripts: Edit`）、`CLOUDFLARE_ACCOUNT_ID`。
 
 本地手动发布：`pnpm build && pnpm deploy`。
 
 > ⚠️ 构建环境的 pnpm 必须锁在 **9.x**：`patches/astro.patch`（关闭 Astro 图片优化与文件名哈希）靠 `pnpm.patchedDependencies` 生效，pnpm 10+ 已不读 `package.json` 里的该字段，补丁会静默失效导致产物不一致。因此**不要**改成让 Cloudflare 自己构建。
 
+> ⚠️ `bigfoxme.bigfoxme.workers.dev`（Worker 的默认域名）**不要对外使用**：`.workers.dev` 后缀被 GFW 按 TLS SNI 阻断，国内访问会立即连接重置。它只是部署端点，对外一律用 `bigfox.me`。
+
 其他平台：`edgeone.json` 仍可用于 EdgeOne Pages。原先发布到 `page` 分支的 GitHub Pages 流程已移除，`origin/page` 会停留在最后一次构建。
+
+### 上线后待办
+
+- [ ] 开启 **Always Use HTTPS**（Cloudflare → bigfox.me → SSL/TLS → Edge Certificates），目前 `http://bigfox.me/` 返回 200 而非跳转 https
+- [ ] 安装 **giscus App**（<https://github.com/apps/giscus/installations/new>），否则文章评论区不显示
 
 ## 🤝 鸣谢
 
