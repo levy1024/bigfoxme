@@ -114,4 +114,4 @@ remark：math → reading-time → excerpt → GitHub admonitions → directives
 - **Node 必须 22+**：`wrangler` 4 要求 Node ≥ 22。CI 里若用 Node 20，`wrangler-action` 的版本探测会失败并静默回退安装 `wrangler@3.90.0`，而 3.x 读不懂只有 `assets` 没有 `main` 的配置，报 `Missing entry-point`。workflow 已钉 Node 22 + `wranglerVersion: '4'`，改回 20 就会复现。
 - `public/_redirects` 是 Cloudflare 的 302 规则表，需与 astro.config 的 `redirects` **手动保持同步**（新增短链时两处都改）。
 - EdgeOne（`edgeone.json`）仍可用于 EdgeOne Pages，与 Cloudflare 互不影响。
-- astro.config 里还有一批短路径 302 跳转（`/q`、`/s`、`/tg` 等），未写入 `_redirects` 的会退回 Astro 生成的 meta-refresh 占位页。
+- astro.config 里还有一批短路径 302 跳转（`/s`、`/t`、`/tg`、`/gal`、`/long`、`/donate`），未写入 `_redirects` 的会退回 Astro 生成的 meta-refresh 占位页。实测 Cloudflare 上 `_redirects` **优先于** `html_handling`，所以两处同步时以 `_redirects` 为准。

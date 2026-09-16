@@ -44,15 +44,7 @@ export default defineConfig({
 			status: 302,
 			destination: "https://iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii.iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii.in/",
 		},
-		"/tit": {
-			status: 302,
-			destination: "/posts/pin/",
-		},
-  "/q": {
-			status: 302,
-			destination: "/posts/pin/",
-		},
-  "/t": {
+		"/t": {
 			status: 302,
 			destination: "https://i.2x.nz",
 		},
