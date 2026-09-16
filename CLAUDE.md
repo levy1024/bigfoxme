@@ -115,12 +115,13 @@ remark：math → reading-time → excerpt → GitHub admonitions → directives
 - **挂自定义域**：`PUT /accounts/{account_id}/workers/domains`（body 含 `zone_id` / `hostname` / `service` / `environment`）。若该 hostname 已有 A/CNAME 记录会冲突，**必须先删**（旧主机商迁移过来时尤其注意）。
 - **pnpm 必须锁 9.x**：`patches/astro.patch`（关闭 Astro 图片优化与哈希重命名）靠 `package.json` 的 `pnpm.patchedDependencies` 生效，pnpm 10+ 不再读该字段 → 补丁静默失效。所以不要在 Cloudflare 侧构建，也不要升级 pnpm。
 - **Node 必须 22+**：`wrangler` 4 要求 Node ≥ 22。CI 里若用 Node 20，`wrangler-action` 的版本探测会失败并静默回退安装 `wrangler@3.90.0`，而 3.x 读不懂只有 `assets` 没有 `main` 的配置，报 `Missing entry-point`。workflow 已钉 Node 22 + `wranglerVersion: '4'`，改回 20 就会复现。
-- `public/_redirects` 是 Cloudflare 的 302 规则表，需与 astro.config 的 `redirects` **手动保持同步**（新增短链时两处都改）。
-- EdgeOne（`edgeone.json`）仍可用于 EdgeOne Pages，与 Cloudflare 互不影响。
-- astro.config 里还有一批短路径 302 跳转（`/s`、`/t`、`/tg`、`/gal`、`/long`、`/donate`），未写入 `_redirects` 的会退回 Astro 生成的 meta-refresh 占位页。实测 Cloudflare 上 `_redirects` **优先于** `html_handling`，所以两处同步时以 `_redirects` 为准。
+- **短链要同步三处**：`astro.config.mjs` 的 `redirects`、`public/_redirects`（Cloudflare）、`edgeone.json`（备用的 EdgeOne）。新增短链时三处都改，以 `_redirects` 为准。注意 `/long` 的域名是一长串 `i`（49 个 `i` + `.` + 42 个 `i` + `.in`），**别手敲**，从 `_redirects` 复制。
+- **EdgeOne 暂不启用**：`edgeone.json` 仍可用于 EdgeOne Pages，与 Cloudflare 互不影响，但**国内加速需 ICP 备案**，而 `.me` 能否备案说法不一（多数省级管局把它排除在外，少数较新的说法称已放开），结论未定，需以 <https://domain.miit.gov.cn/> 官方口径为准。没有备案时 EdgeOne 只有海外节点，换过去不会更快 —— 所以维持 Cloudflare，这份配置只作备用保留。
+- astro.config 里那批短路径 302（`/s`、`/t`、`/tg`、`/gal`、`/long`、`/donate`）会被 Astro 生成为 meta-refresh 占位页，但实测 Cloudflare 上 `public/_redirects` **优先于** `html_handling`，线上实际走的是 `_redirects`，astro.config 那份只作兜底（比如换到别的托管平台）。
 
-### 站点后台待办
+### 站点后台状态（2026-09-16 用户确认）
 
-- **Always Use HTTPS 尚未开启**（Cloudflare → bigfox.me → SSL/TLS → Edge Certificates）：`http://bigfox.me/` 目前返回 200 而不是跳转 https。顺手可一并开启 Automatic HTTPS Rewrites。
-- **giscus 评论需安装 App**：https://github.com/apps/giscus/installations/new，未安装则文章评论区不显示。
+- **Always Use HTTPS 已开启**：`http://bigfox.me/`、`http://www.bigfox.me/` 及深路径均实测 301 → HTTPS。
+- **giscus App 已安装**：文章页 `data-repo` / `data-repo-id` / `data-category-id` 实测正确，仓库 Discussions 已启用且 `Announcements` 分类 id 与 `src/config.ts` 一致。
+- **`@bigfox.me` 邮箱暂不使用**，zone 内没有 MX 记录是有意为之，不要"顺手补上"。
 - CI 日志里有 Node 20 弃用注释（指 `actions/checkout@v4` 等 **action 自身**的运行环境被强制跑在 Node 24，与 workflow 里的 `node-version: 22` 是两回事），**不影响构建**；等 GitHub 彻底移除 Node 20 运行时再升级 action 版本。

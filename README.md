@@ -123,12 +123,14 @@ git push          # GitHub Actions 自动构建并发布，约 1 分钟
 
 > ⚠️ `bigfoxme.bigfoxme.workers.dev`（Worker 的默认域名）**不要对外使用**：`.workers.dev` 后缀被 GFW 按 TLS SNI 阻断，国内访问会立即连接重置。它只是部署端点，对外一律用 `bigfox.me`。
 
-其他平台：`edgeone.json` 仍可用于 EdgeOne Pages。原先发布到 `page` 分支的 GitHub Pages 流程已移除，`origin/page` 会停留在最后一次构建。
+其他平台：`edgeone.json` 仍可用于 EdgeOne Pages（国内加速需 ICP 备案，未备案时只有海外节点，目前未启用，仅作备用配置保留）。原先发布到 `page` 分支的 GitHub Pages 流程已移除，`origin/page` 会停留在最后一次构建。
 
-### 上线后待办
+### 上线检查清单
 
-- [ ] 开启 **Always Use HTTPS**（Cloudflare → bigfox.me → SSL/TLS → Edge Certificates），目前 `http://bigfox.me/` 返回 200 而非跳转 https
-- [ ] 安装 **giscus App**（<https://github.com/apps/giscus/installations/new>），否则文章评论区不显示
+- [x] 开启 **Always Use HTTPS**（Cloudflare → bigfox.me → SSL/TLS → Edge Certificates），`http://bigfox.me/` 及深路径均 301 跳转 https
+- [x] 安装 **giscus App**（<https://github.com/apps/giscus/installations/new>），评论区正常显示
+
+> 若要另建站点，这两项同样需要在新的 Cloudflare zone / 仓库上重做一遍（giscus 还需在目标仓库开启 Discussions）。
 
 ## 🤝 鸣谢
 

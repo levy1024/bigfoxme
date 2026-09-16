@@ -1,18 +1,33 @@
 {
 	"redirects": [
 		{
+			"source": "/donate",
+			"destination": "/sponsors/",
+			"statusCode": 302
+		},
+		{
+			"source": "/gal",
+			"destination": "https://i.2x.nz/posts/94",
+			"statusCode": 302
+		},
+		{
 			"source": "/long",
 			"destination": "https://iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii.iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii.in/",
 			"statusCode": 302
 		},
 		{
-			"source": "/tg",
-			"destination": "https://t.me/+_07DERp7k1ljYTc1",
+			"source": "/s",
+			"destination": "https://2x.nz/_url",
 			"statusCode": 302
 		},
 		{
-			"source": "/tit",
-			"destination": "/posts/pin/",
+			"source": "/t",
+			"destination": "https://i.2x.nz",
+			"statusCode": 302
+		},
+		{
+			"source": "/tg",
+			"destination": "https://t.me/+_07DERp7k1ljYTc1",
 			"statusCode": 302
 		}
 	]
