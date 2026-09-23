@@ -1,0 +1,8 @@
+{
+	"name": "Arena Leaderboard",
+	"avatar": "/nav-icons/arena.ai.png",
+	"description": "Arena AI 官方大模型排行榜，覆盖文本、图像、视觉等多个模型竞技场",
+	"url": "https://arena.ai/leaderboard/",
+	"category": "LLM",
+	"subcategory": "排行榜"
+}

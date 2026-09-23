@@ -72,6 +72,13 @@ const moreLinks = moreLinkNames
                 <div class="w-11 lg:w-44 h-11 flex items-center justify-end">
                     <Search client:only="svelte"></Search>
                 </div>
+            {/* 主题模式切换：点击循环 跟随系统 → 浅色 → 深色 */}
+            <button aria-label="切换主题模式" title="切换主题模式：跟随系统 / 浅色 / 深色"
+                    class="btn-plain rounded-lg h-11 w-11" id="theme-toggle">
+                <Icon name="material-symbols:brightness-auto-rounded" class="text-[1.25rem] theme-icon-auto"></Icon>
+                <Icon name="material-symbols:wb-sunny-rounded" class="text-[1.25rem] theme-icon-light hidden"></Icon>
+                <Icon name="material-symbols:dark-mode-rounded" class="text-[1.25rem] theme-icon-dark hidden"></Icon>
+            </button>
             {!siteConfig.themeColor.fixed && (
                     <button aria-label="Display Settings" class="btn-plain rounded-lg h-11 w-11" id="display-settings-switch">
                         <Icon name="material-symbols:palette-outline" class="text-[1.25rem]"></Icon>
@@ -88,7 +95,29 @@ const moreLinks = moreLinkNames
 </div>
 
 <script>
+import { getStoredTheme, setTheme } from "@utils/setting-utils";
+
+const THEME_CYCLE = ["auto", "light", "dark"];
+
+function syncThemeIcon(mode) {
+    document.querySelectorAll("#theme-toggle svg").forEach((svg) => {
+        svg.classList.toggle("hidden", !svg.classList.contains(`theme-icon-${mode}`));
+    });
+}
+
 function loadButtonScript() {
+
+    // 主题模式切换：跟随系统 → 浅色 → 深色 → 跟随系统
+    let themeBtn = document.getElementById("theme-toggle");
+    if (themeBtn) {
+        let mode = getStoredTheme();
+        syncThemeIcon(mode);
+        themeBtn.onclick = function () {
+            mode = THEME_CYCLE[(THEME_CYCLE.indexOf(mode) + 1) % THEME_CYCLE.length];
+            setTheme(mode);
+            syncThemeIcon(mode);
+        };
+    }
 
     let settingBtn = document.getElementById("display-settings-switch");
     if (settingBtn) {
@@ -150,7 +179,7 @@ a:hover .rss-icon {
     background-clip: text;
 }
 
-.dark .gradient-text {
+:global(.dark) .gradient-text {
     background: linear-gradient(135deg, #38bdf8, #a78bfa);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;

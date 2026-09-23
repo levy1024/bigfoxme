@@ -83,7 +83,7 @@ const categories = Array.from(categoryCount.entries())
         background-clip: text;
     }
 
-    .dark .gradient-text {
+    :global(.dark) .gradient-text {
         background: linear-gradient(135deg, #38bdf8, #a78bfa);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -103,7 +103,7 @@ const categories = Array.from(categoryCount.entries())
         background-clip: text;
     }
 
-    .dark .hacker-icon {
+    :global(.dark) .hacker-icon {
         background: linear-gradient(135deg, #38bdf8, #a78bfa);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;

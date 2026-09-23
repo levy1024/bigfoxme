@@ -1,8 +1,8 @@
 {
 	"name": "openBMB",
-	"avatar": "https://www.google.com/s2/favicons?domain=openbmb.cn&sz=64",
+	"avatar": "/nav-icons/openbmb.cn.svg",
 	"description": "Open Lab for Big Model Base",
 	"url": "https://github.com/OpenBMB",
-	"category": "端侧 AI",
-	"subcategory": "LLM"
+	"category": "开源社区",
+	"subcategory": "综合"
 }

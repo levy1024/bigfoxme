@@ -143,22 +143,24 @@ function subId(cat: string, sub: string): string {
                 </div>
               )}
 
-              <!-- 全部卡片（默认显示） -->
-              <div class="friend-grid" id={`grid-${catId(cat.name)}`}>
-                {[...cat.rootFriends, ...cat.subCategories.flatMap(s => s.friends)].map((friend) => (
-                  <a href={friend.url} target="_blank" class="friend-card">
-                    <div class="friend-card-inner">
-                      <div class="friend-card-icon">
-                        <img src={friend.avatar} loading="lazy" alt={friend.name} />
+              <!-- 全部卡片（默认显示，仅在有二级分类时；无二级分类走下面那个 grid，否则会重复渲染同一个 id） -->
+              {cat.subCategories.length > 0 && (
+                <div class="friend-grid" id={`grid-${catId(cat.name)}`}>
+                  {[...cat.rootFriends, ...cat.subCategories.flatMap(s => s.friends)].map((friend) => (
+                    <a href={friend.url} target="_blank" class="friend-card">
+                      <div class="friend-card-inner">
+                        <div class="friend-card-icon">
+                          <img src={friend.avatar} loading="lazy" alt={friend.name} />
+                        </div>
+                        <div class="friend-card-content">
+                          <div class="friend-card-name">{friend.name}</div>
+                          <div class="friend-card-desc">{friend.description}</div>
+                        </div>
                       </div>
-                      <div class="friend-card-content">
-                        <div class="friend-card-name">{friend.name}</div>
-                        <div class="friend-card-desc">{friend.description}</div>
-                      </div>
-                    </div>
-                  </a>
-                ))}
-              </div>
+                    </a>
+                  ))}
+                </div>
+              )}
 
               <!-- 二级分类卡片（按 tab 分组，默认隐藏） -->
               {cat.subCategories.map((sub) => (
@@ -270,7 +272,7 @@ function subId(cat: string, sub: string): string {
     padding: 0.75rem 1rem;
   }
 
-  .dark .nav-left-panel-inner {
+  :global(.dark) .nav-left-panel-inner {
     border-color: rgb(255 255 255 / 0.08);
   }
 
@@ -288,7 +290,7 @@ function subId(cat: string, sub: string): string {
     padding: 0 0.25rem;
   }
 
-  .dark .nav-left-panel-title {
+  :global(.dark) .nav-left-panel-title {
     color: oklch(0.55 0.01 268);
   }
 
@@ -323,11 +325,11 @@ function subId(cat: string, sub: string): string {
     color: var(--primary);
   }
 
-  .dark .category-nav-link {
+  :global(.dark) .category-nav-link {
     color: rgb(180, 180, 180);
   }
 
-  .dark .category-nav-link:hover {
+  :global(.dark) .category-nav-link:hover {
     background: rgb(255 255 255 / 0.06);
     color: var(--primary);
   }
@@ -342,7 +344,7 @@ function subId(cat: string, sub: string): string {
     text-align: center;
   }
 
-  .dark .category-nav-count {
+  :global(.dark) .category-nav-count {
     color: rgb(140, 140, 140);
     background: rgb(255 255 255 / 0.06);
   }
@@ -374,11 +376,11 @@ function subId(cat: string, sub: string): string {
     color: var(--primary);
   }
 
-  .dark .category-sub-link {
+  :global(.dark) .category-sub-link {
     color: rgb(160, 160, 160);
   }
 
-  .dark .category-sub-link:hover {
+  :global(.dark) .category-sub-link:hover {
     background: rgb(255 255 255 / 0.04);
     color: var(--primary);
   }
@@ -388,7 +390,7 @@ function subId(cat: string, sub: string): string {
     color: rgb(170, 170, 170);
   }
 
-  .dark .category-sub-count {
+  :global(.dark) .category-sub-count {
     color: rgb(130, 130, 130);
   }
 
@@ -438,17 +440,17 @@ function subId(cat: string, sub: string): string {
     border-color: #00a2e8;
   }
 
-  .dark .sub-tab {
+  :global(.dark) .sub-tab {
     border-color: rgb(255 255 255 / 0.1);
     color: rgb(180, 180, 180);
   }
 
-  .dark .sub-tab:hover {
+  :global(.dark) .sub-tab:hover {
     background: rgb(255 255 255 / 0.06);
     border-color: rgb(255 255 255 / 0.15);
   }
 
-  .dark .sub-tab.active {
+  :global(.dark) .sub-tab.active {
     background: #00a2e8;
     color: white;
     border-color: #00a2e8;
@@ -495,7 +497,7 @@ function subId(cat: string, sub: string): string {
     height: 100%;
   }
 
-  .dark .friend-card-inner {
+  :global(.dark) .friend-card-inner {
     background: rgb(45, 45, 45);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   }
@@ -505,7 +507,7 @@ function subId(cat: string, sub: string): string {
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
   }
 
-  .dark .friend-card:hover .friend-card-inner {
+  :global(.dark) .friend-card:hover .friend-card-inner {
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
   }
 
@@ -521,7 +523,7 @@ function subId(cat: string, sub: string): string {
     justify-content: center;
   }
 
-  .dark .friend-card-icon {
+  :global(.dark) .friend-card-icon {
     background: rgb(55, 55, 55);
   }
 
@@ -549,7 +551,7 @@ function subId(cat: string, sub: string): string {
     overflow: hidden;
   }
 
-  .dark .friend-card-name {
+  :global(.dark) .friend-card-name {
     color: rgb(230, 230, 230);
   }
 
@@ -564,7 +566,7 @@ function subId(cat: string, sub: string): string {
     overflow: hidden;
   }
 
-  .dark .friend-card-desc {
+  :global(.dark) .friend-card-desc {
     color: rgb(160, 160, 160);
   }
 
@@ -607,7 +609,7 @@ function subId(cat: string, sub: string): string {
       border-radius: 999px;
     }
 
-    .dark .category-nav-link {
+    :global(.dark) .category-nav-link {
       background: rgb(255 255 255 / 0.05);
     }
 

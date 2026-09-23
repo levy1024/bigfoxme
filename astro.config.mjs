@@ -84,6 +84,7 @@ export default defineConfig({
 				"material-symbols": [
 					"article-outline",
 					"bookmark-outline",
+					"brightness-auto-rounded",
 					"calendar-month-outline",
 					"calendar-today-outline-rounded",
 					"chevron-left-rounded",
@@ -91,6 +92,7 @@ export default defineConfig({
 					"comment",
 					"contact-mail-outline",
 					"content-copy-outline-rounded",
+					"dark-mode-rounded",
 					"diversity-3",
 					"edit-calendar-outline-rounded",
 					"edit-outline",
@@ -115,6 +117,7 @@ export default defineConfig({
 					"share",
 					"star",
 					"visibility-outline-rounded",
+					"wb-sunny-rounded",
 				],
 			},
 			iconDir: "public/icons",

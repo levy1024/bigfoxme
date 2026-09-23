@@ -4,6 +4,8 @@ published: 2025-07-25
 tags:
 - WSL2
 - 虚拟机
+- Docker
+- Windows
 category: 运维
 draft: false			# true=草稿不显示，false=公开
 pinned: false		# true=置顶

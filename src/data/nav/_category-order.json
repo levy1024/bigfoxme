@@ -1,9 +1,8 @@
 {
   "order": [
-    { "category": "LLM 排行榜", "subcategories": ["Android"] },
-	{ "category": "AI 对话", "subcategories": ["国内","国外"] },
-    { "category": "AI 编程", "subcategories": ["新闻","Agents"] },
-	{ "category": "AI 教程", "subcategories": ["综合"] },
+    { "category": "LLM", "subcategories": ["排行榜", "本地部署"] },
+    { "category": "AI 编程", "subcategories": ["新闻","Agents","Skills"] },
+    { "category": "AI 教程", "subcategories": ["综合", "Codex"] },
     { "category": "端侧 AI", "subcategories": ["新闻","LLM"] }
   ]
 }
