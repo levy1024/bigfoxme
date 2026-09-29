@@ -23,7 +23,9 @@
       "PowerShell(Get-Content -Path \"C:\\\\Users\\\\Administrator\\\\Desktop\\\\微信桥接.bat\" -Encoding Byte -TotalCount 3 | ForEach-Object { \"{0:X2}\" -f $_ })",
       "Bash(pnpm dev *)",
       "Bash(sed -i '95d' \"G:/myblog/Firefly/src/config.ts\")",
-      "Bash(sed -i 's/^\\\\t\\\\t\\\\t\\\\tname: \"About\"/\\\\t\\\\t\\\\t{\\\\n\\\\t\\\\t\\\\tname: \"About\"/' \"G:/myblog/Firefly/src/config.ts\")"
+      "Bash(sed -i 's/^\\\\t\\\\t\\\\t\\\\tname: \"About\"/\\\\t\\\\t\\\\t{\\\\n\\\\t\\\\t\\\\tname: \"About\"/' \"G:/myblog/Firefly/src/config.ts\")",
+      "Bash(command -v git)",
+      "Bash(git --version)"
     ]
   }
 }
