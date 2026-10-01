@@ -1,5 +1,7 @@
 # CLAUDE.md
 
+本文件是本仓库的**唯一事实源**（2026-09-30 起）。此前并存的 `AGENTS.md` 与 `QWEN.md` 内容大幅过期——英文分类（Software/Technical/AIHacks/Workflow/Xenia）、GitHub Pages `page` 分支部署、字体走 CDN、`tags` 用内联数组、`src/content/config.ts`、147 条友链等说法**均已不实**——已删除，不要凭记忆恢复。
+
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
 ## 项目概述
@@ -33,13 +35,13 @@ pnpm del-space      # 删除文件名空格
 ### 集合配置
 
 - `posts` — 唯一真正加载的集合，glob `**/*.{md,mdx}` base `./src/content/posts`。schema 见 `src/content.config.ts`。
-- `Zen` / `01-输入` / `Xenia` / `Yoke` / `Memoria` — **空 loader 占位**（simple loader 空实现 `emptyLoader`，不触碰文件系统），阻止 Astro 自动为这些 Obsidian 目录创建 collection。不要删除这些空定义；目录即使不存在也不会再产生 glob-loader 警告。
+- `Zen` / `01-输入` / `Xenia` / `Yoke` / `Memoria` — **空 loader 占位**（simple loader 空实现 `emptyLoader`，不触碰文件系统），阻止 Astro 自动为这些 Obsidian 目录创建 collection。不要删除这些空定义；目录即使不存在也不会再产生 glob-loader 警告。其中只有 `Memoria/` 在本仓库实际存在，其余四个目录并不存在（纯防御性占位）。
 
 ### 博客文章
 
-- 路径：`src/content/posts/{分类}/`。实际使用的分类是 **中文文件夹名**：`AI` / `Android` / `嵌入式` / `运维` / `其它`（数据驱动，非硬编码）。
+- 路径：`src/content/posts/{分类}/`。目录名是**物理归档**，实际分类以 frontmatter 的 **`category` 字段为准**——侧栏 `CategoryList.astro` 与 `categories/[category].astro` 已统一到该口径（2026-09-30 修复：侧栏原先按目录名过滤，会把 `category` 有值但目录不同名的分类隐藏掉）。现存 1 篇 `category: AI 编程` 位于 `AI/` 目录下，属正常。常用分类：`AI` / `Android` / `嵌入式` / `运维` / `其它`。
 - 侧边栏 `CategoryList.astro` 从 posts 的 `category` 字段动态聚合，链接到 `/categories/{category}/`。
-- frontmatter 关键规则：`published` 用连字符 ISO 日期；`tags` 用数组格式；布尔值小写；`image` 可空（留空自动提取正文第一张图）；`draft: true` 在 `PROD` 下过滤。frontmatter 里可用内联注释（如 `draft: false # true=草稿`）。
+- frontmatter 关键规则：`published` 用连字符 ISO 日期；`tags` 用 YAML 列表（现有文章一律块状换行 `- x`，内联 `[a, b]` 同样合法）；布尔值小写；`image` 可空（留空自动提取正文第一张图）；`draft: true` 在 `PROD` 下过滤。frontmatter 里可用内联注释（如 `draft: false # true=草稿`）。
 - `getSortedPosts()`（`src/utils/content-utils.ts`）是文章列表/详情/归档的通用入口：置顶在前，按 `published` 倒序，并回填 prev/next。
 
 ### Memoria → /notes 碎片笔记
@@ -49,11 +51,10 @@ pnpm del-space      # 删除文件名空格
 - `/notes/` 页面（`src/pages/notes/index.astro`）客户端筛选 + 分页。
 - `src/integrations/memoria-assets.ts` 在 build/server 启动时把 `Memoria/attachments` 同步到 `public/memoria-attachments/`。
 
-### Library（Zettelkasten）与素材输入
+### Library / 素材输入（当前悬空，勿当既有事实）
 
-- `src/content/01-输入/` 是 Obsidian 素材库（Clipings / get笔记 / 微信 / Daily 等子目录）。
-- `src/content/Library/` 是经 `/Update` skill 编译的知识库（`sources/` `entities/` `concepts/` `syntheses/`），不参与 Astro 渲染。
-- `src/content/.claude/skills/` 里有一套内容管线 skill（`Update`、`up-Library-ingest`、`up-index`、`Library-query`、`Library-lint`），用于素材编译与索引。
+- `src/content/01-输入/` 与 `src/content/Library/` **在本仓库并不存在**。`src/content/.claude/skills/` 里那套内容管线 skill（`Update`、`up-Library-ingest`、`up-index`、`Library-query`、`Library-lint`）全部围绕这两个目录设计，**目标路径落空**；而且 skill 内把仓库写死成 `D:\project2026\fuwari`，与当前工作目录不符。若要启用，先改路径并建目录。
+- `src/content/claude.md`（《内容规范》）同样指向另一个仓库（`D:\project2026\fuwari`、`dqtx760/Firefly`）与其 `wiki/` 结构，其中的英文分类表与 Gitee 图床要求已与现状脱节——它如今只有「写作风格」和「tags 用块状列表」这两部分仍然有效。
 
 ### Vite 忽略插件（astro.config.mjs 内联）
 
@@ -73,7 +74,7 @@ pnpm del-space      # 删除文件名空格
 
 ### 组件分层
 
-- `src/components/widget/` — 侧边栏组件（Profile、CategoryList、TagList 3D 标签云、TOC、SideBar、PageHeader 等）
+- `src/components/widget/` — 侧边栏组件（Profile、CategoryList、TagList 标签云、TOC、SideBar、PageHeader 等）。注意 `TagList.astro` 已**不是** 3D 标签云，而是普通 chip 列表（`slice(0, 30)`）。
 - `src/components/control/` — Pagination、BackToTop
 - `src/components/misc/` — Markdown、ImageWrapper、License
 - `Search.svelte` 用 `client:only="svelte"`（跳过 SSR），Navbar 用固定宽度容器包裹它避免 SSR/客户端 DOM 宽度不一致导致的点击抖动。`DisplaySettings.svelte` 同理。
@@ -81,11 +82,19 @@ pnpm del-space      # 删除文件名空格
 ### 页面
 
 - `src/pages/posts/[...slug].astro` — 文章详情（Giscus 评论 + Markdown 渲染管线）
-- `src/pages/posts/[page].astro` — 文章列表分页
+- **没有 `src/pages/index.astro`**：首页与文章列表分页都在根 `src/pages/[...page].astro`，`PAGE_SIZE = 8`（`src/constants/constants.ts`）。
 - `src/pages/categories/[category].astro`、`src/pages/tags/[tag].astro`、`src/pages/archive/index.astro`
 - `src/pages/notes/index.astro` — 碎片笔记（见上）
 - `src/pages/nav.astro` + `src/data/nav/*.json` — 导航站页面
-- `src/pages/rss.xml.ts`、`src/pages/robots.txt.ts`、404、about、friends、sponsors
+- `src/pages/friends.astro` + `src/data/friends/*.json` — 友链页
+- `src/pages/rss.xml.ts`、`src/pages/robots.txt.ts`、404、about、sponsors
+
+### 搜索、字体与友链
+
+- **搜索**：无 pagefind、无构建期索引文件。`Search.svelte` 在 `onMount` 里 `fetch("/rss.xml")`，用 DOMParser 解析 `<item>` 做客户端 `includes` 匹配——即「拿 RSS 当索引」。源码里残留的 `data-pagefind-*` 属性（`Markdown.astro`、`posts/[...slug].astro`、`astro.config.mjs`）是死代码。
+- **字体**：`Layout.astro` 直接 `import "lxgw-wenkai-webfont/style.css"`，是**自托管打包而不是 CDN**。`dist/_astro` 里有 592 个 woff2 子集、约 28 MB（占全站产物 66%）；靠 `unicode-range` 按需下载，单页开销不大，但部署体积与上传时间可观。
+- **友链**：`src/data/friends/*.json`（glob 读取，一个文件一条友链；schema 见 `src/types/data.ts` 的 `Friend` 接口与目录内的 `README.md`）。该目录曾长期缺失，导致 `/friends/` 渲染为空页——页面现已加空态提示。
+- **赞助页**：`/sponsors/` 的收款码图片（`/sponsors/alipay.webp`、`/sponsors/wechat.png`）所指目录不存在，已改为纯文字说明；放图后需同步改回。
 
 ### .astro 编写陷阱
 
@@ -100,7 +109,7 @@ remark：math → reading-time → excerpt → GitHub admonitions → directives
 ### 样式
 
 - `src/styles/main.css` — 全局 + `card-base` 组件类 + rainbow mode
-- `src/styles/markdown.css`、`expressive-code.css`、`scrollbar.css`、`transition.css`（Swup 页面过渡）
+- `src/styles/markdown.css`、`expressive-code.css`、`scrollbar.css`、`transition.css`。注意 **Swup 已被移除**（依赖里没有 swup），`transition.css` 与 `MainGridLayout.astro` 的 `#swup-container`、`astro:page-load` 都是遗留，别据此推断有页面过渡。
 - 布局：`src/layouts/Layout.astro`（head 内联主题初始化脚本，防闪烁）+ `MainGridLayout.astro`（带侧边栏网格）
 
 ### 路径别名
@@ -122,6 +131,6 @@ remark：math → reading-time → excerpt → GitHub admonitions → directives
 ### 站点后台状态（2026-09-16 用户确认）
 
 - **Always Use HTTPS 已开启**：`http://bigfox.me/`、`http://www.bigfox.me/` 及深路径均实测 301 → HTTPS。
-- **giscus App 已安装**：文章页 `data-repo` / `data-repo-id` / `data-category-id` 实测正确，仓库 Discussions 已启用且 `Announcements` 分类 id 与 `src/config.ts` 一致。
+- **giscus App 已安装**：文章页的 `data-repo` / `data-repo-id` / `data-category-id` 是**硬编码在 `src/pages/posts/[...slug].astro` 里的**（`src/config.ts` 中并没有 giscus 配置），由 `Layout.astro` 的脚本读取这些 `data-*` 注入 iframe。仓库 Discussions 已启用，分类为 `Announcements`。
 - **`@bigfox.me` 邮箱暂不使用**，zone 内没有 MX 记录是有意为之，不要"顺手补上"。
 - CI 日志里有 Node 20 弃用注释（指 `actions/checkout@v4` 等 **action 自身**的运行环境被强制跑在 Node 24，与 workflow 里的 `node-version: 22` 是两回事），**不影响构建**；等 GitHub 彻底移除 Node 20 运行时再升级 action 版本。

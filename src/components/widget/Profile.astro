@@ -306,43 +306,6 @@ for (const post of posts) {
         document.body.style.overflow = '';
     }
 
-    // 打开赞助弹窗
-    function openSponsorModal() {
-        const modal = document.getElementById('sponsor-modal');
-        modal.classList.remove('hidden');
-        modal.style.display = 'flex';
-        document.body.style.overflow = 'hidden';
-    }
-
-    // 关闭赞助弹窗
-    function closeSponsorModal() {
-        const modal = document.getElementById('sponsor-modal');
-        modal.classList.add('hidden');
-        modal.style.display = 'none';
-        document.body.style.overflow = '';
-    }
-
-    // 切换支付方式
-    function switchPayment(type) {
-        const qrImg = document.getElementById('sponsor-qr-img');
-        const wechatTab = document.getElementById('wechat-pay-tab');
-        const alipayTab = document.getElementById('alipay-tab');
-
-        if (type === 'wechat') {
-            qrImg.src = '/sponsors/wechat.png';
-            wechatTab.style.background = 'rgba(255,255,255,0.15)';
-            wechatTab.style.color = 'white';
-            alipayTab.style.background = 'transparent';
-            alipayTab.style.color = 'rgba(255,255,255,0.6)';
-        } else {
-            qrImg.src = '/sponsors/alipay.png';
-            alipayTab.style.background = 'rgba(255,255,255,0.15)';
-            alipayTab.style.color = 'white';
-            wechatTab.style.background = 'transparent';
-            wechatTab.style.color = 'rgba(255,255,255,0.6)';
-        }
-    }
-
     // 复制微信号
     function copyModalWx(e) {
         if (e) e.stopPropagation();
@@ -376,7 +339,6 @@ for (const post of posts) {
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
             closeQRModal();
-            closeSponsorModal();
         }
     });
 </script>

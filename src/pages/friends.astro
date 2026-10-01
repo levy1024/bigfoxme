@@ -39,7 +39,17 @@ const sortedCategories = Array.from(friendsByCategory.entries()).sort((a, b) =>
             如果您也想加入友链名单，关注我的微信公众号，并联系我。
         </p>
 
-        <!-- 按分类显示友链 -->
+        <!-- 按分类显示友链；数据为空时给出空态提示而不是留白 -->
+        {sortedCategories.length === 0 ? (
+            <div class="text-center py-12">
+                <p class="text-base text-black/60 dark:text-white/60">
+                    友链列表还在整理中，敬请期待。
+                </p>
+                <p class="mt-2 text-sm text-black/40 dark:text-white/40">
+                    如果你是站长，欢迎通过上面的方式联系我互换友链。
+                </p>
+            </div>
+        ) : (
         <div class="space-y-8">
             {sortedCategories.map(([category, categoryFriends]) => (
                 <div class="category-section">
@@ -65,6 +75,7 @@ const sortedCategories = Array.from(friendsByCategory.entries()).sort((a, b) =>
                 </div>
             ))}
         </div>
+        )}
     </div>
 </MainGridLayout>
 

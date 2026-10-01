@@ -1,12 +1,10 @@
 ---
-import fs from "node:fs";
-import path from "node:path";
+import { getCollection } from "astro:content";
 /**
  * 文章分类组件
  * 显示所有分类及其文章数量
- * 自动检测 content/posts 下的文件夹作为分类
+ * 分类以 frontmatter 的 category 字段为准，与 categories/[category].astro 保持一致
  */
-import { getCollection } from "astro:content";
 
 // 获取所有文章并统计分类
 const allPosts = await getCollection("posts", ({ data }) => {
@@ -20,38 +18,13 @@ for (const post of allPosts) {
 	categoryCount.set(category, (categoryCount.get(category) || 0) + 1);
 }
 
-// 自动检测 content/posts 下的文件夹作为分类
-const postsDir = path.join(process.cwd(), "src/content/posts");
-let validCategories: Set<string>;
-
-if (fs.existsSync(postsDir)) {
-	const folders = fs
-		.readdirSync(postsDir, { withFileTypes: true })
-		.filter((dirent) => dirent.isDirectory())
-		.map((dirent) => dirent.name);
-	validCategories = new Set(folders);
-} else {
-	validCategories = new Set(["Software", "Technical", "AIHacks", "Other"]);
-}
-
-// 自定义分类排序顺序
-const customOrder = ["Software", "Technical", "AIHacks", "Other"];
-
-// 转换为数组并排序
+// 转换为数组并按分类名排序
 const categories = Array.from(categoryCount.entries())
-	.filter(([name]) => validCategories.has(name))
 	.map(([name, count]) => ({
 		name,
 		count,
 	}))
-	.sort((a, b) => {
-		const aIndex = customOrder.indexOf(a.name);
-		const bIndex = customOrder.indexOf(b.name);
-		if (aIndex !== -1 && bIndex !== -1) return aIndex - bIndex;
-		if (aIndex !== -1) return -1;
-		if (bIndex !== -1) return 1;
-		return a.name.localeCompare(b.name);
-	});
+	.sort((a, b) => a.name.localeCompare(b.name));
 ---
 
 <div class="card-base p-3 border border-black/10 dark:border-white/10">

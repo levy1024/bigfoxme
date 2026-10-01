@@ -8,35 +8,29 @@ export async function getStaticPaths() {
 		return import.meta.env.PROD ? data.draft !== true : true;
 	});
 
-	// 获取所有唯一的分类
+	// 分类以 frontmatter 的 category 字段为准，路径参数即分类名
 	const categories = [
 		...new Set(posts.map((post) => post.data.category || "未分类")),
 	];
 
-	// 英文名称映射
-	const categoryEnglishName = new Map<string, string>();
-	categoryEnglishName.set("软件安利", "Software");
-	categoryEnglishName.set("技术教程", "Technical");
-	categoryEnglishName.set("AI新鲜玩法", "AIHacks");
-
 	return categories.map((category) => ({
-		params: { category: categoryEnglishName.get(category) || category },
-		props: { chineseName: category },
+		params: { category },
+		props: { category },
 	}));
 }
 
-const { category: englishCategory } = Astro.params;
-const { chineseName } = Astro.props;
+// 路径参数与 props 同源，都直接使用分类名
+const { category } = Astro.props;
 
-// 获取当前分类的文章（使用英文名过滤，与侧边栏保持一致）
+// 获取当前分类的文章（与侧边栏 CategoryList 口径一致）
 const allPosts = await getSortedPosts();
 const categoryPosts = allPosts.filter(
-	(post) => (post.data.category || "未分类") === englishCategory,
+	(post) => (post.data.category || "未分类") === category,
 );
 
 const config = {
-	title: `${englishCategory} - 文章分类`,
-	description: `查看所有 ${chineseName}(${englishCategory}) 分类下的文章`,
+	title: `${category} - 文章分类`,
+	description: `查看所有 ${category} 分类下的文章`,
 };
 ---
 
@@ -44,7 +38,7 @@ const config = {
     <div class="card-base p-6 rounded-xl">
         <div class="mb-6">
             <h1 class="text-2xl font-bold text-neutral-800 dark:text-neutral-200 mb-2">
-                📁 {englishCategory}
+                📁 {category}
             </h1>
             <p class="text-neutral-600 dark:text-neutral-400">共 {categoryPosts.length} 篇文章</p>
         </div>
