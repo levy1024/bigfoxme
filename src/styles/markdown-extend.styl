@@ -108,9 +108,12 @@
   tbody tr:hover td
     background: rgba(0, 0, 0, 0.6)
 
-  // 表格内加粗文字显示蓝色
-  td strong, td b, td [style*="font-weight"]
-    color: var(--primary)
+  // 表格内加粗文字：表格底色是固定的近黑（被 markdown.css 的 #3d3d3a !important 定死），
+  // 不能用 var(--primary)——浅色模式下它是深海军蓝 #1B365D，压在近黑底上对比度仅 1.11:1，几乎不可见。
+  // 这里改用亮蓝 #7FB3E8（对比度 4.94:1，达 WCAG AA 正文；深色模式仍用原金色），
+  // 并补上原先漏掉的表头单元格 th。
+  td strong, td b, td [style*="font-weight"], th strong, th b
+    color: var(--table-strong)
 
   // 表格内链接颜色 - 在深色背景上需要亮色
   td a, th a
