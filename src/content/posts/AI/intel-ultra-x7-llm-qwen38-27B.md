@@ -25,14 +25,15 @@ Qwen3.8-27B，可以说是当下本地部署的当红炸子鸡，手里的 Ultra
 随便输入一个问题，最后有速度统计：  
 ![llama-qwen38-q4-2](/images/posts/llama-qwen38-q4-2.png)
 
+下面是部署过程的 AI 总结：
 
-## 说明
 
-> **目标机型**：Intel Core Ultra 处理器 + Arc 核显（无 NVIDIA 独显）的 Windows 11 电脑  
-> **部署方案**：llama.cpp (SYCL) + Qwen3.8-27B-Q4 量化模型  
-> **实测验证**：2026-09 于 Intel Core Ultra X7 358H + Arc B390 + 32GB DDR5-9600 平台完整部署成功  
-> **文档用途**：相同/相似配置的电脑可按本文档从零复现完整部署  
+## Intel 核显电脑本地大模型部署指南
 
+> **目标机型**：Intel Core Ultra 处理器 + Arc 核显（无 NVIDIA 独显）的 Windows 11 电脑
+> **部署方案**：llama.cpp (SYCL) + Qwen3.8-27B-Q4 量化模型
+> **实测验证**：2026-09 于 Intel Core Ultra X7 358H + Arc B390 + 32GB DDR5-9600 平台完整部署成功
+> **文档用途**：相同/相似配置的电脑可按本文档从零复现完整部署
 
 ## 硬件要求与选型分析
 
@@ -42,7 +43,7 @@ Qwen3.8-27B，可以说是当下本地部署的当红炸子鸡，手里的 Ultra
 |------|------|
 | CPU | Intel Core Ultra X7 358H（16 核，Panther Lake） |
 | 内存 | 32GB DDR5-9600 |
-| GPU | Intel Arc B390 核显（Xe3 架构，12 Xe 核心 / 96 EU，共享系统内存，GPU 可用约 17.6GB） |
+| GPU | Intel Arc B390 核显（Xe3 架构，12 Xe 核心 / 96 EU，**共享系统内存**，GPU 可用约 17.6GB） |
 | 系统 | Windows 11 家庭中文版 |
 | 硬盘 | 需要约 45GB 可用空间（建议 SSD） |
 
@@ -56,7 +57,7 @@ Qwen3.8-27B，可以说是当下本地部署的当红炸子鸡，手里的 Ultra
 | 方案 | GPU 加速 | 部署难度 | 性能 | 结论 |
 |------|---------|---------|------|------|
 | Ollama | Intel GPU 支持有限 | ⭐ 最简单 | 一般 | 不选 |
-| llama.cpp + SYCL | ✅ 原生支持 level_zero | ⭐⭐⭐ 中等 | ✅ 最佳 | 选择 |
+| **llama.cpp + SYCL** | ✅ 原生支持 level_zero | ⭐⭐⭐ 中等 | ✅ 最佳 | **选择** |
 | OpenVINO | ✅ Intel 官方 | ⭐⭐ 中等 | 中等 | 备选 |
 
 **选型结论：llama.cpp SYCL 后端 + level_zero:gpu 设备**，这是 Intel 核显跑大模型的最优路径。
@@ -67,7 +68,7 @@ Qwen3.8-27B，可以说是当下本地部署的当红炸子鸡，手里的 Ultra
 |---------|-----------|---------|-------------|
 | 7B-8B | ~5GB | ✅ 流畅 | 18-20 t/s |
 | 13B-14B | ~9GB | ✅ 流畅 | 10-12 t/s |
-| 27B (Qwen3.8) | 15.33GB | ✅ 可运行 | 5-6 t/s |
+| **27B (Qwen3.8)** | **15.33GB** | **✅ 可运行** | **5-6 t/s** |
 | 70B | ~40GB | ❌ 超出内存 | 不可行 |
 
 **质量优先选 27B（本文档方案）**；速度优先选 14B/8B。模型文件可共存，随时切换。
@@ -90,7 +91,7 @@ Qwen3.8-27B，可以说是当下本地部署的当红炸子鸡，手里的 Ultra
 |------|---------|------|---------|
 | Git (Portable) | `D:\AI_Tools\Git` | 源码管理 | 脚本自动 |
 | CMake | `D:\AI_Tools\CMake` | 构建系统 | 脚本自动 |
-| Intel oneAPI Base Toolkit | `D:\AI_Tools\Intel\oneAPI` | icx 编译器 + SYCL 运行时 | 手动安装 |
+| Intel oneAPI Base Toolkit | `D:\AI_Tools\Intel\oneAPI` | icx 编译器 + SYCL 运行时 | **手动安装** |
 | VS Build Tools 2022 | `D:\AI_Tools\VS_BuildTools` | MSVC link.exe + Windows SDK（icx 硬依赖） | winget 自动 |
 | Ninja | `D:\AI_Tools\ninja` | 构建执行器 | 脚本自动 |
 | llama.cpp 源码 | `D:\AI_Tools\llama.cpp` | 推理引擎 | zip 解压 |
@@ -354,8 +355,7 @@ Found 1 SYCL devices:
 | 退出 | `/exit` |
 | 保存/恢复会话 | `/save 文件名` / `/load 文件名` |
 
-### 常用启动参数
-追加在 bat 的 llama-cli 命令后：  
+**常用启动参数**（追加在 bat 的 llama-cli 命令后）：
 
 | 参数 | 说明 |
 |------|------|
@@ -364,16 +364,15 @@ Found 1 SYCL devices:
 | `-n 256` | 限制单次最大生成 token 数 |
 | `--single-turn` | 单轮问答后自动退出（脚本调用场景） |
 
-### 性能参考
-交互中会显示 `[ Prompt: x t/s | Generation: x t/s ]`。Generation 5-6 t/s 为本机正常水平；Prompt 速度低于 bench 的 pp128 属正常（逐 token vs 批量）。
+**性能参考**：交互中会显示 `[ Prompt: x t/s | Generation: x t/s ]`。Generation 5-6 t/s 为本机正常水平；Prompt 速度低于 bench 的 pp128 属正常（逐 token vs 批量）。
 
-### 上下文长度说明
+### 上下文长度说明（-c 参数）
 
 启动脚本中 `-c 4096` 即当前上下文长度设置，含义与影响如下：
 
 | 项目 | 数值 | 说明 |
 |------|------|------|
-| 当前设置 | 4096 tokens | 约能容纳 3000 字中文的对话历史 |
+| 当前设置 | **4096 tokens** | 约能容纳 3000 字中文的对话历史 |
 | 模型原生上限 | 262,144 tokens（256K） | 本地内存无法支撑，通过 -c 限制实际使用量 |
 | 上下文耗尽表现 | 模型开始"遗忘"早期内容，且响应变慢 | 长对话后属正常现象 |
 
@@ -460,7 +459,7 @@ SYCL 运行时 DLL 未找到——手工拼 PATH 缺 DLL。
 **解法**：对该目录操作时以实际用户权限执行；或用管理员 PowerShell 操作。
 
 
-## 附录
+## 六、附录
 
 ### 版本信息（实测通过的组合）
 
@@ -498,5 +497,6 @@ Remove-Item -Recurse -Force D:\AI_Tools
 Remove-Item "$env:USERPROFILE\Desktop\Qwen3.8-27B.lnk"
 # 再从 PATH 环境变量中删除 D:\AI_Tools 相关条目
 ```
+
 
 *文档生成：2026-09-29，基于一次完整的真实部署过程整理。*

@@ -3,7 +3,7 @@ title: "信任 AI，把它当朋友，它会给你惊喜 —— 记一次与 AI 
 published: 2026-08-10
 tags:
 - AI 对话
-category: AI 编程
+category: AI
 draft: false			# true=草稿不显示，false=公开
 pinned: false		# true=置顶
 image: 

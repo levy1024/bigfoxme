@@ -18,13 +18,24 @@ for (const post of allPosts) {
 	categoryCount.set(category, (categoryCount.get(category) || 0) + 1);
 }
 
-// 转换为数组并按分类名排序
+// 侧边栏分类的固定顺序。想调整上下位置，改这个数组即可；
+// 未列出的分类排在它们后面（按篇数从多到少）。
+const CATEGORY_ORDER = ["嵌入式", "AI", "运维", "Android", "其它"];
+
+// 转换为数组并排序
 const categories = Array.from(categoryCount.entries())
 	.map(([name, count]) => ({
 		name,
 		count,
 	}))
-	.sort((a, b) => a.name.localeCompare(b.name));
+	.sort((a, b) => {
+		const indexA = CATEGORY_ORDER.indexOf(a.name);
+		const indexB = CATEGORY_ORDER.indexOf(b.name);
+		if (indexA !== -1 && indexB !== -1) return indexA - indexB;
+		if (indexA !== -1) return -1;
+		if (indexB !== -1) return 1;
+		return b.count - a.count;
+	});
 ---
 
 <div class="card-base p-3 border border-black/10 dark:border-white/10">
