@@ -115,9 +115,11 @@
   td strong, td b, td [style*="font-weight"], th strong, th b
     color: var(--table-strong)
 
-  // 表格内链接颜色 - 在深色背景上需要亮色
+  // 表格内链接颜色：表格底色固定为近黑，浅色模式下原来用的 #6B9BD2 对比度只有 3.76:1，
+  // 不足 WCAG AA 正文标准，这里提到 #7FB3E8（4.94:1，与表格内粗体同色）。
+  // 深色模式保持原来的 #6B9BD2 不变。
   td a, th a
-    color: #6B9BD2 !important
+    color: var(--table-link) !important
     text-decoration: underline
     text-decoration-style: dashed
     &:hover
