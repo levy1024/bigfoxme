@@ -1,14 +1,21 @@
 ---
-title: "Ultra X7 358H 笔记本电脑，本地部署 Qwen3.8-27B-Q4，实测生成速度 5.6 t/s"
+title: "Ultra X7 358H 笔记本电脑，本地部署 Qwen3.8-27B-Q4，实测生成速度 5.6 tok/s"
 published: 2026-09-29
 tags:
-- AI
+- LLM
 - 本地部署
 category: AI
 draft: false			# true=草稿不显示，false=公开
 pinned: false		# true=置顶
 image: 
 ---
+
+Qwen3.8-27B，可以说是当下本地部署的当红炸子鸡，手里的 Ultra X7 358H 笔记本电脑，一直想试一试，到底能不能运行起来。 
+
+今天终于完成了部署，有几点确实是给了我惊喜：  
+- Inter Ultra X7 358H 是统一内存架构，核显 Arc B390 共享系统内存！（这点太重要了）
+- Intel GPU 的加速，可以通过 llama.cpp + SYCL 实现。
+- 部署全程不用我去找资料，不用我去敲命令，直接给大模型提要求就行了。（Deepseek Harness + Deepseek V4.1 Flash）
 
 ## 本地运行成功
 全部部署成功后，双击桌面 “Qwen3.8-27B” 快捷方式：  
