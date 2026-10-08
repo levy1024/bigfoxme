@@ -1,24 +1,28 @@
 ---
 title: "Ultra X7 358H 笔记本电脑，寻找本地用于编码的最强大模型，实测 23~24 tok/s，上下文 256K"
-published: 2026-10-01
+published: 2026-10-02
 tags:
 - LLM
 - 本地部署
 category: AI
-draft: false			# true=草稿不显示，false=公开
+draft: false		# true=草稿不显示，false=公开
 pinned: false		# true=置顶
 image: 
 ---
 
-我的笔记本电脑，CPU是 Ultra X7 358H，想寻找一套本地用于编码的最强大模型，AI 给我选型了 Qwen3.6-35B-A3B。 并通过 AI 部署成功，下面是 AI 的总结报告。  
+我的笔记本电脑，CPU 是 Intel 的 Ultra X7 358H，在之前文章[《Ultra X7 358H 笔记本电脑，本地部署当红炸子鸡 Qwen3.8-27B-Q4，实测生成速度 5.6 tok/s》](#post:intel-ultra-x7-llm-qwen38-27b)中，已完成 Qwen3.8-27B-Q4 模型的本地部署。
+但是实际生成速度太慢了，于是便想寻找一个适用于本机的用于编码的最强大模型，Deepseek Harness Desktop + Deepseek V4.1 Flash 给我选型了 Qwen3.6-35B-A3B，并帮我部署成功。
 
-## 本机编码用大模型：Qwen3.6-35B-A3B 选型与部署报告
+下面是 AI 的总结报告。 
 
-> 目标：在这台**没有 NVIDIA 显卡**的笔记本上，搭一套**本地、离线、能用于编码**的大模型。
-> 最终方案：**llama.cpp + SYCL 跑 Qwen3.6-35B-A3B（UD-Q3_K_M 量化，15.46 GiB）**，
-> 实测 **23~24 tok/s**，官方 SWE-bench Verified **73.4**，上下文实测可开到模型原生的 **256K**。
->
-> 本文所有数字均为本机实测，来源见文末。
+
+## 概述
+
+> 目标：在这台**没有 NVIDIA 显卡**的笔记本上，搭一套**本地、离线、能用于编码**的大模型。  
+> 最终方案：**llama.cpp + SYCL 跑 Qwen3.6-35B-A3B（UD-Q3_K_M 量化，15.46 GiB）**。  
+> 实测 **23~24 tok/s**，官方 SWE-bench Verified **73.4**，上下文实测可开到模型原生的 **256K**。  
+>  
+> 本文所有数字均为本机实测，来源见文末。  
 
 
 ## 结论摘要

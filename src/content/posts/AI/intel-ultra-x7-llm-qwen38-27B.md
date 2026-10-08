@@ -1,39 +1,43 @@
 ---
-title: "Ultra X7 358H 笔记本电脑，本地部署 Qwen3.8-27B-Q4，实测生成速度 5.6 tok/s"
-published: 2026-09-29
+title: "Ultra X7 358H 笔记本电脑，本地部署当红炸子鸡 Qwen3.8-27B-Q4，实测生成速度 5.6 tok/s"
+published: 2026-10-01
 tags:
 - LLM
 - 本地部署
 category: AI
-draft: false			# true=草稿不显示，false=公开
+draft: false		# true=草稿不显示，false=公开
 pinned: false		# true=置顶
 image: 
 ---
 
-Qwen3.8-27B，可以说是当下本地部署的当红炸子鸡，手里的 Ultra X7 358H 笔记本电脑，一直想试一试，到底能不能运行起来。 
+Qwen3.8-27B，可以说是当下消费级显卡本地部署的当红炸子鸡，手里的 Ultra X7 358H 笔记本电脑，已经买了好几个月了，一直想试一试，这款所谓的 AIPC 到底能不能运行起来。 
 
-今天终于完成了部署，有几点确实是给了我惊喜：  
-- Inter Ultra X7 358H 是统一内存架构，核显 Arc B390 共享系统内存！（这点太重要了）
+趁着国庆节放假，今天终于完成了部署，有几点确实是给了我惊喜：  
+- Inter Ultra X7 358H 是统一内存架构，核显 Arc B390 共享系统内存！（这一点太重要了）
 - Intel GPU 的加速，可以通过 llama.cpp + SYCL 实现。
-- 部署全程不用我去找资料，不用我去敲命令，直接给大模型提要求就行了。（Deepseek Harness + Deepseek V4.1 Flash）
+- 部署全程不用去找资料，不用去敲命令，直接给大模型提要求就行了。（我使用的是 Deepseek Harness Desktop + Deepseek V4.1 Flash）
 
-## 本地运行成功
-全部部署成功后，双击桌面 “Qwen3.8-27B” 快捷方式：  
+
+## 先看结果
+
+### 本地运行成功
+全部部署成功后，双击桌面 “Qwen3.8-27B” 快捷方式，当出现符号 >，等待输入的那一刻，心情还是很激动的： 
 ![llama-qwen38-q4-1](/images/posts/llama-qwen38-q4-1.png)
 
-## 实测结果：5.6 t/s
-随便输入一个问题，最后有速度统计：  
+### 单次实测结果：5.6 t/s
+随便输入一个问题，最后有速度统计，5.6 t/s —— 这速度，几个字不停地往外吐，用惯了各大模型的在线 API，只能说，激动的同时又满含失落：
 ![llama-qwen38-q4-2](/images/posts/llama-qwen38-q4-2.png)
 
-下面是部署过程的 AI 总结：
+如何部署的，AI 总结得比我强多了，没必要吃力不讨好，自己去写。下面是部署过程的 AI 总结，有需要和兴趣的，可以阅读。
 
 
-## Intel 核显电脑本地大模型部署指南
+## 概述
 
-> **目标机型**：Intel Core Ultra 处理器 + Arc 核显（无 NVIDIA 独显）的 Windows 11 电脑
-> **部署方案**：llama.cpp (SYCL) + Qwen3.8-27B-Q4 量化模型
-> **实测验证**：2026-09 于 Intel Core Ultra X7 358H + Arc B390 + 32GB DDR5-9600 平台完整部署成功
-> **文档用途**：相同/相似配置的电脑可按本文档从零复现完整部署
+> **目标机型**：Intel Core Ultra 处理器 + Arc 核显（无 NVIDIA 独显）的 Windows 11 电脑。  
+> **部署方案**：llama.cpp (SYCL) + Qwen3.8-27B-Q4 量化模型。  
+> **实测验证**：2026-10 于 Intel Core Ultra X7 358H + Arc B390 + 32GB DDR5-9600 平台完整部署成功。  
+> **文档用途**：相同/相似配置的电脑可按本文档从零复现完整部署。  
+
 
 ## 硬件要求与选型分析
 
@@ -111,7 +115,6 @@ D:\AI_Tools\
 ├── start_qwen38.bat        # 对话启动脚本
 └── bench_qwen38.bat        # 性能测试脚本
 ```
-
 
 ## 完整部署流程
 
@@ -347,6 +350,8 @@ Found 1 SYCL devices:
 
 ## 日常使用
 
+### 使用方式
+
 | 操作 | 方式 |
 |------|------|
 | 启动对话 | 双击桌面 "Qwen3.8-27B" 快捷方式 |
@@ -355,7 +360,8 @@ Found 1 SYCL devices:
 | 退出 | `/exit` |
 | 保存/恢复会话 | `/save 文件名` / `/load 文件名` |
 
-**常用启动参数**（追加在 bat 的 llama-cli 命令后）：
+### 常用启动参数
+追加在 bat 的 llama-cli 命令后：
 
 | 参数 | 说明 |
 |------|------|
@@ -364,7 +370,8 @@ Found 1 SYCL devices:
 | `-n 256` | 限制单次最大生成 token 数 |
 | `--single-turn` | 单轮问答后自动退出（脚本调用场景） |
 
-**性能参考**：交互中会显示 `[ Prompt: x t/s | Generation: x t/s ]`。Generation 5-6 t/s 为本机正常水平；Prompt 速度低于 bench 的 pp128 属正常（逐 token vs 批量）。
+### 性能参考
+交互中会显示 `[ Prompt: x t/s | Generation: x t/s ]`。Generation 5-6 t/s 为本机正常水平；Prompt 速度低于 bench 的 pp128 属正常（逐 token vs 批量）。
 
 ### 上下文长度说明（-c 参数）
 
@@ -499,4 +506,4 @@ Remove-Item "$env:USERPROFILE\Desktop\Qwen3.8-27B.lnk"
 ```
 
 
-*文档生成：2026-09-29，基于一次完整的真实部署过程整理。*
+*文档生成：2026-10-01，基于一次完整的真实部署过程整理。*

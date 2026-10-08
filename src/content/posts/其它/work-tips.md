@@ -31,16 +31,11 @@ image:
 
 * Android Studio 中，快捷键注释代码  
 以前只会手动输入 // 注释单行，手动输入/* 和 */ 注释多行。还是从一个公司的临时实习生那里看到快捷键注释的，并且再次按下快捷键就取消。  
-```
-在Android Studio中，快捷键注释主要分为行注释和块注释两种方式：
-
-行注释：
-Windows/Linux：Ctrl + /
-Mac：Command + /
-此快捷键会在当前行或选中代码前添加//注释，再次按下可取消注释.
-
-块注释：
-Windows/Linux：Ctrl + Shift + /
-Mac：Command + Shift + /
-此快捷键会将选中的多行代码用/* */包裹起来
-```
+行注释：  
+Windows/Linux：Ctrl + /  
+Mac：Command + /  
+此快捷键会在当前行或选中代码前添加 // 注释，再次按下可取消注释。  
+块注释：  
+Windows/Linux：Ctrl + Shift + /  
+Mac：Command + Shift + /  
+此快捷键会将选中的多行代码用 /\* \*/ 包裹起来。  
