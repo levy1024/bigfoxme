@@ -44,6 +44,21 @@ pnpm del-space      # 删除文件名空格
 - frontmatter 关键规则：`published` 用连字符 ISO 日期；`tags` 用 YAML 列表（现有文章一律块状换行 `- x`，内联 `[a, b]` 同样合法）；布尔值小写；`image` 可空（留空自动提取正文第一张图）；`draft: true` 在 `PROD` 下过滤。frontmatter 里可用内联注释（如 `draft: false # true=草稿`）。
 - `getSortedPosts()`（`src/utils/content-utils.ts`）是文章列表/详情/归档的通用入口：置顶在前，按 `published` 倒序，并回填 prev/next。
 
+### 文章间引用：`#post:` 插件
+
+正文里引用另一篇文章，用 `#post:` 链接，由 `src/plugins/remark-post-reference.mjs` 在构建时解析：
+
+```markdown
+参考 [内存那篇](#post:intel-ultra-x7-llm-memory)
+参考 [](#post:intel-ultra-x7-llm-coding)      ← 链接文字留空则自动填入目标标题
+```
+
+- 「目标」可写**完整 slug**（`ai/intel-ultra-x7-llm-memory`）或**只写文件名**（全站唯一时即可）。大小写、首尾斜杠自动容错。
+- **构建时校验**（本插件的核心价值）：目标不存在 → 报错终止构建并推荐 3 个最接近的候选；文件名重名 → 报错要求写完整 slug；引用了 `draft: true` 的文章 → 生产构建报错。
+- 插件排在 remark 链**最前面**，所以自动填入的标题会被后面的字数统计与摘要正确计入。
+- 索引按「文件路径 + mtime」缓存，dev 下新增/改名/改标题会自动重建，不必重启。
+- **不要手写 `/posts/xxx/` 之类的硬编码内链**——拼错只会在运行时 404，而这个插件会在构建时就拦住。
+
 ### Memoria → /notes 碎片笔记
 
 - 源：`src/content/Memoria/2026.md` 等 Markdown，格式为 `## YYYY-MM-DD 周X` 下挂 `- HH:MM` 条目，`#标签` 结尾。
@@ -65,6 +80,12 @@ pnpm del-space      # 删除文件名空格
 - `content/get` / `get笔记` 引用的本地图片被标记 external
 
 **新增内容文件时注意别踩到这些边界**：不要把可执行 JS/TS 放进 `src/content/` 任何位置（除了已列出的 `obsidian-home-console` 例外），否则 Rollup 会尝试解析并失败。
+
+**样式入口是显式 import，绝不要依赖通配 glob（重要，2026-10-06 踩过）**：
+
+- `src/layouts/Layout.astro` 顶部**显式 import** 了全部全局样式（`main.css`、`variables.styl`、`markdown-extend.styl`、`markdown.css`、`scrollbar.css`、`transition.css`，另有 `expressive-code.css`）。**不要删除这些 import**——它们一度并不存在，全局样式实际是被 `ImageWrapper.astro` 里那句过宽的 `import.meta.glob("../../**")` 顺带打包进来的（glob 是构建期转换，运行时 `if (isLocal)` 分支拦不住它，`src/**` 下所有文件都会成为模块依赖）。
+- 那次教训：为修复 `.docx` 导致的构建失败而把该通配**收窄为图片扩展名**，等于同时切断了全站 CSS 的来源，症状是**文章标题后的 `#` 锚点显形**（`.custom-md h* .anchor { opacity: 0 }` 丢失）与**右侧 TOC 消失**（`--toc-width` 等变量丢失）。
+- **推论**：需要对外提供的下载文件（docx/pdf/zip）放 `public/`（如 `public/docs/`），不要放 `src/`；往 `src/` 里放 Vite 不认识的文件类型会让构建挂在 `vite:build-import-analysis`（`.pdf` 例外，Vite 内置支持）。
 
 ## 架构
 
