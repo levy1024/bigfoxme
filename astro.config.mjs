@@ -25,6 +25,7 @@ import { UrlCardComponent } from "./src/plugins/rehype-component-url-card.mjs";
 import rehypeImageFallback from "./src/plugins/rehype-image-fallback.mjs";
 import { parseDirectiveNode } from "./src/plugins/remark-directive-rehype.js";
 import { remarkExcerpt } from "./src/plugins/remark-excerpt.js";
+import { remarkPostReference } from "./src/plugins/remark-post-reference.mjs";
 import { remarkReadingTime } from "./src/plugins/remark-reading-time.mjs";
 
 // https://astro.build/config
@@ -166,6 +167,9 @@ export default defineConfig({
 	],
 	markdown: {
 		remarkPlugins: [
+			// 放在最前：先把 #post: 引用解析成真实链接并按需填入标题，
+			// 后面的字数统计与摘要才能把它们算进去
+			remarkPostReference,
 			remarkMath,
 			remarkReadingTime,
 			remarkExcerpt,
