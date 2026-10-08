@@ -17,6 +17,18 @@ import type { Favicon } from "../types/config";
 import { url, pathsEqual } from "../utils/url-utils";
 import "lxgw-wenkai-webfont/style.css";
 import "../styles/expressive-code.css";
+// 全局样式必须在这里显式引入。
+// 注意：这些文件原先并没有被任何地方 import —— 它们是靠 ImageWrapper.astro 里
+// 那句过宽的 import.meta.glob("../../**") 被顺带打包进构建的（glob 是构建期转换，
+// 不受运行时分支约束）。2026-10-06 把那句通配收窄为图片扩展名以修复 .docx 导致的
+// 构建失败，全站样式随即集体消失（标题后的 # 锚点显形、右侧 TOC 变量丢失）。
+// 因此千万不要删除下面这些 import，也不要再依赖通配 glob 来引入样式。
+import "../styles/main.css";
+import "../styles/variables.styl";
+import "../styles/markdown-extend.styl";
+import "../styles/markdown.css";
+import "../styles/scrollbar.css";
+import "../styles/transition.css";
 
 interface Props {
 	title?: string;

@@ -28,9 +28,14 @@ const isPublic = src.startsWith("/");
 // biome-ignore lint/suspicious/noImplicitAnyLet: <explanation>
 let img;
 if (isLocal) {
-	const files = import.meta.glob<ImageMetadata>("../../**", {
-		import: "default",
-	});
+	// 只匹配图片扩展名。早先这里写的是 "../../**"，会把 src/ 下所有文件都当模块导入，
+	// 一旦放进 .docx 之类 Vite 不认识的文件类型，整个构建就会因解析失败而中断。
+	const files = import.meta.glob<ImageMetadata>(
+		"../../**/*.{png,jpg,jpeg,webp,avif,gif,svg,ico}",
+		{
+			import: "default",
+		},
+	);
 	let normalizedPath = path
 		.normalize(path.join("../../", basePath, src))
 		.replace(/\\/g, "/");
