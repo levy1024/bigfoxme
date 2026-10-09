@@ -14,7 +14,7 @@ image:
 
 后来在[《Ultra X7 358H 笔记本电脑，寻找本地用于编码的最强大模型，实测 21.0 tok/s，上下文 256K》](#post:intel-ultra-x7-llm-qwen36-35b-a3b)中，AI 发现我这台笔记本电脑可以提升显存，并且能开大得多的上下文，这实在是一个惊喜！
 
-下面是 AI 对实测过程的总结，有兴趣的可以浏览。
+下面是 AI 对实测过程的总结，有兴趣的可以浏览（使用 Deepseek Harness Desktop + Deepseek V4.1 Flash）。
 
 ## 概述
 

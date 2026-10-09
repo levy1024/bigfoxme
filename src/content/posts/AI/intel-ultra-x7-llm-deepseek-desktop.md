@@ -5,28 +5,37 @@ tags:
 - LLM
 - 本地部署
 category: AI
-draft: false			# true=草稿不显示，false=公开
+draft: false		# true=草稿不显示，false=公开
 pinned: false		# true=置顶
 image: 
 ---
 
+大模型本地部署，部署验证不是目的，目的是用来在本地真实的干活。
 
-> **结论：可行，已接入完成，三条路由全部实测通过。**
-> 不需要安装任何插件：DSH 桌面版本就内置了多 provider 适配器 `@deepseek-ai/dsh-llm-pi-ai`，
-> 由 `@deepseek-ai/dsh-base` 以**休眠状态**挂载（0 路由），配置里给出 provider 即被激活。
-> 本机三个模型都是 llama.cpp 的 `llama-server`，即 OpenAI 兼容端点，可直接作为自建路由接入。
+我使用大模型的场景，基本上就是用来编程，所以必须把部署好的大模型，接入编程智能体，才能最大程度发挥作用。
+
+选择哪个编程智能体接入呢，平时用 DeepSeek 的大模型比较多，而且 DeepSeek 在国庆节前刚刚发布了 DeepSeek Harness 桌面版，那就选择它了。
+
+如何接入？不用自己去查文档，直接给 AI 提要求就可以了。
+
+以下是本地模型接入完成后，让 AI 给出的总结报告（使用 Deepseek Harness Desktop + Deepseek V4.1 Flash）。
+
+## 结论：可行
+> **已接入完成，三条路由全部实测通过。**  
+> 不需要安装任何插件：DSH 桌面版本就内置了多 provider 适配器 `@deepseek-ai/dsh-llm-pi-ai`，  
+> 由 `@deepseek-ai/dsh-base` 以**休眠状态**挂载（0 路由），配置里给出 provider 即被激活。  
+> 本机三个模型都是 llama.cpp 的 `llama-server`，即 OpenAI 兼容端点，可直接作为自建路由接入。  
 >
-> 实测：三条路由各跑通一次**完整的 DSH headless agent 回合**（非裸 curl），
-> 别名、流式、推理通道、工具调用全部正常。
-> 本文所有结论均来自本机实测，方法见文末。
+> 实测：三条路由各跑通一次**完整的 DSH headless agent 回合**（非裸 curl），  
+> 别名、流式、推理通道、工具调用全部正常。  
+> 本文所有结论均来自本机实测，方法见文末。  
 
-- 记录日期：2026-10-05
-- DSH 桌面版：`0.2.0-rc.2`（profile `desktop`）
-- 平台：Windows x64 / Intel Core Ultra X7 358H / Intel Arc B390 iGPU（SYCL）/ 31.5 GiB 内存
+- 记录日期：2026-10-06  
+- DSH 桌面版：`0.2.0-rc.2`（profile `desktop`）  
+- 平台：Windows x64 / Intel Core Ultra X7 358H / Intel Arc B390 iGPU（SYCL）/ 31.5 GiB 内存  
 
----
 
-## 一、结论摘要
+## 摘要
 
 | 项目 | 结果 |
 |---|---|
@@ -49,11 +58,10 @@ image:
 
 > Qwen3.6 原为端口 8080（与 Qwen3.8 冲突），本次改为 8081。
 
----
 
-## 二、可行性依据：DSH 为什么能接本地模型
+## 可行性依据：DSH 为什么能接本地模型
 
-### 2.1 DSH 内置了多 provider 适配器
+### DSH 内置了多 provider 适配器
 
 `@deepseek-ai/dsh-base` 的 `cordis.patch.yml` 中已挂载该条目，且注释明确写了它是**休眠的**：
 
@@ -78,7 +86,7 @@ image:
 | `baseURL` 可用 localhost | 校验规则明确允许 `localhost`、IPv4/IPv6 字面量与自定义端口 |
 | 端点探测 | `GET {baseURL}/models` 自动发现模型清单 |
 
-### 2.2 Models 设置页提供图形入口
+### Models 设置页提供图形入口
 
 `@deepseek-ai/dsh-client-ui-settings-models`（已在 `dsh-web-app` 中启用）提供：
 
@@ -88,14 +96,13 @@ image:
 
 → 也就是说：**图形界面和配置文件两条路都通**。本文采用配置文件方式，便于版本化与批量管理。
 
-### 2.3 本机模型恰好是可接的形态
+### 本机模型恰好是可接的形态
 
 三个模型都由 llama.cpp 的 `llama-server.exe` 提供，启动参数里都带 `--jinja`，
 因此天然具备 OpenAI 兼容接口 + 工具调用能力，无需任何协议转换层。
 
----
 
-## 三、实施过程
+## 实施过程
 
 四个改动步骤，每步记录：**问题 → 改动 → 验证**。
 
@@ -263,32 +270,12 @@ if /i "%ALIAS%"=="Ternary-Bonsai-2-27B-PTQ1_0" set "ALIAS=bonsai"
 3. 确认**没有会覆盖它的东西**：`~/.dsh` 下不存在任何 settings 文档，`storages/` 里也搜不到
    `llm-pi-ai` 或 `providers` 键。
 
-### 步骤 4：退役 `chat.cmd`
 
-`chat.cmd` 是早期的一键入口，默认模型也是 Qwen3.8、默认端口也是 8080，
-但与 `chat-27b.cmd` 相比缺三样东西：
-
-| 项目 | `chat.cmd` | `chat-27b.cmd` |
-|---|---|---|
-| 已有 llama-server 在别的端口 | **不检查** → 会再起一份 15 GiB | 检查并拒绝启动 |
-| 模型文件不存在 | 不检查 → 白等 5 分钟超时 | 立即报错退出 |
-| 默认上下文 | **4096**（对 agent loop 太小） | 65536 |
-
-端口分家后第一条尤其危险：若 8081/8082 已有模型驻留，`chat.cmd` 探测 8080 失败后
-**会直接再加载一份 15 GiB 权重**，打爆页面文件。
-
-**改动**：重命名为 `chat.cmd.bak`（不删除，保留回滚），并在文件头写入退役说明与三条替代命令。
-
-**验证**：顶层 `.cmd`/`.bat`/`.ps1`/`.html` 中**已无任何脚本引用 `chat.cmd`**；
-`.bak` 扩展名不会被当作批处理执行。
-
----
-
-## 四、验证方法与结果
+## 验证方法与结果
 
 分两层验证。**第一层只能证明服务端没问题，第二层才能证明 DSH 侧真的通了**，两层都做了。
 
-### 4.1 第一层：服务端（HTTP 直连）
+### 第一层：服务端（HTTP 直连）
 
 | 检查项 | 方法 | 结果 |
 |---|---|---|
@@ -305,7 +292,7 @@ Bonsai 的一次真实工具调用返回：
  "id":"7JoyNSkpNBa72THWijrG5AA56p54CLJa"}
 ```
 
-### 4.2 第二层：DSH 端到端
+### 第二层：DSH 端到端
 
 **障碍.** `dsh` CLI 拒绝引导 `desktop` profile：
 `error: profile "desktop" is managed exclusively by the Electron application`。
@@ -353,7 +340,7 @@ doesn't match any skill description. So no skill needed.
 这也一并证明了三件事：协议 `openai-completions` 正确、`headers` 占位凭据够用、
 三个模型 id 都能在注册阶段解析（配置有误会在注册时带具体原因拒绝，不会静默通过）。
 
-### 4.3 尚未验证的一环
+### 尚未验证的一环
 
 **桌面端重新读取 profile。** `desktop` profile 由 Electron 独占，CLI 无法 dump，
 因此无法从外部观察它的合成树。但可以推断无虞：
@@ -365,78 +352,54 @@ doesn't match any skill description. So no skill needed.
 → 在 GUI 里**刷新页面**（`dsh-hmr` 已挂载，理论上会自动重载；刷新是更稳的路径），
 必要时重启桌面端，三条路由即应出现在模型选择器与设置 → 模型中。
 
----
 
-## 五、已知限制与注意事项
+## 已知限制与注意事项
 
-### 5.1 硬约束
+### 硬约束
 
 1. **一次只能驻留一个模型。** 31.5 GiB 内存，两个 Qwen 各约 15 GiB。三条路由会始终列在选择器里，
    但**只有对应服务正在运行的那一条能连上**。切换模型必须先停掉当前服务。
    三个启动脚本的 `tasklist` 守卫会在检测到其他 `llama-server` 时拒绝启动，这是有意为之。
 2. **端口必须与服务实际所在端口一致。** 若服务意外落在别的端口，DSH 会连不上（这比"被错模型应答"好）。
 
-### 5.2 接入本身的限制
+### 接入本身的限制
 
-3. **裸端点仍需占位凭据。** pi-ai 的 OpenAI 兼容实现要求 `Authorization` 头，见步骤 3。
-4. **不要在 Models 图形页重新保存这三条路由。** `headers` 按设计在模型页**不可编辑**；
+1. **裸端点仍需占位凭据。** pi-ai 的 OpenAI 兼容实现要求 `Authorization` 头，见步骤 3。
+2. **不要在 Models 图形页重新保存这三条路由。** `headers` 按设计在模型页**不可编辑**；
    而设置文档优先级高于 cordis 条目，一旦在 GUI 里改动并保存某条路由，
    设置层会取代这份配置，占位 `Authorization` 有被丢掉的风险。要改字段就改配置文件。
-5. **默认模型没有变。** `agent-default-model` 仍是 `deepseek-account` / `deepseek-flash`。
+3. **默认模型没有变。** `agent-default-model` 仍是 `deepseek-account` / `deepseek-flash`。
    本地模型是**可选路由**，需要在模型选择器里手动切；会话标题、压缩等辅助调用仍走 DeepSeek。
-6. **pi-ai 适配器的若干约束**（摘自其 README）：
+4. **pi-ai 适配器的若干约束**（摘自其 README）：
    - 只有**开头的** `system` 消息会成为 pi-ai 的 `systemPrompt`，其余 `system` 会折进 `user` 消息；
    - `GenerateOptions.stop` 不支持，会以 `UNSUPPORTED_OPTION` 拒绝；
    - 手写路由必须给全 `api` + `baseURL` + 非空 `models`，否则在写入处即被拒绝。
 
-### 5.3 模型质量相关
+### 模型质量相关
 
-7. **Bonsai 的工具调用有官方已知缺陷**（见 `Bonsai-2-27B-部署报告.md`）：
+1. **Bonsai 的工具调用有官方已知缺陷**（见 `Bonsai-2-27B-部署报告.md`）：
    偶尔格式错误或死循环；`arguments` 为空会 400/500；系统消息必须只有一条且在开头。
    → **建议把 Qwen3.6-35B-A3B 作为 DSH 主力**（MoE、约 3B 激活、编码/agentic 定位），
    Bonsai 用于推理与长上下文试验。
-8. **上下文结构适应性**：实测中 Bonsai 与 Qwen3.8 都在推理里纠结"这里有两条消息"
+2. **上下文结构适应性**：实测中 Bonsai 与 Qwen3.8 都在推理里纠结"这里有两条消息"
    （把 harness 的 runtime-context 块当成了第二个用户回合），Qwen3.6 则干净得多。
    不影响功能，但可作选型参考。
-9. **延迟预期**：单轮无工具调用的实测耗时如上表（Qwen3.6 约 39s、Qwen3.8 约 107s）。
+3. **延迟预期**：单轮无工具调用的实测耗时如上表（Qwen3.6 约 39s、Qwen3.8 约 107s）。
    这是每回合的成本下限；真实 agent 任务要跑多轮工具调用，会更慢。
 
-### 5.4 操作踩坑
+### 操作踩坑
 
-10. **不要用 `cmd /c "... "arg" ..."` 这种嵌套引号启动脚本。** 本次实施中踩过一次：
+1. **不要用 `cmd /c "... "arg" ..."` 这种嵌套引号启动脚本。** 本次实施中踩过一次：
     外层 `cmd /c "..."` 内的双引号会被 cmd 吞掉并截断参数，导致脚本立刻失败。
     PowerShell 里直接 `& 'D:\AI_Tools\llama-server.cmd' '<模型路径>' 32768 8081` 即可；
     或确保路径中没有空格，干脆不加内层引号。
-11. **两个客户端的默认端口仍是 8080**：
+2. **两个客户端的默认端口仍是 8080**：
     `chat.html` 的"接口"输入框默认 `http://127.0.0.1:8080/v1`（可在页面改，会记入 localStorage）；
     `chat_cli.py` 的 `--port` 默认 8080（但三个启动脚本都会显式传 `--port %PORT%`，
     从脚本进 `cli` 模式不受影响）。
 
----
 
-## 六、文件清单
-
-### 已修改
-
-| 文件 | 改动 |
-|---|---|
-| `D:\AI_Tools\llama-server.cmd` | 加第 5 位置参数 `alias` + 派生逻辑 + `--alias` |
-| `D:\AI_Tools\llama-server-bonsai.cmd` | 同上 |
-| `D:\AI_Tools\chat-27b.cmd` | 探测收窄为 8080；注释与告警文案更新 |
-| `D:\AI_Tools\chat-q36.cmd` | **端口 8080 → 8081**；探测收窄为 8081；文案更新 |
-| `D:\AI_Tools\chat-bonsai.cmd` | 探测收窄为 8082（去掉 8093）；注释更新 |
-| `C:\Users\liwei\.dsh\profiles\desktop\cordis.patch.yml` | 追加 `id: llm-pi-ai` 条目（三条本地路由） |
-
-### 已退役 / 新增
-
-| 文件 | 说明 |
-|---|---|
-| `D:\AI_Tools\chat.cmd` → `chat.cmd.bak` | 退役，保留回滚；文件头有退役说明。改回 `.cmd` 即恢复 |
-| `C:\Users\liwei\.dsh\profiles\localtest\` | **新建的隔离测试 profile**（模板 `headless`）。以后改本地模型配置可先在此验证，不会碰桌面配置。不需要可直接删除该目录 |
-
----
-
-## 七、日常操作
+## 日常操作
 
 ### 启动（三选一，一次只能一个）
 
@@ -472,16 +435,8 @@ Qwen3.6-35B-A3B (local :8081)
 Bonsai 2 27B (local :8082)
 ```
 
-### 临时用隔离 profile 验证配置改动（不动桌面配置）
 
-```powershell
-$dsh = 'D:\Program Files\DeepSeek Harness\resources\runtime\cli\bin\dsh.cmd'
-& $dsh localtest --patch <providers覆盖层.yml> --patch <model覆盖层.yml> "Reply with exactly: PONG"
-```
-
----
-
-## 八、附：本次实施用到的关键命令与证据
+## 附：本次实施用到的关键命令与证据
 
 | 目的 | 命令 / 位置 |
 |---|---|

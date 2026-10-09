@@ -19,7 +19,7 @@ Bonsai-2-27B 是 Prism ML 于 2026-09-17 发布的 27B 级多模态推理模型�
 随便输入一个问题，最后有速度统计：  
 ![ultra-x7-bonsai-2-27b](/images/posts/ultra-x7-bonsai-2-27b.png)
 
-以下是部署过程的 AI 总结：
+以下是部署过程的 AI 总结（Deepseek Harness Desktop + Deepseek V4.1 Flash）：
 
 ## 本机新增部署：Bonsai 2 27B（Prism ML 三值量化模型）
 

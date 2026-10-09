@@ -19,7 +19,7 @@ image:
 ![ultra-x7-qwen-36-35b-a3b](/images/posts/ultra-x7-qwen-36-35b-a3b.png)
 
 
-下面是 AI 的总结报告：
+下面是 AI 的总结报告（Deepseek Harness Desktop + Deepseek V4.1 Flash）：
 
 
 ## 概述
