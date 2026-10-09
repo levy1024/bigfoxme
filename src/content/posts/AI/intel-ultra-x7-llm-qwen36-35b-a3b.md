@@ -1,5 +1,5 @@
 ---
-title: "Ultra X7 358H 笔记本电脑，寻找本地用于编码的最强大模型，实测 23~24 tok/s，上下文 256K"
+title: "Ultra X7 358H 笔记本电脑，寻找本地用于编码的最强大模型，实测 21.0 tok/s，上下文 256K"
 published: 2026-10-02
 tags:
 - LLM
@@ -13,7 +13,13 @@ image:
 我的笔记本电脑，CPU 是 Intel 的 Ultra X7 358H，在之前文章[《Ultra X7 358H 笔记本电脑，本地部署当红炸子鸡 Qwen3.8-27B-Q4，实测生成速度 5.6 tok/s》](#post:intel-ultra-x7-llm-qwen38-27b)中，已完成 Qwen3.8-27B-Q4 模型的本地部署。
 但是实际生成速度太慢了，于是便想寻找一个适用于本机的用于编码的最强大模型，Deepseek Harness Desktop + Deepseek V4.1 Flash 给我选型了 Qwen3.6-35B-A3B，并帮我部署成功。
 
-下面是 AI 的总结报告。 
+
+## 实际运行截图
+随便输入一个问题，最后有速度统计，21.0 tok/s：
+![ultra-x7-qwen-36-35b-a3b](/images/posts/ultra-x7-qwen-36-35b-a3b.png)
+
+
+下面是 AI 的总结报告：
 
 
 ## 概述

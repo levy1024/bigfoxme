@@ -22,11 +22,11 @@ Qwen3.8-27B，可以说是当下消费级显卡本地部署的当红炸子鸡，
 
 ### 本地运行成功
 全部部署成功后，双击桌面 “Qwen3.8-27B” 快捷方式，当出现符号 >，等待输入的那一刻，心情还是很激动的： 
-![llama-qwen38-q4-1](/images/posts/llama-qwen38-q4-1.png)
+![ultra-x7-qwen38-q4-1](/images/posts/ultra-x7-qwen38-q4-1.png)
 
 ### 单次实测结果：5.6 t/s
 随便输入一个问题，最后有速度统计，5.6 t/s —— 这速度，几个字不停地往外吐，用惯了各大模型的在线 API，只能说，激动的同时又满含失落：
-![llama-qwen38-q4-2](/images/posts/llama-qwen38-q4-2.png)
+![ultra-x7-qwen38-q4-2](/images/posts/ultra-x7-qwen38-q4-2.png)
 
 如何部署的，AI 总结得比我强多了，没必要吃力不讨好，自己去写。下面是部署过程的 AI 总结，有需要和兴趣的，可以阅读。
 

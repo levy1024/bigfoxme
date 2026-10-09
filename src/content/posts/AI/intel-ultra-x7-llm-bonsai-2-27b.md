@@ -10,6 +10,11 @@ pinned: false		# true=置顶
 image: 
 ---
 
+之前的文章[《Ultra X7 358H 笔记本电脑，本地部署当红炸子鸡 Qwen3.8-27B-Q4，实测生成速度 5.6 tok/s》](#post:intel-ultra-x7-llm-qwen38-27b)中，已完成 Qwen3.8-27B-Q4 模型的本地部署。
+但是实际生成速度很慢，于是便想找一个模型能力差不多的，速度再快一点儿的可以本机部署的大模型，了解到 Bonsai-2-27B 模型，于是便想试一试。
+
+Bonsai-2-27B 是 Prism ML 于 2026-09-17 发布的 27B 级多模态推理模型，基座是 Qwen3.8-27B（架构未改，只做低比特化）。Apache 2.0，27.36B 参数，262K 上下文，文本+图像。
+
 ## 首先看实测结果：11.6 tok/s
 随便输入一个问题，最后有速度统计：  
 ![ultra-x7-bonsai-2-27b](/images/posts/ultra-x7-bonsai-2-27b.png)
@@ -19,8 +24,7 @@ image:
 ## 本机新增部署：Bonsai 2 27B（Prism ML 三值量化模型）
 
 > **结论：可行，已部署完成并实测通过。**  
-> 但和现有两个模型不同：**不能用现有的 llama.cpp + SYCL 引擎跑**，必须换成  
-> PrismML 的分支（`prism` branch），且该分支没有 Windows SYCL 预编译包，**需要自己编译**。  
+> 但和现有两个模型不同：**不能用现有的 llama.cpp + SYCL 引擎跑**，必须换成 PrismML 的分支（`prism` branch），且该分支没有 Windows SYCL 预编译包，**需要自己编译**。  
 >  
 > 实测：**11.8 tok/s**（Arc B390 iGPU），权重仅 **5.54 GiB**，读图正常。  
 > 本文所有数字均为本机实测，来源见文末。  
