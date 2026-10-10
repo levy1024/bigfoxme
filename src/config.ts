@@ -125,9 +125,9 @@ export const profileConfig: ProfileConfig = {
 			url: "https://juejin.cn/user/1345457963671805",
 		},
 		{
-			name: "Bilibili",
-			icon: "bilibili", // Local icon
-			url: "https://space.bilibili.com/628190453/dynamic",
+			name: "知乎",
+			icon: "zhihu", // Local icon
+			url: "https://www.zhihu.com/people/lwk-32",
 		},
 		{
 			name: "GitHub",
