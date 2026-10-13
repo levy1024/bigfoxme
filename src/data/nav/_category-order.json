@@ -1,8 +1,10 @@
 {
   "order": [
-    { "category": "LLM", "subcategories": ["排行榜", "本地部署"] },
-    { "category": "AI 编程", "subcategories": ["新闻","Agents","Skills"] },
-    { "category": "AI 教程", "subcategories": ["综合", "Codex"] },
-    { "category": "端侧 AI", "subcategories": ["新闻","LLM"] }
+    { "category": "推荐", "subcategories": [] },
+    { "category": "LLM", "subcategories": ["排行榜", "推理引擎", "桌面应用", "微调"] },
+    { "category": "AI 在线", "subcategories": ["国内", "国外"] },
+    { "category": "AI 编程", "subcategories": ["新闻","Agents","Skills","MCP"] },
+    { "category": "AI 学习", "subcategories": ["Codex", "培训"] },
+    { "category": "端侧 AI", "subcategories": ["新闻","机器学习","LLM"] }
   ]
 }

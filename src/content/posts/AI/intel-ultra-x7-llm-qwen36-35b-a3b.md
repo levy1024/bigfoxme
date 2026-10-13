@@ -11,7 +11,8 @@ image:
 ---
 
 我的笔记本电脑，CPU 是 Intel 的 Ultra X7 358H，在之前文章[《Ultra X7 358H 笔记本电脑，本地部署当红炸子鸡 Qwen3.8-27B-Q4，实测生成速度 5.6 tok/s》](#post:intel-ultra-x7-llm-qwen38-27b)中，已完成 Qwen3.8-27B-Q4 模型的本地部署。
-但是实际生成速度太慢了，于是便想寻找一个适用于本机的用于编码的最强大模型，Deepseek Harness Desktop + Deepseek V4.1 Flash 给我选型了 Qwen3.6-35B-A3B，并帮我部署成功。
+
+但是 Qwen3.8-27B-Q4 实际生成速度实在是太慢了，于是便想寻找一个适用于本机的用于编码的最强大模型，Deepseek Harness Desktop + Deepseek V4.1 Flash 给我选型了 Qwen3.6-35B-A3B，并帮我部署成功。
 
 
 ## 实际运行截图

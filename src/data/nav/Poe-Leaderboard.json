@@ -1,0 +1,8 @@
+{
+	"name": "Poe Leaderboard",
+	"avatar": "/nav-icons/poe.com.png",
+	"description": "Poe 平台的模型排行榜，按真实使用量排序",
+	"url": "https://poe.com/leaderboard",
+	"category": "LLM",
+	"subcategory": "排行榜"
+}

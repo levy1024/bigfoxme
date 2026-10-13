@@ -1,0 +1,8 @@
+{
+	"name": "Ollama",
+	"avatar": "/nav-icons/ollama.com.png",
+	"description": "一键在本地拉取和运行开源大模型的命令行工具",
+	"url": "https://ollama.com/",
+	"category": "LLM",
+	"subcategory": "推理引擎"
+}

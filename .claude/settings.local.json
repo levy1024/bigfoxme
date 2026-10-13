@@ -25,7 +25,9 @@
       "Bash(sed -i '95d' \"G:/myblog/Firefly/src/config.ts\")",
       "Bash(sed -i 's/^\\\\t\\\\t\\\\t\\\\tname: \"About\"/\\\\t\\\\t\\\\t{\\\\n\\\\t\\\\t\\\\tname: \"About\"/' \"G:/myblog/Firefly/src/config.ts\")",
       "Bash(command -v git)",
-      "Bash(git --version)"
+      "Bash(git --version)",
+      "Bash(/cmd/git.exe stash *)",
+      "Bash(/cmd/git.exe status *)"
     ]
   }
 }

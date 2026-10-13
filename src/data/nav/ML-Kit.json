@@ -1,0 +1,8 @@
+{
+	"name": "ML Kit",
+	"avatar": "/nav-icons/ml-kit.png",
+	"description": "Google 的端侧机器学习 SDK，覆盖 OCR、人脸识别、翻译等",
+	"url": "https://developers.google.cn/ml-kit?hl=zh-cn",
+	"category": "端侧 AI",
+	"subcategory": "机器学习"
+}

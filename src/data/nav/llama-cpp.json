@@ -1,0 +1,8 @@
+{
+	"name": "llama.cpp",
+	"avatar": "/nav-icons/llama.cpp.png",
+	"description": "纯 C/C++ 的 LLM 推理引擎，诸多本地部署工具的底层基石",
+	"url": "https://github.com/ggml-org/llama.cpp",
+	"category": "LLM",
+	"subcategory": "推理引擎"
+}

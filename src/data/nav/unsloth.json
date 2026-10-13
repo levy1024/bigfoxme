@@ -1,8 +1,8 @@
 {
 	"name": "unsloth",
 	"avatar": "/nav-icons/unsloth.ai.png",
-	"description": "开源本地大模型工具，无需代码即可在本地硬件上训练和运行开源模型",
+	"description": "开源 LLM 微调框架，训练更快、更省显存",
 	"url": "https://unsloth.ai/",
 	"category": "LLM",
-	"subcategory": "本地部署"
+	"subcategory": "微调"
 }

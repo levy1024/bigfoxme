@@ -1,5 +1,5 @@
 ---
-title: "Ultra X7 358H 笔记本电脑，共享显存从 57% 提到 80%，成功让同一个模型能开 4 倍上下文"
+title: "Ultra X7 358H 笔记本电脑，共享显存占比从 57% 提到 80%，成功让同一个模型能开 4 倍上下文"
 published: 2026-10-03
 tags:
 - LLM
@@ -12,7 +12,7 @@ image:
 
 在之前文章[《Ultra X7 358H 笔记本电脑，本地部署当红炸子鸡 Qwen3.8-27B-Q4，实测生成速度 5.6 tok/s》](#post:intel-ultra-x7-llm-qwen38-27b)中，Qwen3.8-27B-Q4 的上下文才 4K，远远不够用。  
 
-后来在[《Ultra X7 358H 笔记本电脑，寻找本地用于编码的最强大模型，实测 21.0 tok/s，上下文 256K》](#post:intel-ultra-x7-llm-qwen36-35b-a3b)中，AI 发现我这台笔记本电脑可以提升显存，并且能开大得多的上下文，这实在是一个惊喜！
+后来在[《Ultra X7 358H 笔记本电脑，寻找本地用于编码的最强大模型，实测 21.0 tok/s，上下文 256K》](#post:intel-ultra-x7-llm-qwen36-35b-a3b)中，AI 发现我这台笔记本电脑可以提升显存占比，并且能开大得多的上下文，这实在是一个惊喜！
 
 下面是 AI 对实测过程的总结，有兴趣的可以浏览（使用 Deepseek Harness Desktop + Deepseek V4.1 Flash）。
 
@@ -28,7 +28,6 @@ image:
 
 | 项目 | 实测值 | 说明 |
 |---|---|---|
-| 机型 | HONOR MagicBook `JGC-N` | BIOS HONOR 1.04（2026-04-07） |
 | CPU | **Intel Core Ultra X7 358H** | Panther Lake 平台 |
 | GPU | **Intel Arc B390**（集成显卡，驱动 32.0.101.8509） | **没有独立显卡** |
 | 显存 | **无独立显存**，与系统内存共享 | 这是全文的前提 |

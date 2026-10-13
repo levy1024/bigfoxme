@@ -1,0 +1,8 @@
+{
+	"name": "LM Studio",
+	"avatar": "/nav-icons/lmstudio.ai.png",
+	"description": "图形界面的本地大模型运行与管理工具",
+	"url": "https://lmstudio.ai/",
+	"category": "LLM",
+	"subcategory": "桌面应用"
+}
