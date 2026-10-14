@@ -3,5 +3,6 @@
 	"avatar": "/nav-icons/google-deepmind.png",
 	"description": "DeepMind 官方论文的开源实现与示例代码",
 	"url": "https://github.com/google-deepmind/deepmind-research",
-	"category": "推荐"
+	"category": "推荐",
+	"order": 4
 }

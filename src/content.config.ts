@@ -29,7 +29,8 @@ const postsCollection = defineCollection({
 	}),
 });
 
-export const collections = {
+// 显式类型标注以满足 --isolatedDeclarations（defineCollection 的返回类型无法自动推断）
+export const collections: Record<string, unknown> = {
 	posts: postsCollection,
 	// 阻止自动创建 collection 的空定义
 	Zen: emptyCollection(),

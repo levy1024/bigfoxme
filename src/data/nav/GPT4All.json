@@ -4,5 +4,5 @@
 	"description": "本地运行的桌面 AI 客户端，支持私有文档问答",
 	"url": "https://gpt4all.io/",
 	"category": "LLM",
-	"subcategory": "桌面应用"
+	"subcategory": "客户端"
 }

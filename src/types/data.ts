@@ -12,6 +12,7 @@ export interface Friend {
 	url: string;
 	category?: string;
 	subcategory?: string;
+	order?: number; // 组内显示顺序，小的在前；缺省时保持文件名字典序
 }
 
 export interface SponsorsData {

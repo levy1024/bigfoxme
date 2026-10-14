@@ -14,6 +14,9 @@ const friends = Object.entries(navModules)
   .filter(([path]) => !path.includes("_category-order"))
   .map(([, data]) => data);
 
+// 组内排序：设置了 order 的条目按数值升序排在前面，未设置的保持文件名字典序（稳定排序）
+friends.sort((a, b) => (a.order ?? Infinity) - (b.order ?? Infinity));
+
 // 从 JSON 的 subcategory 字段动态构建二级分类
 interface SubCategory {
   name: string;
@@ -108,7 +111,12 @@ function subId(cat: string, sub: string): string {
                 <ul class="category-sub-list">
                   {cat.subCategories.map((sub) => (
                     <li>
-                      <a href={`#${subId(cat.name, sub.name)}`} class="category-sub-link">
+                      <a
+                        href={`#${catId(cat.name)}`}
+                        class="category-sub-link"
+                        data-target-cat={catId(cat.name)}
+                        data-target-sub={subId(cat.name, sub.name)}
+                      >
                         <span class="category-sub-name">{sub.name}</span>
                         <span class="category-sub-count">{sub.friends.length}</span>
                       </a>
@@ -231,10 +239,28 @@ function subId(cat: string, sub: string): string {
     });
   }
 
+  // 侧栏二级分类：点击后切换到对应 Tab，并滚动到该分类区域
+  function initSidebarSubLinks() {
+    document.querySelectorAll('.category-sub-link').forEach((link) => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const cat = link.getAttribute('data-target-cat');
+        const sub = link.getAttribute('data-target-sub');
+        const tab = document.querySelector(`.sub-tab[data-cat="${cat}"][data-sub="${sub}"]`);
+        if (tab instanceof HTMLElement) tab.click();
+        const section = cat ? document.getElementById(cat) : null;
+        if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        if (cat) history.replaceState(null, '', `#${cat}`);
+      });
+    });
+  }
+
   // Astro 页面加载后初始化
   document.addEventListener('astro:page-load', initTabs);
+  document.addEventListener('astro:page-load', initSidebarSubLinks);
   // 首次加载也初始化
   initTabs();
+  initSidebarSubLinks();
 </script>
 
 <style>

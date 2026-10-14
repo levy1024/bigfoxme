@@ -1,0 +1,8 @@
+{
+	"name": "vLLM",
+	"avatar": "/nav-icons/vllm.ai.png",
+	"description": "高吞吐的 LLM 推理与服务引擎",
+	"url": "https://vllm.ai/",
+	"category": "LLM",
+	"subcategory": "推理引擎"
+}
