@@ -31,7 +31,11 @@
       "Bash(/cmd/git.exe diff *)",
       "Bash(/cmd/git.exe add *)",
       "Bash(/cmd/git.exe commit *)",
-      "Bash(/cmd/git.exe push *)"
+      "Bash(/cmd/git.exe push *)",
+      "Read(//tmp/**)",
+      "Bash(python -c \"from PIL import Image; im=Image.open\\('/tmp/qianwen-ai.png'\\); print\\(im.size, im.mode\\)\")",
+      "Bash(cygpath *)",
+      "Bash(python *)"
     ]
   }
 }

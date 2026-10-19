@@ -1,5 +1,5 @@
 ---
-title: "Ultra X7 358H 笔记本电脑，Qwen3.6-35B-A3B，之前测试的速度在实际项目中翻车了，实测只有 13 tok/s"
+title: "Ultra X7 358H 笔记本电脑，Qwen3.6-35B-A3B，之前测试的速度在实际项目中翻车了，实际项目中只有 13 tok/s"
 published: 2026-10-07
 tags:
 - LLM
@@ -16,7 +16,7 @@ image:
 后来，在文章[《Ultra X7 358H 笔记本电脑，本地三个大模型接入 DeepSeek Harness 桌面版的过程与方法》](#post:intel-ultra-x7-llm-deepseek-desktop)中，
 我又把本地部署的大模型接入了 Deepseek Harness Desktop。
 
-于是，我便用 Deepseek Harness Desktop + Qwen3.6-35B-A3B，准备让它来解读一个实际的项目，解读项目完毕，Deepseek Harness Desktop 显示的输出速度，才 13 tok/s！
+于是，我便用 Deepseek Harness Desktop + Qwen3.6-35B-A3B，准备让它来分析一个实际的博客项目，分析项目完毕，Deepseek Harness Desktop 显示的输出速度，才 13 tok/s！
 
 这着实让我火热的心凉了一大截 :)  
 
