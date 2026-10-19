@@ -35,6 +35,7 @@ image:
 
 [烧了5亿token后，这是我给codex和claude做Skill上下文瘦身的新技巧！](https://mp.weixin.qq.com/s?__biz=Mzg3MTk3NzYzNw%3D%3D&mid=2247509161&idx=1&sn=bd9aa077bbc46a6049ad66af6d15af0f&poc_token=HPKTj2qjmle4R7yP26qwNTYm2DuTiu4HQxXtCK_-)
 
-
+## Ubuntu 成功安装 docker
+https://blog.csdn.net/qq_24923619/article/details/159910272
 
 

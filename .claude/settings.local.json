@@ -27,7 +27,11 @@
       "Bash(command -v git)",
       "Bash(git --version)",
       "Bash(/cmd/git.exe stash *)",
-      "Bash(/cmd/git.exe status *)"
+      "Bash(/cmd/git.exe status *)",
+      "Bash(/cmd/git.exe diff *)",
+      "Bash(/cmd/git.exe add *)",
+      "Bash(/cmd/git.exe commit *)",
+      "Bash(/cmd/git.exe push *)"
     ]
   }
 }

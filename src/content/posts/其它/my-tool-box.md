@@ -12,6 +12,12 @@ image:
 ## 一键发布 Markdown 格式文章到多平台
 https://md.doocs.org/
 
+## 锤子在线工具网
+https://www.toolhelper.cn/
+
+## FluentCleaner：一款现代化 Windows 清理工具
+https://github.com/bigfoxme/FluentCleaner
+
 ## 图片处理
 图片在线处理：https://www.iloveimg.com/zh-cn  
 去除背景：https://www.iloveimg.com/zh-cn/remove-background  
@@ -21,5 +27,3 @@ https://md.doocs.org/
 图片去底工具：https://www.aigei.com/bgremover/  
 透明 favicon: https://ico.toolscat.com/  
 
-## 锤子在线工具网
-https://www.toolhelper.cn/

@@ -10,11 +10,14 @@ pinned: false		# true=置顶
 image: 
 ---
 
-大模型本地部署，部署验证不是目的，目的是用来在本地真实的干活。
+大模型本地部署，部署验证不是目的，目的是想用来在本地真实的干活。
 
 我使用大模型的场景，基本上就是用来编程，所以必须把部署好的大模型，接入编程智能体，才能最大程度发挥作用。
 
 选择哪个编程智能体接入呢，平时用 DeepSeek 的大模型比较多，而且 DeepSeek 在国庆节前刚刚发布了 DeepSeek Harness 桌面版，那就选择它了。
+
+部署成功后，在 DeepSeek Harness 桌面版右下角选择模型，可以看到，已经多出了本地部署的三个大模型可供选择：
+![local-llm-deepseek-desktop](/images/posts/local-llm-deepseek-desktop.png)
 
 如何接入？不用自己去查文档，直接给 AI 提要求就可以了。
 
