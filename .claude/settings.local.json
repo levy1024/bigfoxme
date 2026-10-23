@@ -35,7 +35,11 @@
       "Read(//tmp/**)",
       "Bash(python -c \"from PIL import Image; im=Image.open\\('/tmp/qianwen-ai.png'\\); print\\(im.size, im.mode\\)\")",
       "Bash(cygpath *)",
-      "Bash(python *)"
+      "Bash(python *)",
+      "Bash(netstat -ano)",
+      "Bash(tasklist //FI \"PID eq 14456\")",
+      "Bash(taskkill *)",
+      "Bash(sort -k2)"
     ]
   }
 }
