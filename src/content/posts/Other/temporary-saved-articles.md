@@ -28,7 +28,12 @@ image:
 
 [AI 原生 SDLC 实战手册：Anthropic 如何用 Claude 重塑软件开发生命周期](https://claude.com/blog/the-ai-native-sdlc-playbook)
 
+
 [Claude Code 初创公司指南：五大规则与创始人洞见](https://claude.com/blog/claude-code-guide-for-startups)
+
+https://claude.com/resources  
+https://claude.com/resources/articles/the-ai-native-sdlc-playbook  
+https://claude.com/resources/articles/how-anthropic-secures-its-ai-native-software-development-lifecycle  
 
 ## 微信文章
 [Claude/Codex 能跨会话传消息，我重构工作流](https://mp.weixin.qq.com/s?__biz=Mzg3MTk3NzYzNw%3D%3D&mid=2247509276&idx=1&sn=675b64d514b1179c8f2362941144bbb4&poc_token=HBmPj2qjVz1qURTbdSXXu04-JIAoHSqedTC1dPcW)
