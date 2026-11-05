@@ -1,0 +1,8 @@
+{
+	"name": "mbedded.ninja",
+	"avatar": "/nav-icons/blog.mbedded.ninja.png",
+	"description": "嵌入式系统与电子工程知识库，涵盖电路设计、固件与通信协议",
+	"url": "https://blog.mbedded.ninja/",
+	"category": "推荐",
+	"order": 5
+}

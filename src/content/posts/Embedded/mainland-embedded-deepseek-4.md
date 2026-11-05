@@ -11,27 +11,18 @@ image:
 
 **原文过长，分篇发布。这是报告的第四部分。**
 
+第一部分：[《[中国大陆嵌入式行业深度分析报告] 摘要与核心判断、第一章 研究框架》](#post:mainland-embedded-deepseek-1)  
+第二部分：[《[中国大陆嵌入式行业深度分析报告] 第二章 过去：四十年的三段式演进》](#post:mainland-embedded-deepseek-2)  
+第三部分：[《[中国大陆嵌入式行业深度分析报告] 第三章 现状（一）：市场规模与产业链格局》](#post:mainland-embedded-deepseek-3)  
+第四部分：[《[中国大陆嵌入式行业深度分析报告] 第四章 现状（二）：技术路线与生态演进》](#post:mainland-embedded-deepseek-4)  
+第五部分：[《[中国大陆嵌入式行业深度分析报告] 第五章 现状（三）：企业竞争格局》](#post:mainland-embedded-deepseek-5)  
+第六部分：[《[中国大陆嵌入式行业深度分析报告] 第六章 现状（四）：人才与就业》](#post:mainland-embedded-deepseek-6)  
+第七部分：[《[中国大陆嵌入式行业深度分析报告] 第七章 未来：政策坐标、趋势与风险》](#post:mainland-embedded-deepseek-7)  
+第八部分：[《[中国大陆嵌入式行业深度分析报告] 第八章 结论与建议、附录》](#post:mainland-embedded-deepseek-8)  
+
 如果你也是嵌入式行业从业者，也建议读一读。虽然内容是 AI 生成的，但不妨碍它的价值。
 
-AI：DeepSeek Harness Desktop + DeepSeek V4.1 Flash
-
-其他部分可查看文章合集。
-第一部分：
-[《[中国大陆嵌入式行业深度分析报告] 摘要与核心判断、第一章 研究框架》](#post:mainland-embedded-deepseek-1)  
-第二部分：
-[《[中国大陆嵌入式行业深度分析报告] 第二章 过去：四十年的三段式演进》](#post:mainland-embedded-deepseek-2)  
-第三部分：
-[《[中国大陆嵌入式行业深度分析报告] 第三章 现状（一）：市场规模与产业链格局》](#post:mainland-embedded-deepseek-3)  
-第四部分：
-[《[中国大陆嵌入式行业深度分析报告] 第四章 现状（二）：技术路线与生态演进》](#post:mainland-embedded-deepseek-4)  
-第五部分：
-[《[中国大陆嵌入式行业深度分析报告] 第五章 现状（三）：企业竞争格局》](#post:mainland-embedded-deepseek-5)  
-第六部分：
-[《[中国大陆嵌入式行业深度分析报告] 第六章 现状（四）：人才与就业》](#post:mainland-embedded-deepseek-6)  
-第七部分：
-[《[中国大陆嵌入式行业深度分析报告] 第七章 未来：政策坐标、趋势与风险》](#post:mainland-embedded-deepseek-7)  
-第八部分：
-[《[中国大陆嵌入式行业深度分析报告] 第八章 结论与建议、附录》](#post:mainland-embedded-deepseek-8)  
+AI：DeepSeek Harness Desktop + DeepSeek V4.1 Flash。
 
 
 ## 第四章 现状（二）：技术路线与生态演进
