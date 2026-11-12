@@ -2,6 +2,7 @@
 import type { MarkdownHeading } from "astro";
 
 import CategoryList from "./CategoryList.astro";
+import DeepSeekSearch from "./DeepSeekSearch.astro";
 import Profile from "./Profile.astro";
 import TagList from "./TagList.astro";
 import VideoDecoration from "./VideoDecoration.astro";
@@ -17,6 +18,7 @@ const className = Astro.props.class;
     <div class="flex flex-col w-full gap-4 mb-4">
         <Profile></Profile>
         <VideoDecoration></VideoDecoration>
+        <DeepSeekSearch></DeepSeekSearch>
         <CategoryList></CategoryList>
         <TagList></TagList>
     </div>

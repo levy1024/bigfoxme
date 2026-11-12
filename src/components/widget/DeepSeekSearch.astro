@@ -1,0 +1,51 @@
+---
+/**
+ * 侧边栏「DeepSeek 搜索」入口
+ * 点击跳转到自建的 DeepSeek 网页搜索站
+ */
+const SEARCH_URL = "https://dss.bigfox.me";
+---
+
+<div class="card-base p-3 border border-black/10 dark:border-white/10">
+  <a
+    href={SEARCH_URL}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="deepseek-search-entry"
+  >
+    DeepSeek 搜索
+  </a>
+</div>
+
+<style>
+  .deepseek-search-entry {
+    display: block;
+    padding: 10px 14px;
+    border: 1px solid oklch(0.58 0.16 268 / 0.2);
+    border-radius: 2px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1b365d;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .deepseek-search-entry:hover {
+    background: #00a2e8;
+    border-color: #00a2e8;
+    color: #ffffff;
+    transform: translateX(2px);
+  }
+
+  html.dark .deepseek-search-entry {
+    border-color: oklch(0.58 0.16 268 / 0.25);
+    color: #6b9bd2;
+  }
+
+  html.dark .deepseek-search-entry:hover {
+    background: #00a2e8;
+    border-color: #00a2e8;
+    color: #ffffff;
+  }
+</style>
