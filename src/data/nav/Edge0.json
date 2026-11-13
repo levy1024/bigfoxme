@@ -1,0 +1,8 @@
+{
+	"name": "Edge0",
+	"avatar": "/nav-icons/edge0.ai.png",
+	"description": "开源流式 MoE 推理框架，在消费级硬件上运行大型稀疏模型",
+	"url": "https://github.com/Edge0-AI/Edge0/blob/main/README_zh.md",
+	"category": "LLM",
+	"subcategory": "本地LLM"
+}

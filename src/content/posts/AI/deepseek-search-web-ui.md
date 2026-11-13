@@ -10,7 +10,7 @@ pinned: false		# true=置顶
 image: 
 ---
 
-2026年 10 月 17 日，DeepSeek 开放了自研搜索引擎的 Search 和 Fetch 这两个 API 接口。  
+2026年 10 月 17 日，DeepSeek 开放了自研搜索引擎的 Search 和 Fetch 这两个 API 接口：[网页搜索与抓取](https://api-docs.deepseek.com/zh-cn/guides/search/)。    
 
 当时听到这个消息，我就有一个想法：一定要试试，用这个接口来搜索我想找的东西。
 
@@ -24,13 +24,13 @@ image:
 
 网址：[https://dss.bigfox.me](https://dss.bigfox.me)。
 
-有兴趣尝试的同学可以访问上述网址，体验其搜索效果。
-
 网站设置了访问密码，防止网站被滥用，可以关注我的微信公众号：程序员大狐狸，发送"搜索”获取。
+
+![DeepSeek 搜索](/images/posts/ai/deepseek-search.jpg)  
 
 调用这个搜索接口，DeepSeek 是收费的。我上线网站并免费开放，只是想给感兴趣的同学一个体验入口，并不是想中转收费，所以我给网站设置了搜索频率和次数的限制，望悉知。
 
-网站也开源，地址：[https://github.com/bigfoxme/ai-search](https://github.com/bigfoxme/ai-search)，如果你也想自己部署一个，可以直接使用。
+网站也开源，地址：[https://github.com/bigfoxme/ai-search](https://github.com/bigfoxme/ai-search)。如果你也想自己部署一个，可以直接使用。
 
 
 
