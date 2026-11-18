@@ -1,0 +1,61 @@
+---
+/**
+ * 侧边栏「AI 搜索」模块
+ * 卡片结构与分类、标签模块一致，汇总 AI 搜索入口
+ */
+const SEARCH_ENTRIES = [
+  { name: "DeepSeek 搜索", url: "https://dss.bigfox.me" },
+  { name: "元宝搜索", url: "https://so.qq.com/" },
+];
+---
+
+<div class="card-base p-3 border border-black/10 dark:border-white/10">
+  <div class="mb-2.5 flex items-center justify-between">
+    <span class="text-sm font-semibold text-black/80 dark:text-white/80">AI 搜索</span>
+  </div>
+  <div class="flex flex-col gap-2">
+    {SEARCH_ENTRIES.map((entry) => (
+      <a
+        href={entry.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="ai-search-entry"
+      >
+        {entry.name}
+      </a>
+    ))}
+  </div>
+</div>
+
+<style>
+  .ai-search-entry {
+    display: block;
+    padding: 10px 14px;
+    border: 1px solid oklch(0.58 0.16 268 / 0.2);
+    border-radius: 2px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1b365d;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .ai-search-entry:hover {
+    background: #00a2e8;
+    border-color: #00a2e8;
+    color: #ffffff;
+    transform: translateX(2px);
+  }
+
+  html.dark .ai-search-entry {
+    border-color: oklch(0.58 0.16 268 / 0.25);
+    color: #6b9bd2;
+  }
+
+  html.dark .ai-search-entry:hover {
+    background: #00a2e8;
+    border-color: #00a2e8;
+    color: #ffffff;
+  }
+</style>
