@@ -39,7 +39,9 @@ pnpm del-space      # 删除文件名空格
 
 ### 博客文章
 
-- 路径：`src/content/posts/{分类}/`。目录名是**物理归档**，实际分类以 frontmatter 的 **`category` 字段为准**——侧栏 `CategoryList.astro` 与 `categories/[category].astro` 已统一到该口径（2026-09-30 修复：侧栏原先按目录名过滤，会把 `category` 有值但目录不同名的分类隐藏掉）。现存 1 篇 `category: AI 编程` 位于 `AI/` 目录下，属正常。常用分类：`AI` / `Android` / `嵌入式` / `运维` / `其它`。
+- 路径：`src/content/posts/{分类目录}/`。**目录名只是物理归档，实际分类以 frontmatter 的 `category` 字段为准**——侧栏 `CategoryList.astro` 与 `categories/[category].astro` 都按字段取值（2026-09-30 修复：侧栏原先按目录名过滤，会把 `category` 有值但目录不同名的分类隐藏掉）。
+- 当前**目录名已改为英文**（`AI` / `Android` / `Embedded` / `Ops` / `Other` / `Robot`），而 **`category` 字段仍是中文**（嵌入式 / AI / 运维 / Android / 其它 / 机器人）。两者不同名是正常的，改名目录不影响 URL 与分类。
+- **侧栏顺序由 `CategoryList.astro` 里的 `CATEGORY_ORDER` 硬编码决定**：目前是 `["嵌入式", "AI", "机器人", "运维", "Android", "其它"]`。新增分类时**必须把中文名加进这个数组**，否则它会落到末尾（未列入者按篇数排序）。
 - 侧边栏 `CategoryList.astro` 从 posts 的 `category` 字段动态聚合，链接到 `/categories/{category}/`。
 - frontmatter 关键规则：`published` 用连字符 ISO 日期；`tags` 用 YAML 列表（现有文章一律块状换行 `- x`，内联 `[a, b]` 同样合法）；布尔值小写；`image` 可空（留空自动提取正文第一张图）；`draft: true` 在 `PROD` 下过滤。frontmatter 里可用内联注释（如 `draft: false # true=草稿`）。
 - `getSortedPosts()`（`src/utils/content-utils.ts`）是文章列表/详情/归档的通用入口：置顶在前，按 `published` 倒序，并回填 prev/next。
