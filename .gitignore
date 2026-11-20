@@ -50,3 +50,9 @@ public/memoria-attachments/
 
 # 历史遗留的构建产物副本（曾被误提交，见 .git-rewrite/）
 .git-rewrite/
+
+# 本地交接状态（临时文件，记录当前运行时状态与未完成事项，不入库）
+HANDOFF.md
+
+# 公众号发布凭证（含 AppSecret，绝对不要提交）
+scripts/wechat-config.json
