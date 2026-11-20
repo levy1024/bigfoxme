@@ -21,6 +21,9 @@ Vulkan 的预填充快 3.9 倍（输入快很多），生成速度也快一丢�
 
 理论极限 ≈ 带宽 ÷ 模型大小 ≈ 10-15 t/s，核显的访问开销再打个折 → 6-7 t/s 是这台机器的物理上限。
 
+## 实际测试截图
+![ultra-x7-qwen38-q4-vulkan](/images/posts/ultra-x7-qwen38-q4-vulkan.png)
+
 下面是 AI 的总结报告（Deepseek Harness Desktop + Deepseek V4.1 Flash）：
 
 ## 结论速览
