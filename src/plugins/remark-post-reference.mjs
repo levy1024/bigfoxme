@@ -229,10 +229,18 @@ export function remarkPostReference() {
 		visit(tree, "link", (node) => {
 			if (typeof node.url !== "string" || !node.url.startsWith(PREFIX)) return;
 
+			// 目标也逐段 slug 化，与建立索引时用同一套规则。
+			// 这样作者按文件名原样写也能命中：例如文件名为
+			// intel-ultra-x7-qwen-image-2.1-turbo.md，其真实 slug 是
+			// ...-image-21-turbo（点被 github-slugger 去掉），
+			// 归一化后两者一致，不必让作者记住这个细节。
 			const target = node.url
 				.slice(PREFIX.length)
 				.replace(/^\/+|\/+$/g, "")
-				.toLowerCase();
+				.split("/")
+				.filter(Boolean)
+				.map(slugifySegment)
+				.join("/");
 			const resolved = resolveTarget(posts, target);
 
 			if (resolved.ambiguous) {
