@@ -39,7 +39,9 @@
       "Bash(netstat -ano)",
       "Bash(tasklist //FI \"PID eq 14456\")",
       "Bash(taskkill *)",
-      "Bash(sort -k2)"
+      "Bash(sort -k2)",
+      "Bash(git fetch *)",
+      "Bash(git rev-list *)"
     ]
   }
 }

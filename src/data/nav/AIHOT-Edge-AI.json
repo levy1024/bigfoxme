@@ -1,8 +1,8 @@
 {
 	"name": "AIHOT - 端侧 AI",
-	"avatar": "/nav-icons/aihot.virxact.com.png",
+	"avatar": "/nav-icons/aihot.news.png",
 	"description": "AIHOT 关于端侧 AI 的新闻",
-	"url": "https://aihot.virxact.com/topics/on-device",
+	"url": "https://aihot.news/topics/on-device",
 	"category": "端侧 AI",
 	"subcategory": "新闻"
 }

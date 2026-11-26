@@ -1,0 +1,8 @@
+{
+	"name": "AIHOT",
+	"avatar": "/nav-icons/aihot.news.png",
+	"description": "每日精选 AI 新闻：AI 写中文摘要、打分筛掉水文，一站看完今日热点",
+	"url": "https://aihot.news/",
+	"category": "推荐",
+	"order": 6
+}
