@@ -41,7 +41,8 @@
       "Bash(taskkill *)",
       "Bash(sort -k2)",
       "Bash(git fetch *)",
-      "Bash(git rev-list *)"
+      "Bash(git rev-list *)",
+      "Bash(/cmd/git.exe log *)"
     ]
   }
 }
